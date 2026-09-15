@@ -1,0 +1,12 @@
+........................................................................ [ 20%]
+........................................................................ [ 40%]
+........................................................................ [ 61%]
+........................................................................ [ 81%]
+.................................................................        [100%]
+============================= slowest 5 durations ==============================
+0.24s call     test/test_release_only_clearance_timing.py::test_actual_disabled_place_callsite_preserves_prior_loaded_options[True]
+0.23s call     test/test_release_only_clearance_timing.py::test_exact_failed95_callsite_is_rejected_before_executor_or_any_arm_send
+0.23s call     test/test_release_only_clearance_timing.py::test_actual_disabled_place_callsite_preserves_prior_loaded_options[False]
+0.23s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_prefix_failure_never_reaches_connector[failure1]
+0.23s call     test/test_release_only_clearance_timing.py::test_actual_selected_place_passes_capped_stop_and_plan_through_real_executor
+353 passed in 7.46s

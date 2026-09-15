@@ -1,4 +1,4 @@
-"""Bounded negative-wrist Cartesian search; no ROS, commands, or saved route.
+"""Bounded signed-support Cartesian search; no ROS, commands, or saved route.
 
 Scene checks here screen endpoints and nominal opening. The caller's mandatory
 candidate validator must check actual setup, every intervening loaded segment,
@@ -39,7 +39,8 @@ def _array(value, shape, name):
 def solve_scene_cartesian(node, positions, rotation, torso_height, staging_seed,
                           scene, candidate_validator, *, measured_seed, aperture,
                           open_aperture, seed_templates=(), limits=SearchLimits(),
-                          diagnostics_out=None):
+                          diagnostics_out=None, wrist_policy="negative",
+                          position_proposals=()):
     """Solve supplied base-frame TCP poses and validate each complete candidate.
 
     Inputs are caller-snapshotted measured/staging/template seeds, not commands
@@ -51,6 +52,8 @@ def solve_scene_cartesian(node, positions, rotation, torso_height, staging_seed,
     Cancellation is checked before/after
     every expensive callback and immediately before successful return.
     """
+    if wrist_policy not in ('negative', 'measured_positive'):
+        raise ValueError('invalid Cartesian wrist policy')
     if not callable(candidate_validator):
         raise ValueError('full candidate validator is required')
     if diagnostics_out is not None and not isinstance(diagnostics_out, dict):
@@ -97,6 +100,9 @@ def solve_scene_cartesian(node, positions, rotation, torso_height, staging_seed,
             or not lower[0] <= torso <= upper[0]
             or np.any(lower[1:]+margin >= upper[1:]-margin)):
         raise ValueError('invalid arm bounds/support policy')
+    if (wrist_policy == 'measured_positive'
+            and _array(measured_seed, (8,), 'measured IK seed')[-1] <= 0.):
+        raise ValueError('positive-start wrist policy requires a positive measured wrist')
     seeds = []
     for value in (measured_seed, staging_seed, *seed_templates):
         seed = _array(value, (8,), 'IK seed')
@@ -110,6 +116,21 @@ def solve_scene_cartesian(node, positions, rotation, torso_height, staging_seed,
     for point in points:
         matrix = np.eye(4); matrix[:3, :3] = orientation; matrix[:3, 3] = point
         matrices.append(matrix)
+    if not isinstance(position_proposals, (tuple, list)) or len(position_proposals) > 12:
+        raise ValueError('invalid bounded Cartesian target proposals')
+    if position_proposals and wrist_policy != 'measured_positive':
+        raise ValueError('target proposals require admitted positive measured carry')
+    proposal_matrices = []
+    for proposed in position_proposals:
+        values = np.asarray(proposed, dtype=float)
+        if (values.ndim != 2 or values.shape[1:] != (3,) or not 3 <= len(values) <= 64
+                or not np.all(np.isfinite(values))):
+            raise ValueError('invalid Cartesian target proposal')
+        owned = []
+        for point in values:
+            matrix = np.eye(4); matrix[:3, :3] = orientation; matrix[:3, 3] = point
+            owned.append(matrix)
+        proposal_matrices.append(owned)
     started = time.monotonic()
     calls = candidates = endpoint_samples = opening_samples = 0
     reasons = Counter()
@@ -130,6 +151,9 @@ def solve_scene_cartesian(node, positions, rotation, torso_height, staging_seed,
                     joint_margin=margin, minimum_signed_support=support,
                     full_candidate_validator_required=True, recorded_joint_path_used=False,
                     strategy=dict(strategy))
+        if wrist_policy == 'measured_positive':
+            detail['search'] = 'bounded_signed_support_positive_start_v1'
+            detail['wrist_policy'] = wrist_policy
         if completion is not None:
             detail['completion_first'] = dict(completion)
             if completion_active:
@@ -171,7 +195,7 @@ def solve_scene_cartesian(node, positions, rotation, torso_height, staging_seed,
     def endpoint(q, matrix):
         nonlocal endpoint_samples
         checkpoint()
-        if q[-1] >= 0:
+        if wrist_policy == 'negative' and q[-1] >= 0:
             reasons['nonnegative_wrist'] += 1
             return False
         actual = _array(chain.forward(q), (4, 4), 'forward pose')
@@ -227,6 +251,56 @@ def solve_scene_cartesian(node, positions, rotation, torso_height, staging_seed,
         return None
 
     checkpoint()
+    if wrist_policy == 'measured_positive' and len(matrices) >= 3:
+        # Try the most extended high corner before committing to an easier
+        # clearance branch. All proposals share the original global budgets.
+        # Caller-proposed near-side targets retain the registered cavity margin.
+        anchor_end = calls + min(192, max(0, (limits.max_ik_calls-calls)//2))
+        strategy.update(anchor_roots=0, anchor_complete_paths=0,
+                        position_proposal_index=None, anchor_ik_budget=anchor_end-calls)
+        for proposal_index, proposed in enumerate(proposal_matrices or [matrices]):
+            anchor_index = int(np.argmax([np.linalg.norm(matrix[:3, 3]) for matrix in proposed]))
+            strategy['anchor_index'] = anchor_index
+            for seed in seeds:
+                checkpoint()
+                if calls >= anchor_end:
+                    break
+                root = solve(proposed[anchor_index], seed)
+                if root is None or not endpoint(root, proposed[anchor_index]):
+                    continue
+                strategy['anchor_roots'] += 1
+                path = [None] * len(proposed)
+                path[anchor_index] = root
+                for indices in (range(anchor_index-1, -1, -1),
+                                range(anchor_index+1, len(proposed))):
+                    previous = root
+                    for index in indices:
+                        if calls >= anchor_end:
+                            break
+                        q = solve(proposed[index], previous)
+                        if q is None:
+                            break
+                        if np.max(abs(q[1:]-previous[1:])) > .40:
+                            reasons['anchor_joint_step'] += 1
+                            break
+                        if not endpoint(q, proposed[index]):
+                            break
+                        path[index] = q
+                        previous = q
+                    else:
+                        continue
+                    break
+                if any(q is None for q in path):
+                    continue
+                strategy['anchor_complete_paths'] += 1
+                strategy['position_proposal_index'] = proposal_index if proposal_matrices else None
+                accepted = admit(path)
+                if accepted is not None:
+                    return accepted
+            if calls >= anchor_end:
+                break
+        # The original fallback below uses only the original supplied target.
+        strategy['position_proposal_index'] = None
     # A loose solve may discover a useful redundant branch which a direct
     # tight solve misses. These poses are seeds only: every waypoint is solved
     # again tightly, then checked with the tight FK residual and full scene.
@@ -236,7 +310,7 @@ def solve_scene_cartesian(node, positions, rotation, torso_height, staging_seed,
         previous = seed
         for matrix in matrices:
             q = solve(matrix, previous, loose=True)
-            if q is None or q[-1] >= 0:break
+            if q is None or (wrist_policy == 'negative' and q[-1] >= 0):break
             if loose_path and np.max(abs(q[1:]-previous[1:])) > .40:break
             loose_path.append(q); previous = q
         if len(loose_path) != len(matrices):continue

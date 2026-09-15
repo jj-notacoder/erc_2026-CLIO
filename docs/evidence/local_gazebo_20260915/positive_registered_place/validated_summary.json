@@ -1,0 +1,174 @@
+{
+  "passed": true,
+  "exact_live_replay": false,
+  "controller_calls": [],
+  "assumptions": [
+    "115.500 scene selection inferred from independent recorder ordering, not proven selected",
+    "Recorded scene numerical coordinates retained; capture frame movement not logged",
+    "Carry start uses final commanded POSITIVE_WRIST_CARRY; actual measured endpoints unlogged",
+    "Right/head use commanded parked RIGHT_HOME and[0,-.60], not unlogged measured feedback",
+    "Held corners reconstructed by production attachment from recorded target/grasp IK",
+    "Staging seed recomputed by same production Cartesian staging solves from recorded lift terminal",
+    "Replay clock and fresh feedback stamps are fixture values, not a live freshness proof"
+  ],
+  "actual_selected_profile_torso_height": 0.35,
+  "search": {
+    "search": "bounded_signed_support_positive_start_v1",
+    "ik_calls": 29,
+    "candidates": 1,
+    "endpoint_samples": 19,
+    "opening_samples": 52,
+    "rejections": {
+      "ik": 10
+    },
+    "levels": [],
+    "wall_seconds": 30.871234307000122,
+    "wall_budget_seconds": 1800.0,
+    "position_tolerance": 0.002,
+    "orientation_tolerance": 0.02,
+    "maximum_joint_step": 0.4,
+    "joint_margin": 0.1,
+    "minimum_signed_support": 0.75,
+    "full_candidate_validator_required": true,
+    "recorded_joint_path_used": false,
+    "strategy": {
+      "loose_paths": 0,
+      "refined_paths": 0,
+      "anchor_roots": 1,
+      "anchor_complete_paths": 1,
+      "position_proposal_index": 2,
+      "anchor_ik_budget": 192,
+      "anchor_index": 10
+    },
+    "wrist_policy": "measured_positive"
+  },
+  "selected_target": {
+    "policy": "registered_near_side_preserve_worst_reserve_v1",
+    "offset_m": 0.05,
+    "displacement": [
+      -0.04986190850604909,
+      -0.003713104934706774,
+      -5.414682119680984e-05
+    ],
+    "maximum_shift_m": 0.054999999999999924,
+    "original_minimum_wall_reserve_m": 0.035832715350012825,
+    "selected_minimum_wall_reserve_m": 0.035832715350012825,
+    "effective_material_margin_m": 0.014167284649987188,
+    "projected_cavity_axes": [
+      0,
+      2
+    ],
+    "projected_book_corners": [
+      [
+        0.09499999999999993,
+        -0.18999999999999995
+      ],
+      [
+        0.09499999999999995,
+        0.08999999999999993
+      ],
+      [
+        0.09499999999999995,
+        -0.18999999999999995
+      ],
+      [
+        0.09499999999999996,
+        0.08999999999999996
+      ],
+      [
+        -0.09499999999999999,
+        -0.18999999999999995
+      ],
+      [
+        -0.09499999999999992,
+        0.08999999999999984
+      ],
+      [
+        -0.09499999999999996,
+        -0.19000000000000006
+      ],
+      [
+        -0.09499999999999995,
+        0.09000000000000007
+      ]
+    ],
+    "shrunken_cavity_horizontal_bounds": [
+      [
+        -0.1308327153500128,
+        -0.23083271535001282
+      ],
+      [
+        0.1308327153500128,
+        0.23083271535001282
+      ]
+    ],
+    "book_center": [
+      0.8859453994616426,
+      0.011443112777909768,
+      1.0210476135933417
+    ],
+    "tool_position": [
+      0.8815685753290731,
+      0.06636723902092792,
+      1.0208853515693894
+    ],
+    "tool_rotation": [
+      [
+        -0.17556818884684963,
+        -0.0002694862794510092,
+        -0.9844672358398637
+      ],
+      [
+        -0.9844671103828773,
+        -0.000526227139719923,
+        0.17556831052153177
+      ],
+      [
+        -0.0005653666284557316,
+        0.999999825231056,
+        -0.00017291163297631403
+      ]
+    ],
+    "clearance_position": [
+      0.8815685753290731,
+      0.06636723902092792,
+      1.2508853515693894
+    ],
+    "original_cartesian_step_m": 0.06,
+    "segment_subdivision": 2,
+    "coarse_cartesian_waypoints": 10,
+    "cartesian_waypoints": 19
+  },
+  "scene_samples": 2583,
+  "setup_legs": 21,
+  "cartesian_waypoints": 19,
+  "serial_planning_seconds": 32.15285649699945,
+  "comparison_with_earlier_explicit_proposal": {
+    "solutions_bit_identical": true,
+    "setup_bit_identical": true
+  },
+  "source_manifest": {
+    "registered_place_targets.py": {
+      "draft_sha256": "19a1a127bf3270e8af94ba5d484f8f62e8564fd3dc374b049a79de6f9a2e0762",
+      "base_sha256": null
+    },
+    "scene_cartesian_solver.py": {
+      "draft_sha256": "a0340d49b84d5316af2e0af595d04102941a6ac25fbe8f0e805f9488b5f145ce",
+      "base_sha256": "de81d0698991d7178da1a38e65d929634a77d3c3fc979543317dfafed46092c7"
+    },
+    "scene_checked_place.py": {
+      "draft_sha256": "8e1d881759b6a8bcce95f54ba4b6b23d5d15e0f76613212b0a1c9c705881343a",
+      "base_sha256": "a669aa03638c651f0ebd454b5cbebc5d7ce21b37e6852db9c20fb5c6a4848d6e"
+    },
+    "manipulation_node.py": {
+      "draft_sha256": "975b218b1ed1813ec287d6cc8e39cb9a30287c3f08a678eda86efd1e3ba079c7",
+      "base_sha256": "eff7b955247bc0945159bbaca07921ee26d71c3e52522d2cbf64de456f99cfd0"
+    }
+  },
+  "promoted_source_tests": {
+    "cases_passed": 353,
+    "duration_seconds": 7.46,
+    "modules": 14,
+    "log": "promoted_source_checks.log"
+  }
+}

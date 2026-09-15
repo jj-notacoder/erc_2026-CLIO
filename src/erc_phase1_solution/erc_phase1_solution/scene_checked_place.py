@@ -27,6 +27,8 @@ from .kinematics import (
     oriented_box_intersects_triangles, triangle_meshes_intersect,
 )
 from .motion_profiles import HOME, OFFER, PREGRASP
+from .book_centered_place import BookCenteredPlaceTarget
+from .registered_place_targets import registered_place_proposals
 from .scene_cartesian_solver import SearchLimits, solve_scene_cartesian
 from .rigid_palm_preflight import PALM_COLLISION_LINK
 from .shelf_cradle_geometry import ShelfCradleGeometry
@@ -490,6 +492,7 @@ class SceneCheckedPlacePlan:
     diagnostics: dict
     empty_return_from_clearance: list | None = None
     release_only_endpoint: object = None
+    selected_target: BookCenteredPlaceTarget | None = None
 
 
 def plan_scene_checked_place(node, positions, rotation, carried_start, torso_ready,
@@ -719,6 +722,13 @@ def plan_scene_checked_place(node, positions, rotation, carried_start, torso_rea
     except Exception:
         pass
     search_diagnostics = None
+    target_proposals = ()
+    selected_target = None
+    selected_target_diagnostics = None
+    if table is not None and bin_scene is not None and torso_ready[-1] > 0.:
+        target_proposals = registered_place_proposals(positions, rotation, attached, bin_scene,
+                                                     step=node.cartesian_step)
+        progress('registered_target_proposals', proposals=[item.diagnostics for item in target_proposals])
     if table is not None:
         search_diagnostics = {}
         solutions, orientation, score, _ = solve_scene_cartesian(
@@ -726,12 +736,25 @@ def plan_scene_checked_place(node, positions, rotation, carried_start, torso_rea
             measured_seed=torso_ready, aperture=aperture, open_aperture=open_aperture,
             seed_templates=(HOME, OFFER, PREGRASP),
             limits=SearchLimits(wall_seconds=float(getattr(node, 'scene_cartesian_wall_seconds', 420.0))),
-            diagnostics_out=search_diagnostics)
+            diagnostics_out=search_diagnostics,
+            **({'wrist_policy': 'measured_positive'} if torso_ready[-1] > 0. else {}),
+            **({'position_proposals': tuple(item.positions for item in target_proposals)}
+               if target_proposals else {}))
     else:
         solutions, orientation, score, _ = node._solve_cartesian_path(
             positions, (rotation,), place_height, transition_start=staging_seed,
             skip_setup_transition=True, candidate_validator=candidate, first_valid=True,
             joint_limit_margin=margin)
+    if target_proposals:
+        selected_index = search_diagnostics.get('strategy', {}).get('position_proposal_index')
+        if selected_index is not None:
+            if type(selected_index) is not int or not 0 <= selected_index < len(target_proposals):
+                raise RuntimeError('invalid selected registered target index')
+            chosen = target_proposals[selected_index]
+            selected_target = chosen.target
+            selected_target_diagnostics = deepcopy(chosen.diagnostics)
+            progress('registered_target_selected', target=selected_target_diagnostics,
+                     cartesian_positions=np.asarray(chosen.positions))
     progress('cartesian_search_completed', search_diagnostics=search_diagnostics,
              scene_samples=scene.samples)
     if accepted is None or node._cancel.is_set():
@@ -771,9 +794,12 @@ def plan_scene_checked_place(node, positions, rotation, carried_start, torso_rea
         urdf_sha256=hashlib.sha256(urdf.read_bytes()).hexdigest(),
         bin_mesh_sha256=hashlib.sha256(bin_mesh.read_bytes()).hexdigest(),
         planning_wall_seconds=time.monotonic()-started)
+    if selected_target_diagnostics is not None:
+        diagnostic['registered_target_proposal'] = selected_target_diagnostics
     if release_only_request is not None:
         diagnostic.update(completion_plan='release_pose_only', unused_empty_return_omitted=True,
                           static_open_hand_endpoint_checked=True)
         return SceneCheckedPlacePlan(solutions, orientation, score, route, unloaded, diagnostic,
-                                     direct_home, release_only_endpoint=release_endpoint)
-    return SceneCheckedPlacePlan(solutions, orientation, score, route, unloaded, diagnostic, direct_home)
+                                     direct_home, release_only_endpoint=release_endpoint, selected_target=selected_target)
+    return SceneCheckedPlacePlan(solutions, orientation, score, route, unloaded, diagnostic, direct_home,
+                                 selected_target=selected_target)

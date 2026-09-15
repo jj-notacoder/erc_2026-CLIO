@@ -9713,6 +9713,10 @@ class ManipulationNode(Node):
             unloaded_home_waypoints = scene_plan.unloaded_home
             direct_empty_home = getattr(scene_plan, 'empty_return_from_clearance', None)
             place_scene_diagnostics = scene_plan.diagnostics
+            selected_target = getattr(scene_plan, 'selected_target', None)
+            if selected_target is not None:
+                centered_target = selected_target
+                release = selected_target.tool_position.copy()
             if release_only_request is not None:
                 release_only_endpoint = release_only_place_planning.require_plan(
                     release_only_request, scene_plan, self, correlation)

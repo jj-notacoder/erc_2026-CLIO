@@ -1,0 +1,18 @@
+{
+  "registered_place_targets.py": {
+    "draft_sha256": "19a1a127bf3270e8af94ba5d484f8f62e8564fd3dc374b049a79de6f9a2e0762",
+    "base_sha256": null
+  },
+  "scene_cartesian_solver.py": {
+    "draft_sha256": "a0340d49b84d5316af2e0af595d04102941a6ac25fbe8f0e805f9488b5f145ce",
+    "base_sha256": "de81d0698991d7178da1a38e65d929634a77d3c3fc979543317dfafed46092c7"
+  },
+  "scene_checked_place.py": {
+    "draft_sha256": "8e1d881759b6a8bcce95f54ba4b6b23d5d15e0f76613212b0a1c9c705881343a",
+    "base_sha256": "a669aa03638c651f0ebd454b5cbebc5d7ce21b37e6852db9c20fb5c6a4848d6e"
+  },
+  "manipulation_node.py": {
+    "draft_sha256": "975b218b1ed1813ec287d6cc8e39cb9a30287c3f08a678eda86efd1e3ba079c7",
+    "base_sha256": "eff7b955247bc0945159bbaca07921ee26d71c3e52522d2cbf64de456f99cfd0"
+  }
+}

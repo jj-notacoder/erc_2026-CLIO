@@ -96,6 +96,16 @@ explicitly distinguished from exact observations.
   [official-mesh replay](evidence/local_gazebo_20260915/registered_shelf_cache/README.md)
   produced identical results for all 872 ordered samples and reduced the
   checked portion from 8.80 s to 7.01 s. This is an offline measurement.
+- Placement accepts the measured positive-wrist carrying configuration used
+  by the third occupied row. Registered target proposals use the bin's extra
+  length while preserving the original minimum padded-book wall clearance,
+  book orientation and release height. Finer Cartesian steps and a search
+  starting at the furthest high point retain the original joint-step limit,
+  total IK budget and complete motion/opening checks. The selected target is
+  carried into the execution diagnostics. Negative-wrist placement retains its
+  original target and search. The [integrated offline replay](evidence/local_gazebo_20260915/positive_registered_place/README.md)
+  selected a 50 mm shift after 29 IK solves and passed all 2,583 scene samples;
+  its reconstructed inputs do not establish physical delivery.
 
 ### Software and offline evidence
 

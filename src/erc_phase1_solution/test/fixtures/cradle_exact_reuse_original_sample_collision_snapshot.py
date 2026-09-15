@@ -1,8 +1,7 @@
-"""Private per-sample robot geometry; no verdict cache added here.
+"""Private per-sample robot geometry; no verdict or cross-sample cache.
 
 Only fresh ordinary transform/concatenate outputs may be offered. Cradle
-capture can defer that producer until an original body-cache miss. An optional
-route-local exact geometry cache can supply the same immutable facet bytes. Capture binds exact current q/right/head bytes and all immutable model
+capture can defer that producer until an original body-cache miss. Capture binds exact current q/right/head bytes and all immutable model
 owners. A self-collision cache miss freezes those outputs into bytes and computes
 the original min/max once. Both callers then receive fresh metadata over those
 same immutable bytes. Cache hits need not copy or reduce anything here.
@@ -43,15 +42,13 @@ def _model_bindings(node):
 
 
 class _SceneRobotSnapshot:
-    __slots__ = ('_owner', '_state', '_models', '_world', '_frozen', '_geometry',
-                 '_world_cache')
+    __slots__ = ('_owner', '_state', '_models', '_world', '_frozen', '_geometry')
 
-    def __init__(self, owner, state, models, world, geometry=None, world_cache=None):
+    def __init__(self, owner, state, models, world, geometry=None):
         self._owner, self._state, self._models = owner, state, models
         self._world = world
         self._frozen = None
         self._geometry = {} if geometry is None else dict(geometry)
-        self._world_cache = world_cache
 
     def _matches(self, node, q, right, head):
         if node is not self._owner:
@@ -83,20 +80,13 @@ class _SceneRobotSnapshot:
                 # Preserve that ordering, including cached rejection errors.
                 if not ordinary_model_producer(node):
                     return None
-                geometry = None
-                if self._world_cache is None:
-                    robot = node._world_collision_surfaces(
-                        q, right_positions=right, head_positions=head)
-                else:
-                    robot, geometry = _cached_cradle_world(
-                        node, q, right, head, self._world_cache)
-                captured = _capture_scene_robot_snapshot(
-                    node, q, right, head, robot, _world_geometry=geometry)
+                robot = node._world_collision_surfaces(
+                    q, right_positions=right, head_positions=head)
+                captured = _capture_scene_robot_snapshot(node, q, right, head, robot)
                 if (captured is None or not ordinary_model_producer(node)
                         or not self._matches(node, q, right, head)):
                     return None
                 self._world = captured._world
-                self._geometry = captured._geometry
             frozen = []
             for link, surface in self._world:
                 geometry = self._geometry.get(link)
@@ -124,45 +114,17 @@ class _SceneRobotSnapshot:
         return self._views()
 
 
-def _cached_cradle_world(node, q, right, head, cache):
-    """Original facet/grouping expression, with exact immutable transform hits.
-
-    Called lazily by an already bound ordinary snapshot after the original
-    self-collision predicate has checked its full-state verdict cache.
-    """
-    transforms = node._collision_link_transforms(
-        q, right_positions=right, head_positions=head)
-    grouped, single_geometry = {}, {}
-    for mesh in node.carried_collision_meshes:
-        transform = transforms[mesh.link]
-        cached = cache.capture(mesh.local_mesh, mesh.triangles, transform)
-        surface = (mesh.triangles @ transform[:3, :3].T + transform[:3, 3]
-                   if cached is None else cached.views()[0])
-        grouped.setdefault(mesh.link, []).append(surface)
-        if len(grouped[mesh.link]) == 1 and cached is not None:
-            single_geometry[mesh.link] = cached
-        else:
-            single_geometry.pop(mesh.link, None)
-    robot = {link: values[0] if len(values) == 1 else np.concatenate(values)
-             for link, values in grouped.items()}
-    return robot, single_geometry
-
-
-def _capture_cradle_robot_snapshot(node, q, right, head, *, _world_cache=None):
+def _capture_cradle_robot_snapshot(node, q, right, head):
     """Bind a single exact sample without generating facets before body admission."""
     if not ordinary_model_producer(node):
         return None
-    if _world_cache is not None:
-        from .exact_world_geometry import ExactWorldGeometry
-        if type(_world_cache) is not ExactWorldGeometry:
-            return None
     state = (_state_bytes(q, 8), _state_bytes(right, 7), _state_bytes(head, 2))
     if None in state:
         return None
     models = _model_bindings(node)
     if models is None:
         return None
-    return _SceneRobotSnapshot(node, state, models, None, world_cache=_world_cache)
+    return _SceneRobotSnapshot(node, state, models, None)
 
 
 def _capture_scene_robot_snapshot(node, q, right, head, robot, *, _world_geometry=None):

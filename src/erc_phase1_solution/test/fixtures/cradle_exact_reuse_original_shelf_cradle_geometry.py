@@ -118,38 +118,6 @@ def _bounds(surface: np.ndarray) -> np.ndarray:
     return np.asarray([surface.min(axis=(0, 1)), surface.max(axis=(0, 1))])
 
 
-def _ordinary_cradle_state_access(node):
-    """Custom parked-state readers retain the prior fallback and call order."""
-    from .exact_world_geometry import ordinary_model_producer
-    if not ordinary_model_producer(node):
-        return False
-    body = getattr(node._robot_self_collision, '__func__', None)
-    owner = getattr(body, '__globals__', {}).get('ManipulationNode')
-    if owner is None:
-        from .pure_geometry_owner import RobotCollisionGeometry
-        owner = RobotCollisionGeometry
-    return all(
-        getattr(owner, name, None) is not None
-        and getattr(getattr(node, name, None), '__func__', None) is getattr(owner, name)
-        for name in ('_resolved_right_positions', '_resolved_head_positions',
-                     '_right_joint_positions', '_head_joint_positions')
-    )
-
-
-def _paired_cradle_context(node, supplied):
-    """Read only the implicit parked groups, together, for this exact sample."""
-    def capture():
-        return dict(
-            right_positions=node._resolved_right_positions(supplied.get('right_positions')),
-            head_positions=node._resolved_head_positions(supplied.get('head_positions')),
-        )
-    lock = getattr(node, '_lock', None)
-    if lock is None:
-        return capture()
-    with lock:
-        return capture()
-
-
 def check_cradle_tool_sweep(
     node,
     front: Sequence[float],
@@ -162,7 +130,6 @@ def check_cradle_tool_sweep(
     finger_positions: Mapping[str, float] | None = None,
     right_positions: Sequence[float] | None = None,
     head_positions: Sequence[float] | None = None,
-    _world_geometry_cache=None,
 ) -> str | None:
     """Return a collision/failure reason, or None for a checked sampled sweep.
 
@@ -241,14 +208,6 @@ def check_cradle_tool_sweep(
             count = 1  # A stationary pose has one unique geometric state.
         robot_watertight = node._watertight_collision_links()
         margin = float(node.carried_shelf_margin)
-        paired_context = _ordinary_cradle_state_access(node)
-        world_cache = None
-        if paired_context:
-            from .exact_world_geometry import ExactWorldGeometry
-            if _world_geometry_cache is None:
-                world_cache = ExactWorldGeometry()
-            elif type(_world_geometry_cache) is ExactWorldGeometry:
-                world_cache = _world_geometry_cache
         for index, fraction in enumerate(np.linspace(0., 1., count)):
             cancelled = getattr(node, '_cancel', None)
             if cancelled is not None and cancelled.is_set():
@@ -258,18 +217,12 @@ def check_cradle_tool_sweep(
             # Each sample owns a new snapshot; no verdict crosses a pose,
             # aperture, model or parked-arm/head context.
             from .sample_collision_snapshot import _capture_cradle_robot_snapshot
-            sample_is_ordinary = paired_context and _ordinary_cradle_state_access(node)
-            sample_context = (_paired_cradle_context(node, context)
-                              if sample_is_ordinary else context)
-            sample_cache = world_cache if sample_is_ordinary else None
             snapshot = None
-            if set(sample_context) == {'right_positions', 'head_positions'}:
+            if set(context) == {'right_positions', 'head_positions'}:
                 snapshot = _capture_cradle_robot_snapshot(
-                    node, joints, sample_context['right_positions'],
-                    sample_context['head_positions'],
-                    **({'_world_cache': sample_cache} if sample_cache is not None else {}))
+                    node, joints, context['right_positions'], context['head_positions'])
             self_collision = node._robot_self_collision(
-                joints, **sample_context,
+                joints, **context,
                 **({'_scene_snapshot': snapshot} if snapshot is not None else {}))
             if self_collision is not None:
                 return f'cradle_robot_self_intersection:{self_collision}:sample{index}'
@@ -278,18 +231,12 @@ def check_cradle_tool_sweep(
                 link: triangles @ hand[:3, :3].T + hand[:3, 3]
                 for link, triangles in local.items()
             }
-            # Preserve body-first failure behavior. On a successful cached
-            # body result, build the world here; on a miss it was built once
-            # inside the original body predicate and is shared unchanged.
-            resolver = (snapshot.resolve if sample_cache is not None
-                        else snapshot.resolved) if snapshot is not None else None
-            shared = (None if resolver is None else resolver(
-                node, joints, sample_context['right_positions'],
-                sample_context['head_positions']))
+            shared = (None if snapshot is None else snapshot.resolved(
+                node, joints, context['right_positions'], context['head_positions']))
             if shared is not None:
                 robot, robot_bounds = shared
             else:
-                robot = node._world_collision_surfaces(joints, **sample_context)
+                robot = node._world_collision_surfaces(joints, **context)
                 robot_bounds = {link: _bounds(surface) for link, surface in robot.items()}
             # Each exact sampled world surface can participate in multiple
             # mesh pairs. Keep preprocessing local to this sample; no pose
@@ -371,15 +318,10 @@ def check_cradle_tool_route(
             points.append(current)
         if len(points) == 1:
             points.append(points[0])
-        world_options = {}
-        if _ordinary_cradle_state_access(node):
-            from .exact_world_geometry import ExactWorldGeometry
-            world_options['_world_geometry_cache'] = ExactWorldGeometry()
         for index, (first, last) in enumerate(zip(points, points[1:])):
             reason = check_cradle_tool_sweep(
                 node, front, grasp_solution, first, last, shelf_plane,
                 aperture=aperture, finger_positions=finger_positions,
-                **world_options,
             )
             if reason:
                 return f'leg{index}:{reason}'

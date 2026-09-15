@@ -81,7 +81,7 @@ def _legs(legs):
     return tuple((tuple(float(v) for v in q), float(t), phase) for q, t, phase in legs)
 
 
-def normal_options(node, identity, legs, arm_speed_scale, master):
+def normal_options(node, identity, legs, arm_speed_scale, master, *, positive_entry_plan=None):
     if not checked_enabled(getattr(node, 'place_transition_stop_enabled', False)):
         return {}
     if (not stock_enabled(node) or not getattr(node, 'delivery_evidence_enabled', False)
@@ -93,11 +93,11 @@ def normal_options(node, identity, legs, arm_speed_scale, master):
     if (len(route) < 2 or any(len(q) != len(IK_JOINTS) or not all(math.isfinite(v) for v in q)
             for q, _, _ in route) or any(route[i][1:] != (.8, 'bin_transition') for i in (0, 1))):
         raise TransitionStopRejected('original_transition_prefix_required')
-    return dict(transition_stop=Qualification(node, identity, route, master))
+    return dict(transition_stop=Qualification(node, identity, route, master, positive_entry_plan=positive_entry_plan))
 
 
 class Qualification:
-    def __init__(self, node, identity, route, master):
+    def __init__(self, node, identity, route, master, *, positive_entry_plan=None):
         self.node, self.route = node, route
         self.master = float(master)
         if not math.isfinite(self.master) or not 0 <= self.master < .0685:
@@ -105,6 +105,13 @@ class Qualification:
         self.identity = dict(identity or {})
         self.active = self.qualified = self.published = False
         self.publication_rejection = None
+        self.positive_entry_plan = positive_entry_plan
+        self.positive_entry = positive_entry_plan is not None
+        self.entry_published = False
+        self.entry_signature = (self._positive_plan_signature(positive_entry_plan)
+                                if self.positive_entry else None)
+        if self.positive_entry and self.entry_signature[2] != route:
+            raise TransitionStopRejected('positive_entry_plan_route_changed')
         with node._lock:
             self.reference = getattr(node, '_active_place_scene_reference', None)
             self.epoch = getattr(node, '_contact_epoch', None)
@@ -114,6 +121,68 @@ class Qualification:
                 or not self.target or self.identity.get('target_model') != self.target
                 or not self.identity.get('trial_id') or not self.identity.get('placement_attempt_id')):
             raise TransitionStopRejected('missing_registered_place_identity')
+
+    @staticmethod
+    def _positive_plan_signature(plan):
+        # Bind the slower entry to the actual accepted registered planner result,
+        # not a phase label or a positive arbitrary staging seed.
+        from .scene_checked_place import SceneCheckedPlacePlan
+        if type(plan) is not SceneCheckedPlacePlan:
+            raise TransitionStopRejected('positive_entry_requires_checked_place_plan')
+        try:
+            detail = plan.diagnostics
+            if (detail['cartesian_search']['wrist_policy'] != 'measured_positive'
+                    or detail['registered_bin_scene'] is None
+                    or detail['whole_table_pose_modeled'] is not True):
+                raise ValueError('unregistered positive plan')
+            start = tuple(float(v) for v in detail['actual_carry_start'])
+            ready = tuple(float(v) for v in detail['torso_ready'])
+            if (len(start) != 8 or len(ready) != 8 or start[-1] <= 0.
+                    or start[1:] != ready[1:] or not all(math.isfinite(v) for v in (*start, *ready))):
+                raise ValueError('invalid measured positive carry')
+            route = _legs([*((q, .8, 'bin_transition') for q in plan.setup[:-1]),
+                           (plan.solutions[0], 2.8, 'bin_clearance'),
+                           *((q, .65, 'bin_approach') for q in plan.solutions[1:])])
+            if len(plan.setup) < 3 or tuple(plan.setup[-1]) != tuple(plan.solutions[0]):
+                raise ValueError('invalid checked setup endpoint')
+            return start, ready, route
+        except (AttributeError, KeyError, TypeError, ValueError, IndexError) as error:
+            raise TransitionStopRejected('positive_entry_plan_invalid') from error
+
+    def _entry_locked(self, node, goal, command, leg_offset, expected_ns):
+        if (node is not self.node or not self.positive_entry or self.entry_published
+                or self.active or self.qualified or self.published
+                or command != 'place' or leg_offset != 0
+                or self._positive_plan_signature(self.positive_entry_plan) != self.entry_signature
+                or self.entry_signature[2] != self.route):
+            raise TransitionStopRejected('positive_entry_scope_changed')
+        self._hard_locked(entering=True)
+        if (tuple(goal.trajectory.joint_names) != tuple(ARM_JOINTS)
+                or len(goal.trajectory.points) != 1
+                or tuple(goal.trajectory.points[0].positions) != self.route[0][0][1:]):
+            raise TransitionStopRejected('positive_entry_goal_changed')
+        point = goal.trajectory.points[0]
+        if point.time_from_start.sec*1_000_000_000+point.time_from_start.nanosec != expected_ns:
+            raise TransitionStopRejected('positive_entry_duration_changed')
+        # The ordinary velocity gate immediately preceding this call already
+        # validates these exact measured arm positions and producer stamps.
+        if _finite(node.joints.get(ARM_JOINTS[-1])) is None or node.joints[ARM_JOINTS[-1]] <= 0.:
+            raise TransitionStopRejected('positive_entry_measured_wrist_changed')
+        now = int(node.get_clock().now().nanoseconds)
+        fault = _stock_retention_locked(node, now, min(.15, node.grasp_contact_max_age))
+        if fault is not None:
+            raise TransitionStopRejected(fault)
+
+    def entry_timing_options_locked(self, node, goal, command, leg_offset, nominal_duration, legs):
+        try:
+            if (nominal_duration != .8 or
+                    _legs(legs) != ((self.route[0][0], .4, 'bin_transition'),)):
+                raise TransitionStopRejected('positive_entry_watchdog_or_phase_changed')
+            self._entry_locked(node, goal, command, leg_offset, 400_000_000)
+            return {'minimum_segment_ns': 800_000_000}
+        except TransitionStopRejected as error:
+            self.publication_rejection = error
+            raise
 
     def require_execution(self, node, legs, command, **options):
         if (node is not self.node or command != 'place' or _legs(legs) != self.route
@@ -169,9 +238,48 @@ class Qualification:
             raise TransitionStopRejected('placement_scene_base_not_stationary')
         ok, reason = stationary_closed_sample(raw, self.route[0][0], self.master, now, pending=pending)
         if reason == 'joint_feedback_invalid': raise TransitionStopRejected(reason)
+        if not pending:
+            self._observe_stationary_sample(raw, now, ok, reason)
         return ok, reason
 
+    def _observe_stationary_sample(self, raw, now, ok, reason):
+        # Diagnostics only: use the exact preceding predicate result, never
+        # re-evaluate or alter admission. Bound raw detail to twelve reads.
+        try:
+            data = self.stationarity_diagnostic
+            data['samples_evaluated'] += 1
+            data['accepted_samples'] += int(bool(ok))
+            counts = data['reason_counts']
+            counts[reason] = counts.get(reason, 0)+1
+            names = (*IK_JOINTS, 'gripper_left_finger_joint')
+            target = (*self.route[0][0], self.master)
+            positions = raw.get('positions', {})
+            velocities = raw.get('velocities', {})
+            errors = [_finite(positions.get(name)) for name in names]
+            errors = [None if value is None else value-reference
+                      for value, reference in zip(errors, target)]
+            speeds = [_finite(velocities.get(name)) for name in names]
+            for name, error, speed in zip(names, errors, speeds):
+                if error is not None:
+                    data['maximum_abs_position_error'][name] = max(
+                        data['maximum_abs_position_error'].get(name, 0.), abs(error))
+                if speed is not None:
+                    data['maximum_abs_velocity'][name] = max(
+                        data['maximum_abs_velocity'].get(name, 0.), abs(speed))
+            odom = raw.get('odom') or {}
+            self.stationarity_observations.append(dict(
+                sequence=raw.get('sequence'), evaluated_ros_ns=now,
+                producer_stamp_ns=raw.get('producer_stamp_ns'),
+                odom_stamp_ns=odom.get('stamp_ns'), accepted=bool(ok), reason=reason,
+                position_errors=errors, velocities=speeds,
+                base_linear_speed=_finite(odom.get('linear_speed')),
+                base_angular_speed=_finite(odom.get('angular_speed'))))
+        except Exception:
+            pass
+
     def qualify(self):
+        if self.positive_entry and not self.entry_published:
+            raise TransitionStopRejected('positive_entry_not_published')
         n = self.node
         self.started_wall = time.monotonic()
         self.deadline = self.started_wall + 3.
@@ -181,6 +289,9 @@ class Qualification:
         progress_clock = self.entered
         progress_joint = progress_odom = None
         if not stamp_valid(self.entered): raise TransitionStopRejected('invalid_clock')
+        self.stationarity_diagnostic = dict(samples_evaluated=0, accepted_samples=0,
+            reason_counts={}, maximum_abs_position_error={}, maximum_abs_velocity={})
+        self.stationarity_observations = deque(maxlen=12)
         self.first_joint = self.first_odom = None
         self.previous_joint = self.previous_odom = None
         self.seen = 0
@@ -300,6 +411,10 @@ class Qualification:
             raise
 
     def _require_publication_locked(self, node, goal, command, leg_offset):
+        if leg_offset == 0:
+            self._entry_locked(node, goal, command, leg_offset, 800_000_000)
+            self.entry_published = True
+            return
         if (node is not self.node or not self.qualified or self.published
                 or command != 'place' or leg_offset != 1
                 or tuple(goal.trajectory.joint_names) != tuple(ARM_JOINTS)
@@ -314,10 +429,18 @@ class Qualification:
         try:
             self.node._publish_status('placement_transition_stop', **self.identity, command='place',
                 after_leg=0, before_leg=1, verified=verified, reason=reason,
+                positive_entry_original_duration_restored=self.positive_entry and self.entry_published,
                 stationary_joint_start_ns=self.first_joint, stationary_odom_start_ns=self.first_odom,
                 latest_joint_stamp_ns=self.previous_joint, latest_odom_stamp_ns=self.previous_odom,
                 elapsed_wall_seconds=time.monotonic()-self.started_wall,
                 elapsed_ros_ns=self.last_clock-self.entered,
+                stationarity_diagnostic=dict(self.stationarity_diagnostic,
+                    joint_names=[*IK_JOINTS, 'gripper_left_finger_joint'],
+                    reference_positions=[*self.route[0][0], self.master],
+                    position_tolerances=[.001, *([.002]*7), .0005],
+                    velocity_limits=[*([.001]*8), .0001],
+                    recent_samples=list(self.stationarity_observations),
+                    scope='current-sample reads only; last12 retained, no continuous physical proof'),
                 book_stationarity_verified=False, physical_inside_verified=None,
                 **diagnostic_fields(self.node, reason))
         except Exception:

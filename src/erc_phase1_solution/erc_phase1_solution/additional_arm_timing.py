@@ -54,7 +54,8 @@ def require_retimed_arm_headroom(record):
         raise ArmVelocityAdmissionRejected(str(error), record) from error
 
 
-def retime_admitted_arm_goal(goal, admission, factor, *, nominal_duration, legs=None):
+def retime_admitted_arm_goal(goal, admission, factor, *, nominal_duration, legs=None,
+                            minimum_segment_ns=MINIMUM_SEGMENT_NS):
     """Return new goal/phase legs plus diagnostics; input goal is never changed.
 
     Scale1 preserves exact input identity and does no new admission/retiming.
@@ -63,6 +64,11 @@ def retime_admitted_arm_goal(goal, admission, factor, *, nominal_duration, legs=
     """
     try:
         factor = checked_additional_arm_time_scale(factor)
+        if (type(minimum_segment_ns) is not int or minimum_segment_ns < MINIMUM_SEGMENT_NS
+                or minimum_segment_ns > 2_147_483_647 * 1_000_000_000 + 999_999_999):
+            raise ValueError('additional timing floor must be a monotonic integer nanosecond bound')
+        if factor == 1.0 and minimum_segment_ns != MINIMUM_SEGMENT_NS:
+            raise ValueError('explicit additional timing floor requires enabled retiming')
         if factor == 1.0:
             return goal, legs, None
         if (type(nominal_duration) not in (int, float) or not math.isfinite(nominal_duration)
@@ -101,7 +107,7 @@ def retime_admitted_arm_goal(goal, admission, factor, *, nominal_duration, legs=
             required = max(abs(Fraction.from_float(last) - Fraction.from_float(first))
                            * 1_000_000_000 / (VELOCITY_FRACTION * limit)
                            for first, last, limit in zip(previous, point['positions'], limits))
-            segment = max(_ceil(Fraction(old_segment) / scale), _ceil(required), MINIMUM_SEGMENT_NS)
+            segment = max(_ceil(Fraction(old_segment) / scale), _ceil(required), minimum_segment_ns)
             new_total += segment
             if new_total > 2_147_483_647 * 1_000_000_000 + 999_999_999:
                 raise ValueError('retimed serialized duration overflow')
@@ -133,7 +139,7 @@ def retime_admitted_arm_goal(goal, admission, factor, *, nominal_duration, legs=
                     tuple((solution, ns / 1_000_000_000, phase)
                           for (solution, _, phase), ns in zip(legs, durations)))
         diagnostic = dict(factor=factor, maximum_velocity_fraction=.8,
-            minimum_segment_ns=MINIMUM_SEGMENT_NS, old_total_ns=previous_ns,
+            minimum_segment_ns=minimum_segment_ns, old_total_ns=previous_ns,
             new_total_ns=new_total, nominal_duration_seconds=float(nominal_duration),
             segments=details, unchanged_nominal_watchdog=True)
         return owned, new_legs, diagnostic

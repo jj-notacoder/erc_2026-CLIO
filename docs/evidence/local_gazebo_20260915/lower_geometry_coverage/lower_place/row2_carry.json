@@ -1,0 +1,99 @@
+{
+  "book_dimensions_m": [
+    0.16,
+    0.02,
+    0.25
+  ],
+  "front": [
+    0.67,
+    -0.056,
+    1.254
+  ],
+  "grasp_solution": [
+    0.1,
+    0.7133895172764115,
+    0.7343841906492079,
+    -0.03885110262555427,
+    -1.4999329105903594,
+    0.32281373006523395,
+    1.2180180358008177,
+    -0.6134530257890922
+  ],
+  "attached_corners": [
+    [
+      -0.10456897830182944,
+      0.024087620835015016,
+      0.10809544404997265
+    ],
+    [
+      0.029647558864915005,
+      0.024043856471762954,
+      -0.13764002192034375
+    ],
+    [
+      -0.10457649275376908,
+      -0.02591237836986658,
+      0.10810024455528475
+    ],
+    [
+      0.029640044412975367,
+      -0.025956142733118644,
+      -0.13763522141503165
+    ],
+    [
+      0.062180088091844415,
+      0.02407130444727509,
+      0.19917095442797494
+    ],
+    [
+      0.19639662525858886,
+      0.024027540084023028,
+      -0.04656451154234145
+    ],
+    [
+      0.06217257363990478,
+      -0.025928694757606507,
+      0.19917575493328704
+    ],
+    [
+      0.19638911080664923,
+      -0.02597245912085857,
+      -0.04655971103702934
+    ]
+  ],
+  "carry_terminal": [
+    0.1,
+    3.43734870845,
+    -2.2676009274,
+    -1.60197601886,
+    -1.92696895395,
+    -2.47218391424,
+    -1.5231513780599997,
+    -2.1
+  ],
+  "staging_terminal": [
+    0.1,
+    0.892001120891164,
+    0.4002461248297904,
+    0.0570108256726454,
+    -2.1957648352383323,
+    0.4874419578010586,
+    1.6306179750170413,
+    -1.7697944241509274
+  ],
+  "requires_gravity_support": false,
+  "target_model_for_identity": "book_col_3_row_3_green",
+  "provenance": {
+    "path": "/tmp/erc_row2_integrated_current.json",
+    "sha256": "b00a0b976a14f1a6f74206987727f4d737cdd979f31154c4838fc2bd6a56e003",
+    "source_hashes": {
+      "erc_phase1_solution.lower_shelf_pick": "cf330629d24e62986f3a68bdfc102024158664d661d2a1422dcb7c362ca56740",
+      "erc_phase1_solution.empty_shelf_bounds": "06e6b8d36a1ec607c131de1fe23967ecba5f8a168ad4a22c589b0c776d31f6ed",
+      "erc_phase1_solution.empty_shelf_setup": "3080e758d46172fe12ac5a2cb92216f3c2de725a8bfbf86ac3329fbc8aafcfa9",
+      "erc_phase1_solution.manipulation_node": "0e5837d9532c198b7b58a5385d8a8477b7d85bf56996e9dcde08b288c0b60240"
+    },
+    "scope": "saved offline guarded lower PICK; synthetic endpoint in recorded blue PLACE frame",
+    "physical_retention_validated": false,
+    "target_identity_scope": "official format only; not proof of this target at recorded bin"
+  }
+}

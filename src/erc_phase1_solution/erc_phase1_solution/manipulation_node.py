@@ -6510,6 +6510,12 @@ class ManipulationNode(Node):
             raise ArmVelocityAdmissionRejected('release-only clearance requires exclusive retained headroom')
         if velocity_admission and initial_pressure_gate is not None:
             raise ArmVelocityAdmissionRejected('faster retained arm cannot use the lift pressure gate')
+        if transition_stop is not None and leg_offset == 0 and (
+                not velocity_admission or velocity_headroom or total_duration != .8
+                or command != 'place' or not getattr(transition_stop, 'positive_entry', False)
+                or clearance_admission is not None or release_clearance_admission is not None
+                or withdrawal_admission is not None or initial_pressure_gate is not None):
+            raise ArmVelocityAdmissionRejected('positive entry requires exclusive fresh cap2 arm admission')
 
         endpoint_contact_age = min(
             0.15,
@@ -6553,7 +6559,10 @@ class ManipulationNode(Node):
                     if getattr(self, 'additional_arm_time_scale', 1.0) != 1.0:
                         goal, legs, timing_record = retime_admitted_arm_goal(
                             goal, velocity_record, self.additional_arm_time_scale,
-                            nominal_duration=total_duration, legs=legs)
+                            nominal_duration=total_duration, legs=legs,
+                            **(transition_stop.entry_timing_options_locked(
+                                self, goal, command, leg_offset, total_duration, legs)
+                               if transition_stop is not None and leg_offset == 0 else {}))
                         velocity_record = require_arm_velocity_locked(self, goal)
                         require_retimed_arm_headroom(velocity_record)
                         velocity_record['additional_arm_timing'] = timing_record
@@ -7072,7 +7081,8 @@ class ManipulationNode(Node):
                     **({'initial_pressure_gate': initial_pressure_gate}
                        if index == 0 and initial_pressure_gate is not None else {}),
                     **({'transition_stop': transition_stop}
-                       if transition_stop is not None and index == 1 else {}),
+                       if transition_stop is not None and (index == 1 or
+                           index == 0 and getattr(transition_stop, 'positive_entry', False)) else {}),
                 )
             except ArmVelocityAdmissionRejected as exc:
                 if withdrawal_scales is not None:
@@ -9932,7 +9942,10 @@ class ManipulationNode(Node):
         if getattr(self, 'place_transition_stop_enabled', False):
             loaded_arm_timing_options.update(_place_transition_stop.normal_options(
                 self, correlation, approach_legs, loaded_arm_timing_options.get('arm_speed_scale', 1.0),
-                (place_scene_diagnostics or {}).get('measured_master')))
+                (place_scene_diagnostics or {}).get('measured_master'),
+                **({'positive_entry_plan': scene_plan}
+                   if ((place_scene_diagnostics or {}).get('cartesian_search') or {}).get('wrist_policy')
+                      == 'measured_positive' else {})))
         if getattr(self, 'release_only_clearance_timing_enabled', False):
             loaded_arm_timing_options.update(_release_clearance.normal_options(
                 self, correlation, release_only_endpoint, approach_legs,

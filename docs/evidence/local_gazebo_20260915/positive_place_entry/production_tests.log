@@ -1,0 +1,12 @@
+........................................................................ [ 23%]
+........................................................................ [ 46%]
+........................................................................ [ 69%]
+........................................................................ [ 92%]
+......................                                                   [100%]
+============================= slowest 5 durations ==============================
+0.24s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_prefix_failure_never_reaches_connector[failure0]
+0.24s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_preserves_live_admission_refusals[raw_fault]
+0.23s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_preserves_live_admission_refusals[stop_disabled]
+0.23s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_preserves_live_admission_refusals[cap]
+0.23s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_preserves_live_admission_refusals[scene]
+310 passed in 11.92s

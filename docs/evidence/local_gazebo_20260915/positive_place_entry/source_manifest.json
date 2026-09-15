@@ -1,0 +1,32 @@
+{
+  "base_git_commit": "ed9230424a373aefa71c7d8e9dcb425c4ca4baa7",
+  "runtime": {
+    "place_transition_stop.py": {
+      "base_sha256": "d9c9ce7e04c715a01360cd192b9f51021f207d67bc5932b8e2500f208ab557b9",
+      "draft_sha256": "212a387bba3fd7c3c5ff1df95ff5229cd166bdf464f230374e1c569a5827f8bf"
+    },
+    "additional_arm_timing.py": {
+      "base_sha256": "26892348fde004dcc699c472123d85abc8029494a01fb0060872d793d7e5472f",
+      "draft_sha256": "5178ab9fc12ea100c493c6486c73b3b72e3a45fc3968971138bffc338f4f8b7b"
+    },
+    "manipulation_node.py": {
+      "base_sha256": "975b218b1ed1813ec287d6cc8e39cb9a30287c3f08a678eda86efd1e3ba079c7",
+      "draft_sha256": "5785825bc9b62d62ae4d330a7cd01d6a80433144234e1999dceaf7bb2d7f8a5f"
+    }
+  },
+  "new_tests": {
+    "test_transition_stop_diagnostics.py": "0157a5b1b75e21bb94ba5f243c130ec4cfc49e61c7c012033ea9679dd0b8f07a",
+    "test_positive_place_entry_timing.py": "d57be865eb2e428f160fe51a31d982c607fc0f0d3ceb965f36bc65af2daae84f"
+  },
+  "validation": {
+    "focused_tests": 145,
+    "wall_seconds": 4.93,
+    "scope": "Controlled feedback/unit regressions; no simulation or physical settling claim",
+    "log": "focused_tests.log"
+  },
+  "promoted": true,
+  "promoted_support": {
+    "src/erc_phase1_solution/test/fixtures/all_books_source_inverse.json": "d60b7e4af7f844907a0e27522ca64f8a7621f4dd0c081cc19086becf38188e3b",
+    "src/erc_phase1_solution/test/candidate_composition_support.py": "319c5d8bb424aa639d494200edb5207666a7f13621b0b73dfd421e2cfae9955c"
+  }
+}

@@ -1,0 +1,2153 @@
+{
+  "scenario": {
+    "target": "3:yellow",
+    "seed": 101,
+    "physical_column": 1,
+    "logical_row": 3,
+    "model_name": "book_col_1_row_4_yellow",
+    "front_base_m": [
+      0.67,
+      -0.056,
+      0.9278333794123657
+    ],
+    "head_pitch_rad": -0.4,
+    "spawn_jitter_m": -0.14273851513101599,
+    "ideal_book_only_side_reserve_m": 0.062261484868984,
+    "nominal_spawn_center_world_z_m": 0.935,
+    "height_basis": "Height retained from audit saved_offline_inputs.row3_front; synthetic XY realignment",
+    "bay": {
+      "marker_center_base": [
+        0.605,
+        0.08673851513101599,
+        2.26
+      ],
+      "inward_axis_base": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "physical_column": 1,
+      "lateral_uncertainty_m": 0.2,
+      "roof_uncertainty_m": 0.01,
+      "margin_m": 0.015,
+      "assume_upright_supported": true,
+      "source": "SYNTHETIC onboard-aligned ideal plate-origin scenario, seed101 printed3 yellow; not a live observation"
+    },
+    "marker_derivation": "marker_y = front_y - spawned book jitter; marker_x=.605 from independent nominal fixture; marker_z=2.26 ideal plate origin",
+    "effective_column_sides_relative_marker_m": [
+      -0.215,
+      0.355
+    ]
+  },
+  "scope": "complete offline lower PICK preflight",
+  "observations_are_synthetic": true,
+  "live_freshness_validated": false,
+  "physical_retention_or_placement_validated": false,
+  "controller_calls": [],
+  "events": [
+    {
+      "event": "status",
+      "elapsed_s": 0.3030824900015432,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "stage": "captured_empty_context",
+      "measured_start": [
+        0.1,
+        0.36,
+        -1.83,
+        0.47,
+        -2.35,
+        0.0,
+        -1.2,
+        0.0
+      ],
+      "measured_right": [
+        -0.36,
+        -1.83,
+        -0.47,
+        -2.35,
+        0.0,
+        -1.2,
+        0.0
+      ],
+      "measured_head": [
+        0.0,
+        -0.4
+      ]
+    },
+    {
+      "event": "status",
+      "elapsed_s": 1.476202353998815,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "empty_opening"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 1.553323062002164,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "empty_torso"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 1.587310572998831,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "cartesian_path"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 7.66147755700149,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "setup_fully_admitted_prefix",
+      "dense_edges": 2
+    },
+    {
+      "event": "status",
+      "elapsed_s": 7.6617312880007375,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "empty_approach"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 10.4573253439994,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "registered_shelf_approach"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 14.181922587002191,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "open_gripper_approach"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 14.569539267002256,
+      "status": "empty_pickup_geometry_process_completed",
+      "command": "pick",
+      "epoch": 1,
+      "passed": true,
+      "wall_seconds": 14.26088183200045,
+      "failure_type": null,
+      "workers_created": 8,
+      "workers": [
+        {
+          "worker": 0,
+          "pid": 28104,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28104,
+            "parent_pid": 28102,
+            "process_group": 28104,
+            "session": 28104,
+            "start_ticks": 4138102,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28104,
+              "parent_pid": 28102,
+              "process_group": 28104,
+              "session": 28104,
+              "start_ticks": 4138102
+            },
+            "last": {
+              "pid": 28104,
+              "parent_pid": 28102,
+              "process_group": 28104,
+              "session": 28104,
+              "start_ticks": 4138102
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 1,
+          "pid": 28108,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28108,
+            "parent_pid": 28102,
+            "process_group": 28108,
+            "session": 28108,
+            "start_ticks": 4138102,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28108,
+              "parent_pid": 28102,
+              "process_group": 28108,
+              "session": 28108,
+              "start_ticks": 4138102
+            },
+            "last": {
+              "pid": 28108,
+              "parent_pid": 28102,
+              "process_group": 28108,
+              "session": 28108,
+              "start_ticks": 4138102
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 2,
+          "pid": 28112,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28112,
+            "parent_pid": 28102,
+            "process_group": 28112,
+            "session": 28112,
+            "start_ticks": 4138102,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28112,
+              "parent_pid": 28102,
+              "process_group": 28112,
+              "session": 28112,
+              "start_ticks": 4138102
+            },
+            "last": {
+              "pid": 28112,
+              "parent_pid": 28102,
+              "process_group": 28112,
+              "session": 28112,
+              "start_ticks": 4138102
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 3,
+          "pid": 28116,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28116,
+            "parent_pid": 28102,
+            "process_group": 28116,
+            "session": 28116,
+            "start_ticks": 4138102,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28116,
+              "parent_pid": 28102,
+              "process_group": 28116,
+              "session": 28116,
+              "start_ticks": 4138102
+            },
+            "last": {
+              "pid": 28116,
+              "parent_pid": 28102,
+              "process_group": 28116,
+              "session": 28116,
+              "start_ticks": 4138102
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 4,
+          "pid": 28120,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28120,
+            "parent_pid": 28102,
+            "process_group": 28120,
+            "session": 28120,
+            "start_ticks": 4138102,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28120,
+              "parent_pid": 28102,
+              "process_group": 28120,
+              "session": 28120,
+              "start_ticks": 4138102
+            },
+            "last": {
+              "pid": 28120,
+              "parent_pid": 28102,
+              "process_group": 28120,
+              "session": 28120,
+              "start_ticks": 4138102
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 5,
+          "pid": 28124,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28124,
+            "parent_pid": 28102,
+            "process_group": 28124,
+            "session": 28124,
+            "start_ticks": 4138102,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28124,
+              "parent_pid": 28102,
+              "process_group": 28124,
+              "session": 28124,
+              "start_ticks": 4138102
+            },
+            "last": {
+              "pid": 28124,
+              "parent_pid": 28102,
+              "process_group": 28124,
+              "session": 28124,
+              "start_ticks": 4138102
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 6,
+          "pid": 28128,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28128,
+            "parent_pid": 28102,
+            "process_group": 28128,
+            "session": 28128,
+            "start_ticks": 4138102,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28128,
+              "parent_pid": 28102,
+              "process_group": 28128,
+              "session": 28128,
+              "start_ticks": 4138102
+            },
+            "last": {
+              "pid": 28128,
+              "parent_pid": 28102,
+              "process_group": 28128,
+              "session": 28128,
+              "start_ticks": 4138102
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 7,
+          "pid": 28132,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28132,
+            "parent_pid": 28102,
+            "process_group": 28132,
+            "session": 28132,
+            "start_ticks": 4138102,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28132,
+              "parent_pid": 28102,
+              "process_group": 28132,
+              "session": 28132,
+              "start_ticks": 4138102
+            },
+            "last": {
+              "pid": 28132,
+              "parent_pid": 28102,
+              "process_group": 28132,
+              "session": 28132,
+              "start_ticks": 4138102
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        }
+      ],
+      "workers_reaped": 8,
+      "children_closed": true,
+      "pool_startup_wall_seconds": 1.130133921997185,
+      "sequence_wall_seconds": 5.645122887999605,
+      "query_statistics": {
+        "submitted": 552,
+        "consumed": 815,
+        "discarded": 0,
+        "cached_at_enqueue": 263
+      }
+    },
+    {
+      "event": "status",
+      "elapsed_s": 14.569944501999998,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "lift"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 17.711765800999274,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "deferred_return"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 31.255288338001264,
+      "status": "pickup_geometry_process_completed",
+      "command": "pick",
+      "epoch": 2,
+      "passed": true,
+      "wall_seconds": 16.68521065599998,
+      "failure_type": null,
+      "workers_created": 8,
+      "workers": [
+        {
+          "worker": 0,
+          "pid": 28142,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28142,
+            "parent_pid": 28102,
+            "process_group": 28142,
+            "session": 28142,
+            "start_ticks": 4139531,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28142,
+              "parent_pid": 28102,
+              "process_group": 28142,
+              "session": 28142,
+              "start_ticks": 4139531
+            },
+            "last": {
+              "pid": 28142,
+              "parent_pid": 28102,
+              "process_group": 28142,
+              "session": 28142,
+              "start_ticks": 4139531
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 1,
+          "pid": 28146,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28146,
+            "parent_pid": 28102,
+            "process_group": 28146,
+            "session": 28146,
+            "start_ticks": 4139531,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28146,
+              "parent_pid": 28102,
+              "process_group": 28146,
+              "session": 28146,
+              "start_ticks": 4139531
+            },
+            "last": {
+              "pid": 28146,
+              "parent_pid": 28102,
+              "process_group": 28146,
+              "session": 28146,
+              "start_ticks": 4139531
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 2,
+          "pid": 28150,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28150,
+            "parent_pid": 28102,
+            "process_group": 28150,
+            "session": 28150,
+            "start_ticks": 4139531,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28150,
+              "parent_pid": 28102,
+              "process_group": 28150,
+              "session": 28150,
+              "start_ticks": 4139531
+            },
+            "last": {
+              "pid": 28150,
+              "parent_pid": 28102,
+              "process_group": 28150,
+              "session": 28150,
+              "start_ticks": 4139531
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 3,
+          "pid": 28154,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28154,
+            "parent_pid": 28102,
+            "process_group": 28154,
+            "session": 28154,
+            "start_ticks": 4139531,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28154,
+              "parent_pid": 28102,
+              "process_group": 28154,
+              "session": 28154,
+              "start_ticks": 4139531
+            },
+            "last": {
+              "pid": 28154,
+              "parent_pid": 28102,
+              "process_group": 28154,
+              "session": 28154,
+              "start_ticks": 4139531
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 4,
+          "pid": 28158,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28158,
+            "parent_pid": 28102,
+            "process_group": 28158,
+            "session": 28158,
+            "start_ticks": 4139531,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28158,
+              "parent_pid": 28102,
+              "process_group": 28158,
+              "session": 28158,
+              "start_ticks": 4139531
+            },
+            "last": {
+              "pid": 28158,
+              "parent_pid": 28102,
+              "process_group": 28158,
+              "session": 28158,
+              "start_ticks": 4139531
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 5,
+          "pid": 28162,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28162,
+            "parent_pid": 28102,
+            "process_group": 28162,
+            "session": 28162,
+            "start_ticks": 4139531,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28162,
+              "parent_pid": 28102,
+              "process_group": 28162,
+              "session": 28162,
+              "start_ticks": 4139531
+            },
+            "last": {
+              "pid": 28162,
+              "parent_pid": 28102,
+              "process_group": 28162,
+              "session": 28162,
+              "start_ticks": 4139531
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 6,
+          "pid": 28166,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28166,
+            "parent_pid": 28102,
+            "process_group": 28166,
+            "session": 28166,
+            "start_ticks": 4139531,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28166,
+              "parent_pid": 28102,
+              "process_group": 28166,
+              "session": 28166,
+              "start_ticks": 4139531
+            },
+            "last": {
+              "pid": 28166,
+              "parent_pid": 28102,
+              "process_group": 28166,
+              "session": 28166,
+              "start_ticks": 4139531
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        },
+        {
+          "worker": 7,
+          "pid": 28170,
+          "returncode": -15,
+          "stderr_bytes": 0,
+          "identity": {
+            "pid": 28170,
+            "parent_pid": 28102,
+            "process_group": 28170,
+            "session": 28170,
+            "start_ticks": 4139532,
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_observation": {
+            "first": {
+              "pid": 28170,
+              "parent_pid": 28102,
+              "process_group": 28170,
+              "session": 28170,
+              "start_ticks": 4139532
+            },
+            "last": {
+              "pid": 28170,
+              "parent_pid": 28102,
+              "process_group": 28170,
+              "session": 28170,
+              "start_ticks": 4139532
+            },
+            "argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_argv": [
+              "/usr/bin/python3",
+              "-u",
+              "-m",
+              "erc_phase1_solution.geometry_process_worker"
+            ],
+            "expected_parent_pid": 28102,
+            "boot_id": "8ad5e5de-b618-4f81-9568-6aaaa9b201c7"
+          },
+          "identity_capture_error": null,
+          "reaped": true,
+          "remaining_owned_child": false,
+          "stderr_prefix": ""
+        }
+      ],
+      "workers_reaped": 8,
+      "children_closed": true,
+      "pool_startup_wall_seconds": 1.132501609998144,
+      "sequence_wall_seconds": 14.566367101018841,
+      "query_statistics": {
+        "submitted": 3942,
+        "consumed": 3942,
+        "discarded": 0,
+        "cached_at_enqueue": 0
+      }
+    },
+    {
+      "event": "status",
+      "elapsed_s": 31.25574885000242,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "extraction_volume"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 31.42174076900119,
+      "status": "lower_shelf_planning_stage",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "stage": "unloaded_recovery"
+    },
+    {
+      "event": "status",
+      "elapsed_s": 31.640322625000408,
+      "status": "lower_shelf_pick_candidate_planned",
+      "command": "pick",
+      "candidate": "row3_supported_positive_wrist",
+      "torso_height": 0.1,
+      "loaded_clearance_index": 3,
+      "rejected_candidates": 0,
+      "shelf_geometry": {
+        "samples": 559,
+        "plane_base": [
+          0.605,
+          0.08673851513101599,
+          2.26
+        ],
+        "normal_uncertainty_m": 0.01,
+        "minimum_floor_m": 0.092325585694775,
+        "minimum_roof_m": 0.07587584220745813,
+        "minimum_side_m": 0.0058158832755863575,
+        "minimum_back_m": 0.1673538277044408,
+        "full_shelf_mesh_certificate": false
+      }
+    },
+    {
+      "event": "OFFLINE_SYNTHETIC_COVERAGE_PASS",
+      "elapsed_s": 32.979982749002374,
+      "target": "3:yellow",
+      "candidate": "row3_supported_positive_wrist",
+      "radius": 0.4362046538036934
+    }
+  ],
+  "passed": true,
+  "harness_sha256": "d202d6c70a0e5e7c020beda519b76e80fdcd71579d0711f32028c458f8d3752e",
+  "scenario_manifest_sha256": "77408eba0b96018ee094017f57fd2774f0bf11efe053d51cfabb4c446081f2a6",
+  "geometry_mode": "production owned pools",
+  "source_sha256": {
+    "erc_phase1_solution/__init__.py": "ec374f9f56133b33b1bd560a0e6ffbade713934e79b81fced05e3591d52ac9e1",
+    "erc_phase1_solution/adaptive_grasp.py": "f603c1a20a3edc9536dfdadf52041b5d58f9b70f007c32470311782de30ac2b9",
+    "erc_phase1_solution/additional_arm_timing.py": "26892348fde004dcc699c472123d85abc8029494a01fb0060872d793d7e5472f",
+    "erc_phase1_solution/aperture_interval_capture.py": "c643aa5dda0fe9238b1e59f3c83ff43bf555543f752149c668cc75a5c47b7280",
+    "erc_phase1_solution/aperture_interval_geometry.py": "c4516430ee18fce5027287b64099a69b555adb4fd1203d92e6156d45a5b41325",
+    "erc_phase1_solution/arm_trajectory_timing.py": "66c0eb531d3ca6d3d6282cde0b07ff875e156af392edc24b4fc251b1ac864dd9",
+    "erc_phase1_solution/arm_velocity_admission.py": "e994298b94d74338e2ebc80ca3f995d71b094631ba1916eed5f778997e01b8cc",
+    "erc_phase1_solution/bin_clearance_timing.py": "f481d4cb62623a0d7d1df5d4ee891a3e76f1b61a7ef8988ed376023ad67fa21e",
+    "erc_phase1_solution/bin_geometry.py": "3d89012b2f7b2cb9adfca4d039de3a54607736d5e32515191b1d185ae272f2c2",
+    "erc_phase1_solution/bin_scene.py": "43b6903d9c31d2efc8dd30047f1b6b32884728b4c9f1358558ebfe56a565f67e",
+    "erc_phase1_solution/bin_scene_admission.py": "0768d26fd71c248e0ddfa7d84b71b936b6f2a51d7ae7b39db8e7cb641913fcad",
+    "erc_phase1_solution/bin_visibility_recovery.py": "c22146ff98ec0bb566da240968f77c15baa0727d577475cbf33206ad19b72678",
+    "erc_phase1_solution/book_centered_place.py": "ed84f8930a08836b6aa4aa1d1779e644d0f8b37acaed1f399871bf69124551d8",
+    "erc_phase1_solution/book_selection_context.py": "715a29af2084c4d73c7699f656bef4c40e4a413dba529da724675f703d81f327",
+    "erc_phase1_solution/bottom_grasp_proposal.py": "1ba02bd4f2e49bfbdf8ece44a901fcf86ca792685442604ac996a1089bbaaff2",
+    "erc_phase1_solution/bottom_shelf_approach.py": "7ac2a77356ddeeedc61b3d26d944d25e4f454a1d260fd334f3ed153f6ba605c5",
+    "erc_phase1_solution/common.py": "9735e5de89515de7ec43e0a94afd89f3c542f3d802e64de552d2fb5ba1de7321",
+    "erc_phase1_solution/compact_timing.py": "dfa12214cef01d1df73caa34446cd515f6543b5ca74b1572df660e74c0d8b042",
+    "erc_phase1_solution/completed_torso_hold.py": "a7db5d5f6d81077f4b8d679794e55138b66eabc93760e01e2ecfc622a58bf4c6",
+    "erc_phase1_solution/empty_arm_preparation.py": "6b286d34df660d18fc36fa48a199c554b0547710cdec105166633256966d1ae2",
+    "erc_phase1_solution/empty_arm_staging.py": "0dc401f8b194a50797403ea1ee39f8d40cfd85af15cb2e8c49eafb3572678bca",
+    "erc_phase1_solution/empty_head_timing.py": "3fe0637bcf8b0ccef2649e5509573db3273411cf36827427f8cc89cd1a211bd6",
+    "erc_phase1_solution/empty_pickup_collision.py": "532e97d6689afadde0b9e55d2cb0391d961973910aaf848a3cf0df2121f1b57c",
+    "erc_phase1_solution/empty_pickup_geometry_backend.py": "f4b29c28f73f0f6b00ccd915c4a6c4ed991a681f0159dee341ae242412681cfd",
+    "erc_phase1_solution/empty_pickup_geometry_owner.py": "113ff7864134458df463a1372ef205434c8e5780d4050b7cccec2d3cdabff3b5",
+    "erc_phase1_solution/empty_pickup_setup_timing.py": "69cf85795efd77082063df7d73280c9afc1a60d7c8da274e6066fe7e7eea625c",
+    "erc_phase1_solution/empty_shelf_bounds.py": "d6937f3f8e66b8ab4d177bf65d82c8532997705b6b219854c7b1f4fdd9a3fff2",
+    "erc_phase1_solution/empty_shelf_setup.py": "3080e758d46172fe12ac5a2cb92216f3c2de725a8bfbf86ac3329fbc8aafcfa9",
+    "erc_phase1_solution/empty_torso_planning_overlap.py": "cbf9a7211abe70ca10becbf06ee1f4f4e96f311132833a36da4e8b10197b1509",
+    "erc_phase1_solution/exact_local_bounds.py": "4d03bb1a5758296f8169d689ba2effe0115094ae4747c51a794af9d8b635afd7",
+    "erc_phase1_solution/exact_world_geometry.py": "6ef505b710f122b2600039e2bd0ed2eb4d7c224bde178f2a6c8fbf180ce1ce5e",
+    "erc_phase1_solution/extraction_pressure.py": "f3441eea51af13cb456af11da7cadf8c2ced599bceca4d5142e764d0c1bb5b49",
+    "erc_phase1_solution/fine_gripper_close.py": "0ec61463c9b1f8bf2c113036d912fc295a7eed1a827d2163d2812b5fa0526a06",
+    "erc_phase1_solution/geometry_array_checks.py": "a2962dfe6e7680a99b6733dfd8b4b97e2b7327f4234c153c278d4c37362ee735",
+    "erc_phase1_solution/geometry_process_models.py": "ef20ea7b6e12d26003933194e7c14d89fcc196daa0106994869da28d70ce71aa",
+    "erc_phase1_solution/geometry_process_parent.py": "f31eb184a30ee0072fd79c586169a7d91b0431c73d5c0b178b5a39b23bdbec1c",
+    "erc_phase1_solution/geometry_process_pool.py": "9f016bc177cfa12bf1c532c495039a7910e976aff8dc04e2fbdd02977007a830",
+    "erc_phase1_solution/geometry_process_protocol.py": "c88fb31b86576ebd3ae7a018c1f8992c5782f894bdf4e8cb56f153e1c96dbd5c",
+    "erc_phase1_solution/geometry_process_worker.py": "e576d7881f8bd1f1bde480dddea1bb48abcb8f2a852b564251f819a4a9a72724",
+    "erc_phase1_solution/head_return_overlap.py": "cb5a8eb42b045c01e03217e118b3d31ce3b8318908c65ac7c5c73577e8b7a3be",
+    "erc_phase1_solution/initial_stow_serial_timing.py": "a312a606e3b84e3391ba8ad6d1ade7b077bc837347a34b214b8d9805e6f6de14",
+    "erc_phase1_solution/installed_geometry_identity.py": "1dcaee26a7feea26d2b23873e89d38a7c8be211dba38ea327f7cbefc234e34f0",
+    "erc_phase1_solution/kinematics.py": "c3766618256bbb19a73a093fca0697b3ed002b576026783d11d155d02f3c2dd7",
+    "erc_phase1_solution/lift_first_extraction.py": "2d43f4cb9f01a6841fc68237b54f14d9f76c827884ef2991be7a8266f7aefa0b",
+    "erc_phase1_solution/lift_pressure_gate.py": "b7acffbdde89f7383d1f645b22d101afcc37b95892c3f36462801639999259bb",
+    "erc_phase1_solution/live_rigid_palm_aperture_evidence_probe.py": "a646406a05d76905a5d6ce9c33e762d3ba8df2dca0fad48628baf5c86771167a",
+    "erc_phase1_solution/live_rigid_palm_extract_retreat_probe.py": "0f3cb6bbccfe3270475db7d536ec9484733257e0d3ba21f193bdccbd6a5a4e77",
+    "erc_phase1_solution/live_rigid_palm_micro_aperture_probe.py": "28daa51a683410f4c4ff67e1a0b3ee89fd563e15c537f7f19a67ed5a2d833bd0",
+    "erc_phase1_solution/live_rigid_palm_natural_settle_probe.py": "0aae8359ff0765238d6b475b4c26886887c43bf82b2fa88b22e91f7a929e19d4",
+    "erc_phase1_solution/live_rigid_palm_natural_tangent_slip_probe.py": "80822c68ed26414d8a738af4d23e51582e6583c3d8564ce93222e575b50e7e3f",
+    "erc_phase1_solution/live_rigid_palm_post_natural_settle_probe.py": "782a60a5f5f80a6ead455a9ce09c901ab0e6c923218855b49e8713e780c255fc",
+    "erc_phase1_solution/live_rigid_palm_post_slide_transport_probe.py": "f8bb6743c989fe266917f2fd319c2beb461a07c4c08823d70ba86d2e4e8b3a67",
+    "erc_phase1_solution/live_rigid_palm_shelf_edge_cradle_probe.py": "9c9a4a015d5293259655fddcd8b8cba3186c02d9a4731e5e4b1a8bf49f858138",
+    "erc_phase1_solution/live_rigid_palm_support_probe.py": "ac28a129ecabc605ddbf5176bb5853c94f303d29badee26bfc402de294984113",
+    "erc_phase1_solution/live_rigid_palm_supported_compaction_probe.py": "4b273f729edff9196b10b66ccdb3c55d76a6b21e2b5c8ea21b76d387cbcb4375",
+    "erc_phase1_solution/live_rigid_palm_tangent_reverse_recovery_probe.py": "b84c71cc35fab9b0ddfdf686c0bbc3dd1f9d83a41c4bc140b51268553c9400db",
+    "erc_phase1_solution/live_rigid_palm_tangent_slide_probe.py": "3fbecf6918cde47696d879fc8222dac6f25248a80ff715dd470fe58edf21037e",
+    "erc_phase1_solution/live_rigid_palm_upright_open_insert_probe.py": "eced694cc2444a8fa4d9df7ceb1bb4e4f55c5b779d76cb7917e299119de954cc",
+    "erc_phase1_solution/lower_shelf_carry.py": "0b3297b2a08d5d04d7302246260ba80f081ac28b2b4ff4af62fd143d7d2e2716",
+    "erc_phase1_solution/lower_shelf_pick.py": "e7c8a3a71b35c2ef33a6ee10f436ff063e0fee964c72253cee767936080a66e7",
+    "erc_phase1_solution/manipulation_node.py": "975b218b1ed1813ec287d6cc8e39cb9a30287c3f08a678eda86efd1e3ba079c7",
+    "erc_phase1_solution/marker_search_completion.py": "e7b05d090bbe05ab2c7c9a3e271d9286fd64ce3bd5363855bd6fb4f61dd16c36",
+    "erc_phase1_solution/mission_manager.py": "0d5cd1bf1979332f54c113041cfbdb93c0ada4ee736fee58014b5561361f0006",
+    "erc_phase1_solution/mission_raw_contacts.py": "8915340396f56b900d46fbb83972343107acc583683914841751e9bd3514c4bd",
+    "erc_phase1_solution/motion_profiles.py": "2634b09653c7fafd24ce3b8ea85f213823b8042e70ce4efc684c7979c9e8c178",
+    "erc_phase1_solution/navigation_node.py": "e8ddfee4d8df49e24203e5c324d5af87984dde0669431fd0ba317e6569119725",
+    "erc_phase1_solution/open_gripper_approach.py": "feb69ec597c895fd2fe7788f17a3f72be33f0188ba9bce2a13218eb4ed0f4513",
+    "erc_phase1_solution/perception_node.py": "840ebae913576242d60421e84d4ad5df1dc2bfad7add54c0dd4a66e175bdf922",
+    "erc_phase1_solution/pickup_geometry_backend.py": "0486186de953df141e9fa72029533dafeeb6e77aee9e5ba20e87621752fbaae9",
+    "erc_phase1_solution/pickup_geometry_owner.py": "42463b9d0f50e53a8f9c5cdd4865789c4cfddfd63fbc0536f04306c1cba03d3b",
+    "erc_phase1_solution/place_contact_guard.py": "7cdf3dafee9f1b5cc8a882f30326991efbf8398aefcf57e08f4aa727aef05f4b",
+    "erc_phase1_solution/place_geometry_backend.py": "cced6cb3fab5cd1f9b1e0e1c9fe236dd14a4c2b4c03d8ee18b3de28f0c72923f",
+    "erc_phase1_solution/place_input_handoff.py": "f9dd5581096059b9714c1ba6f0f940f4aca6b805ca65fef1ab51b871781ebfd7",
+    "erc_phase1_solution/place_transition_stop.py": "d9c9ce7e04c715a01360cd192b9f51021f207d67bc5932b8e2500f208ab557b9",
+    "erc_phase1_solution/place_volume_geometry.py": "5cb470f0d92cec660f68ba185255099bb8be60ded2d5bc6101aab78b0fa53263",
+    "erc_phase1_solution/placement_scene_context.py": "02b8c81c16709e124a0ec11a6fb6f7644c9c858aa687b9251244b5d9f3e815fb",
+    "erc_phase1_solution/planning_cpu_diagnostics.py": "f3b17186016ddfc1e0d7960003073ab11b5532bd23268515a18247c4f2c4ed93",
+    "erc_phase1_solution/preclose_aperture_geometry.py": "df8a5288f0103390313310d10f783a0a0f002f0b6f68cfc3819a82248d637a5c",
+    "erc_phase1_solution/preopen_stationary.py": "c941f24b6bced6f077dc9d1be975d224da93a1f72cc34a3ffe8082c32bdd1358",
+    "erc_phase1_solution/pure_geometry_owner.py": "b1712650be96dc927378135ab84c6ef63a8ffffa2ae906d4ef5a6191214727cd",
+    "erc_phase1_solution/raised_place_finish.py": "aa267e9978a77d6eb82553cea76e4f33dbeb11bdcea3e64d8794dc4411d6b5f0",
+    "erc_phase1_solution/raw_contacts.py": "9df1968727e4a47ca6fcef7f913dcbb48122b15535d505acdb83baa3eb6eb23c",
+    "erc_phase1_solution/registered_place_targets.py": "19a1a127bf3270e8af94ba5d484f8f62e8564fd3dc374b049a79de6f9a2e0762",
+    "erc_phase1_solution/release_evidence.py": "db3fe17adb574501a1e055196120529e5b2627780ac1796bffd13a41a2721a42",
+    "erc_phase1_solution/release_only_clearance_timing.py": "d06fbc8959a4bed3b92aa8d915dad4ebee935e6c47248d5e2030a9b90c89e8c4",
+    "erc_phase1_solution/release_only_place_planning.py": "b30ce6d8d073c041bb43da7fd800e9387e0a2a0c65eaaaa0dc43c29eb62d36eb",
+    "erc_phase1_solution/release_pose_evidence.py": "c76ac2158eca197ecc95ecc76d8548f553a25eb0a26b7cfa6e35cce78c7f39cf",
+    "erc_phase1_solution/release_pose_finish.py": "f237180ed0215e6551e460690d33149bcf0fa830916cdda88829c90e57a53913",
+    "erc_phase1_solution/release_pose_hold_evidence.py": "cddda05aeb653ef9713fcbe398a17a2c85040dc8791eb7ef7e1a876e62d4e112",
+    "erc_phase1_solution/release_sensor_adapter.py": "04fca8ff59ffb0eca4b5ace03d8de3af7a63663117ec8e1b28a2b7b0110227f9",
+    "erc_phase1_solution/rigid_palm_live_preflight.py": "0773f841b9908721565a7c530378b2823e3ab6adc1a3ad5ea8777e3999d8140d",
+    "erc_phase1_solution/rigid_palm_preflight.py": "f23e8a2ffd3f95ca43adeb70977fd3657dec61ba0decc7c64b1b3d3c50fa2caf",
+    "erc_phase1_solution/runtime_utils.py": "b3bcf5fcdb288e8ac83ac98a128daf9c460e52417de6ee92723b86da0bc4b2b2",
+    "erc_phase1_solution/sample_collision_snapshot.py": "06733862e473f9481556a4d1e41bd8e4c20786f8ec8ee7e9f6390aac427fc77d",
+    "erc_phase1_solution/scene_cartesian_solver.py": "a0340d49b84d5316af2e0af595d04102941a6ac25fbe8f0e805f9488b5f145ce",
+    "erc_phase1_solution/scene_checked_place.py": "8e1d881759b6a8bcce95f54ba4b6b23d5d15e0f76613212b0a1c9c705881343a",
+    "erc_phase1_solution/seed101_diagonal_peel_certificate.py": "29c10cec920ce7ce29b1acb01a7b1a1740dae8e39ae576fb7fce7f91581c742f",
+    "erc_phase1_solution/seed101_loaded_extraction_certificate.py": "1935697c8bf249cf5c25505dee24b3e2c4dce043ac120de51018fe1323401a20",
+    "erc_phase1_solution/seed101_outward_halfmillimeter_certificate.py": "281a989614a27238e84e9c9b4106ed40b40fa976aa00995d935448ee857803a3",
+    "erc_phase1_solution/seed101_outward_halfmillimeter_midroute_settle_certificate.py": "5fa1fe3b17ee373d293c009e248db4a7708beb3825effd0606f531b9cdbb4183",
+    "erc_phase1_solution/seed101_outward_post_reseat_settle_certificate.py": "f8abcf61ba42181e74069d74e3b71cb0bf420adb15c1e062004a6d968ed61fe6",
+    "erc_phase1_solution/seed101_outward_reverse_reseat_certificate.py": "4bfa533d0cf46614ba7123e0bbfb184b0b96f1f708073fc507d075a00b11a0c6",
+    "erc_phase1_solution/seed101_outward_scaleup_certificate.py": "0bb7590737f0da77642c4fb881402ccafbfb298404b8203d02509594cc8b22cd",
+    "erc_phase1_solution/seed101_outward_scaleup_continue_certificate.py": "74f0205d125259807e08dd9d2986c16cd33b5dd14e27c785d67502d4b489d156",
+    "erc_phase1_solution/seed101_outward_scaleup_settle_resample_certificate.py": "3430df75e8c2aa8d96943fabbe83b4a183aed159e4b3c89a2e198ef85a917022",
+    "erc_phase1_solution/seed101_pure_outward_certificate.py": "471f66d928df68d663e1abda919294336139c8d49cc14227131a37c92f7027c6",
+    "erc_phase1_solution/settled_torso.py": "03d05f6bda7a4425187c76068d5884b5c958f84ebf65882b1bf6f328f0f084bd",
+    "erc_phase1_solution/shelf_bay_context.py": "18d2237998ef12f80793e38fe060342f7c201b4e891e9a33f47b4aa9b98ec664",
+    "erc_phase1_solution/shelf_cradle_geometry.py": "895549bc5408ab1c7c83d9ac73b306016228e1140b932138cc564f6a650b64fb",
+    "erc_phase1_solution/static_pair_separation.py": "1dea6499c9f594a60cd51936d52862433730a8373efd99700b7e76ecdf7585f9",
+    "erc_phase1_solution/stock_gripper_close.py": "f533df05cddb5bbd90b83a0fdf2130a6654ed7a3fbcc4ba6c2b187accfc361e7",
+    "erc_phase1_solution/table_scene.py": "95df2f255e4a7596ba16d7132e095c96e8eb707bdca94cabbfec6ecaf4476ce8",
+    "erc_phase1_solution/target_tracking.py": "e1f5449653f5be943875a463faf4a63ede3f43c5098f4e689e226e44eebcffee",
+    "erc_phase1_solution/tool_local_meshes.py": "3b3963775077f14e4d49b4b9c24f97624a98ce3a3ae076f2e4db21c88ac7be83",
+    "erc_phase1_solution/vision.py": "aaf183c538dcfea00c44c0c485ca963045f432f4228e6db2cd82bd336187a799",
+    "erc_phase1_solution/withdrawal_half_timing.py": "96a3ae5c1b99a0985eb7889596b5a30df206d4f13c2765d011c6fc346d4bee3e",
+    "erc_phase1_solution/withdrawal_timing.py": "8289cb2aff6da2d03de0a02ab295f3599d90c9a300fecbaf5c249f93c9e0f439"
+  },
+  "urdf_sha256": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0",
+  "installed_geometry_identity": {
+    "source_id": "d832d2f27a69a39ccf5fc946c8305ba5683878938367af8e1723aa9bf5ed9e0d",
+    "model_id": "c9970fe9ec91dbd9041f24093c7423ea1b7e9225f4ed8ebfdbc63f28bf731983"
+  },
+  "initial_fixture": {
+    "left": [
+      0.1,
+      0.36,
+      -1.83,
+      0.47,
+      -2.35,
+      0.0,
+      -1.2,
+      0.0
+    ],
+    "right": [
+      -0.36,
+      -1.83,
+      -0.47,
+      -2.35,
+      0.0,
+      -1.2,
+      0.0
+    ],
+    "head": [
+      0.0,
+      -0.4
+    ],
+    "aperture": 0.069,
+    "book_dimensions": [
+      0.16,
+      0.02,
+      0.25
+    ],
+    "transition_samples": 61,
+    "marker": [
+      0.605,
+      0.08673851513101599,
+      2.26
+    ],
+    "left_axis": [
+      -0.0,
+      1.0,
+      0.0
+    ],
+    "effective_sides": [
+      -0.21499999999999997,
+      0.3549999999999999
+    ],
+    "registered_lip": [
+      0.606016,
+      0.08673851513101599,
+      2.26
+    ],
+    "effective_plane": [
+      0.605,
+      0.08673851513101599,
+      2.26
+    ],
+    "book_depth_m": 0.06398400000000004,
+    "floor_m": 0.8178333794123657,
+    "roof_m": 1.0778333794123658
+  },
+  "plan": {
+    "candidate": "row3_supported_positive_wrist",
+    "positions": [
+      [
+        0.45,
+        -0.056,
+        0.9278333794123657
+      ],
+      [
+        0.5025000000000001,
+        -0.056,
+        0.9278333794123657
+      ],
+      [
+        0.555,
+        -0.056,
+        0.9278333794123657
+      ],
+      [
+        0.6016666666666667,
+        -0.056,
+        0.9278333794123657
+      ],
+      [
+        0.6483333333333334,
+        -0.056,
+        0.9278333794123657
+      ],
+      [
+        0.6950000000000001,
+        -0.056,
+        0.9278333794123657
+      ]
+    ],
+    "grasp": [
+      0.6950000000000001,
+      -0.056,
+      0.9278333794123657
+    ],
+    "rotations": [
+      [
+        [
+          0.9689124217106447,
+          3.029824667974337e-17,
+          -0.24740395925452294
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16
+        ],
+        [
+          -0.24740395925452294,
+          1.1865754959020516e-16,
+          -0.9689124217106447
+        ]
+      ]
+    ],
+    "solutions": [
+      [
+        0.1,
+        3.1106286408808286,
+        -2.4334609527920614,
+        -1.7991367829110931,
+        -2.0473518974078653,
+        1.0857700763860811,
+        -1.1586196804848683,
+        1.1318944915363005
+      ],
+      [
+        0.1,
+        3.188691584243718,
+        -2.3871092226709236,
+        -1.6276485668703045,
+        -2.0535259746477545,
+        1.194575455810713,
+        -1.0693214292267028,
+        1.1155689190487565
+      ],
+      [
+        0.1,
+        3.2658216424852653,
+        -2.320601576804728,
+        -1.4668107752496928,
+        -2.034112039384464,
+        1.3096297523124891,
+        -0.995875498855956,
+        1.0989507039264987
+      ],
+      [
+        0.1,
+        3.329822512506306,
+        -2.246169661647015,
+        -1.3390111229231345,
+        -1.9920644574084165,
+        1.4104700717538556,
+        -0.943634344669756,
+        1.0900313617265185
+      ],
+      [
+        0.1,
+        3.38551667036445,
+        -2.1620576507242504,
+        -1.229915582959667,
+        -1.9268000352858536,
+        1.4998428580958265,
+        -0.8992320549570724,
+        1.0942911049611321
+      ],
+      [
+        0.1,
+        3.43743578812067,
+        -2.076207971674855,
+        -1.1341001093564569,
+        -1.8348662903910717,
+        1.5607963267948965,
+        -0.8539065118825769,
+        1.1210433651147786
+      ]
+    ],
+    "transition": [
+      [
+        0.1,
+        3.1106286408808286,
+        -2.4334609527920614,
+        0.47,
+        -2.35,
+        0.0,
+        -1.2,
+        0.0
+      ]
+    ],
+    "extraction": [
+      [
+        0.1,
+        3.38551667036445,
+        -2.1620576507242504,
+        -1.229915582959667,
+        -1.9268000352858536,
+        1.4998428580958265,
+        -0.8992320549570724,
+        1.0942911049611321
+      ],
+      [
+        0.1,
+        3.329822512506306,
+        -2.246169661647015,
+        -1.3390111229231345,
+        -1.9920644574084165,
+        1.4104700717538556,
+        -0.943634344669756,
+        1.0900313617265185
+      ]
+    ],
+    "selected_torso": 0.1,
+    "loaded_index": 3,
+    "lift_route": [
+      [
+        0.1,
+        3.411798806633399,
+        -2.07693726021437,
+        -1.1478388641723252,
+        -1.7786682994121754,
+        1.5033218328984737,
+        -0.8603977904287696,
+        1.2218217411233387
+      ],
+      [
+        0.1,
+        3.3613784127454354,
+        -2.1689821830635894,
+        -1.2331649505122761,
+        -1.867589523896324,
+        1.4366206495665457,
+        -0.898461213308885,
+        1.1977233027161789
+      ],
+      [
+        0.1,
+        3.3047615115052285,
+        -2.257100626232112,
+        -1.3347769191507068,
+        -1.934459370729784,
+        1.3516845869516882,
+        -0.938779246302381,
+        1.1902119999002576
+      ]
+    ],
+    "lift_metrics": {
+      "lift_m": 0.02,
+      "legs": [
+        {
+          "leg": 0,
+          "samples": 61,
+          "position_error_m": 0.0002501322965200393,
+          "orientation_error_rad": 0.0006407586699836324,
+          "minimum_corner_rise_m": 0.0,
+          "required_minimum_corner_rise_m": 0.0,
+          "corner_rise_reserve_m": 0.0,
+          "roof_clearance_after_margin_uncertainty_m": 0.005142122557211248,
+          "side_clearance_after_margin_uncertainty_m": 0.02537516453834696
+        },
+        {
+          "leg": 1,
+          "samples": 61,
+          "position_error_m": 0.0002262709682772119,
+          "orientation_error_rad": 0.00042993292010903454,
+          "minimum_corner_rise_m": 0.019764541108566513,
+          "required_minimum_corner_rise_m": 0.019,
+          "corner_rise_reserve_m": 0.0007645411085665139,
+          "roof_clearance_after_margin_uncertainty_m": 0.00450058174747725,
+          "side_clearance_after_margin_uncertainty_m": 0.024660142559216006
+        },
+        {
+          "leg": 2,
+          "samples": 61,
+          "position_error_m": 0.00037261157324716275,
+          "orientation_error_rad": 0.0007582375732432135,
+          "minimum_corner_rise_m": 0.020077972677169376,
+          "required_minimum_corner_rise_m": 0.019,
+          "corner_rise_reserve_m": 0.001077972677169376,
+          "roof_clearance_after_margin_uncertainty_m": 0.0042575242325986196,
+          "side_clearance_after_margin_uncertainty_m": 0.024670132281216454
+        }
+      ],
+      "registration_source": "SYNTHETIC onboard-aligned ideal plate-origin scenario, seed101 printed3 yellow; not a live observation",
+      "minimum_withdrawal_corner_rise_m": 0.019,
+      "maintained_floor_reference": "initial_upright_book_corners",
+      "lateral_uncertainty_m": 0.2,
+      "roof_uncertainty_m": 0.01,
+      "margin_m": 0.015,
+      "modeled_tool_allowance_m": 0.005,
+      "modeled_tool_allowance_is_certified_deflection_bound": false,
+      "initial_upright_support_assumed": true,
+      "floor_reference_base_z_m": 0.8028333794123657,
+      "known_bay_height_m": 0.3,
+      "full_shelf_collision_certificate": false,
+      "deferred_carry_regenerated": false,
+      "scope": "Relative book no-descent, maintained post-lift rise and payload/tool roof/side bounds; no shelf-floor/front-edge mesh certificate or motion/retention proof"
+    },
+    "carry": {
+      "start": [
+        0.1,
+        3.3047615115052285,
+        -2.257100626232112,
+        -1.3347769191507068,
+        -1.934459370729784,
+        1.3516845869516882,
+        -0.938779246302381,
+        1.1902119999002576
+      ],
+      "shelf_front_x": 0.92,
+      "attached_corners": [
+        [
+          -0.0038926537402173347,
+          0.02497953911129434,
+          0.14518148493230013
+        ],
+        [
+          -0.07359019290179022,
+          0.02531380613528081,
+          -0.12600505842923493
+        ],
+        [
+          -0.003854418876108566,
+          -0.025020395208436248,
+          0.14511002782774426
+        ],
+        [
+          -0.07355195803768147,
+          -0.02468612818444978,
+          -0.1260765155337908
+        ],
+        [
+          0.18012686883283902,
+          0.025187849207406895,
+          0.09788696179390452
+        ],
+        [
+          0.11042932967126612,
+          0.025522116231393364,
+          -0.17329958156763053
+        ],
+        [
+          0.1801651036969478,
+          -0.024812085112323693,
+          0.09781550468934863
+        ],
+        [
+          0.1104675645353749,
+          -0.024477818088337225,
+          -0.17337103867218642
+        ]
+      ],
+      "requires_gravity_support": false,
+      "legs": [
+        [
+          [
+            0.1,
+            3.3729786598790747,
+            -2.155152280673578,
+            -1.2016389678520847,
+            -1.8689900102239838,
+            1.4609180275260834,
+            -0.8831982557340987,
+            1.1942458019909181
+          ],
+          "post_retreat_clearance_extension"
+        ],
+        [
+          [
+            0.1,
+            3.437727178154807,
+            -2.0376041701206407,
+            -1.0909065293386786,
+            -1.7500111298050582,
+            1.5474016057097593,
+            -0.832046227737328,
+            1.2203901483403576
+          ],
+          "post_retreat_clearance_extension"
+        ],
+        [
+          [
+            0.1,
+            3.437727178154807,
+            -2.0376041701206407,
+            -1.0909065293386786,
+            -1.7500111298050582,
+            1.5474016057097593,
+            -0.832046227737328,
+            0.8537234816736909
+          ],
+          "post_retreat_cradle_roll"
+        ],
+        [
+          [
+            0.1,
+            3.437727178154807,
+            -2.0376041701206407,
+            -1.0909065293386786,
+            -1.7500111298050582,
+            1.5474016057097593,
+            -0.832046227737328,
+            0.48705681500702425
+          ],
+          "post_retreat_cradle_roll"
+        ],
+        [
+          [
+            0.1,
+            3.437727178154807,
+            -2.0376041701206407,
+            -1.0909065293386786,
+            -1.7500111298050582,
+            1.5474016057097593,
+            -0.832046227737328,
+            0.12039014834035755
+          ],
+          "post_retreat_cradle_roll"
+        ],
+        [
+          [
+            0.1,
+            3.3696353349817576,
+            -2.0480350499430378,
+            -1.1243469722205088,
+            -1.6299417408888923,
+            1.4299635032384022,
+            -0.8428210620087979,
+            0.2803901483403576
+          ],
+          "supported_cradle_lowering"
+        ],
+        [
+          [
+            0.1,
+            3.3485650535078197,
+            -1.9866717495667126,
+            -1.1869704456390886,
+            -1.367565393293731,
+            1.2977856960930023,
+            -0.9577094733376181,
+            0.6003901483403576
+          ],
+          "supported_cradle_lowering"
+        ],
+        [
+          [
+            0.1,
+            3.368202678221315,
+            -1.9243557510607066,
+            -1.2445780503284065,
+            -1.0783376757590788,
+            1.2285650912107977,
+            -1.0776401337814483,
+            0.9144789840870782
+          ],
+          "supported_cradle_lowering"
+        ],
+        [
+          [
+            0.1,
+            3.32695783521365,
+            -2.004636095716362,
+            -1.2878205740035606,
+            -1.149880692060373,
+            1.1914536342807363,
+            -1.1322023516862392,
+            0.8928144404044629
+          ],
+          "supported_cradle_retraction"
+        ],
+        [
+          [
+            0.1,
+            3.313854308350213,
+            -2.0086241483270566,
+            -1.3053798580893812,
+            -1.1764554611594296,
+            1.178574879474363,
+            -1.0701460035044341,
+            0.6586876412720912
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.300750781486776,
+            -2.012612200937751,
+            -1.3229391421752017,
+            -1.203030230258486,
+            1.1656961246679893,
+            -1.008089655322629,
+            0.42456084213971945
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.274543727759902,
+            -2.02058830615914,
+            -1.3580577103468428,
+            -1.2561797684565992,
+            1.1399386150552424,
+            -0.8839769589590188,
+            0.44676714336956913
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.248336674033028,
+            -2.028564411380529,
+            -1.3931762785184838,
+            -1.3093293066547123,
+            1.1141811054424955,
+            -0.7598642625954086,
+            0.470291312107716
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.2221296203061542,
+            -2.036540516601918,
+            -1.428294846690125,
+            -1.3624788448528253,
+            1.0884235958297486,
+            -0.6357515662317985,
+            0.49446691887699123
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.1959225665792803,
+            -2.0445166218233073,
+            -1.4634134148617661,
+            -1.4156283830509384,
+            1.0626660862170016,
+            -0.5116388698681883,
+            0.5186502199060408
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.1697155128524064,
+            -2.0524927270446964,
+            -1.4985319830334072,
+            -1.4687779212490515,
+            1.0369085766042547,
+            -0.3875261735045782,
+            0.5422481403731937
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.1435084591255325,
+            -2.060468832266085,
+            -1.5336505512050482,
+            -1.5219274594471646,
+            1.0111510669915078,
+            -0.26341347714096797,
+            0.564736310175584
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.1173014053986585,
+            -2.0684449374874743,
+            -1.5687691193766893,
+            -1.5750769976452779,
+            0.9853935573787609,
+            -0.13930078077735786,
+            0.585666955831601
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.0910943516717846,
+            -2.0764210427088634,
+            -1.6038876875483303,
+            -1.628226535843391,
+            0.959636047766014,
+            -0.015188084413747749,
+            0.6046677699742654
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.0648872979449107,
+            -2.084397147930252,
+            -1.6390062557199714,
+            -1.6813760740415038,
+            0.933878538153267,
+            0.10892461194986236,
+            0.6214337105974058
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.0386802442180363,
+            -2.0923732531516412,
+            -1.6741248238916127,
+            -1.734525612239617,
+            0.9081210285405201,
+            0.2330373083134727,
+            0.6357139636054095
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            3.0124731904911624,
+            -2.1003493583730304,
+            -1.7092433920632537,
+            -1.7876751504377302,
+            0.8823635189277732,
+            0.3571500046770828,
+            0.6472961358169951
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            2.9862661367642884,
+            -2.1083254635944195,
+            -1.7443619602348948,
+            -1.8408246886358435,
+            0.8566060093150263,
+            0.48126270104069313,
+            0.6559893102671566
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            2.9600590830374145,
+            -2.116301568815808,
+            -1.7794805284065358,
+            -1.8939742268339563,
+            0.8308484997022794,
+            0.6053753974043032,
+            0.6616070681771556
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            2.9338520293105406,
+            -2.1242776740371974,
+            -1.8145990965781769,
+            -1.9471237650320696,
+            0.8050909900895324,
+            0.7294880937679133,
+            0.6639510931610383
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            2.9076449755836666,
+            -2.1322537792585865,
+            -1.849717664749818,
+            -2.0002733032301827,
+            0.7793334804767855,
+            0.8536007901315235,
+            0.6627956007339707
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            2.8814379218567927,
+            -2.1402298844799756,
+            -1.884836232921459,
+            -2.053422841428296,
+            0.7535759708640386,
+            0.9777134864951336,
+            0.6578726200328707
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            2.8552308681299188,
+            -2.1482059897013643,
+            -1.9199548010931002,
+            -2.106572379626409,
+            0.7278184612512917,
+            1.1018261828587441,
+            0.6488581219673684
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            2.829023814403045,
+            -2.1561820949227535,
+            -1.955073369264741,
+            -2.159721917824522,
+            0.7020609516385448,
+            1.2259388792223542,
+            0.6353591783555683
+          ],
+          "compact_transport"
+        ],
+        [
+          [
+            0.1,
+            2.802816760676171,
+            -2.1641582001441426,
+            -1.9901919374363823,
+            -2.212871456022635,
+            0.6763034420257978,
+            1.3500515755859643,
+            0.8920708110865356
+          ],
+          "compact_transport"
+        ]
+      ],
+      "staging_terminal": [
+        0.1,
+        3.32695783521365,
+        -2.004636095716362,
+        -1.2878205740035606,
+        -1.149880692060373,
+        1.1914536342807363,
+        -1.1322023516862392,
+        0.8928144404044629
+      ],
+      "terminal": [
+        0.1,
+        2.802816760676171,
+        -2.1641582001441426,
+        -1.9901919374363823,
+        -2.212871456022635,
+        0.6763034420257978,
+        1.3500515755859643,
+        0.8920708110865356
+      ],
+      "compact_radius": 0.4362046538036934,
+      "compact_shoulder_progress_power": null,
+      "compact_path": "middle",
+      "staging_vertical_offset_m": 0.18
+    },
+    "return_result": [
+      [],
+      [],
+      null,
+      [],
+      [
+        [
+          -0.0038926537402173347,
+          0.02497953911129434,
+          0.14518148493230013
+        ],
+        [
+          -0.07359019290179022,
+          0.02531380613528081,
+          -0.12600505842923493
+        ],
+        [
+          -0.003854418876108566,
+          -0.025020395208436248,
+          0.14511002782774426
+        ],
+        [
+          -0.07355195803768147,
+          -0.02468612818444978,
+          -0.1260765155337908
+        ],
+        [
+          0.18012686883283902,
+          0.025187849207406895,
+          0.09788696179390452
+        ],
+        [
+          0.11042932967126612,
+          0.025522116231393364,
+          -0.17329958156763053
+        ],
+        [
+          0.1801651036969478,
+          -0.024812085112323693,
+          0.09781550468934863
+        ],
+        [
+          0.1104675645353749,
+          -0.024477818088337225,
+          -0.17337103867218642
+        ]
+      ]
+    ],
+    "recovery_proposal": [
+      [
+        0.1,
+        3.3047615115052285,
+        -2.257100626232112,
+        -1.3347769191507068,
+        -2.35,
+        1.3516845869516882,
+        -0.938779246302381,
+        1.1902119999002576
+      ],
+      [
+        0.1,
+        3.3047615115052285,
+        -1.83,
+        -1.3347769191507068,
+        -2.35,
+        1.3516845869516882,
+        -0.938779246302381,
+        1.1902119999002576
+      ],
+      [
+        0.1,
+        3.3047615115052285,
+        -1.83,
+        -1.3347769191507068,
+        -2.35,
+        0.0,
+        -0.938779246302381,
+        1.1902119999002576
+      ],
+      [
+        0.1,
+        0.36,
+        -1.83,
+        -1.3347769191507068,
+        -2.35,
+        0.0,
+        -0.938779246302381,
+        1.1902119999002576
+      ],
+      [
+        0.1,
+        0.36,
+        -1.83,
+        0.47,
+        -2.35,
+        0.0,
+        -0.938779246302381,
+        1.1902119999002576
+      ],
+      [
+        0.1,
+        0.36,
+        -1.83,
+        0.47,
+        -2.35,
+        0.0,
+        -1.2,
+        1.1902119999002576
+      ],
+      [
+        0.1,
+        0.36,
+        -1.83,
+        0.47,
+        -2.35,
+        0.0,
+        -1.2,
+        0.0
+      ]
+    ],
+    "shelf_metrics": {
+      "samples": 559,
+      "plane_base": [
+        0.605,
+        0.08673851513101599,
+        2.26
+      ],
+      "normal_uncertainty_m": 0.01,
+      "minimum_floor_m": 0.092325585694775,
+      "minimum_roof_m": 0.07587584220745813,
+      "minimum_side_m": 0.0058158832755863575,
+      "minimum_back_m": 0.1673538277044408,
+      "full_shelf_mesh_certificate": false
+    }
+  },
+  "empty_state": {
+    "samples": 554,
+    "cache_hits": 264,
+    "last_rejection": null
+  },
+  "complete_empty_lift_extraction_cached_carry_body_tool_bay_admission": true,
+  "look_bin_head_preflight": true,
+  "recovery_scope": "ordinary unloaded proposal only; no lower retained-failure motion certificate",
+  "elapsed_s": 32.9800666930023,
+  "geometry_owner_active_on_exit": false
+}

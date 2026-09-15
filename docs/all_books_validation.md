@@ -117,6 +117,13 @@ unchanged source and completed cleanup.
   selected a 50 mm shift after 29 IK solves and passed all 2,583 scene samples;
   its reconstructed inputs do not establish physical delivery.
 
+- For accepted positive-wrist placement, the first arm setup movement now keeps
+  its original 0.8 s duration. The ordinary speed options had reduced it to 0.2 s.
+  Both measured velocity admissions and the stationary thresholds/deadlines remain
+  unchanged. Bounded diagnostic samples record any settling failure. The
+  [entry correction](evidence/local_gazebo_20260915/positive_place_entry/README.md)
+  passed 310 focused production checks; its physical effect is pending a trial.
+
 ### Software and offline evidence
 
 The latest full collection reported 6,914 passes and 14 failures in 595.47 s.
@@ -151,6 +158,12 @@ and outcomes remain in the trial table above. The lower-row checks include
 complete lift/carry planning, registered entry, signed finger support, compact
 navigation radius, unloaded recovery and the look-bin head sweep. They do not
 establish physical grasp retention, placement, or delivery for these rows.
+
+Additional [lower-row geometry probes](evidence/local_gazebo_20260915/lower_geometry_coverage/README.md)
+passed complete PICK/carry checks for two tight lateral synthetic column-3 cases.
+A mixed recorded-input row-2 PLACE fixture passed full preflight. The corresponding
+bottom PLACE fixture exhausted its original IK allowance, so bottom placement
+remains under repair. None of these probes establishes physical delivery.
 
 Delivery for all 20 targets and under-five-minute mission timing remain
 unverified for the current all-books implementation. The next physical trial

@@ -1,0 +1,9 @@
+{
+  "status": "PREPARED ONLY; NOT RUN",
+  "sha256": {
+    "README.md": "494c31689781663d6a4eb21d46e41bf92e6e0e1612f1e580a0a3a8fec85d26b7",
+    "guarded_coverage.py": "d202d6c70a0e5e7c020beda519b76e80fdcd71579d0711f32028c458f8d3752e",
+    "prepared_source_hashes.json": "79e68985771d6ca09b417e4f1370801ad7bd0689cb4c16833abfb52d1433c177",
+    "scenarios.json": "77408eba0b96018ee094017f57fd2774f0bf11efe053d51cfabb4c446081f2a6"
+  }
+}

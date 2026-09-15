@@ -1,0 +1,124 @@
+{
+  "scope": "Offline synthetic row-specific carry combined with exact recorded blue registered PLACE scene; not physical mission proof",
+  "controller_calls": 0,
+  "cleanup": "Both serial processes exited; /proc scan after completion found no replay/geometry-worker processes",
+  "results": {
+    "bottom": {
+      "passed": false,
+      "total_seconds": 16.203132850001566,
+      "planning_seconds": null,
+      "error": "scene_cartesian_ik_budget",
+      "search": {
+        "search": "bounded_negative_wrist_variable_swivel_v1",
+        "ik_calls": 512,
+        "candidates": 0,
+        "endpoint_samples": 278,
+        "opening_samples": 0,
+        "rejections": {
+          "ik": 145,
+          "nonnegative_wrist": 8,
+          "joint_step": 72
+        },
+        "levels": [
+          {
+            "waypoint": 0,
+            "surviving": 9
+          },
+          {
+            "waypoint": 1,
+            "surviving": 15
+          },
+          {
+            "waypoint": 2,
+            "surviving": 21
+          }
+        ],
+        "wall_seconds": 15.91351180899801,
+        "wall_budget_seconds": 1800.0,
+        "position_tolerance": 0.002,
+        "orientation_tolerance": 0.02,
+        "maximum_joint_step": 0.4,
+        "joint_margin": 0.1,
+        "minimum_signed_support": 0.75,
+        "full_candidate_validator_required": true,
+        "recorded_joint_path_used": false,
+        "strategy": {
+          "loose_paths": 0,
+          "refined_paths": 0
+        },
+        "completion_first": {
+          "policy": "bounded_greedy_existing_delta_order_v1",
+          "ik_budget": 192,
+          "ik_calls": 109,
+          "roots_attempted": 9,
+          "completed_paths": 0,
+          "accepted": false
+        }
+      },
+      "scene_samples": null,
+      "setup_legs": null,
+      "static_open_hand_endpoint_checked": null,
+      "attachment_recompute_max_abs_difference": 0.0,
+      "source_unchanged_through_run": true,
+      "result_sha256": "62e809740c141226c43bbf653fc9ccdf6b443e7867a5c840517141f2f17867f5"
+    },
+    "row2": {
+      "passed": true,
+      "total_seconds": 53.45724913600134,
+      "planning_seconds": 53.22430859200176,
+      "error": null,
+      "search": {
+        "search": "bounded_negative_wrist_variable_swivel_v1",
+        "ik_calls": 141,
+        "candidates": 3,
+        "endpoint_samples": 55,
+        "opening_samples": 156,
+        "rejections": {
+          "ik": 66,
+          "full_candidate": 2,
+          "nonnegative_wrist": 6,
+          "joint_step": 1
+        },
+        "levels": [
+          {
+            "waypoint": 0,
+            "surviving": 11
+          }
+        ],
+        "wall_seconds": 51.84591552100028,
+        "wall_budget_seconds": 1800.0,
+        "position_tolerance": 0.002,
+        "orientation_tolerance": 0.02,
+        "maximum_joint_step": 0.4,
+        "joint_margin": 0.1,
+        "minimum_signed_support": 0.75,
+        "full_candidate_validator_required": true,
+        "recorded_joint_path_used": false,
+        "strategy": {
+          "loose_paths": 1,
+          "refined_paths": 1
+        },
+        "completion_first": {
+          "policy": "bounded_greedy_existing_delta_order_v1",
+          "ik_budget": 192,
+          "ik_calls": 22,
+          "roots_attempted": 2,
+          "completed_paths": 2,
+          "accepted": true
+        }
+      },
+      "scene_samples": 5000,
+      "setup_legs": 12,
+      "static_open_hand_endpoint_checked": true,
+      "attachment_recompute_max_abs_difference": 0.0,
+      "source_unchanged_through_run": true,
+      "result_sha256": "8e242a56555af132fd3d7dc2c498b701dfb5fe242d87908e139dd859e5f75858"
+    }
+  },
+  "sha256": {
+    "replay.py": "10fcffba98bec66e603f814d6a1407e44e7dc80329af71649adf8afd92b3e7fa",
+    "bottom_carry.json": "dc4363205b7f0a7aae78f88accdc6c6d32b601328b0fbe10ffe15a943ed457a8",
+    "row2_carry.json": "45f661a67e8951116f420be01dc1de0fa9809bcdf429ec3938c5f9c6fe39dc9e",
+    "recorded_place_inputs.json": "39c87d6d4c4bb5fb3c3de230a817f1b28b05702c2fb3cee8db5ca09b5fbf483d"
+  }
+}

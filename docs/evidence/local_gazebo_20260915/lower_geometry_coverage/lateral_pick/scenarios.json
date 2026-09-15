@@ -1,0 +1,109 @@
+{
+  "status": "PREPARED ONLY; NOT RUN",
+  "scope": "Synthetic lateral coverage for complete guarded lower-row pickup/carry; no navigation, physics, physical retention or placement evidence",
+  "audit_path": "/tmp/erc_seed101_coverage_audit/audit.json",
+  "audit_sha256": "155fc3e910a163598af0e0180b4796d1816843b5f6ef0814fd3bda6d25234abd",
+  "printed_by_physical_left_to_right": [
+    3,
+    5,
+    2,
+    1,
+    4
+  ],
+  "preserved_allowances": {
+    "lateral_uncertainty_m": 0.2,
+    "roof_uncertainty_m": 0.01,
+    "normal_uncertainty_m": 0.01,
+    "bay_margin_m": 0.015,
+    "modeled_tool_allowance_m": 0.005,
+    "book_padding_m": 0.015,
+    "carried_shelf_margin_m": 0.02
+  },
+  "official_book_dimensions_m": [
+    0.16,
+    0.02,
+    0.25
+  ],
+  "scenarios": [
+    {
+      "target": "3:yellow",
+      "seed": 101,
+      "physical_column": 1,
+      "logical_row": 3,
+      "model_name": "book_col_1_row_4_yellow",
+      "front_base_m": [
+        0.67,
+        -0.056,
+        0.9278333794123657
+      ],
+      "head_pitch_rad": -0.4,
+      "spawn_jitter_m": -0.14273851513101599,
+      "ideal_book_only_side_reserve_m": 0.062261484868984,
+      "nominal_spawn_center_world_z_m": 0.935,
+      "height_basis": "Height retained from audit saved_offline_inputs.row3_front; synthetic XY realignment",
+      "bay": {
+        "marker_center_base": [
+          0.605,
+          0.08673851513101599,
+          2.26
+        ],
+        "inward_axis_base": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "physical_column": 1,
+        "lateral_uncertainty_m": 0.2,
+        "roof_uncertainty_m": 0.01,
+        "margin_m": 0.015,
+        "assume_upright_supported": true,
+        "source": "SYNTHETIC onboard-aligned ideal plate-origin scenario, seed101 printed3 yellow; not a live observation"
+      },
+      "marker_derivation": "marker_y = front_y - spawned book jitter; marker_x=.605 from independent nominal fixture; marker_z=2.26 ideal plate origin",
+      "effective_column_sides_relative_marker_m": [
+        -0.215,
+        0.355
+      ]
+    },
+    {
+      "target": "3:green",
+      "seed": 101,
+      "physical_column": 1,
+      "logical_row": 4,
+      "model_name": "book_col_1_row_5_green",
+      "front_base_m": [
+        0.67,
+        -0.056,
+        0.604
+      ],
+      "head_pitch_rad": -0.7,
+      "spawn_jitter_m": -0.13915187523687966,
+      "ideal_book_only_side_reserve_m": 0.06584812476312032,
+      "nominal_spawn_center_world_z_m": 0.605,
+      "height_basis": "Height retained from audit saved_offline_inputs.bottom_front; synthetic XY realignment",
+      "bay": {
+        "marker_center_base": [
+          0.605,
+          0.08315187523687967,
+          2.26
+        ],
+        "inward_axis_base": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "physical_column": 1,
+        "lateral_uncertainty_m": 0.2,
+        "roof_uncertainty_m": 0.01,
+        "margin_m": 0.015,
+        "assume_upright_supported": true,
+        "source": "SYNTHETIC onboard-aligned ideal plate-origin scenario, seed101 printed3 green; not a live observation"
+      },
+      "marker_derivation": "marker_y = front_y - spawned book jitter; marker_x=.605 from independent nominal fixture; marker_z=2.26 ideal plate origin",
+      "effective_column_sides_relative_marker_m": [
+        -0.215,
+        0.355
+      ]
+    }
+  ]
+}

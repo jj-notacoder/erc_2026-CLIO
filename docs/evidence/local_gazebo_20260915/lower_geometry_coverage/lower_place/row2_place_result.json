@@ -1,0 +1,2451 @@
+{
+  "row": "row2",
+  "passed": true,
+  "exact_live_replay": false,
+  "scope": "synthetic row-specific carry + actual recorded registered bin/table PLACE geometry",
+  "live_freshness_or_retention_or_delivery_validated": false,
+  "source_sha256": {
+    "erc_phase1_solution/__init__.py": "ec374f9f56133b33b1bd560a0e6ffbade713934e79b81fced05e3591d52ac9e1",
+    "erc_phase1_solution/adaptive_grasp.py": "f603c1a20a3edc9536dfdadf52041b5d58f9b70f007c32470311782de30ac2b9",
+    "erc_phase1_solution/additional_arm_timing.py": "26892348fde004dcc699c472123d85abc8029494a01fb0060872d793d7e5472f",
+    "erc_phase1_solution/aperture_interval_capture.py": "c643aa5dda0fe9238b1e59f3c83ff43bf555543f752149c668cc75a5c47b7280",
+    "erc_phase1_solution/aperture_interval_geometry.py": "c4516430ee18fce5027287b64099a69b555adb4fd1203d92e6156d45a5b41325",
+    "erc_phase1_solution/arm_trajectory_timing.py": "66c0eb531d3ca6d3d6282cde0b07ff875e156af392edc24b4fc251b1ac864dd9",
+    "erc_phase1_solution/arm_velocity_admission.py": "e994298b94d74338e2ebc80ca3f995d71b094631ba1916eed5f778997e01b8cc",
+    "erc_phase1_solution/bin_clearance_timing.py": "f481d4cb62623a0d7d1df5d4ee891a3e76f1b61a7ef8988ed376023ad67fa21e",
+    "erc_phase1_solution/bin_geometry.py": "3d89012b2f7b2cb9adfca4d039de3a54607736d5e32515191b1d185ae272f2c2",
+    "erc_phase1_solution/bin_scene.py": "43b6903d9c31d2efc8dd30047f1b6b32884728b4c9f1358558ebfe56a565f67e",
+    "erc_phase1_solution/bin_scene_admission.py": "0768d26fd71c248e0ddfa7d84b71b936b6f2a51d7ae7b39db8e7cb641913fcad",
+    "erc_phase1_solution/bin_visibility_recovery.py": "c22146ff98ec0bb566da240968f77c15baa0727d577475cbf33206ad19b72678",
+    "erc_phase1_solution/book_centered_place.py": "ed84f8930a08836b6aa4aa1d1779e644d0f8b37acaed1f399871bf69124551d8",
+    "erc_phase1_solution/book_selection_context.py": "715a29af2084c4d73c7699f656bef4c40e4a413dba529da724675f703d81f327",
+    "erc_phase1_solution/bottom_grasp_proposal.py": "1ba02bd4f2e49bfbdf8ece44a901fcf86ca792685442604ac996a1089bbaaff2",
+    "erc_phase1_solution/bottom_shelf_approach.py": "7ac2a77356ddeeedc61b3d26d944d25e4f454a1d260fd334f3ed153f6ba605c5",
+    "erc_phase1_solution/common.py": "9735e5de89515de7ec43e0a94afd89f3c542f3d802e64de552d2fb5ba1de7321",
+    "erc_phase1_solution/compact_timing.py": "dfa12214cef01d1df73caa34446cd515f6543b5ca74b1572df660e74c0d8b042",
+    "erc_phase1_solution/completed_torso_hold.py": "a7db5d5f6d81077f4b8d679794e55138b66eabc93760e01e2ecfc622a58bf4c6",
+    "erc_phase1_solution/empty_arm_preparation.py": "6b286d34df660d18fc36fa48a199c554b0547710cdec105166633256966d1ae2",
+    "erc_phase1_solution/empty_arm_staging.py": "0dc401f8b194a50797403ea1ee39f8d40cfd85af15cb2e8c49eafb3572678bca",
+    "erc_phase1_solution/empty_head_timing.py": "3fe0637bcf8b0ccef2649e5509573db3273411cf36827427f8cc89cd1a211bd6",
+    "erc_phase1_solution/empty_pickup_collision.py": "532e97d6689afadde0b9e55d2cb0391d961973910aaf848a3cf0df2121f1b57c",
+    "erc_phase1_solution/empty_pickup_geometry_backend.py": "f4b29c28f73f0f6b00ccd915c4a6c4ed991a681f0159dee341ae242412681cfd",
+    "erc_phase1_solution/empty_pickup_geometry_owner.py": "113ff7864134458df463a1372ef205434c8e5780d4050b7cccec2d3cdabff3b5",
+    "erc_phase1_solution/empty_pickup_setup_timing.py": "69cf85795efd77082063df7d73280c9afc1a60d7c8da274e6066fe7e7eea625c",
+    "erc_phase1_solution/empty_shelf_bounds.py": "d6937f3f8e66b8ab4d177bf65d82c8532997705b6b219854c7b1f4fdd9a3fff2",
+    "erc_phase1_solution/empty_shelf_setup.py": "3080e758d46172fe12ac5a2cb92216f3c2de725a8bfbf86ac3329fbc8aafcfa9",
+    "erc_phase1_solution/empty_torso_planning_overlap.py": "cbf9a7211abe70ca10becbf06ee1f4f4e96f311132833a36da4e8b10197b1509",
+    "erc_phase1_solution/exact_local_bounds.py": "4d03bb1a5758296f8169d689ba2effe0115094ae4747c51a794af9d8b635afd7",
+    "erc_phase1_solution/exact_world_geometry.py": "6ef505b710f122b2600039e2bd0ed2eb4d7c224bde178f2a6c8fbf180ce1ce5e",
+    "erc_phase1_solution/extraction_pressure.py": "f3441eea51af13cb456af11da7cadf8c2ced599bceca4d5142e764d0c1bb5b49",
+    "erc_phase1_solution/fine_gripper_close.py": "0ec61463c9b1f8bf2c113036d912fc295a7eed1a827d2163d2812b5fa0526a06",
+    "erc_phase1_solution/geometry_array_checks.py": "a2962dfe6e7680a99b6733dfd8b4b97e2b7327f4234c153c278d4c37362ee735",
+    "erc_phase1_solution/geometry_process_models.py": "ef20ea7b6e12d26003933194e7c14d89fcc196daa0106994869da28d70ce71aa",
+    "erc_phase1_solution/geometry_process_parent.py": "f31eb184a30ee0072fd79c586169a7d91b0431c73d5c0b178b5a39b23bdbec1c",
+    "erc_phase1_solution/geometry_process_pool.py": "9f016bc177cfa12bf1c532c495039a7910e976aff8dc04e2fbdd02977007a830",
+    "erc_phase1_solution/geometry_process_protocol.py": "c88fb31b86576ebd3ae7a018c1f8992c5782f894bdf4e8cb56f153e1c96dbd5c",
+    "erc_phase1_solution/geometry_process_worker.py": "e576d7881f8bd1f1bde480dddea1bb48abcb8f2a852b564251f819a4a9a72724",
+    "erc_phase1_solution/head_return_overlap.py": "cb5a8eb42b045c01e03217e118b3d31ce3b8318908c65ac7c5c73577e8b7a3be",
+    "erc_phase1_solution/initial_stow_serial_timing.py": "a312a606e3b84e3391ba8ad6d1ade7b077bc837347a34b214b8d9805e6f6de14",
+    "erc_phase1_solution/installed_geometry_identity.py": "1dcaee26a7feea26d2b23873e89d38a7c8be211dba38ea327f7cbefc234e34f0",
+    "erc_phase1_solution/kinematics.py": "c3766618256bbb19a73a093fca0697b3ed002b576026783d11d155d02f3c2dd7",
+    "erc_phase1_solution/lift_first_extraction.py": "2d43f4cb9f01a6841fc68237b54f14d9f76c827884ef2991be7a8266f7aefa0b",
+    "erc_phase1_solution/lift_pressure_gate.py": "b7acffbdde89f7383d1f645b22d101afcc37b95892c3f36462801639999259bb",
+    "erc_phase1_solution/live_rigid_palm_aperture_evidence_probe.py": "a646406a05d76905a5d6ce9c33e762d3ba8df2dca0fad48628baf5c86771167a",
+    "erc_phase1_solution/live_rigid_palm_extract_retreat_probe.py": "0f3cb6bbccfe3270475db7d536ec9484733257e0d3ba21f193bdccbd6a5a4e77",
+    "erc_phase1_solution/live_rigid_palm_micro_aperture_probe.py": "28daa51a683410f4c4ff67e1a0b3ee89fd563e15c537f7f19a67ed5a2d833bd0",
+    "erc_phase1_solution/live_rigid_palm_natural_settle_probe.py": "0aae8359ff0765238d6b475b4c26886887c43bf82b2fa88b22e91f7a929e19d4",
+    "erc_phase1_solution/live_rigid_palm_natural_tangent_slip_probe.py": "80822c68ed26414d8a738af4d23e51582e6583c3d8564ce93222e575b50e7e3f",
+    "erc_phase1_solution/live_rigid_palm_post_natural_settle_probe.py": "782a60a5f5f80a6ead455a9ce09c901ab0e6c923218855b49e8713e780c255fc",
+    "erc_phase1_solution/live_rigid_palm_post_slide_transport_probe.py": "f8bb6743c989fe266917f2fd319c2beb461a07c4c08823d70ba86d2e4e8b3a67",
+    "erc_phase1_solution/live_rigid_palm_shelf_edge_cradle_probe.py": "9c9a4a015d5293259655fddcd8b8cba3186c02d9a4731e5e4b1a8bf49f858138",
+    "erc_phase1_solution/live_rigid_palm_support_probe.py": "ac28a129ecabc605ddbf5176bb5853c94f303d29badee26bfc402de294984113",
+    "erc_phase1_solution/live_rigid_palm_supported_compaction_probe.py": "4b273f729edff9196b10b66ccdb3c55d76a6b21e2b5c8ea21b76d387cbcb4375",
+    "erc_phase1_solution/live_rigid_palm_tangent_reverse_recovery_probe.py": "b84c71cc35fab9b0ddfdf686c0bbc3dd1f9d83a41c4bc140b51268553c9400db",
+    "erc_phase1_solution/live_rigid_palm_tangent_slide_probe.py": "3fbecf6918cde47696d879fc8222dac6f25248a80ff715dd470fe58edf21037e",
+    "erc_phase1_solution/live_rigid_palm_upright_open_insert_probe.py": "eced694cc2444a8fa4d9df7ceb1bb4e4f55c5b779d76cb7917e299119de954cc",
+    "erc_phase1_solution/lower_shelf_carry.py": "0b3297b2a08d5d04d7302246260ba80f081ac28b2b4ff4af62fd143d7d2e2716",
+    "erc_phase1_solution/lower_shelf_pick.py": "e7c8a3a71b35c2ef33a6ee10f436ff063e0fee964c72253cee767936080a66e7",
+    "erc_phase1_solution/manipulation_node.py": "975b218b1ed1813ec287d6cc8e39cb9a30287c3f08a678eda86efd1e3ba079c7",
+    "erc_phase1_solution/marker_search_completion.py": "e7b05d090bbe05ab2c7c9a3e271d9286fd64ce3bd5363855bd6fb4f61dd16c36",
+    "erc_phase1_solution/mission_manager.py": "0d5cd1bf1979332f54c113041cfbdb93c0ada4ee736fee58014b5561361f0006",
+    "erc_phase1_solution/mission_raw_contacts.py": "8915340396f56b900d46fbb83972343107acc583683914841751e9bd3514c4bd",
+    "erc_phase1_solution/motion_profiles.py": "2634b09653c7fafd24ce3b8ea85f213823b8042e70ce4efc684c7979c9e8c178",
+    "erc_phase1_solution/navigation_node.py": "e8ddfee4d8df49e24203e5c324d5af87984dde0669431fd0ba317e6569119725",
+    "erc_phase1_solution/open_gripper_approach.py": "feb69ec597c895fd2fe7788f17a3f72be33f0188ba9bce2a13218eb4ed0f4513",
+    "erc_phase1_solution/perception_node.py": "840ebae913576242d60421e84d4ad5df1dc2bfad7add54c0dd4a66e175bdf922",
+    "erc_phase1_solution/pickup_geometry_backend.py": "0486186de953df141e9fa72029533dafeeb6e77aee9e5ba20e87621752fbaae9",
+    "erc_phase1_solution/pickup_geometry_owner.py": "42463b9d0f50e53a8f9c5cdd4865789c4cfddfd63fbc0536f04306c1cba03d3b",
+    "erc_phase1_solution/place_contact_guard.py": "7cdf3dafee9f1b5cc8a882f30326991efbf8398aefcf57e08f4aa727aef05f4b",
+    "erc_phase1_solution/place_geometry_backend.py": "cced6cb3fab5cd1f9b1e0e1c9fe236dd14a4c2b4c03d8ee18b3de28f0c72923f",
+    "erc_phase1_solution/place_input_handoff.py": "f9dd5581096059b9714c1ba6f0f940f4aca6b805ca65fef1ab51b871781ebfd7",
+    "erc_phase1_solution/place_transition_stop.py": "d9c9ce7e04c715a01360cd192b9f51021f207d67bc5932b8e2500f208ab557b9",
+    "erc_phase1_solution/place_volume_geometry.py": "5cb470f0d92cec660f68ba185255099bb8be60ded2d5bc6101aab78b0fa53263",
+    "erc_phase1_solution/placement_scene_context.py": "02b8c81c16709e124a0ec11a6fb6f7644c9c858aa687b9251244b5d9f3e815fb",
+    "erc_phase1_solution/planning_cpu_diagnostics.py": "f3b17186016ddfc1e0d7960003073ab11b5532bd23268515a18247c4f2c4ed93",
+    "erc_phase1_solution/preclose_aperture_geometry.py": "df8a5288f0103390313310d10f783a0a0f002f0b6f68cfc3819a82248d637a5c",
+    "erc_phase1_solution/preopen_stationary.py": "c941f24b6bced6f077dc9d1be975d224da93a1f72cc34a3ffe8082c32bdd1358",
+    "erc_phase1_solution/pure_geometry_owner.py": "b1712650be96dc927378135ab84c6ef63a8ffffa2ae906d4ef5a6191214727cd",
+    "erc_phase1_solution/raised_place_finish.py": "aa267e9978a77d6eb82553cea76e4f33dbeb11bdcea3e64d8794dc4411d6b5f0",
+    "erc_phase1_solution/raw_contacts.py": "9df1968727e4a47ca6fcef7f913dcbb48122b15535d505acdb83baa3eb6eb23c",
+    "erc_phase1_solution/registered_place_targets.py": "19a1a127bf3270e8af94ba5d484f8f62e8564fd3dc374b049a79de6f9a2e0762",
+    "erc_phase1_solution/release_evidence.py": "db3fe17adb574501a1e055196120529e5b2627780ac1796bffd13a41a2721a42",
+    "erc_phase1_solution/release_only_clearance_timing.py": "d06fbc8959a4bed3b92aa8d915dad4ebee935e6c47248d5e2030a9b90c89e8c4",
+    "erc_phase1_solution/release_only_place_planning.py": "b30ce6d8d073c041bb43da7fd800e9387e0a2a0c65eaaaa0dc43c29eb62d36eb",
+    "erc_phase1_solution/release_pose_evidence.py": "c76ac2158eca197ecc95ecc76d8548f553a25eb0a26b7cfa6e35cce78c7f39cf",
+    "erc_phase1_solution/release_pose_finish.py": "f237180ed0215e6551e460690d33149bcf0fa830916cdda88829c90e57a53913",
+    "erc_phase1_solution/release_pose_hold_evidence.py": "cddda05aeb653ef9713fcbe398a17a2c85040dc8791eb7ef7e1a876e62d4e112",
+    "erc_phase1_solution/release_sensor_adapter.py": "04fca8ff59ffb0eca4b5ace03d8de3af7a63663117ec8e1b28a2b7b0110227f9",
+    "erc_phase1_solution/rigid_palm_live_preflight.py": "0773f841b9908721565a7c530378b2823e3ab6adc1a3ad5ea8777e3999d8140d",
+    "erc_phase1_solution/rigid_palm_preflight.py": "f23e8a2ffd3f95ca43adeb70977fd3657dec61ba0decc7c64b1b3d3c50fa2caf",
+    "erc_phase1_solution/runtime_utils.py": "b3bcf5fcdb288e8ac83ac98a128daf9c460e52417de6ee92723b86da0bc4b2b2",
+    "erc_phase1_solution/sample_collision_snapshot.py": "06733862e473f9481556a4d1e41bd8e4c20786f8ec8ee7e9f6390aac427fc77d",
+    "erc_phase1_solution/scene_cartesian_solver.py": "a0340d49b84d5316af2e0af595d04102941a6ac25fbe8f0e805f9488b5f145ce",
+    "erc_phase1_solution/scene_checked_place.py": "8e1d881759b6a8bcce95f54ba4b6b23d5d15e0f76613212b0a1c9c705881343a",
+    "erc_phase1_solution/seed101_diagonal_peel_certificate.py": "29c10cec920ce7ce29b1acb01a7b1a1740dae8e39ae576fb7fce7f91581c742f",
+    "erc_phase1_solution/seed101_loaded_extraction_certificate.py": "1935697c8bf249cf5c25505dee24b3e2c4dce043ac120de51018fe1323401a20",
+    "erc_phase1_solution/seed101_outward_halfmillimeter_certificate.py": "281a989614a27238e84e9c9b4106ed40b40fa976aa00995d935448ee857803a3",
+    "erc_phase1_solution/seed101_outward_halfmillimeter_midroute_settle_certificate.py": "5fa1fe3b17ee373d293c009e248db4a7708beb3825effd0606f531b9cdbb4183",
+    "erc_phase1_solution/seed101_outward_post_reseat_settle_certificate.py": "f8abcf61ba42181e74069d74e3b71cb0bf420adb15c1e062004a6d968ed61fe6",
+    "erc_phase1_solution/seed101_outward_reverse_reseat_certificate.py": "4bfa533d0cf46614ba7123e0bbfb184b0b96f1f708073fc507d075a00b11a0c6",
+    "erc_phase1_solution/seed101_outward_scaleup_certificate.py": "0bb7590737f0da77642c4fb881402ccafbfb298404b8203d02509594cc8b22cd",
+    "erc_phase1_solution/seed101_outward_scaleup_continue_certificate.py": "74f0205d125259807e08dd9d2986c16cd33b5dd14e27c785d67502d4b489d156",
+    "erc_phase1_solution/seed101_outward_scaleup_settle_resample_certificate.py": "3430df75e8c2aa8d96943fabbe83b4a183aed159e4b3c89a2e198ef85a917022",
+    "erc_phase1_solution/seed101_pure_outward_certificate.py": "471f66d928df68d663e1abda919294336139c8d49cc14227131a37c92f7027c6",
+    "erc_phase1_solution/settled_torso.py": "03d05f6bda7a4425187c76068d5884b5c958f84ebf65882b1bf6f328f0f084bd",
+    "erc_phase1_solution/shelf_bay_context.py": "18d2237998ef12f80793e38fe060342f7c201b4e891e9a33f47b4aa9b98ec664",
+    "erc_phase1_solution/shelf_cradle_geometry.py": "895549bc5408ab1c7c83d9ac73b306016228e1140b932138cc564f6a650b64fb",
+    "erc_phase1_solution/static_pair_separation.py": "1dea6499c9f594a60cd51936d52862433730a8373efd99700b7e76ecdf7585f9",
+    "erc_phase1_solution/stock_gripper_close.py": "f533df05cddb5bbd90b83a0fdf2130a6654ed7a3fbcc4ba6c2b187accfc361e7",
+    "erc_phase1_solution/table_scene.py": "95df2f255e4a7596ba16d7132e095c96e8eb707bdca94cabbfec6ecaf4476ce8",
+    "erc_phase1_solution/target_tracking.py": "e1f5449653f5be943875a463faf4a63ede3f43c5098f4e689e226e44eebcffee",
+    "erc_phase1_solution/tool_local_meshes.py": "3b3963775077f14e4d49b4b9c24f97624a98ce3a3ae076f2e4db21c88ac7be83",
+    "erc_phase1_solution/vision.py": "aaf183c538dcfea00c44c0c485ca963045f432f4228e6db2cd82bd336187a799",
+    "erc_phase1_solution/withdrawal_half_timing.py": "96a3ae5c1b99a0985eb7889596b5a30df206d4f13c2765d011c6fc346d4bee3e",
+    "erc_phase1_solution/withdrawal_timing.py": "8289cb2aff6da2d03de0a02ab295f3599d90c9a300fecbaf5c249f93c9e0f439"
+  },
+  "profile_sha256": "4e7a9e01c75795f867d53da326f06258219904d453be977f82bcbf44e09b5d9e",
+  "harness_sha256": "10fcffba98bec66e603f814d6a1407e44e7dc80329af71649adf8afd92b3e7fa",
+  "carry_fixture_sha256": "45f661a67e8951116f420be01dc1de0fa9809bcdf429ec3938c5f9c6fe39dc9e",
+  "recorded_place_inputs_sha256": "39c87d6d4c4bb5fb3c3de230a817f1b28b05702c2fb3cee8db5ca09b5fbf483d",
+  "carry_provenance": {
+    "path": "/tmp/erc_row2_integrated_current.json",
+    "sha256": "b00a0b976a14f1a6f74206987727f4d737cdd979f31154c4838fc2bd6a56e003",
+    "source_hashes": {
+      "erc_phase1_solution.lower_shelf_pick": "cf330629d24e62986f3a68bdfc102024158664d661d2a1422dcb7c362ca56740",
+      "erc_phase1_solution.empty_shelf_bounds": "06e6b8d36a1ec607c131de1fe23967ecba5f8a168ad4a22c589b0c776d31f6ed",
+      "erc_phase1_solution.empty_shelf_setup": "3080e758d46172fe12ac5a2cb92216f3c2de725a8bfbf86ac3329fbc8aafcfa9",
+      "erc_phase1_solution.manipulation_node": "0e5837d9532c198b7b58a5385d8a8477b7d85bf56996e9dcde08b288c0b60240"
+    },
+    "scope": "saved offline guarded lower PICK; synthetic endpoint in recorded blue PLACE frame",
+    "physical_retention_validated": false,
+    "target_identity_scope": "official format only; not proof of this target at recorded bin"
+  },
+  "controller_calls": [],
+  "worker_processes_created_by_harness": 0,
+  "assumptions": [
+    "Row-specific carry, staging and attachment are saved offline complete PICK outputs.",
+    "Exact selected bin/table/base/right/head and master aperture are from trial105d91426ddd blue PLACE.",
+    "Combining these inputs is synthetic; those lower books have not been observed at this bin pose.",
+    "Logical fresh clock/feedback stamps are fixture values; all ordinary admission methods execute.",
+    "Original measured scene coordinates and registration margins are retained verbatim.",
+    "Serial production geometry predicates run; no worker-pool performance claim.",
+    "Ordinary default negative wrist policy and release-only static endpoint checks remain active."
+  ],
+  "attachment_recompute_max_abs_difference": 0.0,
+  "inputs": {
+    "front": [
+      0.67,
+      -0.056,
+      1.254
+    ],
+    "grasp": [
+      0.1,
+      0.7133895172764115,
+      0.7343841906492079,
+      -0.03885110262555427,
+      -1.4999329105903594,
+      0.32281373006523395,
+      1.2180180358008177,
+      -0.6134530257890922
+    ],
+    "attached": [
+      [
+        -0.10456897830182944,
+        0.024087620835015016,
+        0.10809544404997265
+      ],
+      [
+        0.029647558864915005,
+        0.024043856471762954,
+        -0.13764002192034375
+      ],
+      [
+        -0.10457649275376908,
+        -0.02591237836986658,
+        0.10810024455528475
+      ],
+      [
+        0.029640044412975367,
+        -0.025956142733118644,
+        -0.13763522141503165
+      ],
+      [
+        0.062180088091844415,
+        0.02407130444727509,
+        0.19917095442797494
+      ],
+      [
+        0.19639662525858886,
+        0.024027540084023028,
+        -0.04656451154234145
+      ],
+      [
+        0.06217257363990478,
+        -0.025928694757606507,
+        0.19917575493328704
+      ],
+      [
+        0.19638911080664923,
+        -0.02597245912085857,
+        -0.04655971103702934
+      ]
+    ],
+    "carried_start": [
+      0.1,
+      3.43734870845,
+      -2.2676009274,
+      -1.60197601886,
+      -1.92696895395,
+      -2.47218391424,
+      -1.5231513780599997,
+      -2.1
+    ],
+    "torso_ready": [
+      0.35,
+      3.43734870845,
+      -2.2676009274,
+      -1.60197601886,
+      -1.92696895395,
+      -2.47218391424,
+      -1.5231513780599997,
+      -2.1
+    ],
+    "staging": [
+      0.35,
+      0.892001120891164,
+      0.4002461248297904,
+      0.0570108256726454,
+      -2.1957648352383323,
+      0.4874419578010586,
+      1.6306179750170413,
+      -1.7697944241509274
+    ],
+    "positions": [
+      [
+        0.6,
+        0.06811441036995229,
+        1.2520407195524952
+      ],
+      [
+        0.6565996301886117,
+        0.06811441036995229,
+        1.2520407195524952
+      ],
+      [
+        0.7131992603772233,
+        0.06811441036995229,
+        1.2520407195524952
+      ],
+      [
+        0.7697988905658348,
+        0.06811441036995229,
+        1.2520407195524952
+      ],
+      [
+        0.8263985207544465,
+        0.06811441036995229,
+        1.2520407195524952
+      ],
+      [
+        0.8829981509430582,
+        0.06811441036995229,
+        1.2520407195524952
+      ],
+      [
+        0.9395977811316698,
+        0.06811441036995229,
+        1.2520407195524952
+      ],
+      [
+        0.9395977811316698,
+        0.06811441036995229,
+        1.1945407195524953
+      ],
+      [
+        0.9395977811316698,
+        0.06811441036995229,
+        1.1370407195524952
+      ],
+      [
+        0.9395977811316698,
+        0.06811441036995229,
+        1.079540719552495
+      ],
+      [
+        0.9395977811316698,
+        0.06811441036995229,
+        1.0220407195524952
+      ]
+    ],
+    "rotation": [
+      [
+        0.5330677042981125,
+        -0.0012965992130729539,
+        -0.8460715935810756
+      ],
+      [
+        -0.8460722112228973,
+        0.0001256860919495881,
+        -0.533068286056677
+      ],
+      [
+        0.0007975153523220507,
+        0.9999991515163836,
+        -0.001030017366776715
+      ]
+    ],
+    "floor": [
+      0.9383468773014284,
+      0.012856264908775623,
+      0.7511033980767636
+    ],
+    "master": 0.018200005210388923,
+    "identity": {
+      "trial_id": "synthetic_lower_place_row2",
+      "placement_attempt_id": "offline_row2_recorded105d91426ddd",
+      "target_model": "book_col_3_row_3_green"
+    },
+    "selected_scene_reference": {
+      "base_pose": [
+        -0.029361486588630095,
+        0.0743910558226014,
+        1.4577351481131673
+      ],
+      "parked_joints": {
+        "arm_right_1_joint": -0.3599999991171662,
+        "arm_right_2_joint": -1.830000002090707,
+        "arm_right_3_joint": -0.46999999939955395,
+        "arm_right_4_joint": -2.350000000389866,
+        "arm_right_5_joint": -2.6842781449930257e-10,
+        "arm_right_6_joint": -1.1999999997920658,
+        "arm_right_7_joint": 1.8369137852984702e-10,
+        "head_1_joint": 7.890086267192667e-12,
+        "head_2_joint": -0.6000000000038622
+      },
+      "stamp_ns": 1000000000,
+      "odom_frame_id": "odom",
+      "odom_child_frame_id": "base_footprint",
+      "odom_producer_stamp_ns": 1000000000
+    },
+    "selected_bin_scene": {
+      "cavity_bounds": [
+        [
+          -0.145,
+          -0.095,
+          -0.245
+        ],
+        [
+          0.145,
+          0.105,
+          0.245
+        ]
+      ],
+      "floor_center": [
+        0.9383468773014284,
+        0.012856264908775623,
+        0.7511033980767636
+      ],
+      "floor_point_model": [
+        0.0,
+        -0.095,
+        0.0
+      ],
+      "frame": "base_footprint",
+      "mesh_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+      "model": "stock_bin_visible_inner_planes_v1",
+      "modeled_margin_m": 0.005,
+      "nominal_mimic_or_scene_motion_proof": false,
+      "origin": [
+        0.9382390282155108,
+        0.012860987420844393,
+        0.8461033367413362
+      ],
+      "outer_bounds": [
+        [
+          -0.155,
+          -0.105,
+          -0.305
+        ],
+        [
+          0.155,
+          0.105,
+          0.255
+        ]
+      ],
+      "producer_stamp_bound_by_caller": true,
+      "quality": {
+        "accepted_candidates": 1,
+        "bbox": [
+          241,
+          51,
+          180,
+          177
+        ],
+        "feature_indices": [
+          0,
+          3,
+          5,
+          1
+        ],
+        "finite_cad_coverage": 0.97745,
+        "finite_surface_residual_p95_m": 0.0005861562405487434,
+        "floor_points": 6686,
+        "floor_rear_registration_observed": true,
+        "input_encoding": "BGR8 + optical-Z metres",
+        "observed_inner_width_m": 0.289974661504357,
+        "partial_cloud_bounds_used_for_center": false,
+        "plane_count": 7,
+        "plane_rms_m": [
+          0.000136629723155347,
+          0.00012472798416028721,
+          0.00019792798507323918,
+          5.219226297341075e-05
+        ],
+        "rear_points": 4292,
+        "red_depth_points": 27717,
+        "red_filter": "R>=45 and R>1.45*G and R>1.45*B",
+        "rejections": {
+          "rear_not_visible_from_cavity_side": 1,
+          "wrong_inner_side_separation": 1
+        },
+        "rotation_condition": 1.0000000000000004,
+        "side_points": [
+          2436,
+          928
+        ],
+        "table_used_for_horizontal_registration": false,
+        "uncertainty_is_engineering_assumption": true,
+        "yaw_long_axis_rad": 0.06231498955143493
+      },
+      "registration_margin_m": 0.00916489809645133,
+      "rotation": [
+        [
+          -0.06227453142325554,
+          -0.001135253535975527,
+          0.9980584120858974
+        ],
+        [
+          0.9980590504880592,
+          4.971065335547878e-05,
+          0.06227462780077145
+        ],
+        [
+          -0.00012031162716410733,
+          0.9999993543639216,
+          0.0011299543585344897
+        ]
+      ],
+      "rotation_error_rad": 0.01,
+      "translation_error_m": 0.005586156240548743,
+      "uses_evaluator_pose": false,
+      "valid": true
+    },
+    "selected_table_scene": {
+      "assumptions": [
+        "Aligned calibrated optical-Z RGBD and depth-epoch base transform.",
+        "Detected bin rests on this stock table; floor is 10 mm above bin bottom.",
+        "Stock 1.4 x 0.8 x 0.04 m top and four 0.07 m corner legs.",
+        "Hidden CAD edges/legs are inferred from the visible perpendicular edges.",
+        "Pixel/edge angular bounds are engineering allowances, not calibration proof.",
+        "Caller reprojects for base motion and invalidates registration after scene impact."
+      ],
+      "frame": "base_footprint",
+      "mesh_sha256": "9a662650c305d09e67d112b1c3311c78c8b75454eb05c8c7981292eb1d354977",
+      "model": "erc_table_two_edge_rgbd_v1",
+      "modeled_margin_m": 0.005,
+      "origin": [
+        0.9330169056975857,
+        0.0146755558538488,
+        0.7411009291936516
+      ],
+      "quality": {
+        "angle_bound_rad": 0.020901607534363546,
+        "edge_absolute_dot": 0.0035807598846889777,
+        "edge_points": 481,
+        "edge_rms_m": [
+          0.002836963656464102,
+          0.0011570924071665645
+        ],
+        "edge_spans_m": [
+          1.3635418582806964,
+          0.5740349119361023
+        ],
+        "observed_floor_to_table_m": 0.010192580608038626,
+        "pixel_pitch_m": 0.003741651675913231,
+        "plane_normal": [
+          -0.0010188882848954626,
+          7.4276421185588e-07,
+          0.9999994809329207
+        ],
+        "plane_offset_m": 0.7401499154182101,
+        "plane_points": 78233,
+        "plane_rms_m": 6.626074569734008e-05,
+        "rectangle_outside_fraction": 0.0,
+        "translation_bound_m": 0.006
+      },
+      "registration_margin_m": 0.02873242668591247,
+      "rotation": [
+        [
+          0.0604891159234744,
+          0.9981683368658112,
+          -0.0010188882848954626
+        ],
+        [
+          -0.9981688549360745,
+          0.06048914807677438,
+          7.4276421185588e-07
+        ],
+        [
+          6.237308805676394e-05,
+          0.0010169776234913702,
+          0.9999994809329207
+        ]
+      ],
+      "solids": [
+        {
+          "bounds": [
+            [
+              -0.7,
+              -0.4,
+              -0.04
+            ],
+            [
+              0.7,
+              0.4,
+              0.0
+            ]
+          ],
+          "name": "tabletop"
+        },
+        {
+          "bounds": [
+            [
+              -0.7,
+              -0.4,
+              -0.73
+            ],
+            [
+              -0.63,
+              -0.33,
+              -0.04
+            ]
+          ],
+          "name": "leg_-1_-1"
+        },
+        {
+          "bounds": [
+            [
+              -0.7,
+              0.33,
+              -0.73
+            ],
+            [
+              -0.63,
+              0.4,
+              -0.04
+            ]
+          ],
+          "name": "leg_-1_1"
+        },
+        {
+          "bounds": [
+            [
+              0.63,
+              -0.4,
+              -0.73
+            ],
+            [
+              0.7,
+              -0.33,
+              -0.04
+            ]
+          ],
+          "name": "leg_1_-1"
+        },
+        {
+          "bounds": [
+            [
+              0.63,
+              0.33,
+              -0.73
+            ],
+            [
+              0.7,
+              0.4,
+              -0.04
+            ]
+          ],
+          "name": "leg_1_1"
+        }
+      ],
+      "valid": true
+    }
+  },
+  "planning_seconds": 53.22430859200176,
+  "plan": {
+    "solutions": [
+      [
+        0.35,
+        1.246217745341041,
+        -0.1930274966930885,
+        -1.0,
+        -2.25349697292169,
+        -1.3409797123322151,
+        1.2945519293446703,
+        -1.7343668659843232
+      ],
+      [
+        0.35,
+        1.2985224284540322,
+        -0.15781261024073348,
+        -1.0,
+        -2.1048015279242156,
+        -1.325661013273573,
+        1.240839910382697,
+        -1.6173031579323782
+      ],
+      [
+        0.35,
+        1.3187145548579613,
+        -0.089464070310798,
+        -1.0,
+        -1.94380379833322,
+        -1.3089633285455178,
+        1.216149995315473,
+        -1.4901672798200654
+      ],
+      [
+        0.35,
+        1.2963449597831185,
+        0.015863686069370476,
+        -1.0,
+        -1.765465497487523,
+        -1.2769218135739446,
+        1.2271674277111815,
+        -1.3518651931508632
+      ],
+      [
+        0.35,
+        1.226685972996058,
+        0.15464587444962902,
+        -1.0,
+        -1.557355593630736,
+        -1.2191218134954314,
+        1.264075790732452,
+        -1.1974719806051763
+      ],
+      [
+        0.35,
+        1.1263567160455514,
+        0.30100004984766027,
+        -1.0,
+        -1.3201374425901848,
+        -1.1444218939863868,
+        1.288240892864294,
+        -1.030944631019879
+      ],
+      [
+        0.35,
+        0.981431290705674,
+        0.4620717884377062,
+        -1.0,
+        -1.0259641465907396,
+        -1.0464148146511827,
+        1.2884527899646736,
+        -0.8424208528976402
+      ],
+      [
+        0.35,
+        1.1482158845115045,
+        0.30119540874889594,
+        -1.0,
+        -1.1237958509583563,
+        -1.2095405575863039,
+        1.1935748370274453,
+        -0.8420519490645858
+      ],
+      [
+        0.35,
+        1.3574524819329796,
+        0.13093499380619483,
+        -1.0,
+        -1.1989229552490994,
+        -1.4080370029262514,
+        1.0447629464001338,
+        -0.8233845455374496
+      ],
+      [
+        0.35,
+        1.6376236306370038,
+        -0.05374107055531427,
+        -1.0,
+        -1.2515464022609202,
+        -1.6809671028998623,
+        0.83090088648653,
+        -0.7604622453286475
+      ],
+      [
+        0.35,
+        1.8205159797140837,
+        -0.2197424756691611,
+        -0.875,
+        -1.2946782946461772,
+        -2.0345569522481646,
+        0.6022959192826306,
+        -0.6015754492901356
+      ]
+    ],
+    "setup": [
+      [
+        0.35,
+        3.3277921602945524,
+        -1.9395820666848331,
+        -1.5718772179170002,
+        -1.9432953548985843,
+        -2.29332482540092,
+        -1.3822662126897662,
+        -2.1411972519164344
+      ],
+      [
+        0.35,
+        3.2182356121391043,
+        -1.611563205969666,
+        -1.541778416974,
+        -1.959621755847169,
+        -2.114465736561841,
+        -1.2413810473195326,
+        -2.1823945038328687
+      ],
+      [
+        0.35,
+        2.9991225158282084,
+        -1.3398234843248793,
+        -1.481580815088,
+        -1.992274557744338,
+        -1.9662940158601592,
+        -0.9596107165790656,
+        -2.066951997143832
+      ],
+      [
+        0.35,
+        2.780009419517312,
+        -1.1313102622009437,
+        -1.4213832132020001,
+        -2.024927359641507,
+        -1.8525978557104776,
+        -0.6778403858385985,
+        -1.9575146585122207
+      ],
+      [
+        0.35,
+        2.5608963232064164,
+        -0.955525484539332,
+        -1.361185611316,
+        -2.057580161538676,
+        -1.7567475588836823,
+        -0.39607005509813153,
+        -1.8621349645064997
+      ],
+      [
+        0.35,
+        2.3417832268955205,
+        -0.8006559864777025,
+        -1.3009880094300001,
+        -2.090232963435845,
+        -1.6723017521642887,
+        -0.11429972435766467,
+        -1.7872308377889954
+      ],
+      [
+        0.35,
+        2.1226701305846247,
+        -0.6606432578775487,
+        -1.240790407544,
+        -2.122885765333014,
+        -1.5959569072102593,
+        0.1674706063828022,
+        -1.7355543851280928
+      ],
+      [
+        0.35,
+        1.9035570342737287,
+        -0.5318882658178672,
+        -1.180592805658,
+        -2.1555385672301832,
+        -1.525750576656375,
+        0.4492409371232695,
+        -1.7072529596695503
+      ],
+      [
+        0.35,
+        1.6844439379628326,
+        -0.4120460412497584,
+        -1.120395203772,
+        -2.188191369127352,
+        -1.4604041174803184,
+        0.7310112678637366,
+        -1.7005426011854647
+      ],
+      [
+        0.35,
+        1.4653308416519368,
+        -0.29948776310899805,
+        -1.060197601886,
+        -2.2208441710245213,
+        -1.3990293812055234,
+        1.0127815986042035,
+        -1.7117746047376086
+      ],
+      [
+        0.35,
+        1.246217745341041,
+        -0.19302749669308827,
+        -1.0,
+        -2.25349697292169,
+        -1.3409797123322151,
+        1.2945519293446703,
+        -1.7354082235310089
+      ],
+      [
+        0.35,
+        1.246217745341041,
+        -0.1930274966930885,
+        -1.0,
+        -2.25349697292169,
+        -1.3409797123322151,
+        1.2945519293446703,
+        -1.7343668659843232
+      ]
+    ],
+    "diagnostics": {
+      "scope": "sampled_nominal_scene_checked_loaded_place",
+      "original_bin_point": [
+        0.9383468773014284,
+        0.012856264908775623,
+        0.7511033980767636
+      ],
+      "bin_origin": [
+        0.9382390282155108,
+        0.012860987420844393,
+        0.8461033367413362
+      ],
+      "bin_rotation": [
+        [
+          -0.06227453142325554,
+          -0.001135253535975527,
+          0.9980584120858974
+        ],
+        [
+          0.9980590504880592,
+          4.971065335547878e-05,
+          0.06227462780077145
+        ],
+        [
+          -0.00012031162716410733,
+          0.9999993543639216,
+          0.0011299543585344897
+        ]
+      ],
+      "bin_outer_expanded_bounds": [
+        [
+          -0.16916489928854422,
+          -0.11916489481819587,
+          -0.3191649052490087
+        ],
+        [
+          0.16916489928854422,
+          0.11916489481819587,
+          0.26916489332807975
+        ]
+      ],
+      "modeled_margin_m": 0.014164898096451332,
+      "bin_material_solids": 5,
+      "bin_certified_cavity": [
+        [
+          -0.145,
+          -0.095,
+          -0.245
+        ],
+        [
+          0.145,
+          0.105,
+          0.245
+        ]
+      ],
+      "nominal_floor_registration": false,
+      "registered_bin_scene": {
+        "cavity_bounds": [
+          [
+            -0.145,
+            -0.095,
+            -0.245
+          ],
+          [
+            0.145,
+            0.105,
+            0.245
+          ]
+        ],
+        "floor_center": [
+          0.9383468773014284,
+          0.012856264908775623,
+          0.7511033980767636
+        ],
+        "floor_point_model": [
+          0.0,
+          -0.095,
+          0.0
+        ],
+        "frame": "base_footprint",
+        "mesh_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+        "model": "stock_bin_visible_inner_planes_v1",
+        "modeled_margin_m": 0.005,
+        "nominal_mimic_or_scene_motion_proof": false,
+        "origin": [
+          0.9382390282155108,
+          0.012860987420844393,
+          0.8461033367413362
+        ],
+        "outer_bounds": [
+          [
+            -0.155,
+            -0.105,
+            -0.305
+          ],
+          [
+            0.155,
+            0.105,
+            0.255
+          ]
+        ],
+        "producer_stamp_bound_by_caller": true,
+        "quality": {
+          "accepted_candidates": 1,
+          "bbox": [
+            241,
+            51,
+            180,
+            177
+          ],
+          "feature_indices": [
+            0,
+            3,
+            5,
+            1
+          ],
+          "finite_cad_coverage": 0.97745,
+          "finite_surface_residual_p95_m": 0.0005861562405487434,
+          "floor_points": 6686,
+          "floor_rear_registration_observed": true,
+          "input_encoding": "BGR8 + optical-Z metres",
+          "observed_inner_width_m": 0.289974661504357,
+          "partial_cloud_bounds_used_for_center": false,
+          "plane_count": 7,
+          "plane_rms_m": [
+            0.000136629723155347,
+            0.00012472798416028721,
+            0.00019792798507323918,
+            5.219226297341075e-05
+          ],
+          "rear_points": 4292,
+          "red_depth_points": 27717,
+          "red_filter": "R>=45 and R>1.45*G and R>1.45*B",
+          "rejections": {
+            "rear_not_visible_from_cavity_side": 1,
+            "wrong_inner_side_separation": 1
+          },
+          "rotation_condition": 1.0000000000000004,
+          "side_points": [
+            2436,
+            928
+          ],
+          "table_used_for_horizontal_registration": false,
+          "uncertainty_is_engineering_assumption": true,
+          "yaw_long_axis_rad": 0.06231498955143493
+        },
+        "registration_margin_m": 0.00916489809645133,
+        "rotation": [
+          [
+            -0.06227453142325554,
+            -0.001135253535975527,
+            0.9980584120858974
+          ],
+          [
+            0.9980590504880592,
+            4.971065335547878e-05,
+            0.06227462780077145
+          ],
+          [
+            -0.00012031162716410733,
+            0.9999993543639216,
+            0.0011299543585344897
+          ]
+        ],
+        "rotation_error_rad": 0.01,
+        "translation_error_m": 0.005586156240548743,
+        "uses_evaluator_pose": false,
+        "valid": true
+      },
+      "whole_table_pose_modeled": true,
+      "table_scene": {
+        "assumptions": [
+          "Aligned calibrated optical-Z RGBD and depth-epoch base transform.",
+          "Detected bin rests on this stock table; floor is 10 mm above bin bottom.",
+          "Stock 1.4 x 0.8 x 0.04 m top and four 0.07 m corner legs.",
+          "Hidden CAD edges/legs are inferred from the visible perpendicular edges.",
+          "Pixel/edge angular bounds are engineering allowances, not calibration proof.",
+          "Caller reprojects for base motion and invalidates registration after scene impact."
+        ],
+        "frame": "base_footprint",
+        "mesh_sha256": "9a662650c305d09e67d112b1c3311c78c8b75454eb05c8c7981292eb1d354977",
+        "model": "erc_table_two_edge_rgbd_v1",
+        "modeled_margin_m": 0.005,
+        "origin": [
+          0.9330169056975857,
+          0.0146755558538488,
+          0.7411009291936516
+        ],
+        "quality": {
+          "angle_bound_rad": 0.020901607534363546,
+          "edge_absolute_dot": 0.0035807598846889777,
+          "edge_points": 481,
+          "edge_rms_m": [
+            0.002836963656464102,
+            0.0011570924071665645
+          ],
+          "edge_spans_m": [
+            1.3635418582806964,
+            0.5740349119361023
+          ],
+          "observed_floor_to_table_m": 0.010192580608038626,
+          "pixel_pitch_m": 0.003741651675913231,
+          "plane_normal": [
+            -0.0010188882848954626,
+            7.4276421185588e-07,
+            0.9999994809329207
+          ],
+          "plane_offset_m": 0.7401499154182101,
+          "plane_points": 78233,
+          "plane_rms_m": 6.626074569734008e-05,
+          "rectangle_outside_fraction": 0.0,
+          "translation_bound_m": 0.006
+        },
+        "registration_margin_m": 0.02873242668591247,
+        "rotation": [
+          [
+            0.0604891159234744,
+            0.9981683368658112,
+            -0.0010188882848954626
+          ],
+          [
+            -0.9981688549360745,
+            0.06048914807677438,
+            7.4276421185588e-07
+          ],
+          [
+            6.237308805676394e-05,
+            0.0010169776234913702,
+            0.9999994809329207
+          ]
+        ],
+        "solids": [
+          {
+            "bounds": [
+              [
+                -0.7,
+                -0.4,
+                -0.04
+              ],
+              [
+                0.7,
+                0.4,
+                0.0
+              ]
+            ],
+            "name": "tabletop"
+          },
+          {
+            "bounds": [
+              [
+                -0.7,
+                -0.4,
+                -0.73
+              ],
+              [
+                -0.63,
+                -0.33,
+                -0.04
+              ]
+            ],
+            "name": "leg_-1_-1"
+          },
+          {
+            "bounds": [
+              [
+                -0.7,
+                0.33,
+                -0.73
+              ],
+              [
+                -0.63,
+                0.4,
+                -0.04
+              ]
+            ],
+            "name": "leg_-1_1"
+          },
+          {
+            "bounds": [
+              [
+                0.63,
+                -0.4,
+                -0.73
+              ],
+              [
+                0.7,
+                -0.33,
+                -0.04
+              ]
+            ],
+            "name": "leg_1_-1"
+          },
+          {
+            "bounds": [
+              [
+                0.63,
+                0.33,
+                -0.73
+              ],
+              [
+                0.7,
+                0.4,
+                -0.04
+              ]
+            ],
+            "name": "leg_1_1"
+          }
+        ],
+        "valid": true
+      },
+      "nominal_mimic_geometry": true,
+      "actual_passive_deflection_verified": false,
+      "measured_master": 0.018200005210388923,
+      "master_producer_stamp_ns": 1000000000,
+      "modeled_open_master": 0.069,
+      "actual_carry_start": [
+        0.1,
+        3.43734870845,
+        -2.2676009274,
+        -1.60197601886,
+        -1.92696895395,
+        -2.47218391424,
+        -1.5231513780599997,
+        -2.1
+      ],
+      "torso_ready": [
+        0.35,
+        3.43734870845,
+        -2.2676009274,
+        -1.60197601886,
+        -1.92696895395,
+        -2.47218391424,
+        -1.5231513780599997,
+        -2.1
+      ],
+      "staging_used_as_ik_seed_only": true,
+      "old_reverse_compact_executed": false,
+      "cartesian_search": {
+        "search": "bounded_negative_wrist_variable_swivel_v1",
+        "ik_calls": 141,
+        "candidates": 3,
+        "endpoint_samples": 55,
+        "opening_samples": 156,
+        "rejections": {
+          "ik": 66,
+          "full_candidate": 2,
+          "nonnegative_wrist": 6,
+          "joint_step": 1
+        },
+        "levels": [
+          {
+            "waypoint": 0,
+            "surviving": 11
+          }
+        ],
+        "wall_seconds": 51.84591552100028,
+        "wall_budget_seconds": 1800.0,
+        "position_tolerance": 0.002,
+        "orientation_tolerance": 0.02,
+        "maximum_joint_step": 0.4,
+        "joint_margin": 0.1,
+        "minimum_signed_support": 0.75,
+        "full_candidate_validator_required": true,
+        "recorded_joint_path_used": false,
+        "strategy": {
+          "loose_paths": 1,
+          "refined_paths": 1
+        },
+        "completion_first": {
+          "policy": "bounded_greedy_existing_delta_order_v1",
+          "ik_budget": 192,
+          "ik_calls": 22,
+          "roots_attempted": 2,
+          "completed_paths": 2,
+          "accepted": true
+        }
+      },
+      "joint_limit_margin": 0.1,
+      "shoulder_progress_power": 1.0,
+      "proximal_setup_steps": 10,
+      "joint_progress_powers": [
+        1.0,
+        0.5,
+        1.0,
+        1.0,
+        0.5,
+        1.0
+      ],
+      "direct_empty_fold_from_clearance": false,
+      "scene_samples": 5000,
+      "exact_cache_hits": 1797,
+      "setup_legs": 12,
+      "open_return_legs": 0,
+      "open_tool_robot_self_checked": true,
+      "tool_tool_pairs_checked": false,
+      "head_screen_visual_box_checked": true,
+      "minimum_moving_left_geometry_z_m": 0.7272194797828784,
+      "minimum_moving_left_z_minus_bin_point_z_m": -0.023883918293885253,
+      "urdf_sha256": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0",
+      "bin_mesh_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+      "planning_wall_seconds": 53.22383538199938,
+      "completion_plan": "release_pose_only",
+      "unused_empty_return_omitted": true,
+      "static_open_hand_endpoint_checked": true
+    },
+    "release_endpoint": [
+      0.35,
+      1.8205159797140837,
+      -0.2197424756691611,
+      -0.875,
+      -1.2946782946461772,
+      -2.0345569522481646,
+      0.6022959192826306,
+      -0.6015754492901356
+    ],
+    "selected_target_position": [
+      0.9395977811316698,
+      0.06811441036995229,
+      1.0220407195524952
+    ],
+    "registered_target_override": null
+  },
+  "complete_static_release_only_endpoint_checked": true,
+  "total_seconds": 53.45724913600134,
+  "events": [
+    {
+      "event": "INPUTS_ADMITTED",
+      "elapsed_seconds": 0.23233760699804407,
+      "row": "row2",
+      "wrist": -2.1,
+      "attachment_difference": 0.0
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 0.23274814500109642,
+      "command": "place",
+      "stage": "scene_construction_begin",
+      "planning_wall_seconds": 0.00033132200042018667,
+      "selected_bin_scene": {
+        "cavity_bounds": [
+          [
+            -0.145,
+            -0.095,
+            -0.245
+          ],
+          [
+            0.145,
+            0.105,
+            0.245
+          ]
+        ],
+        "floor_center": [
+          0.9383468773014284,
+          0.012856264908775623,
+          0.7511033980767636
+        ],
+        "floor_point_model": [
+          0.0,
+          -0.095,
+          0.0
+        ],
+        "frame": "base_footprint",
+        "mesh_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+        "model": "stock_bin_visible_inner_planes_v1",
+        "modeled_margin_m": 0.005,
+        "nominal_mimic_or_scene_motion_proof": false,
+        "origin": [
+          0.9382390282155108,
+          0.012860987420844393,
+          0.8461033367413362
+        ],
+        "outer_bounds": [
+          [
+            -0.155,
+            -0.105,
+            -0.305
+          ],
+          [
+            0.155,
+            0.105,
+            0.255
+          ]
+        ],
+        "producer_stamp_bound_by_caller": true,
+        "quality": {
+          "accepted_candidates": 1,
+          "bbox": [
+            241,
+            51,
+            180,
+            177
+          ],
+          "feature_indices": [
+            0,
+            3,
+            5,
+            1
+          ],
+          "finite_cad_coverage": 0.97745,
+          "finite_surface_residual_p95_m": 0.0005861562405487434,
+          "floor_points": 6686,
+          "floor_rear_registration_observed": true,
+          "input_encoding": "BGR8 + optical-Z metres",
+          "observed_inner_width_m": 0.289974661504357,
+          "partial_cloud_bounds_used_for_center": false,
+          "plane_count": 7,
+          "plane_rms_m": [
+            0.000136629723155347,
+            0.00012472798416028721,
+            0.00019792798507323918,
+            5.219226297341075e-05
+          ],
+          "rear_points": 4292,
+          "red_depth_points": 27717,
+          "red_filter": "R>=45 and R>1.45*G and R>1.45*B",
+          "rejections": {
+            "rear_not_visible_from_cavity_side": 1,
+            "wrong_inner_side_separation": 1
+          },
+          "rotation_condition": 1.0000000000000004,
+          "side_points": [
+            2436,
+            928
+          ],
+          "table_used_for_horizontal_registration": false,
+          "uncertainty_is_engineering_assumption": true,
+          "yaw_long_axis_rad": 0.06231498955143493
+        },
+        "registration_margin_m": 0.00916489809645133,
+        "rotation": [
+          [
+            -0.06227453142325554,
+            -0.001135253535975527,
+            0.9980584120858974
+          ],
+          [
+            0.9980590504880592,
+            4.971065335547878e-05,
+            0.06227462780077145
+          ],
+          [
+            -0.00012031162716410733,
+            0.9999993543639216,
+            0.0011299543585344897
+          ]
+        ],
+        "rotation_error_rad": 0.01,
+        "translation_error_m": 0.005586156240548743,
+        "uses_evaluator_pose": false,
+        "valid": true
+      },
+      "selected_table_scene": {
+        "assumptions": [
+          "Aligned calibrated optical-Z RGBD and depth-epoch base transform.",
+          "Detected bin rests on this stock table; floor is 10 mm above bin bottom.",
+          "Stock 1.4 x 0.8 x 0.04 m top and four 0.07 m corner legs.",
+          "Hidden CAD edges/legs are inferred from the visible perpendicular edges.",
+          "Pixel/edge angular bounds are engineering allowances, not calibration proof.",
+          "Caller reprojects for base motion and invalidates registration after scene impact."
+        ],
+        "frame": "base_footprint",
+        "mesh_sha256": "9a662650c305d09e67d112b1c3311c78c8b75454eb05c8c7981292eb1d354977",
+        "model": "erc_table_two_edge_rgbd_v1",
+        "modeled_margin_m": 0.005,
+        "origin": [
+          0.9330169056975857,
+          0.0146755558538488,
+          0.7411009291936516
+        ],
+        "quality": {
+          "angle_bound_rad": 0.020901607534363546,
+          "edge_absolute_dot": 0.0035807598846889777,
+          "edge_points": 481,
+          "edge_rms_m": [
+            0.002836963656464102,
+            0.0011570924071665645
+          ],
+          "edge_spans_m": [
+            1.3635418582806964,
+            0.5740349119361023
+          ],
+          "observed_floor_to_table_m": 0.010192580608038626,
+          "pixel_pitch_m": 0.003741651675913231,
+          "plane_normal": [
+            -0.0010188882848954626,
+            7.4276421185588e-07,
+            0.9999994809329207
+          ],
+          "plane_offset_m": 0.7401499154182101,
+          "plane_points": 78233,
+          "plane_rms_m": 6.626074569734008e-05,
+          "rectangle_outside_fraction": 0.0,
+          "translation_bound_m": 0.006
+        },
+        "registration_margin_m": 0.02873242668591247,
+        "rotation": [
+          [
+            0.0604891159234744,
+            0.9981683368658112,
+            -0.0010188882848954626
+          ],
+          [
+            -0.9981688549360745,
+            0.06048914807677438,
+            7.4276421185588e-07
+          ],
+          [
+            6.237308805676394e-05,
+            0.0010169776234913702,
+            0.9999994809329207
+          ]
+        ],
+        "solids": [
+          {
+            "bounds": [
+              [
+                -0.7,
+                -0.4,
+                -0.04
+              ],
+              [
+                0.7,
+                0.4,
+                0.0
+              ]
+            ],
+            "name": "tabletop"
+          },
+          {
+            "bounds": [
+              [
+                -0.7,
+                -0.4,
+                -0.73
+              ],
+              [
+                -0.63,
+                -0.33,
+                -0.04
+              ]
+            ],
+            "name": "leg_-1_-1"
+          },
+          {
+            "bounds": [
+              [
+                -0.7,
+                0.33,
+                -0.73
+              ],
+              [
+                -0.63,
+                0.4,
+                -0.04
+              ]
+            ],
+            "name": "leg_-1_1"
+          },
+          {
+            "bounds": [
+              [
+                0.63,
+                -0.4,
+                -0.73
+              ],
+              [
+                0.7,
+                -0.33,
+                -0.04
+              ]
+            ],
+            "name": "leg_1_-1"
+          },
+          {
+            "bounds": [
+              [
+                0.63,
+                0.33,
+                -0.73
+              ],
+              [
+                0.7,
+                0.4,
+                -0.04
+              ]
+            ],
+            "name": "leg_1_1"
+          }
+        ],
+        "valid": true
+      },
+      "selected_admission_reference": {
+        "base_pose": [
+          -0.029361486588630095,
+          0.0743910558226014,
+          1.4577351481131673
+        ],
+        "parked_joints": {
+          "arm_right_1_joint": -0.3599999991171662,
+          "arm_right_2_joint": -1.830000002090707,
+          "arm_right_3_joint": -0.46999999939955395,
+          "arm_right_4_joint": -2.350000000389866,
+          "arm_right_5_joint": -2.6842781449930257e-10,
+          "arm_right_6_joint": -1.1999999997920658,
+          "arm_right_7_joint": 1.8369137852984702e-10,
+          "head_1_joint": 7.890086267192667e-12,
+          "head_2_joint": -0.6000000000038622
+        },
+        "stamp_ns": 1000000000,
+        "odom_frame_id": "odom",
+        "odom_child_frame_id": "base_footprint",
+        "odom_producer_stamp_ns": 1000000000
+      },
+      "bin_floor_point": [
+        0.9383468773014284,
+        0.012856264908775623,
+        0.7511033980767636
+      ],
+      "actual_carry_start": [
+        0.1,
+        3.43734870845,
+        -2.2676009274,
+        -1.60197601886,
+        -1.92696895395,
+        -2.47218391424,
+        -1.5231513780599997,
+        -2.1
+      ],
+      "staging_seed": [
+        0.35,
+        0.892001120891164,
+        0.4002461248297904,
+        0.0570108256726454,
+        -2.1957648352383323,
+        0.4874419578010586,
+        1.6306179750170413,
+        -1.7697944241509274
+      ],
+      "torso_ready": [
+        0.35,
+        3.43734870845,
+        -2.2676009274,
+        -1.60197601886,
+        -1.92696895395,
+        -2.47218391424,
+        -1.5231513780599997,
+        -2.1
+      ],
+      "cartesian_positions": [
+        [
+          0.6,
+          0.06811441036995229,
+          1.2520407195524952
+        ],
+        [
+          0.6565996301886117,
+          0.06811441036995229,
+          1.2520407195524952
+        ],
+        [
+          0.7131992603772233,
+          0.06811441036995229,
+          1.2520407195524952
+        ],
+        [
+          0.7697988905658348,
+          0.06811441036995229,
+          1.2520407195524952
+        ],
+        [
+          0.8263985207544465,
+          0.06811441036995229,
+          1.2520407195524952
+        ],
+        [
+          0.8829981509430582,
+          0.06811441036995229,
+          1.2520407195524952
+        ],
+        [
+          0.9395977811316698,
+          0.06811441036995229,
+          1.2520407195524952
+        ],
+        [
+          0.9395977811316698,
+          0.06811441036995229,
+          1.1945407195524953
+        ],
+        [
+          0.9395977811316698,
+          0.06811441036995229,
+          1.1370407195524952
+        ],
+        [
+          0.9395977811316698,
+          0.06811441036995229,
+          1.079540719552495
+        ],
+        [
+          0.9395977811316698,
+          0.06811441036995229,
+          1.0220407195524952
+        ]
+      ],
+      "tool_rotation": [
+        [
+          0.5330677042981125,
+          -0.0012965992130729539,
+          -0.8460715935810756
+        ],
+        [
+          -0.8460722112228973,
+          0.0001256860919495881,
+          -0.533068286056677
+        ],
+        [
+          0.0007975153523220507,
+          0.9999991515163836,
+          -0.001030017366776715
+        ]
+      ],
+      "held_book_corners": [
+        [
+          -0.10456897830182944,
+          0.024087620835015016,
+          0.10809544404997265
+        ],
+        [
+          0.029647558864915005,
+          0.024043856471762954,
+          -0.13764002192034375
+        ],
+        [
+          -0.10457649275376908,
+          -0.02591237836986658,
+          0.10810024455528475
+        ],
+        [
+          0.029640044412975367,
+          -0.025956142733118644,
+          -0.13763522141503165
+        ],
+        [
+          0.062180088091844415,
+          0.02407130444727509,
+          0.19917095442797494
+        ],
+        [
+          0.19639662525858886,
+          0.024027540084023028,
+          -0.04656451154234145
+        ],
+        [
+          0.06217257363990478,
+          -0.025928694757606507,
+          0.19917575493328704
+        ],
+        [
+          0.19638911080664923,
+          -0.02597245912085857,
+          -0.04655971103702934
+        ]
+      ],
+      "measured_master": 0.018200005210388923,
+      "master_producer_stamp_ns": 1000000000
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 0.24154452299990226,
+      "command": "place",
+      "stage": "scene_construction_completed",
+      "planning_wall_seconds": 0.009127872999670217
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 0.24161349299902213,
+      "command": "place",
+      "stage": "torso_validation_begin",
+      "planning_wall_seconds": 0.009199263997288654
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 1.6095595650003816,
+      "command": "place",
+      "stage": "torso_validation_completed",
+      "planning_wall_seconds": 1.3771426439998322,
+      "scene_samples": 61
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 1.6096333470013633,
+      "command": "place",
+      "stage": "cartesian_search_begin",
+      "planning_wall_seconds": 1.3772190639974724,
+      "scene_samples": 61,
+      "search_wall_budget_seconds": 1800.0
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 2.851089503001276,
+      "command": "place",
+      "stage": "candidate_begin",
+      "planning_wall_seconds": 2.6186733750000712,
+      "candidate_number": 1,
+      "cartesian_waypoints": 11,
+      "scene_samples": 124
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 2.8525991889982834,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 2.6201841399997647,
+      "candidate_number": 1,
+      "policy": {
+        "shoulder_progress_power": 1.0,
+        "joint_progress_powers": [
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "proximal_steps": 10
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 4.40400456199859,
+      "command": "place",
+      "stage": "candidate_setup_body_completed",
+      "planning_wall_seconds": 4.171587925000495,
+      "candidate_number": 1,
+      "setup_legs": 12,
+      "scene_samples": 135
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 10.04115069999898,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 9.80873383299695,
+      "candidate_number": 1,
+      "policy": {
+        "shoulder_progress_power": 1.0,
+        "joint_progress_powers": [
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "proximal_steps": 20
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 10.530620786998043,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 10.298204298997007,
+      "candidate_number": 1,
+      "policy": {
+        "shoulder_progress_power": 1.0
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 13.98643330199775,
+      "command": "place",
+      "stage": "candidate_setup_body_completed",
+      "planning_wall_seconds": 13.7540165169994,
+      "candidate_number": 1,
+      "setup_legs": 21,
+      "scene_samples": 699
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 24.867206049999368,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 24.63478966999901,
+      "candidate_number": 1,
+      "policy": {
+        "shoulder_progress_power": 0.5
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 32.300610533999134,
+      "command": "place",
+      "stage": "candidate_begin",
+      "planning_wall_seconds": 32.06819431099939,
+      "candidate_number": 2,
+      "cartesian_waypoints": 11,
+      "scene_samples": 1871
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 32.30099723300009,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 32.06858234599713,
+      "candidate_number": 2,
+      "policy": {
+        "shoulder_progress_power": 1.0,
+        "joint_progress_powers": [
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "proximal_steps": 10
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 33.65930467599901,
+      "command": "place",
+      "stage": "candidate_setup_body_completed",
+      "planning_wall_seconds": 33.42688664799789,
+      "candidate_number": 2,
+      "setup_legs": 12,
+      "scene_samples": 1882
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 33.66939372200068,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 33.43697747599799,
+      "candidate_number": 2,
+      "policy": {
+        "shoulder_progress_power": 1.0,
+        "joint_progress_powers": [
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "proximal_steps": 20
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 34.1377634720011,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 33.90534661499987,
+      "candidate_number": 2,
+      "policy": {
+        "shoulder_progress_power": 1.0
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 37.27003556300042,
+      "command": "place",
+      "stage": "candidate_setup_body_completed",
+      "planning_wall_seconds": 37.03761857899735,
+      "candidate_number": 2,
+      "setup_legs": 21,
+      "scene_samples": 2446
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 37.286342491999676,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 37.05392596399906,
+      "candidate_number": 2,
+      "policy": {
+        "shoulder_progress_power": 0.5
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 38.13678233099927,
+      "command": "place",
+      "stage": "candidate_begin",
+      "planning_wall_seconds": 37.90436623799906,
+      "candidate_number": 3,
+      "cartesian_waypoints": 11,
+      "scene_samples": 3594
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 38.137182831000246,
+      "command": "place",
+      "stage": "candidate_setup_begin",
+      "planning_wall_seconds": 37.90476817799936,
+      "candidate_number": 3,
+      "policy": {
+        "shoulder_progress_power": 1.0,
+        "joint_progress_powers": [
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "proximal_steps": 10
+      }
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 39.81815156299854,
+      "command": "place",
+      "stage": "candidate_setup_body_completed",
+      "planning_wall_seconds": 39.58573447099843,
+      "candidate_number": 3,
+      "setup_legs": 12,
+      "scene_samples": 3605
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 46.98097745799896,
+      "command": "place",
+      "stage": "candidate_cartesian_legs_begin",
+      "planning_wall_seconds": 46.74856085399733,
+      "candidate_number": 3,
+      "scene_samples": 4337
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 53.44317106399831,
+      "command": "place",
+      "stage": "candidate_opening_begin",
+      "planning_wall_seconds": 53.21075434099839,
+      "candidate_number": 3,
+      "scene_samples": 4947
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 53.45566028800022,
+      "command": "place",
+      "stage": "candidate_release_only_accepted",
+      "planning_wall_seconds": 53.22324410899819,
+      "candidate_number": 3,
+      "scene_samples": 5000,
+      "unused_return_omitted": true
+    },
+    {
+      "event": "place_planning_stage",
+      "elapsed_seconds": 53.455808164999326,
+      "command": "place",
+      "stage": "cartesian_search_completed",
+      "planning_wall_seconds": 53.223393413998565,
+      "search_diagnostics": {
+        "search": "bounded_negative_wrist_variable_swivel_v1",
+        "ik_calls": 141,
+        "candidates": 3,
+        "endpoint_samples": 55,
+        "opening_samples": 156,
+        "rejections": {
+          "ik": 66,
+          "full_candidate": 2,
+          "nonnegative_wrist": 6,
+          "joint_step": 1
+        },
+        "levels": [
+          {
+            "waypoint": 0,
+            "surviving": 11
+          }
+        ],
+        "wall_seconds": 51.84591552100028,
+        "wall_budget_seconds": 1800.0,
+        "position_tolerance": 0.002,
+        "orientation_tolerance": 0.02,
+        "maximum_joint_step": 0.4,
+        "joint_margin": 0.1,
+        "minimum_signed_support": 0.75,
+        "full_candidate_validator_required": true,
+        "recorded_joint_path_used": false,
+        "strategy": {
+          "loose_paths": 1,
+          "refined_paths": 1
+        },
+        "completion_first": {
+          "policy": "bounded_greedy_existing_delta_order_v1",
+          "ik_budget": 192,
+          "ik_calls": 22,
+          "roots_attempted": 2,
+          "completed_paths": 2,
+          "accepted": true
+        }
+      },
+      "scene_samples": 5000
+    },
+    {
+      "event": "OFFLINE_MIXED_RECORDED_PLACE_PASS",
+      "elapsed_seconds": 53.456720064001274,
+      "row": "row2",
+      "planning_seconds": 53.22430859200176,
+      "diagnostics": {
+        "scope": "sampled_nominal_scene_checked_loaded_place",
+        "original_bin_point": [
+          0.9383468773014284,
+          0.012856264908775623,
+          0.7511033980767636
+        ],
+        "bin_origin": [
+          0.9382390282155108,
+          0.012860987420844393,
+          0.8461033367413362
+        ],
+        "bin_rotation": [
+          [
+            -0.06227453142325554,
+            -0.001135253535975527,
+            0.9980584120858974
+          ],
+          [
+            0.9980590504880592,
+            4.971065335547878e-05,
+            0.06227462780077145
+          ],
+          [
+            -0.00012031162716410733,
+            0.9999993543639216,
+            0.0011299543585344897
+          ]
+        ],
+        "bin_outer_expanded_bounds": [
+          [
+            -0.16916489928854422,
+            -0.11916489481819587,
+            -0.3191649052490087
+          ],
+          [
+            0.16916489928854422,
+            0.11916489481819587,
+            0.26916489332807975
+          ]
+        ],
+        "modeled_margin_m": 0.014164898096451332,
+        "bin_material_solids": 5,
+        "bin_certified_cavity": [
+          [
+            -0.145,
+            -0.095,
+            -0.245
+          ],
+          [
+            0.145,
+            0.105,
+            0.245
+          ]
+        ],
+        "nominal_floor_registration": false,
+        "registered_bin_scene": {
+          "cavity_bounds": [
+            [
+              -0.145,
+              -0.095,
+              -0.245
+            ],
+            [
+              0.145,
+              0.105,
+              0.245
+            ]
+          ],
+          "floor_center": [
+            0.9383468773014284,
+            0.012856264908775623,
+            0.7511033980767636
+          ],
+          "floor_point_model": [
+            0.0,
+            -0.095,
+            0.0
+          ],
+          "frame": "base_footprint",
+          "mesh_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+          "model": "stock_bin_visible_inner_planes_v1",
+          "modeled_margin_m": 0.005,
+          "nominal_mimic_or_scene_motion_proof": false,
+          "origin": [
+            0.9382390282155108,
+            0.012860987420844393,
+            0.8461033367413362
+          ],
+          "outer_bounds": [
+            [
+              -0.155,
+              -0.105,
+              -0.305
+            ],
+            [
+              0.155,
+              0.105,
+              0.255
+            ]
+          ],
+          "producer_stamp_bound_by_caller": true,
+          "quality": {
+            "accepted_candidates": 1,
+            "bbox": [
+              241,
+              51,
+              180,
+              177
+            ],
+            "feature_indices": [
+              0,
+              3,
+              5,
+              1
+            ],
+            "finite_cad_coverage": 0.97745,
+            "finite_surface_residual_p95_m": 0.0005861562405487434,
+            "floor_points": 6686,
+            "floor_rear_registration_observed": true,
+            "input_encoding": "BGR8 + optical-Z metres",
+            "observed_inner_width_m": 0.289974661504357,
+            "partial_cloud_bounds_used_for_center": false,
+            "plane_count": 7,
+            "plane_rms_m": [
+              0.000136629723155347,
+              0.00012472798416028721,
+              0.00019792798507323918,
+              5.219226297341075e-05
+            ],
+            "rear_points": 4292,
+            "red_depth_points": 27717,
+            "red_filter": "R>=45 and R>1.45*G and R>1.45*B",
+            "rejections": {
+              "rear_not_visible_from_cavity_side": 1,
+              "wrong_inner_side_separation": 1
+            },
+            "rotation_condition": 1.0000000000000004,
+            "side_points": [
+              2436,
+              928
+            ],
+            "table_used_for_horizontal_registration": false,
+            "uncertainty_is_engineering_assumption": true,
+            "yaw_long_axis_rad": 0.06231498955143493
+          },
+          "registration_margin_m": 0.00916489809645133,
+          "rotation": [
+            [
+              -0.06227453142325554,
+              -0.001135253535975527,
+              0.9980584120858974
+            ],
+            [
+              0.9980590504880592,
+              4.971065335547878e-05,
+              0.06227462780077145
+            ],
+            [
+              -0.00012031162716410733,
+              0.9999993543639216,
+              0.0011299543585344897
+            ]
+          ],
+          "rotation_error_rad": 0.01,
+          "translation_error_m": 0.005586156240548743,
+          "uses_evaluator_pose": false,
+          "valid": true
+        },
+        "whole_table_pose_modeled": true,
+        "table_scene": {
+          "assumptions": [
+            "Aligned calibrated optical-Z RGBD and depth-epoch base transform.",
+            "Detected bin rests on this stock table; floor is 10 mm above bin bottom.",
+            "Stock 1.4 x 0.8 x 0.04 m top and four 0.07 m corner legs.",
+            "Hidden CAD edges/legs are inferred from the visible perpendicular edges.",
+            "Pixel/edge angular bounds are engineering allowances, not calibration proof.",
+            "Caller reprojects for base motion and invalidates registration after scene impact."
+          ],
+          "frame": "base_footprint",
+          "mesh_sha256": "9a662650c305d09e67d112b1c3311c78c8b75454eb05c8c7981292eb1d354977",
+          "model": "erc_table_two_edge_rgbd_v1",
+          "modeled_margin_m": 0.005,
+          "origin": [
+            0.9330169056975857,
+            0.0146755558538488,
+            0.7411009291936516
+          ],
+          "quality": {
+            "angle_bound_rad": 0.020901607534363546,
+            "edge_absolute_dot": 0.0035807598846889777,
+            "edge_points": 481,
+            "edge_rms_m": [
+              0.002836963656464102,
+              0.0011570924071665645
+            ],
+            "edge_spans_m": [
+              1.3635418582806964,
+              0.5740349119361023
+            ],
+            "observed_floor_to_table_m": 0.010192580608038626,
+            "pixel_pitch_m": 0.003741651675913231,
+            "plane_normal": [
+              -0.0010188882848954626,
+              7.4276421185588e-07,
+              0.9999994809329207
+            ],
+            "plane_offset_m": 0.7401499154182101,
+            "plane_points": 78233,
+            "plane_rms_m": 6.626074569734008e-05,
+            "rectangle_outside_fraction": 0.0,
+            "translation_bound_m": 0.006
+          },
+          "registration_margin_m": 0.02873242668591247,
+          "rotation": [
+            [
+              0.0604891159234744,
+              0.9981683368658112,
+              -0.0010188882848954626
+            ],
+            [
+              -0.9981688549360745,
+              0.06048914807677438,
+              7.4276421185588e-07
+            ],
+            [
+              6.237308805676394e-05,
+              0.0010169776234913702,
+              0.9999994809329207
+            ]
+          ],
+          "solids": [
+            {
+              "bounds": [
+                [
+                  -0.7,
+                  -0.4,
+                  -0.04
+                ],
+                [
+                  0.7,
+                  0.4,
+                  0.0
+                ]
+              ],
+              "name": "tabletop"
+            },
+            {
+              "bounds": [
+                [
+                  -0.7,
+                  -0.4,
+                  -0.73
+                ],
+                [
+                  -0.63,
+                  -0.33,
+                  -0.04
+                ]
+              ],
+              "name": "leg_-1_-1"
+            },
+            {
+              "bounds": [
+                [
+                  -0.7,
+                  0.33,
+                  -0.73
+                ],
+                [
+                  -0.63,
+                  0.4,
+                  -0.04
+                ]
+              ],
+              "name": "leg_-1_1"
+            },
+            {
+              "bounds": [
+                [
+                  0.63,
+                  -0.4,
+                  -0.73
+                ],
+                [
+                  0.7,
+                  -0.33,
+                  -0.04
+                ]
+              ],
+              "name": "leg_1_-1"
+            },
+            {
+              "bounds": [
+                [
+                  0.63,
+                  0.33,
+                  -0.73
+                ],
+                [
+                  0.7,
+                  0.4,
+                  -0.04
+                ]
+              ],
+              "name": "leg_1_1"
+            }
+          ],
+          "valid": true
+        },
+        "nominal_mimic_geometry": true,
+        "actual_passive_deflection_verified": false,
+        "measured_master": 0.018200005210388923,
+        "master_producer_stamp_ns": 1000000000,
+        "modeled_open_master": 0.069,
+        "actual_carry_start": [
+          0.1,
+          3.43734870845,
+          -2.2676009274,
+          -1.60197601886,
+          -1.92696895395,
+          -2.47218391424,
+          -1.5231513780599997,
+          -2.1
+        ],
+        "torso_ready": [
+          0.35,
+          3.43734870845,
+          -2.2676009274,
+          -1.60197601886,
+          -1.92696895395,
+          -2.47218391424,
+          -1.5231513780599997,
+          -2.1
+        ],
+        "staging_used_as_ik_seed_only": true,
+        "old_reverse_compact_executed": false,
+        "cartesian_search": {
+          "search": "bounded_negative_wrist_variable_swivel_v1",
+          "ik_calls": 141,
+          "candidates": 3,
+          "endpoint_samples": 55,
+          "opening_samples": 156,
+          "rejections": {
+            "ik": 66,
+            "full_candidate": 2,
+            "nonnegative_wrist": 6,
+            "joint_step": 1
+          },
+          "levels": [
+            {
+              "waypoint": 0,
+              "surviving": 11
+            }
+          ],
+          "wall_seconds": 51.84591552100028,
+          "wall_budget_seconds": 1800.0,
+          "position_tolerance": 0.002,
+          "orientation_tolerance": 0.02,
+          "maximum_joint_step": 0.4,
+          "joint_margin": 0.1,
+          "minimum_signed_support": 0.75,
+          "full_candidate_validator_required": true,
+          "recorded_joint_path_used": false,
+          "strategy": {
+            "loose_paths": 1,
+            "refined_paths": 1
+          },
+          "completion_first": {
+            "policy": "bounded_greedy_existing_delta_order_v1",
+            "ik_budget": 192,
+            "ik_calls": 22,
+            "roots_attempted": 2,
+            "completed_paths": 2,
+            "accepted": true
+          }
+        },
+        "joint_limit_margin": 0.1,
+        "shoulder_progress_power": 1.0,
+        "proximal_setup_steps": 10,
+        "joint_progress_powers": [
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "direct_empty_fold_from_clearance": false,
+        "scene_samples": 5000,
+        "exact_cache_hits": 1797,
+        "setup_legs": 12,
+        "open_return_legs": 0,
+        "open_tool_robot_self_checked": true,
+        "tool_tool_pairs_checked": false,
+        "head_screen_visual_box_checked": true,
+        "minimum_moving_left_geometry_z_m": 0.7272194797828784,
+        "minimum_moving_left_z_minus_bin_point_z_m": -0.023883918293885253,
+        "urdf_sha256": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0",
+        "bin_mesh_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+        "planning_wall_seconds": 53.22383538199938,
+        "completion_plan": "release_pose_only",
+        "unused_empty_return_omitted": true,
+        "static_open_hand_endpoint_checked": true
+      }
+    }
+  ],
+  "source_unchanged_through_run": true
+}

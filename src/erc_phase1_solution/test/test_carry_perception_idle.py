@@ -50,7 +50,7 @@ def bus(monkeypatch):
          _publish_tracking_status=Mock(),_tracking_unavailable=Mock(),_publish_status=Mock())
     for name in ('marker_history','book_history','bin_history','bin_rgb_frames','bin_depth_frames'):
         setattr(p,name,deque(maxlen=24))
-    for name in ('_on_mode','_on_rgb','_on_depth','_ready','_process','_process_books','_process_bin','_invalidate_bin'):
+    for name in ('_on_mode','_on_rgb','_on_depth','_ready','_process','_registered_book_frame','_process_books','_process_bin','_invalidate_bin'):
         setattr(p,name,MethodType(getattr(PerceptionNode,name),p))
     p.tf_buffer=NS(lookup_transform=Mock(return_value=NS(transform=NS(
         translation=NS(x=0.,y=0.,z=0.),rotation=NS(x=0.,y=0.,z=0.,w=1.)))))
@@ -71,7 +71,17 @@ def bus(monkeypatch):
          empty_head_timing_enabled=False,marker_search_negative_enabled=False,
          head_return_overlap_enabled=False,book_point=object(),bin_point=None,
          bin_candidate=None,bin_invalidated_ns=-1,start_pose=(0.,0.,0.),shelf_normal=(1.,0.),
+         target_marker_odom=(2.755,0.,2.26),_shelf_registration_stamp_ns=1_000_000_000,
+         _confirmed_book_point_odom=(2.82,.02,1.595),
+         _confirmed_book_point_stamp_ns=1_500_000_000,
          get_clock=p.get_clock,_log=Mock(),_elapsed_state=lambda:0.)
+    from erc_phase1_solution.book_selection_context import make_context,decode_context
+    context=make_context(m.target_marker_odom,m.shelf_normal,
+        m._shelf_registration_stamp_ns,1_900_000_000,m.target_column,m.target_colour,
+        confirmed_row=1,confirmed_point=m._confirmed_book_point_odom,
+        confirmed_stamp_ns=m._confirmed_book_point_stamp_ns)
+    p.book_selection_context=decode_context(context,clock.ns,
+        column=m.target_column,colour=m.target_colour,confirmed_row=1)
     m.mode_pub=NS(topic_name='/erc/perception/mode')
     m.manip_command_pub=NS(topic_name='/erc/manipulation/command')
 

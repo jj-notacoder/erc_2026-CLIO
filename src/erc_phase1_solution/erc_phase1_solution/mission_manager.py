@@ -187,6 +187,9 @@ class MissionManager(Node):
         self.robot_pose: Optional[Tuple[float, float, float]] = None
         self.marker_cloud: Optional[PointCloud] = None
         self.book_point: Optional[PointStamped] = None
+        self._confirmed_book_point_odom = None
+        self._confirmed_book_point_stamp_ns = None
+        self._book_mode_epoch_ns = None
         self.bin_point: Optional[PointStamped] = None
         self.bin_invalidated_ns = -1
         self.bin_verified_ns = -1
@@ -543,6 +546,12 @@ class MissionManager(Node):
 
     def _on_book(self, message: PointStamped) -> None:
         if not _empty_head_timing.mission_observation_current(self, 'books', message):
+            return
+        epoch = getattr(self, '_book_mode_epoch_ns', None)
+        stamp_ns = stamp_to_nanoseconds(message.header.stamp)
+        now_ns = int(self.get_clock().now().nanoseconds)
+        if (epoch is None or stamp_ns <= epoch
+                or not 0 <= now_ns-stamp_ns <= 200_000_000):
             return
         self.book_point = message
 
@@ -909,6 +918,24 @@ class MissionManager(Node):
         }
         if mode == 'books' and self.row_confirmed and self.detected_row is not None:
             fields['confirmed_row'] = self.detected_row
+        if mode == 'books':
+            from .book_selection_context import make_context
+            try:
+                fields['book_selection_context'] = make_context(
+                    self.target_marker_odom, self.shelf_normal,
+                    self._shelf_registration_stamp_ns,
+                    int(self.get_clock().now().nanoseconds),
+                    self.target_column, self.target_colour,
+                    confirmed_row=fields.get('confirmed_row'),
+                    confirmed_point=(self._confirmed_book_point_odom
+                                     if self.row_confirmed else None),
+                    confirmed_stamp_ns=(self._confirmed_book_point_stamp_ns
+                                        if self.row_confirmed else None))
+            except (TypeError, ValueError) as error:
+                self._abort(f'book_selection_context_invalid:{error}')
+                return False
+            self._book_mode_epoch_ns = fields['book_selection_context']['dispatch_stamp_ns']
+            self.book_point = None
         if getattr(self, 'marker_search_negative_enabled', False):
             from .marker_search_completion import NegativeFrameGate, request_from_fields
             self._marker_search_negative_gate = None
@@ -1535,7 +1562,10 @@ class MissionManager(Node):
             if self._manip_succeeded('look_books'):
                 self.book_point = None
                 self.detected_row = None
-                self._perception_mode('books')
+                self._confirmed_book_point_odom = None
+                self._confirmed_book_point_stamp_ns = None
+                if self._perception_mode('books') is False:
+                    return
                 self._set_state('FIND_BOOK')
             elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
                 self._abort('head_book_pose_failed')
@@ -1556,6 +1586,9 @@ class MissionManager(Node):
                     self.row_confirmed = True
                     self._republish_score()
                     target = np.asarray([point.point.x, point.point.y, point.point.z])
+                    self._confirmed_book_point_odom = target.copy()
+                    self._confirmed_book_point_stamp_ns = stamp_to_nanoseconds(
+                        point.header.stamp)
                     staging = bool(
                         self.detected_row == 1
                         and getattr(self, 'empty_arm_staging_enabled', False)
@@ -1604,7 +1637,8 @@ class MissionManager(Node):
             if self._manip_succeeded(command):
                 self.book_point = None
                 self._book_reacquire_after_ns = self.get_clock().now().nanoseconds
-                self._perception_mode('books')
+                if self._perception_mode('books') is False:
+                    return
                 self._set_state('REACQUIRE_BOOK')
             elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
                 self._abort('book_reacquisition_head_pose_failed')
@@ -1612,8 +1646,7 @@ class MissionManager(Node):
 
         if self.state == 'REACQUIRE_BOOK':
             if self.book_point is not None:
-                if (getattr(self, 'empty_arm_staging_enabled', False)
-                        and stamp_to_nanoseconds(self.book_point.header.stamp)
+                if (stamp_to_nanoseconds(self.book_point.header.stamp)
                         <= getattr(self, '_book_reacquire_after_ns', 0)):
                     self.book_point = None
                     return
@@ -1757,7 +1790,9 @@ class MissionManager(Node):
             command = f'look_book_row_{self.detected_row}'
             if self._manip_succeeded(command):
                 self.book_point = None
-                self._perception_mode('books')
+                self._book_reacquire_after_ns = self.get_clock().now().nanoseconds
+                if self._perception_mode('books') is False:
+                    return
                 self._set_state('REACQUIRE_BOOK')
             elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
                 self._abort('pick_recovery_failed')

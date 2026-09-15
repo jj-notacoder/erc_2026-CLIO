@@ -1,0 +1,1 @@
+# Build the standalone Gazebo viewer explicitly; this directory is not a ROS package.

@@ -1161,7 +1161,8 @@ def test_mission_clears_previous_identity_before_dispatching_a_retry_pick():
     node.wall_started = time.monotonic()
     node.trial_timeout = 1200.0
     node.state = 'REACQUIRE_BOOK'
-    node.book_point = object()
+    node.book_point = SimpleNamespace(header=SimpleNamespace(
+        stamp=SimpleNamespace(sec=1, nanosec=0)))
     node.pick_attempts = 1
     node.target_book_model = 'book_col_2_row_1_red'
     calls = []
@@ -5658,6 +5659,12 @@ def test_close_book_mode_carries_confirmed_overview_row():
     node.target_colour = 'blue'
     node.row_confirmed = True
     node.detected_row = 3
+    node.target_marker_odom = [2.755, 0., 2.26]
+    node.shelf_normal = [-1., 0.]
+    node._shelf_registration_stamp_ns = 1_000_000_000
+    node._confirmed_book_point_odom = [2.82, .02, .935]
+    node._confirmed_book_point_stamp_ns = 1_500_000_000
+    node.get_clock = lambda: SimpleNamespace(now=lambda: SimpleNamespace(nanoseconds=2_000_000_000))
     calls = []
     node._command = lambda publisher, mode, **fields: calls.append(
         (publisher, mode, fields)
@@ -5665,6 +5672,7 @@ def test_close_book_mode_carries_confirmed_overview_row():
 
     node._perception_mode('books')
 
+    assert calls[0][2].pop('book_selection_context')['confirmed_point_odom'] == [2.82, .02, .935]
     assert calls == [
         (
             node.mode_pub,
@@ -5685,11 +5693,16 @@ def test_overview_book_mode_does_not_invent_confirmed_row():
     node.target_colour = 'red'
     node.row_confirmed = False
     node.detected_row = None
+    node.target_marker_odom = [2.755, 0., 2.26]
+    node.shelf_normal = [-1., 0.]
+    node._shelf_registration_stamp_ns = 1_000_000_000
+    node.get_clock = lambda: SimpleNamespace(now=lambda: SimpleNamespace(nanoseconds=2_000_000_000))
     calls = []
     node._command = lambda publisher, mode, **fields: calls.append(fields)
 
     node._perception_mode('books')
 
+    assert calls[0].pop('book_selection_context')['confirmed_point_odom'] is None
     assert calls == [
         {'shelf_column_number': 2, 'book_colour': 'red'}
     ]

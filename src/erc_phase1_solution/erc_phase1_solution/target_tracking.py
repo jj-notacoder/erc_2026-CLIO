@@ -170,6 +170,163 @@ def _fit_plane(
     return center, normal, residuals
 
 
+def _coherent_face_support(
+    image_mask: np.ndarray,
+) -> bool:
+    """Require one filled convex face, allowing only sparse edge/depth noise."""
+
+    count = int(np.count_nonzero(image_mask))
+    if count < 12:
+        return False
+    _, _, components, _ = cv2.connectedComponentsWithStats(
+        image_mask, connectivity=8
+    )
+    if int(np.max(components[1:, cv2.CC_STAT_AREA])) < 0.98 * count:
+        return False
+    rows, columns = np.nonzero(image_mask)
+    hull = cv2.convexHull(np.column_stack((columns, rows)).astype(np.int32))
+    hull_mask = np.zeros_like(image_mask)
+    cv2.fillConvexPoly(hull_mask, hull, 1)
+    # Rasterizing a slanted hull can add an entire boundary pixel per row,
+    # material for a narrow spine.  Check its interior for missing support and
+    # allow that one-pixel boundary quantisation explicitly.
+    interior = cv2.erode(
+        hull_mask, np.ones((3, 3), np.uint8),
+        borderType=cv2.BORDER_CONSTANT, borderValue=0,
+    )
+    interior_count = int(np.count_nonzero(interior))
+    return (
+        count >= 0.90 * cv2.contourArea(hull)
+        and int(np.count_nonzero(image_mask & interior)) >= 0.98 * interior_count
+    )
+
+
+def _coherent_prism_front_plane(
+    points: np.ndarray,
+    image_u: np.ndarray,
+    image_v: np.ndarray,
+    hypotheses: list[tuple[np.ndarray, np.ndarray]],
+    score_indices: np.ndarray,
+    *,
+    maximum_fit_points: int,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Certify a front that occupies less than 60% of a book's colour mask.
+
+    Colour segmentation includes a box's side and top as well as its spine.
+    A small front consensus is admitted only when the remaining depth is
+    explained by at most two connected, attached, receding orthogonal faces.
+    Parallel depth layers, fragmented support, and arbitrary background
+    outliers cannot provide this certificate.  These checks supplement the
+    usual front span, view-angle, residual and downstream uncertainty guards;
+    the normal majority-consensus path is unchanged.
+    """
+
+    score_points = points[score_indices]
+    local_u, local_v = image_u - image_u.min(), image_v - image_v.min()
+    image_shape = (int(local_v.max()) + 1, int(local_u.max()) + 1)
+    span = max(int(np.ptp(image_u)), int(np.ptp(image_v)))
+    tolerance = 0.0010
+    planes = []
+    seen_seeds = set()
+    for anchor, seed_normal in hypotheses:
+        seed = np.abs((score_points - anchor) @ seed_normal) <= 0.00075
+        if int(np.count_nonzero(seed)) < 12:
+            continue
+        seed_key = np.packbits(seed).tobytes()
+        if seed_key in seen_seeds:
+            continue
+        seen_seeds.add(seed_key)
+        try:
+            center, normal, _ = _fit_plane(score_points[seed])
+        except (ValueError, np.linalg.LinAlgError):
+            continue
+        inliers = np.abs((points - center) @ normal) <= tolerance
+        count = int(np.count_nonzero(inliers))
+        if count < 12:
+            continue
+        image_mask = np.zeros(image_shape, dtype=np.uint8)
+        image_mask[local_v[inliers], local_u[inliers]] = 1
+        if not _coherent_face_support(image_mask):
+            continue
+        planes.append((count, center, normal, inliers, image_mask))
+    planes.sort(key=lambda plane: plane[0], reverse=True)
+
+    for count, center, normal, inliers, image_mask in planes:
+        if count < 60:
+            continue
+        candidate_span = (
+            int(np.ptp(image_u[inliers])), int(np.ptp(image_v[inliers]))
+        )
+        if min(candidate_span) < 3 or max(candidate_span) < 0.70 * span:
+            continue
+        support_center = np.mean(points[inliers], axis=0)
+        if abs(float(normal @ _normalize(support_center))) < 0.80:
+            continue
+        # The selected front must be in front of the other visible faces.
+        signed_distance = (points - center) @ normal
+        if (
+            int(np.count_nonzero(signed_distance > tolerance))
+            > 0.02 * len(points)
+        ):
+            continue
+        attached = cv2.dilate(image_mask, np.ones((3, 3), np.uint8)) != 0
+        side_planes = []
+        for _, side_center, side_normal, side_inliers, _ in planes:
+            if abs(float(normal @ side_normal)) > 0.10:
+                continue
+            side_only = side_inliers & ~inliers
+            if int(np.count_nonzero(side_only)) < 12:
+                continue
+            # Adjacent image patches must also meet in metric space.  Requiring
+            # the fitted side to reach a front edge prevents a depth jump from
+            # posing as an attached face.  Three millimetres covers rasterized
+            # edge sampling plus the one-millimetre plane consensus tolerance.
+            touching = side_only & attached[local_v, local_u]
+            if not np.any(touching):
+                continue
+            side_edge_distances = np.abs(
+                (points[inliers] - side_center) @ side_normal
+            )
+            if float(np.min(side_edge_distances)) > 0.003:
+                continue
+            if float(np.min(np.abs(signed_distance[touching]))) > 0.015:
+                continue
+            side_planes.append((side_normal, side_inliers))
+        explained = inliers.copy()
+        selected_normals = []
+        for _ in range(2):
+            compatible = [
+                (int(np.count_nonzero(mask & ~explained)), side_normal, mask)
+                for side_normal, mask in side_planes
+                if all(
+                    abs(float(side_normal @ other)) <= 0.10
+                    for other in selected_normals
+                )
+            ]
+            if not compatible:
+                break
+            support, side_normal, mask = max(compatible, key=lambda item: item[0])
+            if support < 12:
+                break
+            explained |= mask
+            selected_normals.append(side_normal)
+        if (
+            not selected_normals
+            or int(np.count_nonzero(explained)) < 0.98 * len(points)
+        ):
+            continue
+        # Fit the returned estimate only to the certified front.  Its mask is
+        # authoritative for the rectangle, just as in the majority path.
+        support_points = points[inliers]
+        if len(support_points) > maximum_fit_points:
+            support_points = support_points[np.linspace(
+                0, len(support_points) - 1, maximum_fit_points, dtype=np.int64
+            )]
+        final_center, final_normal, residuals = _fit_plane(support_points)
+        return final_center, final_normal, residuals, inliers
+    raise ValueError('no coherent camera-facing book prism support')
+
+
 def _dominant_front_plane(
     points: np.ndarray,
     image_u: np.ndarray,
@@ -336,7 +493,10 @@ def _dominant_front_plane(
         if best is None or score > best[0]:
             best = (score, center, normal)
     if best is None:
-        raise ValueError('no dominant camera-facing plane support')
+        return _coherent_prism_front_plane(
+            points, image_u, image_v, hypotheses, score_indices,
+            maximum_fit_points=maximum_fit_points,
+        )
 
     _, plane_center, normal = best
     full_inliers = (

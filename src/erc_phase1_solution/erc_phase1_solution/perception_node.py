@@ -33,6 +33,7 @@ from .bin_geometry import (
 )
 
 from .common import RELIABLE_QOS, TRANSIENT_RELIABLE_QOS, decode_event, encode_event
+from .book_selection_context import decode_context, select_registered_book
 from .table_scene import fit_table_scene
 from .bin_scene import fit_bin_scene
 from .runtime_utils import (
@@ -58,7 +59,6 @@ from .vision import (
     load_digit_templates,
     median_valid_depth,
     resolve_book_row,
-    select_target_book,
 )
 
 
@@ -71,6 +71,8 @@ class PerceptionNode(Node):
         self.target_column = int(self.get_parameter('shelf_column_number').value)
         self.target_colour = str(self.get_parameter('book_colour').value).lower()
         self.confirmed_book_row: Optional[int] = None
+        self.book_selection_context = None
+        self.book_frame_pairs = deque(maxlen=6)
         self.stability_frames = int(
             self.get_parameter('detection_stability_frames').value
         )
@@ -298,6 +300,7 @@ class PerceptionNode(Node):
                 return
         previous_column = self.target_column
         previous_colour = self.target_colour
+        previous_context = getattr(self, 'book_selection_context', None)
         if 'shelf_column_number' in payload:
             value = int(payload['shelf_column_number'])
             if 1 <= value <= 5:
@@ -313,15 +316,39 @@ class PerceptionNode(Node):
         else:
             value = int(raw_confirmed_row)
             self.confirmed_book_row = value if 1 <= value <= 4 else None
+        self.book_selection_context = None
+        if mode == 'books':
+            try:
+                self.book_selection_context = decode_context(
+                    payload.get('book_selection_context'),
+                    int(self.get_clock().now().nanoseconds),
+                    column=self.target_column, colour=self.target_colour,
+                    confirmed_row=self.confirmed_book_row)
+            except (TypeError, ValueError) as error:
+                # A rejected replacement cannot leave the previous identity
+                # publishing from an older valid mode/context.
+                self.mode = 'idle'
+                self.target_tracker.reset()
+                self.book_history.clear()
+                if hasattr(self, 'book_frame_pairs'):
+                    self.book_frame_pairs.clear()
+                self.last_tracking_depth_ns = -1
+                self._publish_tracking_status('target_tracking_unavailable',
+                    force=True, reason=str(error))
+                self._publish_status('mode_rejected', requested=mode, reason=str(error))
+                return
         target_changed = (
             self.target_column != previous_column
             or self.target_colour != previous_colour
             or self.confirmed_book_row != previous_confirmed_row
+            or self.book_selection_context != previous_context
         )
         if mode != self.mode or target_changed:
             self.mode = mode
             self.marker_history.clear()
             self.book_history.clear()
+            if hasattr(self, 'book_frame_pairs'):
+                self.book_frame_pairs.clear()
             self.bin_history.clear()
             self.bin_tracker.reset()
             self.bin_rgb_frames.clear()
@@ -491,7 +518,9 @@ class PerceptionNode(Node):
         """
 
         cloud = PointCloud()
-        cloud.header = self._header()
+        cloud.header.frame_id = observation.frame_id
+        cloud.header.stamp.sec, cloud.header.stamp.nanosec = divmod(
+            observation.stamp_ns, 1_000_000_000)
         points = (observation.center, *observation.corners)
         cloud.points = [
             Point32(x=float(point[0]), y=float(point[1]), z=float(point[2]))
@@ -588,6 +617,11 @@ class PerceptionNode(Node):
         rgb_stamp_ns = stamp_to_nanoseconds(
             self.latest_rgb_message.header.stamp
         )
+        # Books retain a few immutable RGB-D pairs for timestamped TF to catch
+        # up.  Retry these on the next timer even without a new RGB callback.
+        if self.mode == 'books':
+            self._process_books()
+            return
         if rgb_stamp_ns <= self.last_processed_ns:
             return
         self.last_processed_ns = rgb_stamp_ns
@@ -698,9 +732,57 @@ class PerceptionNode(Node):
             cv2.LINE_AA,
         )
 
+    def _registered_book_frame(self):
+        context = getattr(self, 'book_selection_context', None)
+        now_ns = int(self.get_clock().now().nanoseconds)
+        if context is None:
+            self._tracking_unavailable(now_ns, 'book_selection_context_missing_or_incompatible')
+            return None
+        if not hasattr(self, 'book_frame_pairs'):
+            self.book_frame_pairs = deque(maxlen=6)
+        pairs = self.book_frame_pairs
+        latest = (self.latest_rgb_message, self.latest_rgb,
+                  self.latest_depth_message, self.latest_depth)
+        if not pairs or pairs[-1][0] is not latest[0] or pairs[-1][2] is not latest[2]:
+            pairs.append(latest)
+        reason = 'book_selection_tf_unavailable'
+        for rgb_message, rgb, depth_message, depth in reversed(pairs):
+            rgb_ns = stamp_to_nanoseconds(rgb_message.header.stamp)
+            depth_ns = stamp_to_nanoseconds(depth_message.header.stamp)
+            if depth_ns <= self.last_tracking_depth_ns:
+                continue
+            try:
+                context.require_frame(rgb_ns, depth_ns, now_ns)
+                if abs(rgb_ns-depth_ns)/1e9 > self.maximum_tracking_frame_skew:
+                    reason = 'rgb_depth_skew_too_large_for_tracking'
+                    continue
+                transform = self.tf_buffer.lookup_transform(
+                    'odom', depth_message.header.frame_id,
+                    Time.from_msg(depth_message.header.stamp))
+                matrix = camera_transform(
+                    transform.transform.translation, transform.transform.rotation)
+                if not np.all(np.isfinite(matrix)):
+                    raise ValueError('book_selection_invalid_camera_transform')
+            except TransformException:
+                continue
+            except (TypeError, ValueError) as error:
+                reason = str(error)
+                continue
+            return rgb_message, rgb, depth_message, depth, matrix
+        # Pending TF is not evidence of lost identity.  The same original
+        # freshness deadline still invalidates a track if it cannot catch up.
+        if now_ns-self.last_tracking_depth_ns > int(
+                getattr(self, 'tracking_maximum_age', .15)*1e9):
+            self._tracking_unavailable(now_ns, reason)
+        return None
+
     def _process_books(self) -> None:
+        selected_frame = self._registered_book_frame()
+        if selected_frame is None:
+            return
+        rgb_message, rgb, depth_message, depth, odom_from_camera = selected_frame
         depth_stamp_ns = stamp_to_nanoseconds(
-            self.latest_depth_message.header.stamp
+            depth_message.header.stamp
         )
         if depth_stamp_ns == self.last_tracking_depth_ns:
             return
@@ -712,7 +794,7 @@ class PerceptionNode(Node):
             return
         self.last_tracking_depth_ns = depth_stamp_ns
         rgb_stamp_ns = stamp_to_nanoseconds(
-            self.latest_rgb_message.header.stamp
+            rgb_message.header.stamp
         )
         tracking_skew = abs(rgb_stamp_ns - depth_stamp_ns) / 1e9
         if tracking_skew > self.maximum_tracking_frame_skew:
@@ -724,7 +806,7 @@ class PerceptionNode(Node):
             )
             return
         books = detect_shelf_books(
-            self.latest_rgb,
+            rgb,
             min_area=self.minimum_colour_area,
         )
         if (
@@ -741,23 +823,24 @@ class PerceptionNode(Node):
                 detected_book_count=len(books),
             )
             return
-        previous = self.target_tracker.last_good
-        reference_point = (
-            previous.image_center
-            if previous is not None
-            and previous.target_colour == self.target_colour
-            else (
-                self.latest_rgb.shape[1] / 2.0,
-                self.latest_rgb.shape[0] / 2.0,
-            )
-        )
-        target = select_target_book(
-            books,
-            self.target_colour,
-            reference_point=reference_point,
-        )
-        if target is None:
-            self._tracking_unavailable(depth_stamp_ns, 'target_occluded')
+        context = getattr(self, 'book_selection_context', None)
+        try:
+            if context is None:
+                raise ValueError('book_selection_context_missing_or_incompatible')
+            context.require_frame(rgb_stamp_ns, depth_stamp_ns,
+                                  int(self.get_clock().now().nanoseconds))
+            def deproject_book(pixel):
+                z = median_valid_depth(depth, pixel, radius=5,
+                    min_depth=.20, max_depth=8.,
+                    depth_scale=.001 if depth.dtype.kind in 'ui' else 1.)
+                return None if z is None else deproject_pixel(pixel, z, self.camera_info)
+            target, coarse_point = select_registered_book(
+                books, context, deproject_book,
+                odom_from_camera)
+        except (TransformException, TypeError, ValueError) as error:
+            self._tracking_unavailable(depth_stamp_ns,
+                'book_selection_tf_unavailable' if isinstance(error, TransformException)
+                else str(error))
             return
         row = resolve_book_row(target, self.confirmed_book_row)
         if row is None:
@@ -778,16 +861,16 @@ class PerceptionNode(Node):
             tolerance_px=12,
         )
         if self.confirmed_book_row is None and stable_detection:
-            point = self._deproject(target.center, radius=5)
+            point = coarse_point
             if point is not None:
                 message = PointStamped()
-                message.header = self._header()
+                message.header = depth_message.header
                 message.point.x, message.point.y, message.point.z = point
                 self.book_pub.publish(message)
                 self.row_pub.publish(Int32(data=int(row)))
                 if 'books' not in self.saved_modes:
                     annotated = annotate_books(
-                        self.latest_rgb,
+                        rgb,
                         books,
                         target=target,
                     )
@@ -803,14 +886,14 @@ class PerceptionNode(Node):
                     )
 
         estimate = estimate_target_book_observation(
-            self.latest_rgb,
-            self.latest_depth,
+            rgb,
+            depth,
             target,
             self.camera_info,
             stamp_ns=depth_stamp_ns,
-            frame_id=str(self.latest_depth_message.header.frame_id),
+            frame_id=str(depth_message.header.frame_id),
             row=int(row),
-            depth_scale=self._depth_scale(),
+            depth_scale=.001 if depth.dtype.kind in 'ui' else 1.,
             minimum_depth_coverage=self.tracking_minimum_depth_coverage,
             maximum_plane_residual_m=self.tracking_maximum_plane_residual,
             maximum_center_uncertainty_m=(
@@ -827,6 +910,13 @@ class PerceptionNode(Node):
                 clear_book_history=self.confirmed_book_row is not None,
                 **estimate.metrics,
             )
+            return
+        measured_center = np.asarray(estimate.observation.center, dtype=float)
+        measured_odom = (odom_from_camera[:3, :3] @ measured_center
+                         + odom_from_camera[:3, 3])
+        if not context.contains(measured_odom):
+            self._tracking_unavailable(depth_stamp_ns,
+                                       'book_selection_metric_center_outside_bay')
             return
         update = self.target_tracker.observe(estimate.observation)
         if not update.ok:
@@ -872,7 +962,7 @@ class PerceptionNode(Node):
         )
         if self.confirmed_book_row is not None and stable_detection:
             message = PointStamped()
-            message.header = self._header()
+            message.header = depth_message.header
             message.point.x, message.point.y, message.point.z = (
                 observation.center
             )
@@ -880,7 +970,7 @@ class PerceptionNode(Node):
             self.row_pub.publish(Int32(data=int(row)))
             if 'books' not in self.saved_modes:
                 annotated = annotate_books(
-                    self.latest_rgb,
+                    rgb,
                     books,
                     target=target,
                 )

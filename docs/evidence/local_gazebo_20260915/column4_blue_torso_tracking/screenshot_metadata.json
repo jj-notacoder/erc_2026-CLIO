@@ -1,0 +1,122 @@
+{
+  "startup.png": {
+    "captured_utc": "2026-09-15T19:06:03.638+00:00",
+    "captured_monotonic": 26326.856180712,
+    "window_title": "Gazebo Sim",
+    "window_class": "(\"gz-sim-gui\" \"Gazebo GUI\")",
+    "window_xid": "0x2c0001a",
+    "region": {
+      "x": 120,
+      "y": 64,
+      "width": 1100,
+      "height": 730
+    },
+    "capture_scope": "visible Gazebo window region on host desktop"
+  },
+  "after_lift.png": {
+    "milestone": "initial_lift_completed",
+    "observed_utc": "2026-09-15T19:09:32.388+00:00",
+    "journal": "/home/jj/erc2026/erc-2026-phase1-solution-main/results/matrix_20260915T190700_positive_entry/01_seed101_column4_blue/trial_8d722ba0fcbf.jsonl",
+    "event": {
+      "event": "manipulation_event",
+      "payload": {
+        "bilateral_contact": true,
+        "command": "pick",
+        "contact_probe_seconds": 0.2,
+        "event": "retention_verified",
+        "left_contact": true,
+        "leg": 0,
+        "measured_position": 0.018199999975893156,
+        "phase": "initial_shelf_lift",
+        "plausible_width": true,
+        "retained": true,
+        "right_contact": true,
+        "settled": true,
+        "verified": true
+      },
+      "ros_time_ns": 77428000000,
+      "state": "PICK",
+      "trial_id": "8d722ba0fcbf",
+      "wall_time_utc": "2026-09-15T19:09:31.987+00:00"
+    },
+    "image": "8d722ba0fcbf_initial_lift_completed.png",
+    "captured_utc": "2026-09-15T19:09:32.388+00:00",
+    "captured_monotonic": 26535.605626913,
+    "window_title": "Gazebo Sim",
+    "window_class": "(\"gz-sim-gui\" \"Gazebo GUI\")",
+    "window_xid": "0x2c0001a",
+    "region": {
+      "x": 120,
+      "y": 64,
+      "width": 1100,
+      "height": 730
+    },
+    "capture_scope": "visible Gazebo window region on host desktop",
+    "frame_age_at_observation_seconds": 0.00020110100012971088,
+    "frame_selection": "current_visible_frame"
+  },
+  "post_retreat_compacted.png": {
+    "milestone": "post_retreat_compacted",
+    "observed_utc": "2026-09-15T19:11:51.527+00:00",
+    "journal": "/home/jj/erc2026/erc-2026-phase1-solution-main/results/matrix_20260915T190700_positive_entry/01_seed101_column4_blue/trial_8d722ba0fcbf.jsonl",
+    "event": {
+      "event": "manipulation_event",
+      "payload": {
+        "command": "compact_transport",
+        "event": "transport_compact",
+        "planar_radius": 0.4362046538036934,
+        "waypoints": 30
+      },
+      "ros_time_ns": 100050000000,
+      "state": "COMPACT_TRANSPORT",
+      "trial_id": "8d722ba0fcbf",
+      "wall_time_utc": "2026-09-15T19:11:50.653+00:00"
+    },
+    "image": "8d722ba0fcbf_post_retreat_compacted.png",
+    "captured_utc": "2026-09-15T19:11:51.527+00:00",
+    "captured_monotonic": 26674.744848885,
+    "window_title": "Gazebo Sim",
+    "window_class": "(\"gz-sim-gui\" \"Gazebo GUI\")",
+    "window_xid": "0x2c0001a",
+    "region": {
+      "x": 120,
+      "y": 64,
+      "width": 1100,
+      "height": 730
+    },
+    "capture_scope": "visible Gazebo window region on host desktop",
+    "frame_age_at_observation_seconds": 0.00019061500279349275,
+    "frame_selection": "current_visible_frame"
+  },
+  "terminal.png": {
+    "milestone": "terminal",
+    "observed_utc": "2026-09-15T19:14:15.674+00:00",
+    "journal": "/home/jj/erc2026/erc-2026-phase1-solution-main/results/matrix_20260915T190700_positive_entry/01_seed101_column4_blue/trial_8d722ba0fcbf.jsonl",
+    "event": {
+      "current": "ABORTED",
+      "event": "state_transition",
+      "previous": "PLACE",
+      "previous_elapsed": 10.2,
+      "reason": "placement_failed",
+      "ros_time_ns": 122500000000,
+      "state": "ABORTED",
+      "trial_id": "8d722ba0fcbf",
+      "wall_time_utc": "2026-09-15T19:14:15.196+00:00"
+    },
+    "image": "8d722ba0fcbf_terminal.png",
+    "captured_utc": "2026-09-15T19:14:14.679+00:00",
+    "captured_monotonic": 26817.897178423,
+    "window_title": "Gazebo Sim",
+    "window_class": "(\"gz-sim-gui\" \"Gazebo GUI\")",
+    "window_xid": "0x2c0001a",
+    "region": {
+      "x": 120,
+      "y": 64,
+      "width": 1100,
+      "height": 730
+    },
+    "capture_scope": "visible Gazebo window region on host desktop",
+    "frame_age_at_observation_seconds": 0.9951312949997373,
+    "frame_selection": "last_visible_frame_before_GUI_disappeared"
+  }
+}

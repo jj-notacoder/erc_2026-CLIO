@@ -18,6 +18,7 @@ Gazebo viewer. Columns identify the requested printed marker.
 | `121f7ff7e8ad` | Column 4, blue | Correct book grasped with bilateral contact; zero collisions; stopped before lift because a top-row timing option rejected the shorter route | 346.981 s | 357.056 s |
 | `dd540101cd5e` | Column 4, blue | Pickup, extraction, compact carry and return passed; zero collisions; placement exhausted its 512-solve IK allowance before release | 511.505 s | 521.828 s |
 | `105d91426ddd` | Column 4, blue | Complete placement plan and torso raise passed; zero collisions; stopped after first arm setup leg at the measured stationary handoff, before release | 503.281 s | 513.500 s |
+| `8d722ba0fcbf` | Column 4, blue | Restored first arm duration; measured handoff exposed torso still 12 cm below target and rising; no release | 505.302 s | 515.275 s |
 
 Trial `146e2f8aaa7b` used source `94dc436`. Close-view reacquisition took 0.7
 simulated seconds. It then rejected the old lift route at leg 4. No grasp was
@@ -66,6 +67,14 @@ No opening or release occurred. Exact PLACE inputs and the accepted Cartesian
 target are now logged. The [handoff record](evidence/local_gazebo_20260915/column4_blue_place_handoff/README.md)
 preserves the zero-collision outcome, retained-book screenshots, failure timing,
 unchanged source and completed cleanup.
+
+Trial `8d722ba0fcbf` used source `014bbdc`. The first arm movement used the restored
+0.8 s, but the same measured handoff rejected all 125 samples. The torso remained
+12 cm below the 0.35 m target and was still rising at 0.035 m/s; the arm had settled
+by the last sample. No collision was reported and the book remained held. The
+[torso tracking record](evidence/local_gazebo_20260915/column4_blue_torso_tracking/README.md)
+identifies the need for feasible torso timing and measured arrival before the
+loaded arm route. Source stayed unchanged and process cleanup completed.
 
 ## Current implementation
 
@@ -122,7 +131,9 @@ unchanged source and completed cleanup.
   Both measured velocity admissions and the stationary thresholds/deadlines remain
   unchanged. Bounded diagnostic samples record any settling failure. The
   [entry correction](evidence/local_gazebo_20260915/positive_place_entry/README.md)
-  passed 310 focused production checks; its physical effect is pending a trial.
+  passed 310 focused production checks. Trial `8d722ba0fcbf` confirmed the restored
+  duration but exposed a separate torso tracking failure; the stationary handoff
+  still correctly stopped motion.
 
 ### Software and offline evidence
 

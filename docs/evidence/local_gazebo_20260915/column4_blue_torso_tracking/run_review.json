@@ -1,0 +1,45 @@
+{
+  "book_colour": "blue",
+  "cleanup": {
+    "all_owned_groups_stopped": true,
+    "remaining_members": {},
+    "steps": [
+      {
+        "groups": [
+          28841,
+          28842,
+          29638,
+          29648
+        ],
+        "signal": "SIGINT"
+      }
+    ]
+  },
+  "collision_episodes": 0,
+  "delivery_outcome": null,
+  "detected_row": 3,
+  "directory": "/opt/erc_ws/results/matrix_20260915T190700_positive_entry/01_seed101_column4_blue",
+  "expected_target_book_model": "book_col_5_row_4_blue",
+  "failure_reason": "placement_failed",
+  "finished": {
+    "basis": "after_owned_process_cleanup_and_source_verification",
+    "monotonic_seconds": 26820.69465353,
+    "utc": "2026-09-15T19:14:17.477292+00:00"
+  },
+  "mission_status": "ABORTED",
+  "seed": 101,
+  "shelf_column_number": 4,
+  "simulator_launch_to_terminal_wall_seconds": 515.2751846960018,
+  "solution_process_launch_to_terminal_wall_seconds": 505.30216318300154,
+  "solution_reported_launch_to_terminal_wall_seconds": 505.1122555309994,
+  "source_manifest_sha256": "b35d211198309439a5b1245692c67cfd11e025c45b6976237ae8b5a7bd0b5744",
+  "source_unchanged": true,
+  "summary_path": "/opt/erc_ws/results/matrix_20260915T190700_positive_entry/01_seed101_column4_blue/trial_8d722ba0fcbf_summary.json",
+  "target_book_model": "book_col_5_row_4_blue",
+  "target_identity_confirmed": true,
+  "terminal_monotonic_seconds": 26818.413869566,
+  "timing_scope": "To the mission summary; independent post-mission evaluation and cleanup excluded.",
+  "trial_id": "8d722ba0fcbf",
+  "validated_delivery": false,
+  "viewer": true
+}

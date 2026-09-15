@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "source_trial_id": "121f7ff7e8ad",
+  "source_trial_run": "results/matrix_20260915T171649_729702Z/01_seed101_column4_blue",
+  "source_trial_evidence": "../column4_blue_grasp/README.md",
+  "original_local_benchmark_directories": {
+    "empty": "/tmp/lower_pool_draft",
+    "carry": "/tmp/lower_carry_pool_draft"
+  },
+  "original_local_paths_are_provenance_only": true,
+  "original_file_sha256": {
+    "empty": {
+      "baseline.json": "549f7661053e5bc78326282185c9adb3af3973177f2c38ce84b67c505841cf5a",
+      "candidate.json": "3449e07fa8fa1b82d77b67df1ca2f293d00f2d78ea02f61cd7c8935b03723f22",
+      "baseline.jsonl": "db648573aca5a1c2ee2d260d8fc6769bfe8d46ac258113234c8d99528f8d6805",
+      "candidate.jsonl": "2193b85d1780fea20728b2883e30db877a2f4c3b7edfd9bea59dde740fc68155",
+      "benchmark.py": "204a11654b7cee3868b694ad1cc938885ded3624aadb955bdec20a0384af6bc9",
+      "comparison.json": "498a8e0cd66150194a7baba2260eb979738b5d927a5e4f499ca8873e005b79ac",
+      "live_fixture.json": "b6cff08e2442eefa08998e1776bf03b17a7805032089e2210398d72e2b6ed46b"
+    },
+    "carry": {
+      "serial.json": "fba07e389dbce9c28d4278c1e1de92ef24324c22848d5eedaad1fefd4f818d60",
+      "pooled.json": "48ac074abdf50fe2630351588ed1ea4b4d49637ac94d9a7377ef43aa329c00d2",
+      "serial.jsonl": "2d738e716eeb2c29ce36d0d4f2537d879caf7ef5d7c725a4a58769845fa7a01e",
+      "pooled.jsonl": "a8e19f7901e66e67b40202976d743e484a4aa4c173298fa42ab77429a5837a3e",
+      "benchmark.py": "b477073053aeac413c5cdd9c0f1a91ce295e505eac6aa5009e8d3ef4186f8c83",
+      "comparison.json": "ee7c40a2e5e94f05e7d2e8a182fa5553805825e67251c5c607a639b9d43baac8",
+      "source_manifest_ab.json": "2fc8392158a76574cd17a16070a6e13ad4fd89935a88d0dd5dd9a19eb48ad0e8",
+      "source_manifest.json": "83b236d14d1bfe51b59dfdc0068acd6d2250ed6683075fe4203772c404a2b7d7",
+      "changed_files.json": "c20046ac9a1b4a31231d56aaf2c8a41665fd51cc3ba2530f6984fe2208729f9e"
+    }
+  },
+  "canonical_json_hash_method": "SHA-256 of UTF-8 json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)",
+  "benchmark_execution": "Each mode ran in a separate fresh Python process with fresh node/geometry caches and real eight-worker pools; no OS/filesystem cache flush claimed.",
+  "copies_exclude": [
+    "package trees",
+    "full JSONL logs",
+    "worker PID/pipe details",
+    "benchmark executable scripts"
+  ],
+  "final_reviewed_source_difference": "Only pickup_geometry_backend.py changed after the loaded A/B: preserve original latched backend exception when a caller translates it into no-route. Timings remain attributed to the benchmark manifest.",
+  "evidence_assembly": "Copies, JSON field selection and source hashing only; no benchmark, IK, mesh computation or test rerun."
+}

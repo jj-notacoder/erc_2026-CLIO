@@ -1,0 +1,170 @@
+{
+  "empty_serial": {
+    "label": "baseline",
+    "passed": true,
+    "live_freshness_validated": false,
+    "controller_calls": [],
+    "helper_sha256": "cf330629d24e62986f3a68bdfc102024158664d661d2a1422dcb7c362ca56740",
+    "identity": {
+      "source_id": "8f9da3d6bd2e65f577b6b6b42eceaee5d0be69f2f213ebb8b526cec98f5da0d1",
+      "model_id": "c9970fe9ec91dbd9041f24093c7423ea1b7e9225f4ed8ebfdbc63f28bf731983"
+    },
+    "planning_seconds": 46.697120695000194,
+    "total_seconds": 47.03705801199976,
+    "recorded_approach_max_delta": 0.0,
+    "empty_state": {
+      "samples": 613,
+      "cache_hits": 264,
+      "cache_digest": "5443ce16087b1c79259b25c01f7fd994d2a3eb9488e82a6f150ae1a6ea252e3f",
+      "last_rejection": null,
+      "last_rejected_q": null,
+      "last_rejected_aperture": null
+    },
+    "extraction": "Selected fields from full original result; original-file hashes in provenance.json",
+    "common_input": "onboard_inputs.json",
+    "common_plan": "common_plan.json",
+    "canonical_input_sha256": "0ef6ee5a6073c16b03de824c474e7883fb9688b4ce7a3927364001e091fba588",
+    "canonical_plan_sha256": "09d52a587235c6086f99c10dc832e3e8a3cf7ee20651bdfee12c67ba4b33b0fc",
+    "geometry_plan_counts": {
+      "positions": 6,
+      "solutions": 6,
+      "transition": 1,
+      "extraction": 2,
+      "lift_route": 3,
+      "recovery": 7
+    },
+    "cached_phase_counts": {
+      "post_retreat_clearance_extension": 2,
+      "post_retreat_cradle_roll": 3,
+      "supported_cradle_lowering": 4,
+      "supported_cradle_retraction": 1,
+      "compact_transport": 21
+    }
+  },
+  "empty_pooled": {
+    "label": "candidate",
+    "passed": true,
+    "live_freshness_validated": false,
+    "controller_calls": [],
+    "helper_sha256": "d019a53289ca35318c9e56c847bb42c3de0d75d0242289c1fb49a183699b3639",
+    "identity": {
+      "source_id": "9331336a1de2f9c55a413b8b87b71403fdc8b17f68c09016b7f3236800583216",
+      "model_id": "c9970fe9ec91dbd9041f24093c7423ea1b7e9225f4ed8ebfdbc63f28bf731983"
+    },
+    "planning_seconds": 40.247918811001,
+    "total_seconds": 40.59497535199989,
+    "recorded_approach_max_delta": 0.0,
+    "empty_state": {
+      "samples": 613,
+      "cache_hits": 264,
+      "cache_digest": "5443ce16087b1c79259b25c01f7fd994d2a3eb9488e82a6f150ae1a6ea252e3f",
+      "last_rejection": null,
+      "last_rejected_q": null,
+      "last_rejected_aperture": null
+    },
+    "extraction": "Selected fields from full original result; original-file hashes in provenance.json",
+    "common_input": "onboard_inputs.json",
+    "common_plan": "common_plan.json",
+    "canonical_input_sha256": "0ef6ee5a6073c16b03de824c474e7883fb9688b4ce7a3927364001e091fba588",
+    "canonical_plan_sha256": "09d52a587235c6086f99c10dc832e3e8a3cf7ee20651bdfee12c67ba4b33b0fc",
+    "geometry_plan_counts": {
+      "positions": 6,
+      "solutions": 6,
+      "transition": 1,
+      "extraction": 2,
+      "lift_route": 3,
+      "recovery": 7
+    },
+    "cached_phase_counts": {
+      "post_retreat_clearance_extension": 2,
+      "post_retreat_cradle_roll": 3,
+      "supported_cradle_lowering": 4,
+      "supported_cradle_retraction": 1,
+      "compact_transport": 21
+    }
+  },
+  "carry_serial": {
+    "label": "serial",
+    "passed": true,
+    "live_freshness_validated": false,
+    "controller_calls": [],
+    "helper_sha256": "a09bf18fc1f60e1c8ff582e835be48475dcca0e6471a7ad0a2c2354863659d40",
+    "identity": {
+      "source_id": "e516aa170590c27cbb8a19a956700cc073d7884d8f29623ebcd0b7a57d631d9d",
+      "model_id": "c9970fe9ec91dbd9041f24093c7423ea1b7e9225f4ed8ebfdbc63f28bf731983"
+    },
+    "planning_seconds": 39.019613397002104,
+    "total_seconds": 39.34445671100184,
+    "recorded_approach_max_delta": 0.0,
+    "empty_state": {
+      "samples": 613,
+      "cache_hits": 264,
+      "cache_digest": "5443ce16087b1c79259b25c01f7fd994d2a3eb9488e82a6f150ae1a6ea252e3f",
+      "last_rejection": null,
+      "last_rejected_q": null,
+      "last_rejected_aperture": null
+    },
+    "extraction": "Selected fields from full original result; original-file hashes in provenance.json",
+    "common_input": "onboard_inputs.json",
+    "common_plan": "common_plan.json",
+    "canonical_input_sha256": "0ef6ee5a6073c16b03de824c474e7883fb9688b4ce7a3927364001e091fba588",
+    "canonical_plan_sha256": "09d52a587235c6086f99c10dc832e3e8a3cf7ee20651bdfee12c67ba4b33b0fc",
+    "geometry_plan_counts": {
+      "positions": 6,
+      "solutions": 6,
+      "transition": 1,
+      "extraction": 2,
+      "lift_route": 3,
+      "recovery": 7
+    },
+    "cached_phase_counts": {
+      "post_retreat_clearance_extension": 2,
+      "post_retreat_cradle_roll": 3,
+      "supported_cradle_lowering": 4,
+      "supported_cradle_retraction": 1,
+      "compact_transport": 21
+    }
+  },
+  "carry_pooled": {
+    "label": "pooled",
+    "passed": true,
+    "live_freshness_validated": false,
+    "controller_calls": [],
+    "helper_sha256": "a09bf18fc1f60e1c8ff582e835be48475dcca0e6471a7ad0a2c2354863659d40",
+    "identity": {
+      "source_id": "e516aa170590c27cbb8a19a956700cc073d7884d8f29623ebcd0b7a57d631d9d",
+      "model_id": "c9970fe9ec91dbd9041f24093c7423ea1b7e9225f4ed8ebfdbc63f28bf731983"
+    },
+    "planning_seconds": 36.340243768998334,
+    "total_seconds": 36.6744746330005,
+    "recorded_approach_max_delta": 0.0,
+    "empty_state": {
+      "samples": 613,
+      "cache_hits": 264,
+      "cache_digest": "5443ce16087b1c79259b25c01f7fd994d2a3eb9488e82a6f150ae1a6ea252e3f",
+      "last_rejection": null,
+      "last_rejected_q": null,
+      "last_rejected_aperture": null
+    },
+    "extraction": "Selected fields from full original result; original-file hashes in provenance.json",
+    "common_input": "onboard_inputs.json",
+    "common_plan": "common_plan.json",
+    "canonical_input_sha256": "0ef6ee5a6073c16b03de824c474e7883fb9688b4ce7a3927364001e091fba588",
+    "canonical_plan_sha256": "09d52a587235c6086f99c10dc832e3e8a3cf7ee20651bdfee12c67ba4b33b0fc",
+    "geometry_plan_counts": {
+      "positions": 6,
+      "solutions": 6,
+      "transition": 1,
+      "extraction": 2,
+      "lift_route": 3,
+      "recovery": 7
+    },
+    "cached_phase_counts": {
+      "post_retreat_clearance_extension": 2,
+      "post_retreat_cradle_roll": 3,
+      "supported_cradle_lowering": 4,
+      "supported_cradle_retraction": 1,
+      "compact_transport": 21
+    }
+  }
+}

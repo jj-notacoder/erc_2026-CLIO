@@ -317,6 +317,8 @@ def test_accepted_unknown_terminal_retains_handle_and_requests_cancel():
 
 def test_default_executor_exact_parent_messages_watchdogs_checks_and_indices():
     path=ROOT/'erc_phase1_solution/manipulation_node.py';text=path.read_text()
+    from candidate_composition_support import restore_all_books_source
+    text=restore_all_books_source(text)
     inverse=json.loads((ROOT/'test/fixtures/withdrawal_half_timing_inverse.json').read_bytes())
     for row in reversed(inverse['fragments']):
         assert text.count(row['new'])==1;text=text.replace(row['new'],row['old'],1)

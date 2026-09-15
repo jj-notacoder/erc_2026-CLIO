@@ -434,6 +434,8 @@ def selected_place_call_source(*, failed95=False):
     path=timing.SOURCE/'erc_phase1_solution/manipulation_node.py'
     source=path.read_text()
     if failed95:
+        from candidate_composition_support import restore_all_books_source
+        source=restore_all_books_source(source)
         assert source.count(FIXED68_CALLSITE)==1
         source=source.replace(FIXED68_CALLSITE,FAILED95_CALLSITE,1)
         assert hashlib.sha256(source.encode()).hexdigest()=='c9de32ba5dfcf687d47ede00e8e51febb018c2699602f8f8a84b56cddef2da8c'

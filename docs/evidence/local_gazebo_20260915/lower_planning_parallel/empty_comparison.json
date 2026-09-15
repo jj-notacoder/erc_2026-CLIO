@@ -1,0 +1,73 @@
+{
+  "checks": {
+    "complete_plan_equal": true,
+    "empty_state_equal": true,
+    "model_identity_equal": true,
+    "both_recorded_approaches_exact": true,
+    "no_controllers": true
+  },
+  "results": {
+    "baseline": {
+      "planning_s": 46.697120695000194,
+      "empty_until_lift_s": 25.531620593999833,
+      "pools": [
+        {
+          "status": "pickup_geometry_process_completed",
+          "epoch": 1,
+          "workers_created": 8,
+          "workers_reaped": 8,
+          "children_closed": true,
+          "passed": true,
+          "wall_seconds": 3.3477825009977096,
+          "query_statistics": {
+            "submitted": 375,
+            "consumed": 375,
+            "discarded": 0,
+            "cached_at_enqueue": 0
+          }
+        }
+      ]
+    },
+    "candidate": {
+      "planning_s": 40.247918811001,
+      "empty_until_lift_s": 18.27422381100041,
+      "pools": [
+        {
+          "status": "empty_pickup_geometry_process_completed",
+          "epoch": 1,
+          "workers_created": 8,
+          "workers_reaped": 8,
+          "children_closed": true,
+          "passed": true,
+          "wall_seconds": 18.26772716800042,
+          "query_statistics": {
+            "submitted": 611,
+            "consumed": 874,
+            "discarded": 0,
+            "cached_at_enqueue": 263
+          }
+        },
+        {
+          "status": "pickup_geometry_process_completed",
+          "epoch": 2,
+          "workers_created": 8,
+          "workers_reaped": 8,
+          "children_closed": true,
+          "passed": true,
+          "wall_seconds": 3.965082180999161,
+          "query_statistics": {
+            "submitted": 375,
+            "consumed": 375,
+            "discarded": 0,
+            "cached_at_enqueue": 0
+          }
+        }
+      ]
+    }
+  },
+  "only_changed_modules": [
+    "lower_shelf_pick.py"
+  ],
+  "draft_sha256": "d019a53289ca35318c9e56c847bb42c3de0d75d0242289c1fb49a183699b3639",
+  "caveat": "one serial A/B replay; no physical retention or under5min proof"
+}

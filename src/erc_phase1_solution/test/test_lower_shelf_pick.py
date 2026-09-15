@@ -296,3 +296,62 @@ def test_official_lower_rows_complete_candidate_with_real_guards(row, front, hea
         node._held_book_corners = cache['attached_corners']
         node.joints.update(dict(zip(IK_JOINTS, cache['terminal'])))
         assert node._carried_head_transition_is_safe(0., -.60)
+
+
+@pytest.mark.parametrize('pooled', [False, True])
+def test_lower_continuation_receives_same_lift_and_owned_backend(protocol, pooled):
+    p = protocol; p.node.pickup_post_retreat_parallel_geometry_enabled = pooled
+    original = p.lift; handle = object(); seen = []
+    def lift(grasp, extraction, *, post_retreat_plan=None):
+        planned = original(grasp, extraction)
+        seen.append(post_retreat_plan)
+        return planned if post_retreat_plan is None else (
+            planned, post_retreat_plan(planned, handle))
+    plan = lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard,
+        bay=p.bay, lift_planner=lift)
+    assert (seen[0] is not None) == pooled
+    calls = [x for x in p.calls if x[0] == 'carry']
+    assert len(calls) == 1
+    assert calls[0][2] == ({'defer_return': True, 'geometry_backend': handle}
+                          if pooled else {'defer_return': True})
+    assert plan.cached_post_retreat_plan['selected_torso'] == .10
+
+
+@pytest.mark.parametrize('fault', ['lift', 'carry'])
+def test_lower_backend_fault_cannot_become_another_candidate(protocol, monkeypatch, fault):
+    p = protocol; p.node.pickup_post_retreat_parallel_geometry_enabled = True
+    monkeypatch.setattr(lower_pick, '_candidates', lambda _: (
+        lower_pick.LowerShelfCandidate('first', .10, -.50),
+        lower_pick.LowerShelfCandidate('second', .15, -.50)))
+    error = RuntimeError('parked sensor admission expired')
+    original = p.lift
+    def fail():
+        p.node._pickup_parallel_geometry_terminal_failure = error
+        raise error
+    if fault == 'carry': p.node._plan_carried_return = lambda *a, **k: fail()
+    def lift(grasp, extraction, *, post_retreat_plan):
+        if fault == 'lift': fail()
+        planned = original(grasp, extraction)
+        return planned, post_retreat_plan(planned, object())
+    with pytest.raises(RuntimeError) as caught:
+        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard,
+            bay=p.bay, lift_planner=lift)
+    assert caught.value is error
+    assert not any(x[1] == .15 for x in p.calls)
+    assert p.node._cached_post_retreat_plan is None and p.node.pick_torso_height == .35
+
+
+def test_ordinary_loaded_no_route_remains_a_geometry_alternative(protocol, monkeypatch):
+    p = protocol; p.node.pickup_post_retreat_parallel_geometry_enabled = True
+    monkeypatch.setattr(lower_pick, '_candidates', lambda _: (
+        lower_pick.LowerShelfCandidate('first', .10, -.50),
+        lower_pick.LowerShelfCandidate('second', .15, -.50)))
+    original = p.lift
+    def lift(grasp, extraction, *, post_retreat_plan):
+        if p.node.pick_torso_height == .10:
+            raise RuntimeError('No payload-safe supported compact transport route')
+        planned = original(grasp, extraction)
+        return planned, post_retreat_plan(planned, object())
+    plan = lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard,
+        bay=p.bay, lift_planner=lift)
+    assert plan.candidate_name == 'second' and p.node.pick_torso_height == .35

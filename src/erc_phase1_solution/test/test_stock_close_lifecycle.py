@@ -265,7 +265,7 @@ def test_strict_node_inverse_rejects_extra_or_missing_changes(damage):
 
 
 def test_gate_only_splits_the_same_three_hard_interlocks():
-    from candidate_composition_support import restore_preopen_timing_source
+    from preopen_timing_test_support import restore_preopen_timing_source
     text=restore_preopen_timing_source((ROOT/'erc_phase1_solution/preopen_stationary.py').read_text())
     item=RECORD['gate_inverse']
     assert text.count(item['after'])==1

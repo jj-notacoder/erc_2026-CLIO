@@ -17,7 +17,7 @@ from sensor_msgs.msg import JointState
 from erc_phase1_solution import preopen_stationary as gate
 from test_preopen_stationary import node, run, raw, GOAL, MASTER
 from test_stock_close_lifecycle import lifecycle
-from candidate_composition_support import restore_preopen_timing_source
+from preopen_timing_test_support import restore_preopen_timing_source
 
 ROOT = Path(__file__).resolve().parents[1]
 

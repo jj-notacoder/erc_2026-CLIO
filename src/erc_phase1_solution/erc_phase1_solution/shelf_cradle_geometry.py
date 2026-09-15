@@ -332,6 +332,31 @@ def check_cradle_tool_sweep(
         return f'cradle_tool_geometry_unavailable:{type(exc).__name__}:{exc}'
 
 
+def _coalesced_cradle_tool_points(start, route):
+    """Share the exact serial joint-route reduction with the pickup backend."""
+    points = [np.asarray(start, dtype=float)]
+    for waypoint in route:
+        current = np.asarray(waypoint, dtype=float)
+        if current.shape != points[0].shape or not np.all(np.isfinite(current)):
+            raise ValueError('cradle_tool_joint_shape_invalid')
+        if np.allclose(current, points[-1], atol=1e-12, rtol=0):
+            continue
+        while len(points) >= 2:
+            previous = points[-1] - points[-2]
+            following = current - points[-1]
+            denominator = float(np.dot(previous, previous))
+            scale = float(np.dot(previous, following)) / denominator
+            if scale < 0 or not np.allclose(
+                following, scale * previous, atol=1e-10, rtol=0,
+            ):
+                break
+            points.pop()
+        points.append(current)
+    if len(points) == 1:
+        points.append(points[0])
+    return points
+
+
 def check_cradle_tool_route(
     node,
     front: Sequence[float],
@@ -351,26 +376,12 @@ def check_cradle_tool_route(
     A change of direction or any noncollinear corner is retained.
     """
     try:
-        points = [np.asarray(start, dtype=float)]
-        for waypoint in route:
-            current = np.asarray(waypoint, dtype=float)
-            if current.shape != points[0].shape or not np.all(np.isfinite(current)):
-                return 'cradle_tool_joint_shape_invalid'
-            if np.allclose(current, points[-1], atol=1e-12, rtol=0):
-                continue
-            while len(points) >= 2:
-                previous = points[-1] - points[-2]
-                following = current - points[-1]
-                denominator = float(np.dot(previous, previous))
-                scale = float(np.dot(previous, following)) / denominator
-                if scale < 0 or not np.allclose(
-                    following, scale * previous, atol=1e-10, rtol=0,
-                ):
-                    break
-                points.pop()
-            points.append(current)
-        if len(points) == 1:
-            points.append(points[0])
+        try:
+            points = _coalesced_cradle_tool_points(start, route)
+        except ValueError as exc:
+            if str(exc) == 'cradle_tool_joint_shape_invalid':
+                return str(exc)
+            raise
         world_options = {}
         if _ordinary_cradle_state_access(node):
             from .exact_world_geometry import ExactWorldGeometry

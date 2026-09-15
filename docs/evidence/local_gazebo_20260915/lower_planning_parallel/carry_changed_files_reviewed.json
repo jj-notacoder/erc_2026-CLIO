@@ -1,0 +1,22 @@
+{
+  "lower_shelf_pick.py": {
+    "sha256": "a09bf18fc1f60e1c8ff582e835be48475dcca0e6471a7ad0a2c2354863659d40",
+    "baseline_sha256": "cf330629d24e62986f3a68bdfc102024158664d661d2a1422dcb7c362ca56740"
+  },
+  "manipulation_node.py": {
+    "sha256": "eff7b955247bc0945159bbaca07921ee26d71c3e52522d2cbf64de456f99cfd0",
+    "baseline_sha256": "37adaf311cf131627133b9c042634c39e9c6e3c97e5defdd9813239f9f03b91e"
+  },
+  "pickup_geometry_backend.py": {
+    "sha256": "0486186de953df141e9fa72029533dafeeb6e77aee9e5ba20e87621752fbaae9",
+    "baseline_sha256": "b2abf5d2bda804f872161473be5286e65b9d9f067603841cf79149c7954d82fd"
+  },
+  "pickup_geometry_owner.py": {
+    "sha256": "42463b9d0f50e53a8f9c5cdd4865789c4cfddfd63fbc0536f04306c1cba03d3b",
+    "baseline_sha256": "736c0e75f8a60132f6586514530f0039e6c121c07b8c960744363b5bae30146d"
+  },
+  "shelf_cradle_geometry.py": {
+    "sha256": "895549bc5408ab1c7c83d9ac73b306016228e1140b932138cc564f6a650b64fb",
+    "baseline_sha256": "6671d9ae7290b03fbf0c1d81c13981f50b72157d92053873f4829b34b1988f4f"
+  }
+}

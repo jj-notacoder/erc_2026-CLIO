@@ -1,0 +1,26 @@
+{
+  "official_repository": "https://github.com/dfl-rlab/erc_sim_2026",
+  "official_commit": "b1f9b05e20f4750b59f3321d88f172cc4dbb1386",
+  "checked_source_root": "/home/jj/erc2026/erc-2026-phase1-solution-main",
+  "scope": [
+    "src/"
+  ],
+  "allowed_extra_solution_packages": [
+    "erc_phase1_solution"
+  ],
+  "ignored_cache_directories": [
+    ".pytest_cache",
+    "__pycache__"
+  ],
+  "strict_bytes": true,
+  "allow_bytecode_header_refresh": false,
+  "bytecode_header_refreshes": [],
+  "expected_files": 887,
+  "exact_matches": 887,
+  "crlf_only_matches": [],
+  "missing": [],
+  "changed": [],
+  "unexpected_files": [],
+  "pass": true,
+  "limits": "Checks source files only, not installed binaries, image digest, runtime environment, overridden parameters, or scoring."
+}

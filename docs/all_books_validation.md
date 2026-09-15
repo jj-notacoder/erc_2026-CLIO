@@ -71,8 +71,23 @@ process startup; the solution's later reported launch origin gives 346.669 s.
 - Exact immutable robot geometry is shared between collision checks and reused
   when mesh identity and transform bytes match. Each sample still captures its
   current head/right-arm context; collision checks and margins remain active.
+- Lower-row empty geometry now uses the existing owned worker pool, closes it
+  before loaded planning, and retains the loaded pool through carried-return
+  checks. Backend failures remain terminal even when a planner translates the
+  exception. Two [offline comparisons](evidence/local_gazebo_20260915/lower_planning_parallel/README.md)
+  returned identical complete plans and collision-check results, with less
+  planning time. These measurements do not establish live mission timing.
 
 ### Software and offline evidence
+
+The latest full collection reported 6,914 passes and 14 failures in 595.47 s.
+All 14 failures came from stale observation/AST fixtures or incomplete
+historical source comparisons. After test-only corrections, all 430 cases in
+the affected and complementary modules passed. Runtime stayed unchanged between
+these runs; this is not a new single full-suite pass, and overlapping counts
+must not be added. The selected ROS constructor passed and all 887 official
+source files matched. The [software record](evidence/local_gazebo_20260915/lower_planning_parallel/software_validation.json)
+preserves the run scopes and runtime hashes.
 
 Recorded focused checks include **102 unit tests for shared shelf checks and
 bottom pickup**, plus **23 lower-shelf protocol/runtime tests**. A later focused run passed all

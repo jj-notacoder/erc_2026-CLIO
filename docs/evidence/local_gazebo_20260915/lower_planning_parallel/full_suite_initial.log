@@ -1,0 +1,1636 @@
+........................................................................ [  1%]
+........................................................................ [  2%]
+........................................................................ [  3%]
+........................................................................ [  4%]
+........................................................................ [  5%]
+........................................................................ [  6%]
+........................................................................ [  7%]
+........................................................................ [  8%]
+........................................................................ [  9%]
+........................................................................ [ 10%]
+........................................................................ [ 11%]
+........................................................................ [ 12%]
+........................................................................ [ 13%]
+........................................................................ [ 14%]
+........................................................................ [ 15%]
+........................................................................ [ 16%]
+FFF..................................................................... [ 17%]
+F....................................................................... [ 18%]
+........................................................................ [ 19%]
+........................................................................ [ 20%]
+........................................................................ [ 21%]
+........................................................................ [ 22%]
+........................................................................ [ 23%]
+........................................................................ [ 24%]
+........................................................................ [ 25%]
+........................................................................ [ 27%]
+........................................................................ [ 28%]
+........................................................................ [ 29%]
+........................................................................ [ 30%]
+........................................................................ [ 31%]
+........................................................................ [ 32%]
+........................................................................ [ 33%]
+........................................................................ [ 34%]
+........................................................................ [ 35%]
+........................................................................ [ 36%]
+........................................................................ [ 37%]
+........................................................................ [ 38%]
+........................................................................ [ 39%]
+........................................................................ [ 40%]
+........................................................................ [ 41%]
+........................................................................ [ 42%]
+........................................................................ [ 43%]
+........................................................................ [ 44%]
+...................FFFFFF............................................... [ 45%]
+........................................................................ [ 46%]
+........................................................................ [ 47%]
+........................................................................ [ 48%]
+........................................................................ [ 49%]
+........................................................................ [ 50%]
+........................................................................ [ 51%]
+........................................................................ [ 53%]
+........................................................................ [ 54%]
+........................................................................ [ 55%]
+........................................................................ [ 56%]
+........................................................................ [ 57%]
+........................................................................ [ 58%]
+........................................................................ [ 59%]
+........................................................................ [ 60%]
+........................................................................ [ 61%]
+........................................................................ [ 62%]
+........................................................................ [ 63%]
+........................................................................ [ 64%]
+..................................F..................................... [ 65%]
+........................................................................ [ 66%]
+........................................................................ [ 67%]
+........................................................................ [ 68%]
+........................................................................ [ 69%]
+........................................................................ [ 70%]
+........................................................................ [ 71%]
+..F..................................................................... [ 72%]
+........................................................................ [ 73%]
+........................................................................ [ 74%]
+........................................................................ [ 75%]
+........................................................................ [ 76%]
+........................................................................ [ 77%]
+........................................................................ [ 78%]
+........................................................................ [ 80%]
+........................................................................ [ 81%]
+........................................................................ [ 82%]
+........................................................................ [ 83%]
+........................................................................ [ 84%]
+........................................................................ [ 85%]
+........................................................................ [ 86%]
+........................................................................ [ 87%]
+........................................................................ [ 88%]
+........................................................................ [ 89%]
+...............................F........................................ [ 90%]
+........................................................................ [ 91%]
+........................................................................ [ 92%]
+........................................................................ [ 93%]
+........................................................................ [ 94%]
+........................................................................ [ 95%]
+...........................................F............................ [ 96%]
+........................................................................ [ 97%]
+........................................................................ [ 98%]
+........................................................................ [ 99%]
+................                                                         [100%]
+=================================== FAILURES ===================================
+_ PickupWiringTests.test_each_executed_leg_waits_before_next_geometry_admission _
+
+self = <test_empty_pickup_endpoint_wait.PickupWiringTests testMethod=test_each_executed_leg_waits_before_next_geometry_admission>
+
+    def test_each_executed_leg_waits_before_next_geometry_admission(self):
+        node,guard,elevated,goals,events=self.make()
+>       pickup_execution()(node,guard,elevated,[goals[0]],[goals[1],goals[2]],False)
+
+test/test_empty_pickup_endpoint_wait.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def pickup_execution():
+        tree=ast.parse((SOURCE/'manipulation_node.py').read_text())
+        cls=next(x for x in tree.body if isinstance(x,ast.ClassDef) and x.name=='ManipulationNode')
+        method=next(x for x in cls.body if isinstance(x,ast.FunctionDef) and x.name=='_pick')
+>       start=next(i for i,x in enumerate(method.body) if isinstance(x,ast.If) and '_move_torso(self.pick_torso_height, 2.5)' in ast.unparse(x))
+E       StopIteration
+
+test/test_empty_pickup_endpoint_wait.py:180: StopIteration
+__________ PickupWiringTests.test_legacy_no_empty_guard_adds_no_waits __________
+
+self = <test_empty_pickup_endpoint_wait.PickupWiringTests testMethod=test_legacy_no_empty_guard_adds_no_waits>
+
+    def test_legacy_no_empty_guard_adds_no_waits(self):
+        node,_,elevated,goals,events=self.make()
+>       pickup_execution()(node,None,elevated,[goals[0]],[goals[1],goals[2]],False)
+
+test/test_empty_pickup_endpoint_wait.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def pickup_execution():
+        tree=ast.parse((SOURCE/'manipulation_node.py').read_text())
+        cls=next(x for x in tree.body if isinstance(x,ast.ClassDef) and x.name=='ManipulationNode')
+        method=next(x for x in cls.body if isinstance(x,ast.FunctionDef) and x.name=='_pick')
+>       start=next(i for i,x in enumerate(method.body) if isinstance(x,ast.If) and '_move_torso(self.pick_torso_height, 2.5)' in ast.unparse(x))
+E       StopIteration
+
+test/test_empty_pickup_endpoint_wait.py:180: StopIteration
+_ PickupWiringTests.test_torso_or_arm_failed_measurement_prevents_next_command _
+
+self = <test_empty_pickup_endpoint_wait.PickupWiringTests testMethod=test_torso_or_arm_failed_measurement_prevents_next_command>
+
+    def test_torso_or_arm_failed_measurement_prevents_next_command(self):
+        for phase,expected_moves in (('empty_setup_torso',1),('empty_setup_transition',2),('empty_setup_clearance',3),('empty_cartesian_approach',4)):
+            node,guard,elevated,goals,events=self.make(phase)
+            with self.assertRaisesRegex(RuntimeError,'still wrong'):
+>               pickup_execution()(node,guard,elevated,[goals[0]],[goals[1],goals[2]],False)
+
+test/test_empty_pickup_endpoint_wait.py:220: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def pickup_execution():
+        tree=ast.parse((SOURCE/'manipulation_node.py').read_text())
+        cls=next(x for x in tree.body if isinstance(x,ast.ClassDef) and x.name=='ManipulationNode')
+        method=next(x for x in cls.body if isinstance(x,ast.FunctionDef) and x.name=='_pick')
+>       start=next(i for i,x in enumerate(method.body) if isinstance(x,ast.If) and '_move_torso(self.pick_torso_height, 2.5)' in ast.unparse(x))
+E       StopIteration
+
+test/test_empty_pickup_endpoint_wait.py:180: StopIteration
+_ test_node_scope_contains_original_empty_checks_and_solver_before_loaded_work _
+
+    def test_node_scope_contains_original_empty_checks_and_solver_before_loaded_work():
+        path=Path(__file__).resolve().parents[1]/'erc_phase1_solution/manipulation_node.py'
+        tree=ast.parse(path.read_text(encoding='utf-8'))
+        cls=next(x for x in tree.body if isinstance(x,ast.ClassDef) and x.name=='ManipulationNode')
+        pick=next(x for x in cls.body if isinstance(x,ast.FunctionDef) and x.name=='_pick')
+        scopes=[x for x in ast.walk(pick) if isinstance(x,ast.With) and any(
+            isinstance(i.context_expr,ast.Call) and isinstance(i.context_expr.func,ast.Name)
+            and i.context_expr.func.id=='empty_pickup_geometry_scope' for i in x.items)]
+        assert len(scopes)==1
+        calls=[x for x in ast.walk(scopes[0]) if isinstance(x,ast.Call)]
+        names=[x.func.attr for x in calls if isinstance(x.func,ast.Attribute)]
+        assert names.count('opening')==1 and names.count('edge')==1 and names.count('_solve_cartesian_path')==1
+        assert not any(name.startswith('_move') or name.startswith('_command') for name in names)
+        loaded=[x for x in ast.walk(pick) if isinstance(x,ast.Call) and isinstance(x.func,ast.Name) and x.func.id=='run_pickup_geometry']
+>       assert loaded and all(x.lineno>scopes[0].end_lineno for x in loaded)
+E       assert ([<ast.Call object at 0x76a113febdf0>, <ast.Call object at 0x76a12067f850>] and False)
+E        +  where False = all(<generator object test_node_scope_contains_original_empty_checks_and_solver_before_loaded_work.<locals>.<genexpr> at 0x76a12135f760>)
+
+test/test_empty_pickup_geometry_backend.py:291: AssertionError
+__ test_enabled_mission_preserves_marker_epoch_column_and_odom_frame_in_pick ___
+
+    def test_enabled_mission_preserves_marker_epoch_column_and_odom_frame_in_pick():
+        node = mission()
+>       node._tick()
+
+test/test_mission_lift_context.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <erc_phase1_solution.mission_manager.MissionManager object at 0x76a1206e6380>
+
+    def _tick(self) -> None:
+        if self.finished:
+            return
+        total_elapsed = time.monotonic() - self.wall_started
+        if total_elapsed > self.trial_timeout:
+            self._abort('trial_timeout')
+            return
+    
+        recovery_started = getattr(self, '_bin_visibility_started_ns', None)
+        if recovery_started is not None and self.state in (
+            'BIN_VISIBILITY_RETREAT', 'HEAD_REACQUIRE_BIN', 'REACQUIRE_BIN',
+        ):
+            recovery_elapsed = self.get_clock().now().nanoseconds - recovery_started
+            if not 0 <= recovery_elapsed <= RECOVERY_TIMEOUT_NS:
+                self._abort('bin_visibility_recovery_timeout')
+                return
+    
+        if self.state == 'WAIT_READY':
+            if all(self.ready.values()) and self.start_pose is not None:
+                self._manipulate('stow')
+                self._set_state('INIT_STOW')
+            elif self._elapsed_state() > self.sensor_timeout:
+                missing = [name for name, ready in self.ready.items() if not ready]
+                self._abort('readiness_timeout:' + ','.join(missing))
+            return
+    
+        if self.state == 'INIT_STOW':
+            if self._manip_succeeded('stow'):
+                self._manipulate('look_markers')
+                self._set_state('HEAD_MARKERS')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('initial_stow_failed')
+            return
+    
+        if self.state == 'HEAD_MARKERS':
+            if self._manip_succeeded('look_markers'):
+                self.marker_cloud = None
+                self.target_physical_column = None
+                self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_marker_pose_failed')
+            return
+    
+        if self.state == 'SEARCH_COLUMN':
+            if self.marker_cloud is not None:
+                try:
+                    target, normal, physical_column = self._shelf_geometry(
+                        self.marker_cloud
+                    )
+                except (ValueError, TransformException) as exc:
+                    self._log('marker_geometry_rejected', reason=str(exc))
+                    self.marker_cloud = None
+                else:
+                    self.target_marker_odom = target
+                    self.shelf_normal = normal
+                    self.target_physical_column = physical_column
+                    self._shelf_registration_stamp_ns = stamp_to_nanoseconds(
+                        self.marker_cloud.header.stamp
+                    )
+                    self.column_confirmed = True
+                    self._republish_score()
+                    x, y, yaw = self._goal_from_target(target, normal, self.shelf_standoff)
+                    self._navigate(x, y, yaw, 'shelf_observation_pose')
+                    self._set_state('NAVIGATE_SHELF')
+                    return
+            early_marker_turn = (getattr(self, 'marker_search_negative_enabled', False)
+                                 and self._marker_search_negative_ready())
+            if self._elapsed_state() > self.marker_search_timeout or early_marker_turn:
+                search_limit = (min(self.max_search_turns, 8)
+                                if getattr(self, 'marker_search_first_probe_enabled', False)
+                                else self.max_search_turns)
+                if self.search_turns >= search_limit or self.robot_pose is None:
+                    self._abort('shelf_markers_not_found')
+                else:
+                    if early_marker_turn and self._elapsed_state() <= self.marker_search_timeout:
+                        gate = self._marker_search_negative_gate
+                        self._log('marker_search_early_turn',
+                            marker_search_request_id=gate.request.request_id,
+                            negative_frames=gate.count, last_frame_sequence=gate.last_sequence,
+                            rgb_stamp_ns=gate.last_rgb_ns, depth_stamp_ns=gate.last_depth_ns,
+                            completed_ros_ns=gate.last_completed_ns, wait_seconds=self._elapsed_state())
+                    x, y, yaw = self.robot_pose
+                    target_yaw = yaw + self.search_turn
+                    if getattr(self, 'marker_search_first_probe_enabled', False):
+                        try:
+                            target_yaw = self._marker_search_probe_yaw(self.search_turns, yaw)
+                        except (TypeError, ValueError) as exc:
+                            self._log('marker_search_schedule_rejected', reason=str(exc))
+                            self._abort('visual_search_schedule_invalid')
+                            return
+                    self.search_turns += 1
+                    self._navigate(x, y, target_yaw, 'visual_search_turn')
+                    self._set_state('SEARCH_TURN')
+            return
+    
+        if self.state == 'SEARCH_TURN':
+            if self._nav_reached():
+                self.marker_cloud = None
+                if getattr(self, 'marker_search_negative_enabled', False):
+                    self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('visual_search_motion_failed')
+            return
+    
+        if self.state == 'NAVIGATE_SHELF':
+            if self._nav_reached():
+                self._manipulate('look_books')
+                self._set_state('HEAD_BOOKS')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('navigation_to_shelf_failed')
+            return
+    
+        if self.state == 'HEAD_BOOKS':
+            if self._manip_succeeded('look_books'):
+                self.book_point = None
+                self.detected_row = None
+                self._confirmed_book_point_odom = None
+                self._confirmed_book_point_stamp_ns = None
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('FIND_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_book_pose_failed')
+            return
+    
+        if self.state == 'FIND_BOOK':
+            if self.book_point is not None and self.detected_row is not None:
+                try:
+                    point = self.tf_buffer.transform(
+                        self.book_point,
+                        'odom',
+                        timeout=Duration(seconds=1.0),
+                    )
+                except TransformException as exc:
+                    self._log('book_geometry_rejected', reason=str(exc))
+                    self.book_point = None
+                else:
+                    self.row_confirmed = True
+                    self._republish_score()
+                    target = np.asarray([point.point.x, point.point.y, point.point.z])
+                    self._confirmed_book_point_odom = target.copy()
+                    self._confirmed_book_point_stamp_ns = stamp_to_nanoseconds(
+                        point.header.stamp)
+                    staging = bool(
+                        self.detected_row == 1
+                        and getattr(self, 'empty_arm_staging_enabled', False)
+                    )
+                    x, y, yaw = self._goal_from_target(
+                        target,
+                        self.shelf_normal,
+                        (
+                            getattr(self, 'top_row_grasp_standoff', self.grasp_standoff)
+                            + (self.empty_arm_staging_backoff if staging else 0.0)
+                            if self.detected_row == 1
+                            else self.grasp_standoff
+                        ),
+                        self.grasp_lateral_bias,
+                    )
+                    self._empty_stage_pending = staging
+                    if staging:
+                        self._navigate(x, y, yaw, 'empty_arm_staging',
+                                       profile='empty_arm_staging')
+                    else:
+                        self._navigate(x, y, yaw, 'book_grasp_standoff')
+                    self._set_state('ALIGN_BOOK')
+                    return
+            if self._elapsed_state() > self.perception_timeout:
+                self._abort('target_book_not_found')
+            return
+    
+        if self.state == 'ALIGN_BOOK':
+            if self._nav_reached():
+                self.book_point = None
+                if self.detected_row is None:
+                    self._abort('confirmed_book_row_missing')
+                    return
+                # Stop detections while the camera moves so a transient point
+                # cannot be accepted as the close-range grasp target.
+                self._perception_mode('idle')
+                command = f'look_book_row_{self.detected_row}'
+                self._manipulate(command)
+                self._set_state('HEAD_REACQUIRE_BOOK', command=command)
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('book_alignment_failed')
+            return
+    
+        if self.state == 'HEAD_REACQUIRE_BOOK':
+            command = f'look_book_row_{self.detected_row}'
+            if self._manip_succeeded(command):
+                self.book_point = None
+                self._book_reacquire_after_ns = self.get_clock().now().nanoseconds
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('REACQUIRE_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('book_reacquisition_head_pose_failed')
+            return
+    
+        if self.state == 'REACQUIRE_BOOK':
+            if self.book_point is not None:
+>               if (stamp_to_nanoseconds(self.book_point.header.stamp)
+                        <= getattr(self, '_book_reacquire_after_ns', 0)):
+E                       AttributeError: 'object' object has no attribute 'header'
+
+erc_phase1_solution/mission_manager.py:1658: AttributeError
+____________ test_disabled_mission_retains_existing_pick_interface _____________
+
+    def test_disabled_mission_retains_existing_pick_interface():
+        node = mission(False)
+        node._shelf_registration_stamp_ns = None
+>       node._tick()
+
+test/test_mission_lift_context.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <erc_phase1_solution.mission_manager.MissionManager object at 0x76a10a5fb7c0>
+
+    def _tick(self) -> None:
+        if self.finished:
+            return
+        total_elapsed = time.monotonic() - self.wall_started
+        if total_elapsed > self.trial_timeout:
+            self._abort('trial_timeout')
+            return
+    
+        recovery_started = getattr(self, '_bin_visibility_started_ns', None)
+        if recovery_started is not None and self.state in (
+            'BIN_VISIBILITY_RETREAT', 'HEAD_REACQUIRE_BIN', 'REACQUIRE_BIN',
+        ):
+            recovery_elapsed = self.get_clock().now().nanoseconds - recovery_started
+            if not 0 <= recovery_elapsed <= RECOVERY_TIMEOUT_NS:
+                self._abort('bin_visibility_recovery_timeout')
+                return
+    
+        if self.state == 'WAIT_READY':
+            if all(self.ready.values()) and self.start_pose is not None:
+                self._manipulate('stow')
+                self._set_state('INIT_STOW')
+            elif self._elapsed_state() > self.sensor_timeout:
+                missing = [name for name, ready in self.ready.items() if not ready]
+                self._abort('readiness_timeout:' + ','.join(missing))
+            return
+    
+        if self.state == 'INIT_STOW':
+            if self._manip_succeeded('stow'):
+                self._manipulate('look_markers')
+                self._set_state('HEAD_MARKERS')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('initial_stow_failed')
+            return
+    
+        if self.state == 'HEAD_MARKERS':
+            if self._manip_succeeded('look_markers'):
+                self.marker_cloud = None
+                self.target_physical_column = None
+                self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_marker_pose_failed')
+            return
+    
+        if self.state == 'SEARCH_COLUMN':
+            if self.marker_cloud is not None:
+                try:
+                    target, normal, physical_column = self._shelf_geometry(
+                        self.marker_cloud
+                    )
+                except (ValueError, TransformException) as exc:
+                    self._log('marker_geometry_rejected', reason=str(exc))
+                    self.marker_cloud = None
+                else:
+                    self.target_marker_odom = target
+                    self.shelf_normal = normal
+                    self.target_physical_column = physical_column
+                    self._shelf_registration_stamp_ns = stamp_to_nanoseconds(
+                        self.marker_cloud.header.stamp
+                    )
+                    self.column_confirmed = True
+                    self._republish_score()
+                    x, y, yaw = self._goal_from_target(target, normal, self.shelf_standoff)
+                    self._navigate(x, y, yaw, 'shelf_observation_pose')
+                    self._set_state('NAVIGATE_SHELF')
+                    return
+            early_marker_turn = (getattr(self, 'marker_search_negative_enabled', False)
+                                 and self._marker_search_negative_ready())
+            if self._elapsed_state() > self.marker_search_timeout or early_marker_turn:
+                search_limit = (min(self.max_search_turns, 8)
+                                if getattr(self, 'marker_search_first_probe_enabled', False)
+                                else self.max_search_turns)
+                if self.search_turns >= search_limit or self.robot_pose is None:
+                    self._abort('shelf_markers_not_found')
+                else:
+                    if early_marker_turn and self._elapsed_state() <= self.marker_search_timeout:
+                        gate = self._marker_search_negative_gate
+                        self._log('marker_search_early_turn',
+                            marker_search_request_id=gate.request.request_id,
+                            negative_frames=gate.count, last_frame_sequence=gate.last_sequence,
+                            rgb_stamp_ns=gate.last_rgb_ns, depth_stamp_ns=gate.last_depth_ns,
+                            completed_ros_ns=gate.last_completed_ns, wait_seconds=self._elapsed_state())
+                    x, y, yaw = self.robot_pose
+                    target_yaw = yaw + self.search_turn
+                    if getattr(self, 'marker_search_first_probe_enabled', False):
+                        try:
+                            target_yaw = self._marker_search_probe_yaw(self.search_turns, yaw)
+                        except (TypeError, ValueError) as exc:
+                            self._log('marker_search_schedule_rejected', reason=str(exc))
+                            self._abort('visual_search_schedule_invalid')
+                            return
+                    self.search_turns += 1
+                    self._navigate(x, y, target_yaw, 'visual_search_turn')
+                    self._set_state('SEARCH_TURN')
+            return
+    
+        if self.state == 'SEARCH_TURN':
+            if self._nav_reached():
+                self.marker_cloud = None
+                if getattr(self, 'marker_search_negative_enabled', False):
+                    self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('visual_search_motion_failed')
+            return
+    
+        if self.state == 'NAVIGATE_SHELF':
+            if self._nav_reached():
+                self._manipulate('look_books')
+                self._set_state('HEAD_BOOKS')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('navigation_to_shelf_failed')
+            return
+    
+        if self.state == 'HEAD_BOOKS':
+            if self._manip_succeeded('look_books'):
+                self.book_point = None
+                self.detected_row = None
+                self._confirmed_book_point_odom = None
+                self._confirmed_book_point_stamp_ns = None
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('FIND_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_book_pose_failed')
+            return
+    
+        if self.state == 'FIND_BOOK':
+            if self.book_point is not None and self.detected_row is not None:
+                try:
+                    point = self.tf_buffer.transform(
+                        self.book_point,
+                        'odom',
+                        timeout=Duration(seconds=1.0),
+                    )
+                except TransformException as exc:
+                    self._log('book_geometry_rejected', reason=str(exc))
+                    self.book_point = None
+                else:
+                    self.row_confirmed = True
+                    self._republish_score()
+                    target = np.asarray([point.point.x, point.point.y, point.point.z])
+                    self._confirmed_book_point_odom = target.copy()
+                    self._confirmed_book_point_stamp_ns = stamp_to_nanoseconds(
+                        point.header.stamp)
+                    staging = bool(
+                        self.detected_row == 1
+                        and getattr(self, 'empty_arm_staging_enabled', False)
+                    )
+                    x, y, yaw = self._goal_from_target(
+                        target,
+                        self.shelf_normal,
+                        (
+                            getattr(self, 'top_row_grasp_standoff', self.grasp_standoff)
+                            + (self.empty_arm_staging_backoff if staging else 0.0)
+                            if self.detected_row == 1
+                            else self.grasp_standoff
+                        ),
+                        self.grasp_lateral_bias,
+                    )
+                    self._empty_stage_pending = staging
+                    if staging:
+                        self._navigate(x, y, yaw, 'empty_arm_staging',
+                                       profile='empty_arm_staging')
+                    else:
+                        self._navigate(x, y, yaw, 'book_grasp_standoff')
+                    self._set_state('ALIGN_BOOK')
+                    return
+            if self._elapsed_state() > self.perception_timeout:
+                self._abort('target_book_not_found')
+            return
+    
+        if self.state == 'ALIGN_BOOK':
+            if self._nav_reached():
+                self.book_point = None
+                if self.detected_row is None:
+                    self._abort('confirmed_book_row_missing')
+                    return
+                # Stop detections while the camera moves so a transient point
+                # cannot be accepted as the close-range grasp target.
+                self._perception_mode('idle')
+                command = f'look_book_row_{self.detected_row}'
+                self._manipulate(command)
+                self._set_state('HEAD_REACQUIRE_BOOK', command=command)
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('book_alignment_failed')
+            return
+    
+        if self.state == 'HEAD_REACQUIRE_BOOK':
+            command = f'look_book_row_{self.detected_row}'
+            if self._manip_succeeded(command):
+                self.book_point = None
+                self._book_reacquire_after_ns = self.get_clock().now().nanoseconds
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('REACQUIRE_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('book_reacquisition_head_pose_failed')
+            return
+    
+        if self.state == 'REACQUIRE_BOOK':
+            if self.book_point is not None:
+>               if (stamp_to_nanoseconds(self.book_point.header.stamp)
+                        <= getattr(self, '_book_reacquire_after_ns', 0)):
+E                       AttributeError: 'object' object has no attribute 'header'
+
+erc_phase1_solution/mission_manager.py:1658: AttributeError
+_ test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration[_shelf_registration_stamp_ns-None] _
+
+field = '_shelf_registration_stamp_ns', value = None
+
+    @pytest.mark.parametrize('field,value', [
+        ('_shelf_registration_stamp_ns', None),
+        ('_shelf_registration_stamp_ns', 51_000_000_000),
+        ('target_marker_odom', None), ('target_physical_column', 6),
+    ])
+    def test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration(field, value):
+        node = mission()
+        setattr(node, field, value)
+>       node._tick()
+
+test/test_mission_lift_context.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <erc_phase1_solution.mission_manager.MissionManager object at 0x76a120f973a0>
+
+    def _tick(self) -> None:
+        if self.finished:
+            return
+        total_elapsed = time.monotonic() - self.wall_started
+        if total_elapsed > self.trial_timeout:
+            self._abort('trial_timeout')
+            return
+    
+        recovery_started = getattr(self, '_bin_visibility_started_ns', None)
+        if recovery_started is not None and self.state in (
+            'BIN_VISIBILITY_RETREAT', 'HEAD_REACQUIRE_BIN', 'REACQUIRE_BIN',
+        ):
+            recovery_elapsed = self.get_clock().now().nanoseconds - recovery_started
+            if not 0 <= recovery_elapsed <= RECOVERY_TIMEOUT_NS:
+                self._abort('bin_visibility_recovery_timeout')
+                return
+    
+        if self.state == 'WAIT_READY':
+            if all(self.ready.values()) and self.start_pose is not None:
+                self._manipulate('stow')
+                self._set_state('INIT_STOW')
+            elif self._elapsed_state() > self.sensor_timeout:
+                missing = [name for name, ready in self.ready.items() if not ready]
+                self._abort('readiness_timeout:' + ','.join(missing))
+            return
+    
+        if self.state == 'INIT_STOW':
+            if self._manip_succeeded('stow'):
+                self._manipulate('look_markers')
+                self._set_state('HEAD_MARKERS')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('initial_stow_failed')
+            return
+    
+        if self.state == 'HEAD_MARKERS':
+            if self._manip_succeeded('look_markers'):
+                self.marker_cloud = None
+                self.target_physical_column = None
+                self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_marker_pose_failed')
+            return
+    
+        if self.state == 'SEARCH_COLUMN':
+            if self.marker_cloud is not None:
+                try:
+                    target, normal, physical_column = self._shelf_geometry(
+                        self.marker_cloud
+                    )
+                except (ValueError, TransformException) as exc:
+                    self._log('marker_geometry_rejected', reason=str(exc))
+                    self.marker_cloud = None
+                else:
+                    self.target_marker_odom = target
+                    self.shelf_normal = normal
+                    self.target_physical_column = physical_column
+                    self._shelf_registration_stamp_ns = stamp_to_nanoseconds(
+                        self.marker_cloud.header.stamp
+                    )
+                    self.column_confirmed = True
+                    self._republish_score()
+                    x, y, yaw = self._goal_from_target(target, normal, self.shelf_standoff)
+                    self._navigate(x, y, yaw, 'shelf_observation_pose')
+                    self._set_state('NAVIGATE_SHELF')
+                    return
+            early_marker_turn = (getattr(self, 'marker_search_negative_enabled', False)
+                                 and self._marker_search_negative_ready())
+            if self._elapsed_state() > self.marker_search_timeout or early_marker_turn:
+                search_limit = (min(self.max_search_turns, 8)
+                                if getattr(self, 'marker_search_first_probe_enabled', False)
+                                else self.max_search_turns)
+                if self.search_turns >= search_limit or self.robot_pose is None:
+                    self._abort('shelf_markers_not_found')
+                else:
+                    if early_marker_turn and self._elapsed_state() <= self.marker_search_timeout:
+                        gate = self._marker_search_negative_gate
+                        self._log('marker_search_early_turn',
+                            marker_search_request_id=gate.request.request_id,
+                            negative_frames=gate.count, last_frame_sequence=gate.last_sequence,
+                            rgb_stamp_ns=gate.last_rgb_ns, depth_stamp_ns=gate.last_depth_ns,
+                            completed_ros_ns=gate.last_completed_ns, wait_seconds=self._elapsed_state())
+                    x, y, yaw = self.robot_pose
+                    target_yaw = yaw + self.search_turn
+                    if getattr(self, 'marker_search_first_probe_enabled', False):
+                        try:
+                            target_yaw = self._marker_search_probe_yaw(self.search_turns, yaw)
+                        except (TypeError, ValueError) as exc:
+                            self._log('marker_search_schedule_rejected', reason=str(exc))
+                            self._abort('visual_search_schedule_invalid')
+                            return
+                    self.search_turns += 1
+                    self._navigate(x, y, target_yaw, 'visual_search_turn')
+                    self._set_state('SEARCH_TURN')
+            return
+    
+        if self.state == 'SEARCH_TURN':
+            if self._nav_reached():
+                self.marker_cloud = None
+                if getattr(self, 'marker_search_negative_enabled', False):
+                    self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('visual_search_motion_failed')
+            return
+    
+        if self.state == 'NAVIGATE_SHELF':
+            if self._nav_reached():
+                self._manipulate('look_books')
+                self._set_state('HEAD_BOOKS')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('navigation_to_shelf_failed')
+            return
+    
+        if self.state == 'HEAD_BOOKS':
+            if self._manip_succeeded('look_books'):
+                self.book_point = None
+                self.detected_row = None
+                self._confirmed_book_point_odom = None
+                self._confirmed_book_point_stamp_ns = None
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('FIND_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_book_pose_failed')
+            return
+    
+        if self.state == 'FIND_BOOK':
+            if self.book_point is not None and self.detected_row is not None:
+                try:
+                    point = self.tf_buffer.transform(
+                        self.book_point,
+                        'odom',
+                        timeout=Duration(seconds=1.0),
+                    )
+                except TransformException as exc:
+                    self._log('book_geometry_rejected', reason=str(exc))
+                    self.book_point = None
+                else:
+                    self.row_confirmed = True
+                    self._republish_score()
+                    target = np.asarray([point.point.x, point.point.y, point.point.z])
+                    self._confirmed_book_point_odom = target.copy()
+                    self._confirmed_book_point_stamp_ns = stamp_to_nanoseconds(
+                        point.header.stamp)
+                    staging = bool(
+                        self.detected_row == 1
+                        and getattr(self, 'empty_arm_staging_enabled', False)
+                    )
+                    x, y, yaw = self._goal_from_target(
+                        target,
+                        self.shelf_normal,
+                        (
+                            getattr(self, 'top_row_grasp_standoff', self.grasp_standoff)
+                            + (self.empty_arm_staging_backoff if staging else 0.0)
+                            if self.detected_row == 1
+                            else self.grasp_standoff
+                        ),
+                        self.grasp_lateral_bias,
+                    )
+                    self._empty_stage_pending = staging
+                    if staging:
+                        self._navigate(x, y, yaw, 'empty_arm_staging',
+                                       profile='empty_arm_staging')
+                    else:
+                        self._navigate(x, y, yaw, 'book_grasp_standoff')
+                    self._set_state('ALIGN_BOOK')
+                    return
+            if self._elapsed_state() > self.perception_timeout:
+                self._abort('target_book_not_found')
+            return
+    
+        if self.state == 'ALIGN_BOOK':
+            if self._nav_reached():
+                self.book_point = None
+                if self.detected_row is None:
+                    self._abort('confirmed_book_row_missing')
+                    return
+                # Stop detections while the camera moves so a transient point
+                # cannot be accepted as the close-range grasp target.
+                self._perception_mode('idle')
+                command = f'look_book_row_{self.detected_row}'
+                self._manipulate(command)
+                self._set_state('HEAD_REACQUIRE_BOOK', command=command)
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('book_alignment_failed')
+            return
+    
+        if self.state == 'HEAD_REACQUIRE_BOOK':
+            command = f'look_book_row_{self.detected_row}'
+            if self._manip_succeeded(command):
+                self.book_point = None
+                self._book_reacquire_after_ns = self.get_clock().now().nanoseconds
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('REACQUIRE_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('book_reacquisition_head_pose_failed')
+            return
+    
+        if self.state == 'REACQUIRE_BOOK':
+            if self.book_point is not None:
+>               if (stamp_to_nanoseconds(self.book_point.header.stamp)
+                        <= getattr(self, '_book_reacquire_after_ns', 0)):
+E                       AttributeError: 'object' object has no attribute 'header'
+
+erc_phase1_solution/mission_manager.py:1658: AttributeError
+_ test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration[_shelf_registration_stamp_ns-51000000000] _
+
+field = '_shelf_registration_stamp_ns', value = 51000000000
+
+    @pytest.mark.parametrize('field,value', [
+        ('_shelf_registration_stamp_ns', None),
+        ('_shelf_registration_stamp_ns', 51_000_000_000),
+        ('target_marker_odom', None), ('target_physical_column', 6),
+    ])
+    def test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration(field, value):
+        node = mission()
+        setattr(node, field, value)
+>       node._tick()
+
+test/test_mission_lift_context.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <erc_phase1_solution.mission_manager.MissionManager object at 0x76a120b8b6a0>
+
+    def _tick(self) -> None:
+        if self.finished:
+            return
+        total_elapsed = time.monotonic() - self.wall_started
+        if total_elapsed > self.trial_timeout:
+            self._abort('trial_timeout')
+            return
+    
+        recovery_started = getattr(self, '_bin_visibility_started_ns', None)
+        if recovery_started is not None and self.state in (
+            'BIN_VISIBILITY_RETREAT', 'HEAD_REACQUIRE_BIN', 'REACQUIRE_BIN',
+        ):
+            recovery_elapsed = self.get_clock().now().nanoseconds - recovery_started
+            if not 0 <= recovery_elapsed <= RECOVERY_TIMEOUT_NS:
+                self._abort('bin_visibility_recovery_timeout')
+                return
+    
+        if self.state == 'WAIT_READY':
+            if all(self.ready.values()) and self.start_pose is not None:
+                self._manipulate('stow')
+                self._set_state('INIT_STOW')
+            elif self._elapsed_state() > self.sensor_timeout:
+                missing = [name for name, ready in self.ready.items() if not ready]
+                self._abort('readiness_timeout:' + ','.join(missing))
+            return
+    
+        if self.state == 'INIT_STOW':
+            if self._manip_succeeded('stow'):
+                self._manipulate('look_markers')
+                self._set_state('HEAD_MARKERS')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('initial_stow_failed')
+            return
+    
+        if self.state == 'HEAD_MARKERS':
+            if self._manip_succeeded('look_markers'):
+                self.marker_cloud = None
+                self.target_physical_column = None
+                self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_marker_pose_failed')
+            return
+    
+        if self.state == 'SEARCH_COLUMN':
+            if self.marker_cloud is not None:
+                try:
+                    target, normal, physical_column = self._shelf_geometry(
+                        self.marker_cloud
+                    )
+                except (ValueError, TransformException) as exc:
+                    self._log('marker_geometry_rejected', reason=str(exc))
+                    self.marker_cloud = None
+                else:
+                    self.target_marker_odom = target
+                    self.shelf_normal = normal
+                    self.target_physical_column = physical_column
+                    self._shelf_registration_stamp_ns = stamp_to_nanoseconds(
+                        self.marker_cloud.header.stamp
+                    )
+                    self.column_confirmed = True
+                    self._republish_score()
+                    x, y, yaw = self._goal_from_target(target, normal, self.shelf_standoff)
+                    self._navigate(x, y, yaw, 'shelf_observation_pose')
+                    self._set_state('NAVIGATE_SHELF')
+                    return
+            early_marker_turn = (getattr(self, 'marker_search_negative_enabled', False)
+                                 and self._marker_search_negative_ready())
+            if self._elapsed_state() > self.marker_search_timeout or early_marker_turn:
+                search_limit = (min(self.max_search_turns, 8)
+                                if getattr(self, 'marker_search_first_probe_enabled', False)
+                                else self.max_search_turns)
+                if self.search_turns >= search_limit or self.robot_pose is None:
+                    self._abort('shelf_markers_not_found')
+                else:
+                    if early_marker_turn and self._elapsed_state() <= self.marker_search_timeout:
+                        gate = self._marker_search_negative_gate
+                        self._log('marker_search_early_turn',
+                            marker_search_request_id=gate.request.request_id,
+                            negative_frames=gate.count, last_frame_sequence=gate.last_sequence,
+                            rgb_stamp_ns=gate.last_rgb_ns, depth_stamp_ns=gate.last_depth_ns,
+                            completed_ros_ns=gate.last_completed_ns, wait_seconds=self._elapsed_state())
+                    x, y, yaw = self.robot_pose
+                    target_yaw = yaw + self.search_turn
+                    if getattr(self, 'marker_search_first_probe_enabled', False):
+                        try:
+                            target_yaw = self._marker_search_probe_yaw(self.search_turns, yaw)
+                        except (TypeError, ValueError) as exc:
+                            self._log('marker_search_schedule_rejected', reason=str(exc))
+                            self._abort('visual_search_schedule_invalid')
+                            return
+                    self.search_turns += 1
+                    self._navigate(x, y, target_yaw, 'visual_search_turn')
+                    self._set_state('SEARCH_TURN')
+            return
+    
+        if self.state == 'SEARCH_TURN':
+            if self._nav_reached():
+                self.marker_cloud = None
+                if getattr(self, 'marker_search_negative_enabled', False):
+                    self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('visual_search_motion_failed')
+            return
+    
+        if self.state == 'NAVIGATE_SHELF':
+            if self._nav_reached():
+                self._manipulate('look_books')
+                self._set_state('HEAD_BOOKS')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('navigation_to_shelf_failed')
+            return
+    
+        if self.state == 'HEAD_BOOKS':
+            if self._manip_succeeded('look_books'):
+                self.book_point = None
+                self.detected_row = None
+                self._confirmed_book_point_odom = None
+                self._confirmed_book_point_stamp_ns = None
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('FIND_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_book_pose_failed')
+            return
+    
+        if self.state == 'FIND_BOOK':
+            if self.book_point is not None and self.detected_row is not None:
+                try:
+                    point = self.tf_buffer.transform(
+                        self.book_point,
+                        'odom',
+                        timeout=Duration(seconds=1.0),
+                    )
+                except TransformException as exc:
+                    self._log('book_geometry_rejected', reason=str(exc))
+                    self.book_point = None
+                else:
+                    self.row_confirmed = True
+                    self._republish_score()
+                    target = np.asarray([point.point.x, point.point.y, point.point.z])
+                    self._confirmed_book_point_odom = target.copy()
+                    self._confirmed_book_point_stamp_ns = stamp_to_nanoseconds(
+                        point.header.stamp)
+                    staging = bool(
+                        self.detected_row == 1
+                        and getattr(self, 'empty_arm_staging_enabled', False)
+                    )
+                    x, y, yaw = self._goal_from_target(
+                        target,
+                        self.shelf_normal,
+                        (
+                            getattr(self, 'top_row_grasp_standoff', self.grasp_standoff)
+                            + (self.empty_arm_staging_backoff if staging else 0.0)
+                            if self.detected_row == 1
+                            else self.grasp_standoff
+                        ),
+                        self.grasp_lateral_bias,
+                    )
+                    self._empty_stage_pending = staging
+                    if staging:
+                        self._navigate(x, y, yaw, 'empty_arm_staging',
+                                       profile='empty_arm_staging')
+                    else:
+                        self._navigate(x, y, yaw, 'book_grasp_standoff')
+                    self._set_state('ALIGN_BOOK')
+                    return
+            if self._elapsed_state() > self.perception_timeout:
+                self._abort('target_book_not_found')
+            return
+    
+        if self.state == 'ALIGN_BOOK':
+            if self._nav_reached():
+                self.book_point = None
+                if self.detected_row is None:
+                    self._abort('confirmed_book_row_missing')
+                    return
+                # Stop detections while the camera moves so a transient point
+                # cannot be accepted as the close-range grasp target.
+                self._perception_mode('idle')
+                command = f'look_book_row_{self.detected_row}'
+                self._manipulate(command)
+                self._set_state('HEAD_REACQUIRE_BOOK', command=command)
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('book_alignment_failed')
+            return
+    
+        if self.state == 'HEAD_REACQUIRE_BOOK':
+            command = f'look_book_row_{self.detected_row}'
+            if self._manip_succeeded(command):
+                self.book_point = None
+                self._book_reacquire_after_ns = self.get_clock().now().nanoseconds
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('REACQUIRE_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('book_reacquisition_head_pose_failed')
+            return
+    
+        if self.state == 'REACQUIRE_BOOK':
+            if self.book_point is not None:
+>               if (stamp_to_nanoseconds(self.book_point.header.stamp)
+                        <= getattr(self, '_book_reacquire_after_ns', 0)):
+E                       AttributeError: 'object' object has no attribute 'header'
+
+erc_phase1_solution/mission_manager.py:1658: AttributeError
+_ test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration[target_marker_odom-None] _
+
+field = 'target_marker_odom', value = None
+
+    @pytest.mark.parametrize('field,value', [
+        ('_shelf_registration_stamp_ns', None),
+        ('_shelf_registration_stamp_ns', 51_000_000_000),
+        ('target_marker_odom', None), ('target_physical_column', 6),
+    ])
+    def test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration(field, value):
+        node = mission()
+        setattr(node, field, value)
+>       node._tick()
+
+test/test_mission_lift_context.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <erc_phase1_solution.mission_manager.MissionManager object at 0x76a1206e73d0>
+
+    def _tick(self) -> None:
+        if self.finished:
+            return
+        total_elapsed = time.monotonic() - self.wall_started
+        if total_elapsed > self.trial_timeout:
+            self._abort('trial_timeout')
+            return
+    
+        recovery_started = getattr(self, '_bin_visibility_started_ns', None)
+        if recovery_started is not None and self.state in (
+            'BIN_VISIBILITY_RETREAT', 'HEAD_REACQUIRE_BIN', 'REACQUIRE_BIN',
+        ):
+            recovery_elapsed = self.get_clock().now().nanoseconds - recovery_started
+            if not 0 <= recovery_elapsed <= RECOVERY_TIMEOUT_NS:
+                self._abort('bin_visibility_recovery_timeout')
+                return
+    
+        if self.state == 'WAIT_READY':
+            if all(self.ready.values()) and self.start_pose is not None:
+                self._manipulate('stow')
+                self._set_state('INIT_STOW')
+            elif self._elapsed_state() > self.sensor_timeout:
+                missing = [name for name, ready in self.ready.items() if not ready]
+                self._abort('readiness_timeout:' + ','.join(missing))
+            return
+    
+        if self.state == 'INIT_STOW':
+            if self._manip_succeeded('stow'):
+                self._manipulate('look_markers')
+                self._set_state('HEAD_MARKERS')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('initial_stow_failed')
+            return
+    
+        if self.state == 'HEAD_MARKERS':
+            if self._manip_succeeded('look_markers'):
+                self.marker_cloud = None
+                self.target_physical_column = None
+                self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_marker_pose_failed')
+            return
+    
+        if self.state == 'SEARCH_COLUMN':
+            if self.marker_cloud is not None:
+                try:
+                    target, normal, physical_column = self._shelf_geometry(
+                        self.marker_cloud
+                    )
+                except (ValueError, TransformException) as exc:
+                    self._log('marker_geometry_rejected', reason=str(exc))
+                    self.marker_cloud = None
+                else:
+                    self.target_marker_odom = target
+                    self.shelf_normal = normal
+                    self.target_physical_column = physical_column
+                    self._shelf_registration_stamp_ns = stamp_to_nanoseconds(
+                        self.marker_cloud.header.stamp
+                    )
+                    self.column_confirmed = True
+                    self._republish_score()
+                    x, y, yaw = self._goal_from_target(target, normal, self.shelf_standoff)
+                    self._navigate(x, y, yaw, 'shelf_observation_pose')
+                    self._set_state('NAVIGATE_SHELF')
+                    return
+            early_marker_turn = (getattr(self, 'marker_search_negative_enabled', False)
+                                 and self._marker_search_negative_ready())
+            if self._elapsed_state() > self.marker_search_timeout or early_marker_turn:
+                search_limit = (min(self.max_search_turns, 8)
+                                if getattr(self, 'marker_search_first_probe_enabled', False)
+                                else self.max_search_turns)
+                if self.search_turns >= search_limit or self.robot_pose is None:
+                    self._abort('shelf_markers_not_found')
+                else:
+                    if early_marker_turn and self._elapsed_state() <= self.marker_search_timeout:
+                        gate = self._marker_search_negative_gate
+                        self._log('marker_search_early_turn',
+                            marker_search_request_id=gate.request.request_id,
+                            negative_frames=gate.count, last_frame_sequence=gate.last_sequence,
+                            rgb_stamp_ns=gate.last_rgb_ns, depth_stamp_ns=gate.last_depth_ns,
+                            completed_ros_ns=gate.last_completed_ns, wait_seconds=self._elapsed_state())
+                    x, y, yaw = self.robot_pose
+                    target_yaw = yaw + self.search_turn
+                    if getattr(self, 'marker_search_first_probe_enabled', False):
+                        try:
+                            target_yaw = self._marker_search_probe_yaw(self.search_turns, yaw)
+                        except (TypeError, ValueError) as exc:
+                            self._log('marker_search_schedule_rejected', reason=str(exc))
+                            self._abort('visual_search_schedule_invalid')
+                            return
+                    self.search_turns += 1
+                    self._navigate(x, y, target_yaw, 'visual_search_turn')
+                    self._set_state('SEARCH_TURN')
+            return
+    
+        if self.state == 'SEARCH_TURN':
+            if self._nav_reached():
+                self.marker_cloud = None
+                if getattr(self, 'marker_search_negative_enabled', False):
+                    self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('visual_search_motion_failed')
+            return
+    
+        if self.state == 'NAVIGATE_SHELF':
+            if self._nav_reached():
+                self._manipulate('look_books')
+                self._set_state('HEAD_BOOKS')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('navigation_to_shelf_failed')
+            return
+    
+        if self.state == 'HEAD_BOOKS':
+            if self._manip_succeeded('look_books'):
+                self.book_point = None
+                self.detected_row = None
+                self._confirmed_book_point_odom = None
+                self._confirmed_book_point_stamp_ns = None
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('FIND_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_book_pose_failed')
+            return
+    
+        if self.state == 'FIND_BOOK':
+            if self.book_point is not None and self.detected_row is not None:
+                try:
+                    point = self.tf_buffer.transform(
+                        self.book_point,
+                        'odom',
+                        timeout=Duration(seconds=1.0),
+                    )
+                except TransformException as exc:
+                    self._log('book_geometry_rejected', reason=str(exc))
+                    self.book_point = None
+                else:
+                    self.row_confirmed = True
+                    self._republish_score()
+                    target = np.asarray([point.point.x, point.point.y, point.point.z])
+                    self._confirmed_book_point_odom = target.copy()
+                    self._confirmed_book_point_stamp_ns = stamp_to_nanoseconds(
+                        point.header.stamp)
+                    staging = bool(
+                        self.detected_row == 1
+                        and getattr(self, 'empty_arm_staging_enabled', False)
+                    )
+                    x, y, yaw = self._goal_from_target(
+                        target,
+                        self.shelf_normal,
+                        (
+                            getattr(self, 'top_row_grasp_standoff', self.grasp_standoff)
+                            + (self.empty_arm_staging_backoff if staging else 0.0)
+                            if self.detected_row == 1
+                            else self.grasp_standoff
+                        ),
+                        self.grasp_lateral_bias,
+                    )
+                    self._empty_stage_pending = staging
+                    if staging:
+                        self._navigate(x, y, yaw, 'empty_arm_staging',
+                                       profile='empty_arm_staging')
+                    else:
+                        self._navigate(x, y, yaw, 'book_grasp_standoff')
+                    self._set_state('ALIGN_BOOK')
+                    return
+            if self._elapsed_state() > self.perception_timeout:
+                self._abort('target_book_not_found')
+            return
+    
+        if self.state == 'ALIGN_BOOK':
+            if self._nav_reached():
+                self.book_point = None
+                if self.detected_row is None:
+                    self._abort('confirmed_book_row_missing')
+                    return
+                # Stop detections while the camera moves so a transient point
+                # cannot be accepted as the close-range grasp target.
+                self._perception_mode('idle')
+                command = f'look_book_row_{self.detected_row}'
+                self._manipulate(command)
+                self._set_state('HEAD_REACQUIRE_BOOK', command=command)
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('book_alignment_failed')
+            return
+    
+        if self.state == 'HEAD_REACQUIRE_BOOK':
+            command = f'look_book_row_{self.detected_row}'
+            if self._manip_succeeded(command):
+                self.book_point = None
+                self._book_reacquire_after_ns = self.get_clock().now().nanoseconds
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('REACQUIRE_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('book_reacquisition_head_pose_failed')
+            return
+    
+        if self.state == 'REACQUIRE_BOOK':
+            if self.book_point is not None:
+>               if (stamp_to_nanoseconds(self.book_point.header.stamp)
+                        <= getattr(self, '_book_reacquire_after_ns', 0)):
+E                       AttributeError: 'object' object has no attribute 'header'
+
+erc_phase1_solution/mission_manager.py:1658: AttributeError
+_ test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration[target_physical_column-6] _
+
+field = 'target_physical_column', value = 6
+
+    @pytest.mark.parametrize('field,value', [
+        ('_shelf_registration_stamp_ns', None),
+        ('_shelf_registration_stamp_ns', 51_000_000_000),
+        ('target_marker_odom', None), ('target_physical_column', 6),
+    ])
+    def test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration(field, value):
+        node = mission()
+        setattr(node, field, value)
+>       node._tick()
+
+test/test_mission_lift_context.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <erc_phase1_solution.mission_manager.MissionManager object at 0x76a10a5f9d20>
+
+    def _tick(self) -> None:
+        if self.finished:
+            return
+        total_elapsed = time.monotonic() - self.wall_started
+        if total_elapsed > self.trial_timeout:
+            self._abort('trial_timeout')
+            return
+    
+        recovery_started = getattr(self, '_bin_visibility_started_ns', None)
+        if recovery_started is not None and self.state in (
+            'BIN_VISIBILITY_RETREAT', 'HEAD_REACQUIRE_BIN', 'REACQUIRE_BIN',
+        ):
+            recovery_elapsed = self.get_clock().now().nanoseconds - recovery_started
+            if not 0 <= recovery_elapsed <= RECOVERY_TIMEOUT_NS:
+                self._abort('bin_visibility_recovery_timeout')
+                return
+    
+        if self.state == 'WAIT_READY':
+            if all(self.ready.values()) and self.start_pose is not None:
+                self._manipulate('stow')
+                self._set_state('INIT_STOW')
+            elif self._elapsed_state() > self.sensor_timeout:
+                missing = [name for name, ready in self.ready.items() if not ready]
+                self._abort('readiness_timeout:' + ','.join(missing))
+            return
+    
+        if self.state == 'INIT_STOW':
+            if self._manip_succeeded('stow'):
+                self._manipulate('look_markers')
+                self._set_state('HEAD_MARKERS')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('initial_stow_failed')
+            return
+    
+        if self.state == 'HEAD_MARKERS':
+            if self._manip_succeeded('look_markers'):
+                self.marker_cloud = None
+                self.target_physical_column = None
+                self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_marker_pose_failed')
+            return
+    
+        if self.state == 'SEARCH_COLUMN':
+            if self.marker_cloud is not None:
+                try:
+                    target, normal, physical_column = self._shelf_geometry(
+                        self.marker_cloud
+                    )
+                except (ValueError, TransformException) as exc:
+                    self._log('marker_geometry_rejected', reason=str(exc))
+                    self.marker_cloud = None
+                else:
+                    self.target_marker_odom = target
+                    self.shelf_normal = normal
+                    self.target_physical_column = physical_column
+                    self._shelf_registration_stamp_ns = stamp_to_nanoseconds(
+                        self.marker_cloud.header.stamp
+                    )
+                    self.column_confirmed = True
+                    self._republish_score()
+                    x, y, yaw = self._goal_from_target(target, normal, self.shelf_standoff)
+                    self._navigate(x, y, yaw, 'shelf_observation_pose')
+                    self._set_state('NAVIGATE_SHELF')
+                    return
+            early_marker_turn = (getattr(self, 'marker_search_negative_enabled', False)
+                                 and self._marker_search_negative_ready())
+            if self._elapsed_state() > self.marker_search_timeout or early_marker_turn:
+                search_limit = (min(self.max_search_turns, 8)
+                                if getattr(self, 'marker_search_first_probe_enabled', False)
+                                else self.max_search_turns)
+                if self.search_turns >= search_limit or self.robot_pose is None:
+                    self._abort('shelf_markers_not_found')
+                else:
+                    if early_marker_turn and self._elapsed_state() <= self.marker_search_timeout:
+                        gate = self._marker_search_negative_gate
+                        self._log('marker_search_early_turn',
+                            marker_search_request_id=gate.request.request_id,
+                            negative_frames=gate.count, last_frame_sequence=gate.last_sequence,
+                            rgb_stamp_ns=gate.last_rgb_ns, depth_stamp_ns=gate.last_depth_ns,
+                            completed_ros_ns=gate.last_completed_ns, wait_seconds=self._elapsed_state())
+                    x, y, yaw = self.robot_pose
+                    target_yaw = yaw + self.search_turn
+                    if getattr(self, 'marker_search_first_probe_enabled', False):
+                        try:
+                            target_yaw = self._marker_search_probe_yaw(self.search_turns, yaw)
+                        except (TypeError, ValueError) as exc:
+                            self._log('marker_search_schedule_rejected', reason=str(exc))
+                            self._abort('visual_search_schedule_invalid')
+                            return
+                    self.search_turns += 1
+                    self._navigate(x, y, target_yaw, 'visual_search_turn')
+                    self._set_state('SEARCH_TURN')
+            return
+    
+        if self.state == 'SEARCH_TURN':
+            if self._nav_reached():
+                self.marker_cloud = None
+                if getattr(self, 'marker_search_negative_enabled', False):
+                    self._perception_mode('markers')
+                self._set_state('SEARCH_COLUMN')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('visual_search_motion_failed')
+            return
+    
+        if self.state == 'NAVIGATE_SHELF':
+            if self._nav_reached():
+                self._manipulate('look_books')
+                self._set_state('HEAD_BOOKS')
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('navigation_to_shelf_failed')
+            return
+    
+        if self.state == 'HEAD_BOOKS':
+            if self._manip_succeeded('look_books'):
+                self.book_point = None
+                self.detected_row = None
+                self._confirmed_book_point_odom = None
+                self._confirmed_book_point_stamp_ns = None
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('FIND_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('head_book_pose_failed')
+            return
+    
+        if self.state == 'FIND_BOOK':
+            if self.book_point is not None and self.detected_row is not None:
+                try:
+                    point = self.tf_buffer.transform(
+                        self.book_point,
+                        'odom',
+                        timeout=Duration(seconds=1.0),
+                    )
+                except TransformException as exc:
+                    self._log('book_geometry_rejected', reason=str(exc))
+                    self.book_point = None
+                else:
+                    self.row_confirmed = True
+                    self._republish_score()
+                    target = np.asarray([point.point.x, point.point.y, point.point.z])
+                    self._confirmed_book_point_odom = target.copy()
+                    self._confirmed_book_point_stamp_ns = stamp_to_nanoseconds(
+                        point.header.stamp)
+                    staging = bool(
+                        self.detected_row == 1
+                        and getattr(self, 'empty_arm_staging_enabled', False)
+                    )
+                    x, y, yaw = self._goal_from_target(
+                        target,
+                        self.shelf_normal,
+                        (
+                            getattr(self, 'top_row_grasp_standoff', self.grasp_standoff)
+                            + (self.empty_arm_staging_backoff if staging else 0.0)
+                            if self.detected_row == 1
+                            else self.grasp_standoff
+                        ),
+                        self.grasp_lateral_bias,
+                    )
+                    self._empty_stage_pending = staging
+                    if staging:
+                        self._navigate(x, y, yaw, 'empty_arm_staging',
+                                       profile='empty_arm_staging')
+                    else:
+                        self._navigate(x, y, yaw, 'book_grasp_standoff')
+                    self._set_state('ALIGN_BOOK')
+                    return
+            if self._elapsed_state() > self.perception_timeout:
+                self._abort('target_book_not_found')
+            return
+    
+        if self.state == 'ALIGN_BOOK':
+            if self._nav_reached():
+                self.book_point = None
+                if self.detected_row is None:
+                    self._abort('confirmed_book_row_missing')
+                    return
+                # Stop detections while the camera moves so a transient point
+                # cannot be accepted as the close-range grasp target.
+                self._perception_mode('idle')
+                command = f'look_book_row_{self.detected_row}'
+                self._manipulate(command)
+                self._set_state('HEAD_REACQUIRE_BOOK', command=command)
+            elif self._nav_failed() or self._elapsed_state() > self.navigation_timeout:
+                self._abort('book_alignment_failed')
+            return
+    
+        if self.state == 'HEAD_REACQUIRE_BOOK':
+            command = f'look_book_row_{self.detected_row}'
+            if self._manip_succeeded(command):
+                self.book_point = None
+                self._book_reacquire_after_ns = self.get_clock().now().nanoseconds
+                if self._perception_mode('books') is False:
+                    return
+                self._set_state('REACQUIRE_BOOK')
+            elif self._manip_failed() or self._elapsed_state() > self.manipulation_timeout:
+                self._abort('book_reacquisition_head_pose_failed')
+            return
+    
+        if self.state == 'REACQUIRE_BOOK':
+            if self.book_point is not None:
+>               if (stamp_to_nanoseconds(self.book_point.header.stamp)
+                        <= getattr(self, '_book_reacquire_after_ns', 0)):
+E                       AttributeError: 'object' object has no attribute 'header'
+
+erc_phase1_solution/mission_manager.py:1658: AttributeError
+__ test_original_stationary_predicate_and_all_numeric_bounds_restore_exactly ___
+
+    def test_original_stationary_predicate_and_all_numeric_bounds_restore_exactly():
+        text = (ROOT/'erc_phase1_solution/preopen_stationary.py').read_text()
+>       parent = restore_preopen_timing_source(text)
+
+test/test_preopen_timing.py:195: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+source = '"""Opt-in bounded closed-hand velocity admission before normal PLACE opening.\n\nUses the existing raw collectors, ne...finally:\n        if owned:\n            with node._lock:\n                node._delivery_measurement_active = False\n'
+
+    def restore_preopen_timing_source(source):
+        """Restore only the declared timing/atomic-retention changes to exact R56."""
+        data=(Path(__file__).resolve().parent/'fixtures/preopen_timing_inverse.json').read_bytes()
+        assert hashlib.sha256(data).hexdigest()=='c1a1b72a95c809df888c3b5d1775f2b43bd1012d1893a15f0ae93be88f948242'
+        record=json.loads(data)
+>       assert hashlib.sha256(source.encode()).hexdigest()==record['candidate_sha256']
+E       AssertionError
+
+test/candidate_composition_support.py:121: AssertionError
+___ test_exact_failed95_callsite_is_rejected_before_executor_or_any_arm_send ___
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x76a120944760>
+
+    def test_exact_failed95_callsite_is_rejected_before_executor_or_any_arm_send(monkeypatch):
+        f=selected_place_call_fixture(monkeypatch)
+        with pytest.raises(gate.ArmVelocityAdmissionRejected,match='typed release-only endpoint and cap2 stop required'):
+>           run_actual_place_options(f.scope,failed95=True)
+
+test/test_release_only_clearance_timing.py:535: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test/test_release_only_clearance_timing.py:444: in run_actual_place_options
+    source=selected_place_call_source(failed95=failed95)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def selected_place_call_source(*, failed95=False):
+        path=timing.SOURCE/'erc_phase1_solution/manipulation_node.py'
+        source=path.read_text()
+        if failed95:
+            assert source.count(FIXED68_CALLSITE)==1
+            source=source.replace(FIXED68_CALLSITE,FAILED95_CALLSITE,1)
+>           assert hashlib.sha256(source.encode()).hexdigest()=='c9de32ba5dfcf687d47ede00e8e51febb018c2699602f8f8a84b56cddef2da8c'
+E           AssertionError: assert '2552b515ff19...83e9f90585fd8' == 'c9de32ba5dfc...b56cddef2da8c'
+E             - c9de32ba5dfcf687d47ede00e8e51febb018c2699602f8f8a84b56cddef2da8c
+E             + 2552b515ff191cf42f322b8a943804ab158e09d568623bf4a0e83e9f90585fd8
+
+test/test_release_only_clearance_timing.py:439: AssertionError
+_____________ test_gate_only_splits_the_same_three_hard_interlocks _____________
+
+    def test_gate_only_splits_the_same_three_hard_interlocks():
+        from candidate_composition_support import restore_preopen_timing_source
+>       text=restore_preopen_timing_source((ROOT/'erc_phase1_solution/preopen_stationary.py').read_text())
+
+test/test_stock_close_lifecycle.py:269: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+source = '"""Opt-in bounded closed-hand velocity admission before normal PLACE opening.\n\nUses the existing raw collectors, ne...finally:\n        if owned:\n            with node._lock:\n                node._delivery_measurement_active = False\n'
+
+    def restore_preopen_timing_source(source):
+        """Restore only the declared timing/atomic-retention changes to exact R56."""
+        data=(Path(__file__).resolve().parent/'fixtures/preopen_timing_inverse.json').read_bytes()
+        assert hashlib.sha256(data).hexdigest()=='c1a1b72a95c809df888c3b5d1775f2b43bd1012d1893a15f0ae93be88f948242'
+        record=json.loads(data)
+>       assert hashlib.sha256(source.encode()).hexdigest()==record['candidate_sha256']
+E       AssertionError
+
+test/candidate_composition_support.py:121: AssertionError
+___ test_default_executor_exact_parent_messages_watchdogs_checks_and_indices ___
+
+    def test_default_executor_exact_parent_messages_watchdogs_checks_and_indices():
+        path=ROOT/'erc_phase1_solution/manipulation_node.py';text=path.read_text()
+        inverse=json.loads((ROOT/'test/fixtures/withdrawal_half_timing_inverse.json').read_bytes())
+        for row in reversed(inverse['fragments']):
+>           assert text.count(row['new'])==1;text=text.replace(row['new'],row['old'],1)
+E           assert 0 == 1
+E            +  where 0 = <built-in method count of str object at 0x556916af5f10>("                **({'withdrawal_speed_scale': self.withdrawal_speed_scale}\n                   if lift_enabled and ge...w and lift_enabled and not staged_empty_gripper\n                                  and deferred_post_retreat_return)),")
+E            +    where <built-in method count of str object at 0x556916af5f10> = '"""Single-left-arm manipulation server with a cross-release gripper adapter."""\n\nfrom __future__ import annotations...e.destroy_node()\n        if rclpy.ok():\n            rclpy.shutdown()\n\n\nif __name__ == \'__main__\':\n    main()\n'.count
+
+test/test_withdrawal_half_timing.py:322: AssertionError
+=============================== warnings summary ===============================
+test/test_scene_world_bounds_differential.py::Differential::test_nonfinite_and_empty_surfaces_same_error_boundary
+test/test_scene_world_bounds_differential.py::Differential::test_nonfinite_and_empty_surfaces_same_error_boundary
+  Warning: invalid value encountered in matmul
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+============================= slowest 15 durations =============================
+67.14s call     test/test_lower_shelf_pick.py::test_official_lower_rows_complete_candidate_with_real_guards[row3_blue_column4]
+63.14s call     test/test_bottom_registered_official.py::test_official_bottom_complete_registered_entry_lift_carry_recovery
+58.40s call     test/test_lower_shelf_pick.py::test_official_lower_rows_complete_candidate_with_real_guards[row2]
+19.78s call     test/test_shutdown.py::test_supported_return_has_bounded_robot_safe_reverse_bin_route
+10.62s call     test/test_shutdown.py::test_top_row_retreat_then_cradle_and_supported_return_is_safe[front3]
+10.55s call     test/test_shutdown.py::test_top_row_retreat_then_cradle_and_supported_return_is_safe[front2]
+10.26s call     test/test_shutdown.py::test_top_row_retreat_then_cradle_and_supported_return_is_safe[front1]
+9.93s call     test/test_shutdown.py::test_top_row_retreat_then_cradle_and_supported_return_is_safe[front0]
+9.35s call     test/test_fine_parallel_gap_probe.py::test_three_hundred_targets_do_not_turn_weak_pressure_into_success
+8.08s call     test/test_fine_parallel_gap_probe.py::test_slow_clock_still_exhausts_original_total_before_all_targets
+7.11s call     test/test_fine_parallel_gap_probe.py::test_late_fault_after_prior_travel_cap_never_publishes_another_close[force]
+7.00s call     test/test_fine_parallel_gap_probe.py::test_late_fault_after_prior_travel_cap_never_publishes_another_close[cancel]
+4.61s call     test/test_shutdown.py::test_cartesian_place_regression_for_aligned_bin_pose
+4.31s call     test/test_supported_compact_fallback.py::test_current_official_shallow_grasp_finds_clear_compact_route
+2.22s call     test/test_all_row_pick_kinematics.py::test_runtime_fixed_torso_precision_pinch_path_reaches_each_row[3-0.934]
+=========================== short test summary info ============================
+FAILED test/test_empty_pickup_endpoint_wait.py::PickupWiringTests::test_each_executed_leg_waits_before_next_geometry_admission
+FAILED test/test_empty_pickup_endpoint_wait.py::PickupWiringTests::test_legacy_no_empty_guard_adds_no_waits
+FAILED test/test_empty_pickup_endpoint_wait.py::PickupWiringTests::test_torso_or_arm_failed_measurement_prevents_next_command
+FAILED test/test_empty_pickup_geometry_backend.py::test_node_scope_contains_original_empty_checks_and_solver_before_loaded_work
+FAILED test/test_mission_lift_context.py::test_enabled_mission_preserves_marker_epoch_column_and_odom_frame_in_pick
+FAILED test/test_mission_lift_context.py::test_disabled_mission_retains_existing_pick_interface
+FAILED test/test_mission_lift_context.py::test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration[_shelf_registration_stamp_ns-None]
+FAILED test/test_mission_lift_context.py::test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration[_shelf_registration_stamp_ns-51000000000]
+FAILED test/test_mission_lift_context.py::test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration[target_marker_odom-None]
+FAILED test/test_mission_lift_context.py::test_enabled_mission_never_dispatches_lift_with_missing_or_invalid_registration[target_physical_column-6]
+FAILED test/test_preopen_timing.py::test_original_stationary_predicate_and_all_numeric_bounds_restore_exactly
+FAILED test/test_release_only_clearance_timing.py::test_exact_failed95_callsite_is_rejected_before_executor_or_any_arm_send
+FAILED test/test_stock_close_lifecycle.py::test_gate_only_splits_the_same_three_hard_interlocks
+FAILED test/test_withdrawal_half_timing.py::test_default_executor_exact_parent_messages_watchdogs_checks_and_indices
+14 failed, 6914 passed, 2 warnings in 595.47s (0:09:55)

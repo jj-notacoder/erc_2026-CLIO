@@ -288,4 +288,22 @@ def test_node_scope_contains_original_empty_checks_and_solver_before_loaded_work
     assert names.count('opening')==1 and names.count('edge')==1 and names.count('_solve_cartesian_path')==1
     assert not any(name.startswith('_move') or name.startswith('_command') for name in names)
     loaded=[x for x in ast.walk(pick) if isinstance(x,ast.Call) and isinstance(x.func,ast.Name) and x.func.id=='run_pickup_geometry']
-    assert loaded and all(x.lineno>scopes[0].end_lineno for x in loaded)
+    # The lower-row callback is declared before the top-row scope but is invoked
+    # by the lower helper only after its own empty epoch closes. Its actual
+    # ownership/fault behavior is exercised in test_lower_pool_lifecycle.py.
+    lower_callback,=[x for x in ast.walk(pick) if isinstance(x,ast.FunctionDef)
+                     and x.name=='plan_lower_lift']
+    lower_loaded=[x for x in loaded if x in list(ast.walk(lower_callback))]
+    assert len(lower_loaded)==1
+    top_loaded=[x for x in loaded if x not in lower_loaded]
+    assert top_loaded and all(x.lineno>scopes[0].end_lineno for x in top_loaded)
+    lower_branch,=[x for x in pick.body if isinstance(x,ast.If)
+                   and lower_callback in x.body]
+    assert 'not top_row' in ast.unparse(lower_branch.test)
+    assert scopes[0] in lower_branch.orelse
+    helper_call,=[x for x in ast.walk(lower_branch) if isinstance(x,ast.Call)
+                  and isinstance(x.func,ast.Name) and x.func.id=='plan_lower_shelf_pick']
+    planner,=[k.value for k in helper_call.keywords if k.arg=='lift_planner']
+    assert isinstance(planner,ast.Name) and planner.id==lower_callback.name
+    assert not any(isinstance(x,ast.Call) and isinstance(x.func,ast.Name)
+                   and x.func.id==lower_callback.name for x in ast.walk(pick))

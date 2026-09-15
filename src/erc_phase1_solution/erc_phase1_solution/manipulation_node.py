@@ -5976,8 +5976,11 @@ class ManipulationNode(Node):
             }
             if defer_return:
                 from .shelf_cradle_geometry import check_cradle_tool_route
-                reason = check_cradle_tool_route(
-                    self, front, grasp_solution, vertical_start,
+                tool_route = (check_cradle_tool_route if geometry_backend is None
+                              else geometry_backend.tool_route)
+                tool_args = ((self,) if geometry_backend is None else ())
+                reason = tool_route(
+                    *tool_args, front, grasp_solution, vertical_start,
                     [q for q, _ in cached_legs], post_retreat_front_x,
                     aperture=float(self.carried_book_dimensions[1]),
                 )
@@ -7990,11 +7993,12 @@ class ManipulationNode(Node):
             from .lower_shelf_pick import plan_lower_shelf_pick
             from .lift_first_extraction import plan_lift_first_extraction
 
-            def plan_lower_lift(grasp_solution, extraction_solutions):
+            def plan_lower_lift(grasp_solution, extraction_solutions, *, post_retreat_plan=None):
                 self._lift_first_measurements(lift_reference)
                 return run_pickup_geometry(
                     self, plan_lift_first_extraction, front, grasp_solution,
                     extraction_solutions, scene_reference=lift_reference,
+                    **({'post_retreat_plan': post_retreat_plan} if post_retreat_plan is not None else {}),
                     bay=lift_bay, aperture=float(self.carried_book_dimensions[1]),
                     lift_m=self.lift_first_extraction_lift_m,
                     modeled_tool_allowance_m=.005,

@@ -1,0 +1,88 @@
+{
+  "checks": {
+    "serial_passed": true,
+    "pooled_passed": true,
+    "complete_plan_equal": true,
+    "prior_empty_candidate_plan_equal": true,
+    "empty_state_equal": true,
+    "identity_equal": true,
+    "no_controllers": true
+  },
+  "results": {
+    "serial": {
+      "planning_s": 39.019613397002104,
+      "empty_until_lift_s": 17.840513630002533,
+      "deferred_return_s": 17.714119842999935,
+      "pools": [
+        {
+          "status": "empty_pickup_geometry_process_completed",
+          "epoch": 1,
+          "workers_created": 8,
+          "workers_reaped": 8,
+          "children_closed": true,
+          "passed": true,
+          "wall_seconds": 17.548706612000387,
+          "query_statistics": {
+            "submitted": 611,
+            "consumed": 874,
+            "discarded": 0,
+            "cached_at_enqueue": 263
+          }
+        },
+        {
+          "status": "pickup_geometry_process_completed",
+          "epoch": 2,
+          "workers_created": 8,
+          "workers_reaped": 8,
+          "children_closed": true,
+          "passed": true,
+          "wall_seconds": 3.388741652997851,
+          "query_statistics": {
+            "submitted": 375,
+            "consumed": 375,
+            "discarded": 0,
+            "cached_at_enqueue": 0
+          }
+        }
+      ]
+    },
+    "pooled": {
+      "planning_s": 36.340243768998334,
+      "empty_until_lift_s": 17.948487318000844,
+      "deferred_return_s": 15.106945273000747,
+      "pools": [
+        {
+          "status": "empty_pickup_geometry_process_completed",
+          "epoch": 1,
+          "workers_created": 8,
+          "workers_reaped": 8,
+          "children_closed": true,
+          "passed": true,
+          "wall_seconds": 17.649512682997738,
+          "query_statistics": {
+            "submitted": 611,
+            "consumed": 874,
+            "discarded": 0,
+            "cached_at_enqueue": 263
+          }
+        },
+        {
+          "status": "pickup_geometry_process_completed",
+          "epoch": 2,
+          "workers_created": 8,
+          "workers_reaped": 8,
+          "children_closed": true,
+          "passed": true,
+          "wall_seconds": 18.29005964600219,
+          "query_statistics": {
+            "submitted": 4067,
+            "consumed": 4067,
+            "discarded": 0,
+            "cached_at_enqueue": 0
+          }
+        }
+      ]
+    }
+  },
+  "caveat": "One serial isolated official-geometry A/B replay; no live freshness, physical retention, or under-five-minute proof."
+}

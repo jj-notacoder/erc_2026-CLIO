@@ -177,12 +177,12 @@ def pickup_execution():
     tree=ast.parse((SOURCE/'manipulation_node.py').read_text())
     cls=next(x for x in tree.body if isinstance(x,ast.ClassDef) and x.name=='ManipulationNode')
     method=next(x for x in cls.body if isinstance(x,ast.FunctionDef) and x.name=='_pick')
-    start=next(i for i,x in enumerate(method.body) if isinstance(x,ast.If) and '_move_torso(self.pick_torso_height, 2.5)' in ast.unparse(x))
+    start=next(i for i,x in enumerate(method.body) if isinstance(x,ast.If) and '_move_torso(pick_torso_height, 2.5)' in ast.unparse(x))
     stop=next(i for i in range(start+1,len(method.body)) if isinstance(method.body[i],ast.Try))
     serial=method.body[start].body
     assert ast.unparse(method.body[start].test)=='torso_overlap is None'
-    torso_start=next(i for i,x in enumerate(serial) if isinstance(x,ast.If) and '_move_torso(self.pick_torso_height, 2.5)' in ast.unparse(x))
-    args=ast.arguments(posonlyargs=[],args=[ast.arg(arg=n) for n in ('self','empty_setup_guard','empty_elevated','transition_waypoints','solutions','staged_empty_gripper')],kwonlyargs=[],kw_defaults=[],defaults=[])
+    torso_start=next(i for i,x in enumerate(serial) if isinstance(x,ast.If) and '_move_torso(pick_torso_height, 2.5)' in ast.unparse(x))
+    args=ast.arguments(posonlyargs=[],args=[ast.arg(arg=n) for n in ('self','empty_setup_guard','empty_elevated','transition_waypoints','solutions','staged_empty_gripper','pick_torso_height')],kwonlyargs=[],kw_defaults=[],defaults=[])
     function=ast.FunctionDef(name='execute',args=args,body=serial[torso_start:]+method.body[start+1:stop],decorator_list=[])
     from erc_phase1_solution.empty_pickup_setup_timing import move_empty_pickup_setup
     scope=dict(move_empty_pickup_setup=move_empty_pickup_setup)
@@ -191,11 +191,11 @@ def pickup_execution():
 
 
 class PickupWiringTests(unittest.TestCase):
-    def make(self,fail=None):
-        events=[];actual=np.zeros(8);elevated=np.r_[.35,np.zeros(7)]
+    def make(self,fail=None,*,pick_torso_height=.35):
+        events=[];actual=np.zeros(8);elevated=np.r_[pick_torso_height,np.zeros(7)]
         node=SimpleNamespace(pick_torso_height=.35,_best_effort=lambda action:action())
         def move(kind,goal):events.append(('move',kind,np.asarray(goal).copy()));return True
-        node._move_torso=lambda height,duration:move('torso',elevated)
+        node._move_torso=lambda height,duration:move('torso',np.r_[height,np.zeros(7)])
         node._move_arm_solution=lambda goal,duration:move('arm',goal)
         node._open_gripper=lambda:True
         def fresh(expected,aperture):np.testing.assert_array_equal(expected,actual)
@@ -209,20 +209,30 @@ class PickupWiringTests(unittest.TestCase):
 
     def test_each_executed_leg_waits_before_next_geometry_admission(self):
         node,guard,elevated,goals,events=self.make()
-        pickup_execution()(node,guard,elevated,[goals[0]],[goals[1],goals[2]],False)
+        pickup_execution()(node,guard,elevated,[goals[0]],[goals[1],goals[2]],False,float(elevated[0]))
         self.assertEqual([e[0] for e in events],['move','wait']*4)
         self.assertEqual([e[1] for e in events if e[0]=='wait'],['empty_setup_torso','empty_setup_transition','empty_setup_clearance','empty_cartesian_approach'])
+
+    def test_selected_lower_torso_target_reaches_the_same_measured_endpoint_checks(self):
+        node,guard,elevated,goals,events=self.make(pick_torso_height=.10)
+        self.assertEqual(node.pick_torso_height,.35)
+        pickup_execution()(node,guard,elevated,[goals[0]],[goals[1],goals[2]],False,float(elevated[0]))
+        self.assertEqual([e[0] for e in events],['move','wait']*4)
+        self.assertEqual([e[1] for e in events if e[0]=='wait'],['empty_setup_torso','empty_setup_transition','empty_setup_clearance','empty_cartesian_approach'])
+        np.testing.assert_array_equal(events[0][2],elevated)
+        self.assertTrue(all(e[2][0]==.10 for e in events))
+        self.assertEqual(node.pick_torso_height,.35)
 
     def test_torso_or_arm_failed_measurement_prevents_next_command(self):
         for phase,expected_moves in (('empty_setup_torso',1),('empty_setup_transition',2),('empty_setup_clearance',3),('empty_cartesian_approach',4)):
             node,guard,elevated,goals,events=self.make(phase)
             with self.assertRaisesRegex(RuntimeError,'still wrong'):
-                pickup_execution()(node,guard,elevated,[goals[0]],[goals[1],goals[2]],False)
+                pickup_execution()(node,guard,elevated,[goals[0]],[goals[1],goals[2]],False,float(elevated[0]))
             self.assertEqual(sum(e[0]=='move' for e in events),expected_moves)
 
     def test_legacy_no_empty_guard_adds_no_waits(self):
         node,_,elevated,goals,events=self.make()
-        pickup_execution()(node,None,elevated,[goals[0]],[goals[1],goals[2]],False)
+        pickup_execution()(node,None,elevated,[goals[0]],[goals[1],goals[2]],False,float(elevated[0]))
         self.assertEqual([e[0] for e in events],['move']*4)
 
 

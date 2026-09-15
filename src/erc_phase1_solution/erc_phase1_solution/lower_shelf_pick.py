@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from dataclasses import dataclass, field
+import sys
 from types import MappingProxyType
 from typing import Mapping
 
@@ -18,6 +19,53 @@ from .motion_profiles import HOME, _rotation_x, _rotation_y
 from .open_gripper_approach import check_open_gripper_approach
 from .empty_shelf_bounds import EmptyShelfBounds
 from .empty_shelf_setup import plan_registered_empty_setup
+from .empty_pickup_geometry_backend import empty_pickup_geometry_scope
+from .geometry_process_pool import GeometryProcessError
+from .pickup_geometry_backend import checked_pickup_post_retreat_parallel_geometry_enabled
+
+
+class _LowerEmptyGeometryEpoch:
+    """Own only empty geometry; close all children before loaded planning.
+
+    An IK alternative after a rejected loaded plan starts a new owned epoch
+    using the same captured checker and its exact committed sample cache.
+    The existing scope still owns every freshness check and worker cleanup.
+    """
+    def __init__(self, node, checker):
+        self.node, self.checker = node, checker
+        self.context = None
+        self.failed = False
+
+    def ensure(self):
+        if self.context is None:
+            context = empty_pickup_geometry_scope(self.node, self.checker)
+            try:
+                context.__enter__()
+            except BaseException:
+                self.failed = True
+                raise
+            self.context = context
+            sequence = getattr(self.checker, '_parallel_sequence', None)
+            if sequence is not None:
+                # Fresh sensor admission can raise ordinary RuntimeError.
+                # Retain its identity but never mistake a transport/admission
+                # fault for a geometrically rejected candidate.
+                def checked_sequence(items):
+                    try:
+                        return sequence(items)
+                    except BaseException:
+                        self.failed = True
+                        raise
+                self.checker._parallel_sequence = checked_sequence
+
+    def close(self, kind=None, error=None, traceback=None):
+        context, self.context = self.context, None
+        if context is not None:
+            try:
+                context.__exit__(kind, error, traceback)
+            except BaseException:
+                self.failed = True
+                raise
 
 
 @dataclass(frozen=True)
@@ -167,6 +215,7 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
             selected = None
             stage = 'candidate_parameters'
             node._cached_post_retreat_plan = None
+            empty_epoch = _LowerEmptyGeometryEpoch(node, empty_guard)
             try:
                 spec = specification
                 if not isinstance(spec, LowerShelfCandidate):
@@ -195,6 +244,7 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
                         or 'defer_return' in spec.carry_options):
                     raise ValueError('lower_shelf_pick_candidate_parameters_invalid')
                 node.pick_torso_height = float(spec.torso_height)
+                empty_epoch.ensure()
                 stage = 'empty_opening'
                 planning_stage(spec, stage)
                 if not empty_guard.opening():
@@ -232,6 +282,7 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
                     selected = None
                     node._cached_post_retreat_plan = None
                     try:
+                        empty_epoch.ensure()
                         if not empty_guard.candidate(solutions, transition):
                             raise RuntimeError(str(empty_guard.last_rejection))
                         phase = 'registered_shelf_approach'
@@ -264,16 +315,31 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
                             list(reversed(solutions[spec.loaded_clearance_index:-1])))
                         if not extraction:
                             raise RuntimeError('lower_shelf_pick_empty_withdrawal_proposal')
+                        # The loaded planner owns a separate pool and scene.
+                        # All empty children must be reaped before it starts.
+                        empty_epoch.close()
+                        _check_cancelled(node)
                         phase = 'lift'
                         planning_stage(spec, phase)
-                        lift_plan = lift_planner(solutions[-1], extraction)
-                        _check_cancelled(node)
-                        phase = 'deferred_return'
-                        planning_stage(spec, phase)
-                        return_result = node._plan_carried_return(
-                            observed_front, solutions[-1], lift_plan.terminal,
-                            rotations[0], spec.torso_height, defer_return=True,
-                            **dict(spec.carry_options))
+                        def plan_return(planned_lift, geometry_backend):
+                            nonlocal phase
+                            _check_cancelled(node)
+                            phase = 'deferred_return'
+                            planning_stage(spec, phase)
+                            options = ({} if geometry_backend is None else
+                                       {'geometry_backend': geometry_backend})
+                            return node._plan_carried_return(
+                                observed_front, solutions[-1], planned_lift.terminal,
+                                rotations[0], spec.torso_height, defer_return=True,
+                                **dict(spec.carry_options), **options)
+
+                        if checked_pickup_post_retreat_parallel_geometry_enabled(
+                                getattr(node, 'pickup_post_retreat_parallel_geometry_enabled', False)):
+                            lift_plan, return_result = lift_planner(solutions[-1], extraction,
+                                post_retreat_plan=plan_return)
+                        else:
+                            lift_plan = lift_planner(solutions[-1], extraction)
+                            return_result = plan_return(lift_plan, None)
                         if node._cached_post_retreat_plan is None:
                             raise RuntimeError('lower_shelf_pick_deferred_cache_missing')
                         phase = 'extraction_volume'
@@ -313,7 +379,14 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
                         return True
                     except LowerShelfPlanningCancelled:
                         raise
+                    except GeometryProcessError:
+                        # A failed worker/identity/freshness protocol must not
+                        # become an ordinary candidate fallback.
+                        raise
                     except (RuntimeError, ValueError) as error:
+                        if (empty_epoch.failed or error is getattr(node,
+                                '_pickup_parallel_geometry_terminal_failure', None)):
+                            raise
                         _check_cancelled(node)
                         rejected(spec, phase, error)
                         return False
@@ -335,10 +408,12 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
                     planning_stage(spec, stage)
 
                     def strict_setup_edge(first, last):
+                        empty_epoch.ensure()
                         return (bounds.edge(first, last, allow_entry=False) is None
                                 and empty_guard.retracted_edge(first, last))
 
                     def setup(first, last):
+                        empty_epoch.ensure()
                         return plan_registered_empty_setup(
                             node, first, last, guard=empty_guard, bounds=bounds,
                             emit=lambda event, **fields: node._publish_status(
@@ -379,9 +454,16 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
                 return accepted_plan
             except LowerShelfPlanningCancelled:
                 raise
+            except GeometryProcessError:
+                raise
             except (RuntimeError, ValueError) as error:
+                if (empty_epoch.failed or error is getattr(node,
+                                '_pickup_parallel_geometry_terminal_failure', None)):
+                    raise
                 _check_cancelled(node)
                 rejected(specification, stage, error)
+            finally:
+                empty_epoch.close(*sys.exc_info())
         raise RuntimeError('lower_shelf_pick_no_complete_route:' + ';'.join(
             entry['candidate'] + '/' + entry['stage'] + ':' + entry['reason']
             for entry in failures))

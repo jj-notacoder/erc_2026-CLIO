@@ -15,7 +15,7 @@ from .geometry_process_protocol import SampleDelta
 
 
 KINDS = frozenset(('pickup_payload', 'pickup_body', 'pickup_tool',
-                   'pickup_post_retreat_payload'))
+                   'pickup_post_retreat_payload', 'pickup_post_retreat_tool'))
 SCENE_KIND = 'pickup_lift_v1'
 POST_RETREAT_SCENE_KIND = 'pickup_post_retreat_v1'
 
@@ -169,7 +169,7 @@ class PickupGeometryOwner(RobotGeometryOwner):
             raise RuntimeError('pickup query order/resource bound exceeded')
         if query.aperture != self._pickup_scene['aperture']:
             raise RuntimeError('pickup query aperture differs from scene')
-        if (query.operation == 'pickup_post_retreat_payload'
+        if (query.operation in ('pickup_post_retreat_payload', 'pickup_post_retreat_tool')
                 and self._pickup_scene['kind'] != POST_RETREAT_SCENE_KIND):
             raise RuntimeError('post-retreat operation requires bound shelf scene')
         self._last_request_id = query.request_id
@@ -204,13 +204,15 @@ class PickupGeometryOwner(RobotGeometryOwner):
                     reason = 'pickup_post_retreat_payload_shelf'
                 else:
                     reason = self._carried_robot_collision(q, world, **context, **shelf_options)
-        elif query.operation == 'pickup_tool':
+        elif query.operation in ('pickup_tool', 'pickup_post_retreat_tool'):
             from .shelf_cradle_geometry import check_cradle_tool_sweep
             scene = self._pickup_scene
             # A stationary call has exactly one unique sampled state. All
             # original preconditions, palm and complete tool/body checks run.
             reason = check_cradle_tool_sweep(self, scene['front'], scene['grasp'],
-                q, q, None, aperture=query.aperture,
+                q, q, (scene['post_retreat_shelf_front_x']
+                       if query.operation == 'pickup_post_retreat_tool' else None),
+                aperture=query.aperture,
                 finger_positions=scene['finger_positions'], **context)
         if self._cancel.is_set():
             reason = 'cancelled'

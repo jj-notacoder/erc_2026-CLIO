@@ -1,5 +1,6 @@
 """Opt-in parallel lift mesh checking; planning and live actions stay serial."""
 import copy
+from functools import wraps
 import math
 import time
 
@@ -46,11 +47,33 @@ def _same(first, second):
     return a.shape == b.shape and a.tobytes() == b.tobytes()
 
 
+def _record_pickup_backend_failure(method):
+    """Mark only worker lifecycle/query faults, preserving their original identity."""
+    @wraps(method)
+    def checked(self, *args, **kwargs):
+        try:
+            return method(self, *args, **kwargs)
+        except BaseException as error:
+            if getattr(self, 'terminal_failure', None) is None:
+                self.terminal_failure = error
+            self.node._pickup_parallel_geometry_terminal_failure = self.terminal_failure
+            raise self.terminal_failure
+    return checked
+
+
+def _raise_pickup_backend_failure(node):
+    failure = getattr(node, '_pickup_parallel_geometry_terminal_failure', None)
+    if failure is not None:
+        raise failure
+
+
 class PickupGeometryBackend:
     """One closed-before-motion lifetime with exact parent-ordered samples."""
+    @_record_pickup_backend_failure
     def __init__(self, node, identity, *, epoch, front, grasp, attached,
                  aperture, finger_positions, reference, pool_limits=None, include_post_retreat=False):
         self.node, self.identity, self.epoch = node, identity, epoch
+        self.terminal_failure = None
         self.reference = copy.deepcopy(reference)
         if type(include_post_retreat) is not bool:
             raise ValueError('include_post_retreat must be a Boolean')
@@ -93,6 +116,7 @@ class PickupGeometryBackend:
                 or (node.cartesian_joint_step, node.carried_orientation_step_limit) != self.grid_parameters):
             raise GeometryProcessError('pickup planning parameters changed')
 
+    @_record_pickup_backend_failure
     def __enter__(self):
         if self.pool is not None:
             raise GeometryProcessError('pickup backend cannot be reused')
@@ -104,6 +128,7 @@ class PickupGeometryBackend:
             geometry_id=self.geometry_id, cancelled=self.node._cancel.is_set, **self.pool_limits)
         return self
 
+    @_record_pickup_backend_failure
     def __exit__(self, kind, error, traceback):
         try:
             if self.pool is not None:
@@ -148,7 +173,9 @@ class PickupGeometryBackend:
             input_sha256=query.input_sha256, measured_stamp_ns=measured['stamp_ns'])
         return query
 
+    @_record_pickup_backend_failure
     def _sequence(self, samples, operation, context):
+        _raise_pickup_backend_failure(self.node)
         if self.pool is None:
             raise GeometryProcessError('pickup backend is not active')
         self.last_rejection = None
@@ -162,7 +189,7 @@ class PickupGeometryBackend:
                 reason = delta.rejection_update['reason']
                 # Original cradle calls number samples within each sweep. The
                 # worker evaluates the same state as a one-sample sweep.
-                if operation == 'pickup_tool' and reason.endswith(':sample0'):
+                if operation in ('pickup_tool', 'pickup_post_retreat_tool') and reason.endswith(':sample0'):
                     reason = reason[:-len(':sample0')]+':sample'+str(consumed[0])
                 self.last_rejection = reason
             consumed[0] += 1
@@ -212,10 +239,17 @@ class PickupGeometryBackend:
     def tool_sweep(self, front, grasp, start, end, shelf_plane, *, aperture=None,
                    finger_positions=None, **context):
         """All original61/adaptive tool samples, with first failure in order."""
-        if (shelf_plane is not None or set(context)-{'right_positions', 'head_positions'}
+        if (set(context)-{'right_positions', 'head_positions'}
                 or not _same(front, self.scene['front']) or not _same(grasp, self.scene['grasp'])
                 or aperture != self.scene['aperture'] or finger_positions != self.scene['finger_positions']):
             raise GeometryProcessError('pickup tool request differs from bound scene')
+        operation = 'pickup_tool'
+        if shelf_plane is not None:
+            if (self.scene['kind'] != POST_RETREAT_SCENE_KIND
+                    or type(shelf_plane) not in (int, float)
+                    or shelf_plane != self.scene['post_retreat_shelf_front_x']):
+                raise GeometryProcessError('pickup tool shelf plane differs from bound scene')
+            operation = 'pickup_post_retreat_tool'
         first, last = np.asarray(start, dtype=float), np.asarray(end, dtype=float)
         if not _same_shape_finite(first, (8,)) or not _same_shape_finite(last, (8,)):
             return 'cradle_tool_joint_shape_invalid'
@@ -226,9 +260,31 @@ class PickupGeometryBackend:
                     int(math.ceil(float(np.max(np.abs(last-first)))/.02))+1)
         if np.array_equal(first, last):
             count = 1
-        if self._sequence((first+(last-first)*f for f in np.linspace(0., 1., count)), 'pickup_tool', context):
+        if self._sequence((first+(last-first)*f for f in np.linspace(0., 1., count)), operation, context):
             return None
         return self.last_rejection
+
+
+    def tool_route(self, front, grasp, start, route, shelf_plane, *, aperture=None,
+                   finger_positions=None):
+        """Use the serial route coalescer and identical ordered sweep grids."""
+        from .shelf_cradle_geometry import _coalesced_cradle_tool_points
+        try:
+            points = _coalesced_cradle_tool_points(start, route)
+        except ValueError as exc:
+            if str(exc) == 'cradle_tool_joint_shape_invalid':
+                return str(exc)
+            return f'cradle_tool_geometry_unavailable:{type(exc).__name__}:{exc}'
+        except Exception as exc:
+            return f'cradle_tool_geometry_unavailable:{type(exc).__name__}:{exc}'
+        # Pool/identity/freshness failures deliberately escape. They cannot be
+        # converted into a rejected candidate or a serial retry.
+        for index, (first, last) in enumerate(zip(points, points[1:])):
+            reason = self.tool_sweep(front, grasp, first, last, shelf_plane,
+                aperture=aperture, finger_positions=finger_positions)
+            if reason:
+                return f'leg{index}:{reason}'
+        return None
 
 
 def _same_shape_finite(value, shape):
@@ -264,6 +320,7 @@ def run_pickup_geometry(node, local_planner, front, grasp, route, *,
         epoch += 1
         node._pickup_parallel_geometry_epoch = epoch
         node._pickup_parallel_geometry_active = True
+        node._pickup_parallel_geometry_terminal_failure = None
     started = time.monotonic()
     backend = failure = None
     passed = False
@@ -275,14 +332,23 @@ def run_pickup_geometry(node, local_planner, front, grasp, route, *,
                 attached=attached, aperture=kwargs['aperture'],
                 finger_positions=kwargs.get('finger_positions'), reference=scene_reference, **pool_options) as backend:
             result = local_planner(node, front, grasp, route, geometry_backend=backend, **kwargs)
+            _raise_pickup_backend_failure(node)
             if post_retreat_plan is not None:
                 result = (result, post_retreat_plan(result, backend))
+                _raise_pickup_backend_failure(node)
+        _raise_pickup_backend_failure(node)
         passed = True
         return result
     except BaseException as error:
-        failure = error
+        # A planner may translate an exception into an ordinary no-route result.
+        # The invocation's first backend failure still owns terminal admission.
+        failure = getattr(node, '_pickup_parallel_geometry_terminal_failure', None)
+        if failure is None:
+            failure = error
         if post_retreat_plan is not None:
             node._cached_post_retreat_plan = None
+        if failure is not error:
+            raise failure
         raise
     finally:
         with node._lock:

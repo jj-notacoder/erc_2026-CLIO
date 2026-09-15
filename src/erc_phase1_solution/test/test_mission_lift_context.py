@@ -6,6 +6,7 @@ from unittest.mock import Mock
 import pytest
 
 pytest.importorskip('rclpy')
+from geometry_msgs.msg import PointStamped
 from erc_phase1_solution.mission_manager import MissionManager
 
 
@@ -15,7 +16,9 @@ def mission(enabled=True):
     node.wall_started = time.monotonic()
     node.trial_timeout = 1800.
     node.state = 'REACQUIRE_BOOK'
-    node.book_point = object()
+    node.book_point = None
+    node._book_reacquire_after_ns = 49_500_000_000
+    node._book_mode_epoch_ns = 49_500_000_000
     node.pick_attempts = 0
     node.target_book_model = 'old_book'
     node.lift_first_extraction_enabled = enabled
@@ -27,6 +30,15 @@ def mission(enabled=True):
     node._manipulate = Mock()
     node._set_state = Mock()
     node._abort = Mock()
+    # Book admission requires a fresh observation after the camera/mode epoch,
+    # independently of whether the optional lift bay is attached to PICK.
+    book = PointStamped()
+    book.header.frame_id = 'head_front_camera_depth_optical_frame'
+    book.header.stamp.sec = 49
+    book.header.stamp.nanosec = 900_000_000
+    book.point.x, book.point.y, book.point.z = .05, .10, .65
+    node._on_book(book)
+    assert node.book_point is book
     return node
 
 

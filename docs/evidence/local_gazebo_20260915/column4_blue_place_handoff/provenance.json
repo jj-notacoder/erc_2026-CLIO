@@ -1,0 +1,56 @@
+{
+  "trial_id": "105d91426ddd",
+  "seed": 101,
+  "printed_column": 4,
+  "book_colour": "blue",
+  "frozen_git_commit": "0a5fa41293ac534439c37745835c3322ec2e0a34",
+  "original_run_relative_path": "results/matrix_20260915T184000_registered_place/01_seed101_column4_blue",
+  "source_unchanged": true,
+  "source_manifest_content_digest": "2b6a8640b3236fdd1e2591f855282a0bc5878051ec0d46d2aa295412eaa2dc12",
+  "original_file_sha256": {
+    "trial_105d91426ddd.jsonl": "df467423f41c8474c6019579f43e71cd248e94ebd0fbb5c3b8fc16aa53dafa95",
+    "trial_105d91426ddd_summary.json": "eee9f28408c389885b5ec9ec19cf6dbeb4724cee2d2a18c3503939c09bc23198",
+    "run_review.json": "97076ffdb50bc08b48130c8b4bc98aa0dc3baefe55b27b0417c38a2ae2e09f6c",
+    "source_manifest.json": "1b3f57cf97bf602077963455d743e00d0c07e66857875175aabde3df3927202e",
+    "perception_status.jsonl": "29ab92462da9aa0a768c6425c01c8f47725ee687ebf3c1a4b5a8bc969f385e8d",
+    "solution.log": "b68447f740c58af2320b5c5a5650f69c505468a2eda78650fab41a144c70feb4"
+  },
+  "selected_journal_event_count": 37,
+  "place_planning_event_count": 19,
+  "screenshots": {
+    "startup.png": {
+      "original_path": "/tmp/erc_registered_place_start.png",
+      "sha256": "71bb7ee677167ee44f9fa9b4be523655af2c8d9b92b1a1da0604a870d8cf5a76",
+      "visually_inspected_correct_gazebo_window": true,
+      "scope": "Unmodified viewer image; contextual milestone name, not synchronized measurement."
+    },
+    "after_lift.png": {
+      "original_path": "/tmp/erc_registered_place_after_lift.png",
+      "sha256": "1961c60d3bba1926e4b04a2257d55b56a32bde38fa36d0539cee862b0ded441d",
+      "visually_inspected_correct_gazebo_window": true,
+      "scope": "Unmodified viewer image; contextual milestone name, not synchronized measurement."
+    },
+    "post_retreat_compacted.png": {
+      "original_path": "/tmp/erc_registered_place_final_milestones/105d91426ddd_post_retreat_compacted.png",
+      "sha256": "3df23f48c631ce9bf25231966d5ec13b9222356a319cec9a4750d8033b378b19",
+      "visually_inspected_correct_gazebo_window": true,
+      "scope": "Unmodified viewer image; contextual milestone name, not synchronized measurement."
+    },
+    "terminal.png": {
+      "original_path": "/tmp/erc_registered_place_final_milestones/105d91426ddd_terminal.png",
+      "sha256": "f5cceffde7c1a023f63316796b2f1327217098dfe58f23f4b0b5fc3bd5ad1563",
+      "visually_inspected_correct_gazebo_window": true,
+      "scope": "Unmodified viewer image; contextual milestone name, not synchronized measurement."
+    }
+  },
+  "excluded_screenshot_directory": "/tmp/erc_registered_place_milestones: stale Gdk size captured unrelated desktop; not used.",
+  "recorded_input_scope": "Exact selected stage payload values; recorded_place_inputs omits only planning_cpu. Complete event is in place_planning_events.jsonl.",
+  "selected_scene_observation_stamp_ns": 113158000000,
+  "selected_scene_match": "Unique exact equality of both full bin_scene and table_scene against perception recorder.",
+  "remaining_replay_limits": [
+    "Accepted joint waypoint arrays are not logged.",
+    "Right/head reference is admission snapshot; every later per-sample parked reading is not logged.",
+    "No observer world pose or physical release measurement is inferred."
+  ],
+  "assembly": "Only reads, exact line selection, JSON field extraction, hashes and unmodified screenshot copies. No ROS/simulation/solver/mesh computations or runtime edits."
+}

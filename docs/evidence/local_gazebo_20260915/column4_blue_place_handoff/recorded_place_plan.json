@@ -1,0 +1,647 @@
+{
+  "trial_id": "105d91426ddd",
+  "source_event_ros_ns": 119738000000,
+  "source_event_utc": "2026-09-15T18:48:41.386+00:00",
+  "cartesian_positions": [
+    [
+      0.6,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.6279510149314447,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.6559020298628893,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.6838530447943338,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.7118040597257785,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.7397550746572231,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.7677060895886677,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.7956571045201124,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.823608119451557,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.8515591343830016,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.2507942109164851
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.222044210916485
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.193294210916485
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.164544210916485
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.1357942109164851
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.1070442109164853
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.0782942109164853
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.0495442109164852
+    ],
+    [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.0207942109164851
+    ]
+  ],
+  "accepted_plan_diagnostics": {
+    "bin_surface": [
+      0.9383468773014284,
+      0.012856264908775623,
+      0.7511033980767636
+    ],
+    "command": "place",
+    "event": "ik_ready",
+    "nominal_attachment_center": [
+      0.05338959052024943,
+      0.00022062331392320653,
+      -0.01381230051583919
+    ],
+    "nominal_book_center": [
+      0.8831471461819906,
+      0.00944458225613917,
+      1.0210410762653033
+    ],
+    "orientation_index": 0,
+    "path_score": 2.817696268122934,
+    "place_scene": {
+      "actual_carry_start": [
+        0.09999999307007877,
+        2.8028169104260168,
+        -2.1641582997872604,
+        -1.990191921463103,
+        -2.2128715713804095,
+        0.6763034255411399,
+        1.350051574337948,
+        0.892070808948512
+      ],
+      "actual_passive_deflection_verified": false,
+      "bin_certified_cavity": [
+        [
+          -0.145,
+          -0.095,
+          -0.245
+        ],
+        [
+          0.145,
+          0.105,
+          0.245
+        ]
+      ],
+      "bin_material_solids": 5,
+      "bin_mesh_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+      "bin_origin": [
+        0.9382390282155108,
+        0.012860987420844393,
+        0.8461033367413362
+      ],
+      "bin_outer_expanded_bounds": [
+        [
+          -0.16916489928854422,
+          -0.11916489481819587,
+          -0.3191649052490087
+        ],
+        [
+          0.16916489928854422,
+          0.11916489481819587,
+          0.26916489332807975
+        ]
+      ],
+      "bin_rotation": [
+        [
+          -0.06227453142325554,
+          -0.001135253535975527,
+          0.9980584120858974
+        ],
+        [
+          0.9980590504880592,
+          4.971065335547878e-05,
+          0.06227462780077145
+        ],
+        [
+          -0.00012031162716410733,
+          0.9999993543639216,
+          0.0011299543585344897
+        ]
+      ],
+      "cartesian_search": {
+        "candidates": 1,
+        "endpoint_samples": 19,
+        "full_candidate_validator_required": true,
+        "ik_calls": 34,
+        "joint_margin": 0.1,
+        "levels": [],
+        "maximum_joint_step": 0.4,
+        "minimum_signed_support": 0.75,
+        "opening_samples": 52,
+        "orientation_tolerance": 0.02,
+        "position_tolerance": 0.002,
+        "recorded_joint_path_used": false,
+        "rejections": {
+          "ik": 15
+        },
+        "search": "bounded_signed_support_positive_start_v1",
+        "strategy": {
+          "anchor_complete_paths": 1,
+          "anchor_ik_budget": 192,
+          "anchor_index": 10,
+          "anchor_roots": 1,
+          "loose_paths": 0,
+          "position_proposal_index": 3,
+          "refined_paths": 0
+        },
+        "wall_budget_seconds": 1800.0,
+        "wall_seconds": 50.50414073700085,
+        "wrist_policy": "measured_positive"
+      },
+      "completion_plan": "release_pose_only",
+      "direct_empty_fold_from_clearance": false,
+      "exact_cache_hits": 0,
+      "head_screen_visual_box_checked": true,
+      "joint_limit_margin": 0.1,
+      "joint_progress_powers": [
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "master_producer_stamp_ns": 113318000000,
+      "measured_master": 0.018200005210388923,
+      "minimum_moving_left_geometry_z_m": 0.7319032775474795,
+      "minimum_moving_left_z_minus_bin_point_z_m": -0.019200120529284104,
+      "modeled_margin_m": 0.014164898096451332,
+      "modeled_open_master": 0.069,
+      "nominal_floor_registration": false,
+      "nominal_mimic_geometry": true,
+      "old_reverse_compact_executed": false,
+      "open_return_legs": 0,
+      "open_tool_robot_self_checked": true,
+      "original_bin_point": [
+        0.9383468773014284,
+        0.012856264908775623,
+        0.7511033980767636
+      ],
+      "planning_wall_seconds": 54.67061420200116,
+      "proximal_setup_steps": 20,
+      "registered_bin_scene": {
+        "cavity_bounds": [
+          [
+            -0.145,
+            -0.095,
+            -0.245
+          ],
+          [
+            0.145,
+            0.105,
+            0.245
+          ]
+        ],
+        "floor_center": [
+          0.9383468773014284,
+          0.012856264908775623,
+          0.7511033980767636
+        ],
+        "floor_point_model": [
+          0.0,
+          -0.095,
+          0.0
+        ],
+        "frame": "base_footprint",
+        "mesh_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+        "model": "stock_bin_visible_inner_planes_v1",
+        "modeled_margin_m": 0.005,
+        "nominal_mimic_or_scene_motion_proof": false,
+        "origin": [
+          0.9382390282155108,
+          0.012860987420844393,
+          0.8461033367413362
+        ],
+        "outer_bounds": [
+          [
+            -0.155,
+            -0.105,
+            -0.305
+          ],
+          [
+            0.155,
+            0.105,
+            0.255
+          ]
+        ],
+        "producer_stamp_bound_by_caller": true,
+        "quality": {
+          "accepted_candidates": 1,
+          "bbox": [
+            241,
+            51,
+            180,
+            177
+          ],
+          "feature_indices": [
+            0,
+            3,
+            5,
+            1
+          ],
+          "finite_cad_coverage": 0.97745,
+          "finite_surface_residual_p95_m": 0.0005861562405487434,
+          "floor_points": 6686,
+          "floor_rear_registration_observed": true,
+          "input_encoding": "BGR8 + optical-Z metres",
+          "observed_inner_width_m": 0.289974661504357,
+          "partial_cloud_bounds_used_for_center": false,
+          "plane_count": 7,
+          "plane_rms_m": [
+            0.000136629723155347,
+            0.00012472798416028721,
+            0.00019792798507323918,
+            5.219226297341075e-05
+          ],
+          "rear_points": 4292,
+          "red_depth_points": 27717,
+          "red_filter": "R>=45 and R>1.45*G and R>1.45*B",
+          "rejections": {
+            "rear_not_visible_from_cavity_side": 1,
+            "wrong_inner_side_separation": 1
+          },
+          "rotation_condition": 1.0000000000000004,
+          "side_points": [
+            2436,
+            928
+          ],
+          "table_used_for_horizontal_registration": false,
+          "uncertainty_is_engineering_assumption": true,
+          "yaw_long_axis_rad": 0.06231498955143493
+        },
+        "registration_margin_m": 0.00916489809645133,
+        "rotation": [
+          [
+            -0.06227453142325554,
+            -0.001135253535975527,
+            0.9980584120858974
+          ],
+          [
+            0.9980590504880592,
+            4.971065335547878e-05,
+            0.06227462780077145
+          ],
+          [
+            -0.00012031162716410733,
+            0.9999993543639216,
+            0.0011299543585344897
+          ]
+        ],
+        "rotation_error_rad": 0.01,
+        "translation_error_m": 0.005586156240548743,
+        "uses_evaluator_pose": false,
+        "valid": true
+      },
+      "registered_target_proposal": {
+        "book_center": [
+          0.8831471461819906,
+          0.00944458225613917,
+          1.0210410762653033
+        ],
+        "cartesian_waypoints": 19,
+        "clearance_position": [
+          0.8795101493144463,
+          0.0644717392551286,
+          1.2507942109164851
+        ],
+        "coarse_cartesian_waypoints": 10,
+        "displacement": [
+          -0.054893212664724335,
+          -0.0034251045290424284,
+          -6.214748971939691e-05
+        ],
+        "effective_material_margin_m": 0.014164898096451332,
+        "maximum_shift_m": 0.05499999999999998,
+        "offset_m": 0.05499999999999998,
+        "original_cartesian_step_m": 0.06,
+        "original_minimum_wall_reserve_m": 0.03583510190354865,
+        "policy": "registered_near_side_preserve_worst_reserve_v1",
+        "projected_book_corners": [
+          [
+            0.09499999999999992,
+            -0.19499999999999995
+          ],
+          [
+            0.09499999999999999,
+            0.08499999999999998
+          ],
+          [
+            0.09499999999999993,
+            -0.19499999999999995
+          ],
+          [
+            0.095,
+            0.08499999999999987
+          ],
+          [
+            -0.09500000000000001,
+            -0.195
+          ],
+          [
+            -0.09499999999999992,
+            0.08499999999999981
+          ],
+          [
+            -0.09499999999999992,
+            -0.195
+          ],
+          [
+            -0.0949999999999999,
+            0.08499999999999992
+          ]
+        ],
+        "projected_cavity_axes": [
+          0,
+          2
+        ],
+        "segment_subdivision": 2,
+        "selected_minimum_wall_reserve_m": 0.03583510190354865,
+        "shrunken_cavity_horizontal_bounds": [
+          [
+            -0.13083510190354866,
+            -0.23083510190354867
+          ],
+          [
+            0.13083510190354866,
+            0.23083510190354867
+          ]
+        ],
+        "tool_position": [
+          0.8795101493144463,
+          0.0644717392551286,
+          1.0207942109164851
+        ],
+        "tool_rotation": [
+          [
+            -0.18606401680644538,
+            -0.0009946160799680739,
+            -0.9825371201072782
+          ],
+          [
+            -0.9825375991424333,
+            0.00041115110408478263,
+            0.18606369131615302
+          ],
+          [
+            0.00021890928245519496,
+            0.9999994208466437,
+            -0.0010537481212210685
+          ]
+        ]
+      },
+      "scene_samples": 2583,
+      "scope": "sampled_nominal_scene_checked_loaded_place",
+      "setup_legs": 21,
+      "shoulder_progress_power": 0.5,
+      "staging_used_as_ik_seed_only": true,
+      "static_open_hand_endpoint_checked": true,
+      "table_scene": {
+        "assumptions": [
+          "Aligned calibrated optical-Z RGBD and depth-epoch base transform.",
+          "Detected bin rests on this stock table; floor is 10 mm above bin bottom.",
+          "Stock 1.4 x 0.8 x 0.04 m top and four 0.07 m corner legs.",
+          "Hidden CAD edges/legs are inferred from the visible perpendicular edges.",
+          "Pixel/edge angular bounds are engineering allowances, not calibration proof.",
+          "Caller reprojects for base motion and invalidates registration after scene impact."
+        ],
+        "frame": "base_footprint",
+        "mesh_sha256": "9a662650c305d09e67d112b1c3311c78c8b75454eb05c8c7981292eb1d354977",
+        "model": "erc_table_two_edge_rgbd_v1",
+        "modeled_margin_m": 0.005,
+        "origin": [
+          0.9330169056975857,
+          0.0146755558538488,
+          0.7411009291936516
+        ],
+        "quality": {
+          "angle_bound_rad": 0.020901607534363546,
+          "edge_absolute_dot": 0.0035807598846889777,
+          "edge_points": 481,
+          "edge_rms_m": [
+            0.002836963656464102,
+            0.0011570924071665645
+          ],
+          "edge_spans_m": [
+            1.3635418582806964,
+            0.5740349119361023
+          ],
+          "observed_floor_to_table_m": 0.010192580608038626,
+          "pixel_pitch_m": 0.003741651675913231,
+          "plane_normal": [
+            -0.0010188882848954626,
+            7.4276421185588e-07,
+            0.9999994809329207
+          ],
+          "plane_offset_m": 0.7401499154182101,
+          "plane_points": 78233,
+          "plane_rms_m": 6.626074569734008e-05,
+          "rectangle_outside_fraction": 0.0,
+          "translation_bound_m": 0.006
+        },
+        "registration_margin_m": 0.02873242668591247,
+        "rotation": [
+          [
+            0.0604891159234744,
+            0.9981683368658112,
+            -0.0010188882848954626
+          ],
+          [
+            -0.9981688549360745,
+            0.06048914807677438,
+            7.4276421185588e-07
+          ],
+          [
+            6.237308805676394e-05,
+            0.0010169776234913702,
+            0.9999994809329207
+          ]
+        ],
+        "solids": [
+          {
+            "bounds": [
+              [
+                -0.7,
+                -0.4,
+                -0.04
+              ],
+              [
+                0.7,
+                0.4,
+                0.0
+              ]
+            ],
+            "name": "tabletop"
+          },
+          {
+            "bounds": [
+              [
+                -0.7,
+                -0.4,
+                -0.73
+              ],
+              [
+                -0.63,
+                -0.33,
+                -0.04
+              ]
+            ],
+            "name": "leg_-1_-1"
+          },
+          {
+            "bounds": [
+              [
+                -0.7,
+                0.33,
+                -0.73
+              ],
+              [
+                -0.63,
+                0.4,
+                -0.04
+              ]
+            ],
+            "name": "leg_-1_1"
+          },
+          {
+            "bounds": [
+              [
+                0.63,
+                -0.4,
+                -0.73
+              ],
+              [
+                0.7,
+                -0.33,
+                -0.04
+              ]
+            ],
+            "name": "leg_1_-1"
+          },
+          {
+            "bounds": [
+              [
+                0.63,
+                0.33,
+                -0.73
+              ],
+              [
+                0.7,
+                0.4,
+                -0.04
+              ]
+            ],
+            "name": "leg_1_1"
+          }
+        ],
+        "valid": true
+      },
+      "tool_tool_pairs_checked": false,
+      "torso_ready": [
+        0.35,
+        2.8028169104260168,
+        -2.1641582997872604,
+        -1.990191921463103,
+        -2.2128715713804095,
+        0.6763034255411399,
+        1.350051574337948,
+        0.892070808948512
+      ],
+      "unused_empty_return_omitted": true,
+      "urdf_sha256": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0",
+      "whole_table_pose_modeled": true
+    },
+    "placement_target_mode": "nominal_book_centered",
+    "release": [
+      0.8795101493144463,
+      0.0644717392551286,
+      1.0207942109164851
+    ],
+    "staged_transition": true,
+    "tool_rotation": [
+      [
+        -0.18606401680644538,
+        -0.0009946160799680739,
+        -0.9825371201072782
+      ],
+      [
+        -0.9825375991424333,
+        0.00041115110408478263,
+        0.18606369131615302
+      ],
+      [
+        0.00021890928245519496,
+        0.9999994208466437,
+        -0.0010537481212210685
+      ]
+    ],
+    "transition_waypoints": 20,
+    "waypoints": 19
+  },
+  "joint_waypoint_arrays_recorded": false,
+  "executed_scope": "Torso motion and first arm setup leg completed; transition stop failed before leg1. No bin approach/release.",
+  "limitations": [
+    "Cartesian poses and setup/search metadata are recorded; accepted left-arm joint waypoint arrays are not in the journal.",
+    "Planning geometry, static open-hand endpoint and projected wall reserve do not prove physical release/delivery."
+  ]
+}

@@ -17,6 +17,7 @@ Gazebo viewer. Columns identify the requested printed marker.
 | `180fb89230d6` | Column 4, blue | Plan passed; shelf contact during empty setup, unverified grasp, aborted after recovery | 317.413 s | 327.678 s |
 | `121f7ff7e8ad` | Column 4, blue | Correct book grasped with bilateral contact; zero collisions; stopped before lift because a top-row timing option rejected the shorter route | 346.981 s | 357.056 s |
 | `dd540101cd5e` | Column 4, blue | Pickup, extraction, compact carry and return passed; zero collisions; placement exhausted its 512-solve IK allowance before release | 511.505 s | 521.828 s |
+| `105d91426ddd` | Column 4, blue | Complete placement plan and torso raise passed; zero collisions; stopped after first arm setup leg at the measured stationary handoff, before release | 503.281 s | 513.500 s |
 
 Trial `146e2f8aaa7b` used source `94dc436`. Close-view reacquisition took 0.7
 simulated seconds. It then rejected the old lift route at leg 4. No grasp was
@@ -51,11 +52,20 @@ retained through extraction, compact transport, navigation and the pre-placement
 check. Placement failed with `scene_cartesian_ik_budget`; no opening or delivery
 occurred. The placement solver still restricted wrist angles to the negative
 family, while this row used a positive-wrist carry posture. A corresponding
-solver extension is under offline validation. Source stayed unchanged and all
+solver extension passed in the subsequent trial below. Source stayed unchanged and all
 owned simulation processes stopped. The [transport record](evidence/local_gazebo_20260915/column4_blue_transport/README.md)
 preserves the result, correct viewer screenshots and available placement inputs.
 The selected placement snapshot was not journaled; inferred replay inputs are
 explicitly distinguished from exact observations.
+
+Trial `105d91426ddd` used source `0a5fa41`. Its complete registered PLACE plan
+passed with a computed 55 mm near-side target shift and the original minimum
+wall reserve preserved. The torso raised and the first arm setup leg completed;
+the following measured-stop check exhausted its 0.5 s simulation window.
+No opening or release occurred. Exact PLACE inputs and the accepted Cartesian
+target are now logged. The [handoff record](evidence/local_gazebo_20260915/column4_blue_place_handoff/README.md)
+preserves the zero-collision outcome, retained-book screenshots, failure timing,
+unchanged source and completed cleanup.
 
 ## Current implementation
 

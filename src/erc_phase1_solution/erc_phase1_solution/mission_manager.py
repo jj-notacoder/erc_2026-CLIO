@@ -771,6 +771,8 @@ class MissionManager(Node):
             'lift_first_geometry_started',
             'lift_first_geometry_progress',
             'lift_first_measured_geometry_verified',
+            'lift_first_preflight_rejected',
+            'withdrawal_timing_admission_rejected',
             'preclose_aperture_geometry_started',
             'preclose_aperture_geometry_verified',
             'preclose_aperture_geometry_reused',

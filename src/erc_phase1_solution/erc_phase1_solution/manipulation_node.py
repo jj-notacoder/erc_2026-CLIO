@@ -7026,6 +7026,11 @@ class ManipulationNode(Node):
                     initial_pressure_gate=initial_pressure_gate)
             except ValueError as exc:
                 # PICK is already closed; a bad optional prefix must not retry/open.
+                self._publish_status(
+                    'withdrawal_timing_admission_rejected', command=command,
+                    reason=str(exc), leg_count=len(legs),
+                    retained_stop=True, recovery_halted=True,
+                )
                 raise RuntimeError('pick_recovery_failed') from exc
         for index, (solution, duration, phase) in enumerate(legs):
             release_connector = None
@@ -8510,6 +8515,13 @@ class ManipulationNode(Node):
         initial_pressure_gate = (
             LiftPressureGate(self, checked_hold, lift_reference) if lift_enabled else None
         )
+        # The optional timing certificate covers the ordinary top-row lift and
+        # its four withdrawal legs. Lower shelves use different admitted paths
+        # and retain their original durations and the same pressure/contact gates.
+        ordinary_top_withdrawal = bool(
+            top_row and lift_enabled and not staged_empty_gripper
+            and deferred_post_retreat_return
+        )
         try:
             path_ok, next_leg, contact_lost = self._execute_retained_arm_legs(
                 first_segment,
@@ -8517,11 +8529,10 @@ class ManipulationNode(Node):
                 **({'fresh_retention_phases': ('initial_shelf_lift',)} if lift_enabled else {}),
                 **({'initial_pressure_gate': initial_pressure_gate} if lift_enabled else {}),
                 **({'withdrawal_speed_scale': self.withdrawal_speed_scale}
-                   if lift_enabled and getattr(self, 'withdrawal_speed_scale', 1.0) != 1.0 else {}),
+                   if ordinary_top_withdrawal and getattr(self, 'withdrawal_speed_scale', 1.0) != 1.0 else {}),
                 **withdrawal_half_normal_options(self, first_segment, initial_pressure_gate,
                     lift_plan if lift_enabled else None,
-                    ordinary=bool(top_row and lift_enabled and not staged_empty_gripper
-                                  and deferred_post_retreat_return)),
+                    ordinary=ordinary_top_withdrawal),
             )
         except LiftPressureRejected as exc:
             raise RuntimeError('pick_recovery_failed') from exc

@@ -340,6 +340,8 @@ def test_original_motion_functions_unchanged_in_overlay():
     before=functions(expected)
     import hashlib,json
     text=(ROOT/'erc_phase1_solution/manipulation_node.py').read_text(encoding='utf-8')
+    from candidate_composition_support import restore_all_books_source
+    text=restore_all_books_source(text)
     root=ROOT
     head = json.loads((root/'test/fixtures/empty_head_timing_inverse.json').read_text())
     for fragment in reversed(head['node_fragments']):

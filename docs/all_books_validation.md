@@ -15,6 +15,7 @@ Gazebo viewer. Columns identify the requested printed marker.
 | `d0fcc30b05eb` | Column 4, blue | Aborted during close-view depth reacquisition | 133.969 s | 144.444 s |
 | `146e2f8aaa7b` | Column 4, blue | Reacquisition passed; aborted before grasp because the old lower-row lift route was infeasible | 126.496 s | 137.559 s |
 | `180fb89230d6` | Column 4, blue | Plan passed; shelf contact during empty setup, unverified grasp, aborted after recovery | 317.413 s | 327.678 s |
+| `121f7ff7e8ad` | Column 4, blue | Correct book grasped with bilateral contact; zero collisions; stopped before lift because a top-row timing option rejected the shorter route | 346.981 s | 357.056 s |
 
 Trial `146e2f8aaa7b` used source `94dc436`. Close-view reacquisition took 0.7
 simulated seconds. It then rejected the old lift route at leg 4. No grasp was
@@ -30,6 +31,19 @@ validated for physical use; shelf-aware empty entry is being corrected. All
 owned processes stopped normally, with source unchanged throughout the trial.
 The [portable trial record](evidence/local_gazebo_20260915/column4_blue_lower/README.md)
 includes its event log and pickup view.
+
+Trial `121f7ff7e8ad` used source `1f5d677`. The corrected empty setup and
+Cartesian approach completed without reported collision. The exact requested
+book was latched, both fingers confirmed contact, and the measured initial-lift
+geometry and fresh retention check passed. No lift was dispatched: the selected
+3× withdrawal speed option required a five-leg top-row prefix, while this lower
+route had three legs. The subsequent fix scopes that option to its admitted
+top-row route; lower rows retain their original segment durations and gates.
+The [grasp evidence](evidence/local_gazebo_20260915/column4_blue_grasp/README.md)
+records the unchanged source, normal cleanup and independent pose observations.
+This run included an extra read-only pose observer and does not establish
+uninstrumented performance or successful delivery. The table uses solution
+process startup; the solution's later reported launch origin gives 346.669 s.
 
 ## Current implementation
 

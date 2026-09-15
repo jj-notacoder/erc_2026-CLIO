@@ -323,6 +323,8 @@ def test_explicit_token_cannot_be_reused_for_recovery_or_other_phase_scope(comma
 def test_default_executor_matches_exact_parent_goal_check_and_index_sequence():
     root = Path(__file__).resolve().parents[1]
     text = (root/'erc_phase1_solution/manipulation_node.py').read_text()
+    from candidate_composition_support import restore_all_books_source
+    text = restore_all_books_source(text)
     inverse = json.loads((root/'test/fixtures/bin_clearance_timing_inverse.json').read_text())
     head = json.loads((root/'test/fixtures/empty_head_timing_inverse.json').read_text())
     for fragment in reversed(head['node_fragments']):
@@ -348,6 +350,8 @@ def test_default_executor_matches_exact_parent_goal_check_and_index_sequence():
 def test_default_node_inverse_restores_exact_parent_and_recovery_methods():
     root = Path(__file__).resolve().parents[1]
     text = (root/'erc_phase1_solution/manipulation_node.py').read_text()
+    from candidate_composition_support import restore_all_books_source
+    text = restore_all_books_source(text)
     data = json.loads((root/'test/fixtures/bin_clearance_timing_inverse.json').read_text())
     head = json.loads((root/'test/fixtures/empty_head_timing_inverse.json').read_text())
     for fragment in reversed(head['node_fragments']):

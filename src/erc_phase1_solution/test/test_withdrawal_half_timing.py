@@ -109,6 +109,13 @@ def test_actual_normal_nonlift_call_does_not_evaluate_unbound_lift_plan(enabled)
     scope=dict(self=n,first_segment=[],initial_pressure_gate=None,lift_enabled=False,top_row=True,
         staged_empty_gripper=False,deferred_post_retreat_return=True,withdrawal_half_normal_options=half.normal_options)
     assert 'lift_plan' not in scope
+    assignments=[n for n in pick.body if isinstance(n,ast.Assign) and any(
+        isinstance(target,ast.Name) and target.id=='ordinary_top_withdrawal'
+        for target in n.targets)]
+    assert len(assignments)==1
+    exec(compile(ast.Module(body=assignments,type_ignores=[]),
+        '<actual normal PICK timing scope>','exec'),scope)
+    assert scope['ordinary_top_withdrawal'] is False
     eval(compile(ast.Expression(calls[0]),'<actual normal PICK call>','eval'),scope)
     assert observed==[(([],'pick'),{})]
 

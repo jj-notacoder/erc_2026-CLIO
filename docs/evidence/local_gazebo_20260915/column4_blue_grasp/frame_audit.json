@@ -1,0 +1,34 @@
+{
+  "method": "Offline gz sdf -p src/erc_description/urdf/tiago_pro.urdf; no simulator launched",
+  "parser_note": "Declared gz namespace when parsing converted XML; frame contents unchanged.",
+  "converted_sdf_version": "1.11",
+  "model_attributes": {
+    "name": "tiago_pro"
+  },
+  "model_pose": null,
+  "base_footprint_link_attributes": {
+    "name": "base_footprint"
+  },
+  "base_footprint_link_pose": null,
+  "interpretation": "Root base_footprint has no relative pose and coincides with model frame; fixed-joint lumping is expressed in geometry/inertial offsets.",
+  "base_footprint_to_base_link_joint_xml": "<joint name=\"base_footprint_joint\" type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0.0762\" />\n    <child link=\"base_link\" />\n    <parent link=\"base_footprint\" />\n  </joint>",
+  "book_model_pose": null,
+  "book_link_attributes": {
+    "name": "book_base_link"
+  },
+  "book_link_pose": null,
+  "book_collision_pose": "0 0 0 0 0 0",
+  "book_box_size_local_xyz_m": [
+    0.25,
+    0.02,
+    0.16
+  ],
+  "book_front_local_homogeneous": [
+    0.0,
+    0.0,
+    -0.08,
+    1.0
+  ],
+  "book_front_reason": "Local Z is book depth; spawn uses pitch pi/2. Local -Z face faces the robot. Local X spans book height.",
+  "limitations": "Confirms nominal description-frame mapping, not live link deformation or synchronized link-pose measurement."
+}

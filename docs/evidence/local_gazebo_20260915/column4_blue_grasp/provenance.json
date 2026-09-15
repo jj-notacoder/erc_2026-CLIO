@@ -1,0 +1,22 @@
+{
+  "trial_id": "121f7ff7e8ad",
+  "original_run_relative_path": "results/matrix_20260915T171649_729702Z/01_seed101_column4_blue",
+  "source_manifest_sha256": "8bccff416c13fffe16ef8af55b44c0da7c1069d9da2c3947a70a0d2d54c787b0",
+  "source_hashes": {
+    "src/erc_description/urdf/tiago_pro.urdf": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0",
+    "src/erc_description/models/book/sdf/erc_book.sdf": "7bd20d0f96e179ac7cce44e41e1819f560837492da71206c3c2e3ced1d3d730c",
+    "src/erc_bringup/launch/simulation.launch.py": "6a7020a9c6a4a28441cb61540bb8238ba24ea38b2ed0936dda55e856e6e7775e",
+    "src/erc_phase1_solution/erc_phase1_solution/kinematics.py": "c3766618256bbb19a73a093fca0697b3ed002b576026783d11d155d02f3c2dd7",
+    "src/erc_phase1_solution/erc_phase1_solution/target_tracking.py": "e1f5449653f5be943875a463faf4a63ede3f43c5098f4e689e226e44eebcffee",
+    "src/erc_phase1_solution/erc_phase1_solution/perception_node.py": "840ebae913576242d60421e84d4ad5df1dc2bfad7add54c0dd4a66e175bdf922"
+  },
+  "original_log_hashes": {
+    "pick_pose_diagnostics.jsonl": "20e5432eb751c1d41cdd2597d77e987f63cbb9d4272efe157881dd69d5336a02",
+    "perception_status.jsonl": "81a08eea8fb62b211452eb5c83d9d11e3f3b6fda3606b1a40aa0bdb10d2cb401",
+    "trial_121f7ff7e8ad.jsonl": "19364162ff0a0784c34748076dc0ce8bba90d9fd806d5ce4fad0d097530ed100"
+  },
+  "full_pose_record_count": 544,
+  "selected_pose_record_count": 23,
+  "observer_read_only": true,
+  "controller_used_observer_data": false
+}

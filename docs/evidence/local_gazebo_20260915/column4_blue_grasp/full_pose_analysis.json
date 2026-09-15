@@ -1,0 +1,366 @@
+{
+  "trial_id": "121f7ff7e8ad",
+  "input_scope": "verified full original pose log",
+  "frame_assumption": "Model=base_footprint confirmed by offline URDF-to-SDF conversion; see frame_audit.json. Model/book link/collision coincide.",
+  "pairing_scope": "Model-to-model geometry shares a timestamp. Joint FK is separately stamped; no interpolation or simultaneity claim.",
+  "planned_front_base_m": [
+    0.650858022288654,
+    -0.05180938644780962,
+    0.927929015120235
+  ],
+  "planned_grasp_base_m": [
+    0.675858022288654,
+    -0.05180938644780962,
+    0.927929015120235
+  ],
+  "planned_joint_fk_base_m": [
+    0.6757116179495299,
+    -0.051570815045656276,
+    0.927728302190738
+  ],
+  "moments": {
+    "reacquisition": {
+      "receipt_ros_ns": 35750000000,
+      "pose_stamp_ns": 35706000000,
+      "joint_stamp_ns": 35746000000,
+      "pose_minus_joint_stamp_ns": -40000000,
+      "status_event": null,
+      "book_center_world_m": [
+        2.8999990801072477,
+        -2.038516482926448,
+        0.9168579844337872
+      ],
+      "book_world_min_max_z_m": [
+        0.7918576896831835,
+        1.041858279184391
+      ],
+      "book_center_base_m": [
+        0.7305157952650054,
+        -0.052312777080086414,
+        0.9168580062246462
+      ],
+      "book_front_base_m": [
+        0.6505158812226243,
+        -0.052195503364805745,
+        0.9168577106904454
+      ],
+      "target_minus_book_front_base_m": [
+        0.00034214106602969974,
+        0.0003861169169961237,
+        0.011071304429789541
+      ],
+      "target_distance_to_book_front_plane_m": 0.00034161558070577456,
+      "measured_hand_base_m": [
+        0.34788614331627243,
+        0.20271271590365345,
+        0.6993842067592186
+      ],
+      "measured_hand_minus_commanded_hand_m": [
+        -0.3278254746332575,
+        0.2542835309493097,
+        -0.22834409543151934
+      ],
+      "measured_hand_orientation_error_rad": 1.4021191872868135,
+      "measured_hand_depth_from_book_front_plane_m": -0.30300389154954793,
+      "book_center_in_grasp_frame_m": [
+        0.36404301388896965,
+        0.1997325444302822,
+        0.29379908238450625
+      ],
+      "maximum_arm_joint_error_rad": 3.0451056241788077,
+      "maximum_arm_speed_rad_s": 1.0099213132441776e-13,
+      "book_inward_axis_vs_base_x_rad": 0.001465926620475944,
+      "gripper_master_position_m": 0.06899999999927978
+    },
+    "before_close": {
+      "receipt_ros_ns": 119750000000,
+      "pose_stamp_ns": 119570000000,
+      "joint_stamp_ns": 119746000000,
+      "pose_minus_joint_stamp_ns": -176000000,
+      "status_event": null,
+      "book_center_world_m": [
+        2.8999990801072477,
+        -2.038516482926448,
+        0.9168579844337872
+      ],
+      "book_world_min_max_z_m": [
+        0.7918576896831835,
+        1.041858279184391
+      ],
+      "book_center_base_m": [
+        0.7305173212723046,
+        -0.05231286713406247,
+        0.9168571827441777
+      ],
+      "book_front_base_m": [
+        0.6505174072717247,
+        -0.05219556464393611,
+        0.9168570226341008
+      ],
+      "target_minus_book_front_base_m": [
+        0.00034061501692927987,
+        0.00038617819612649096,
+        0.011071992486134108
+      ],
+      "target_distance_to_book_front_plane_m": 0.0003400705641897247,
+      "measured_hand_base_m": [
+        0.6757109142713356,
+        -0.0515708687321185,
+        0.9277283367458384
+      ],
+      "measured_hand_minus_commanded_hand_m": [
+        -7.036781943803305e-07,
+        -5.36864622202593e-08,
+        3.4555100447697384e-08
+      ],
+      "measured_hand_orientation_error_rad": 1.7120130796843874e-07,
+      "measured_hand_depth_from_book_front_plane_m": 0.025192585694534832,
+      "book_center_in_grasp_frame_m": [
+        0.05579402343403794,
+        0.0007212189027527849,
+        -0.002996930370984474
+      ],
+      "maximum_arm_joint_error_rad": 1.4801496073246767e-06,
+      "maximum_arm_speed_rad_s": 4.1115218989555644e-05,
+      "book_inward_axis_vs_base_x_rad": 0.0014662830177585456,
+      "gripper_master_position_m": 0.05640056870189782
+    },
+    "gripper_closed": {
+      "receipt_ros_ns": 120658000000,
+      "pose_stamp_ns": 120582000000,
+      "joint_stamp_ns": 120654000000,
+      "pose_minus_joint_stamp_ns": -72000000,
+      "status_event": "gripper_closed",
+      "book_center_world_m": [
+        2.9000055640448394,
+        -2.0377888367189523,
+        0.9168681435196526
+      ],
+      "book_world_min_max_z_m": [
+        0.7918441077390124,
+        1.0418921793002929
+      ],
+      "book_center_base_m": [
+        0.7305248721539157,
+        -0.05158523121601055,
+        0.9168673418141495
+      ],
+      "book_front_base_m": [
+        0.6505248744798803,
+        -0.051604521859955885,
+        0.9168671825053935
+      ],
+      "target_minus_book_front_base_m": [
+        0.00033314780877369277,
+        -0.00020486458785373696,
+        0.011061832614841505
+      ],
+      "target_distance_to_book_front_plane_m": 0.00033312042754971873,
+      "measured_hand_base_m": [
+        0.6757116708796741,
+        -0.0515709509070001,
+        0.9277285543981156
+      ],
+      "measured_hand_minus_commanded_hand_m": [
+        5.293014415652664e-08,
+        -1.3586134382098658e-07,
+        2.5220737764897194e-07
+      ],
+      "measured_hand_orientation_error_rad": 6.750077994410002e-07,
+      "measured_hand_depth_from_book_front_plane_m": 0.0251868253914607,
+      "book_center_in_grasp_frame_m": [
+        0.055797880448690496,
+        -6.505542070378567e-06,
+        -0.00300826723603409
+      ],
+      "maximum_arm_joint_error_rad": 6.868058519682307e-07,
+      "maximum_arm_speed_rad_s": 1.354228545342442e-05,
+      "book_inward_axis_vs_base_x_rad": 0.002422544526171097,
+      "gripper_master_position_m": 0.018211635288794988
+    },
+    "geometry_verified": {
+      "receipt_ros_ns": 121280000000,
+      "pose_stamp_ns": 121084000000,
+      "joint_stamp_ns": 121278000000,
+      "pose_minus_joint_stamp_ns": -194000000,
+      "status_event": "lift_first_measured_geometry_verified",
+      "book_center_world_m": [
+        2.900007026733091,
+        -2.0377912455603697,
+        0.9168600610218601
+      ],
+      "book_world_min_max_z_m": [
+        0.7918576935409684,
+        1.0418624285027518
+      ],
+      "book_center_base_m": [
+        0.730526331294961,
+        -0.051587642199586003,
+        0.9168592593139132
+      ],
+      "book_front_base_m": [
+        0.6505263344595502,
+        -0.05156514234781623,
+        0.9168589577579332
+      ],
+      "target_minus_book_front_base_m": [
+        0.00033168782910375505,
+        -0.00024424409999339314,
+        0.01107005736230171
+      ],
+      "target_distance_to_book_front_plane_m": 0.00033179823720857576,
+      "measured_hand_base_m": [
+        0.6757117228780971,
+        -0.0515710637326298,
+        0.927728802553919
+      ],
+      "measured_hand_minus_commanded_hand_m": [
+        1.0492856716837196e-07,
+        -2.486869735210395e-07,
+        5.003631809996634e-07
+      ],
+      "measured_hand_orientation_error_rad": 1.3272911871460072e-06,
+      "measured_hand_depth_from_book_front_plane_m": 0.025185430060991533,
+      "book_center_in_grasp_frame_m": [
+        0.05580130280835194,
+        -4.218349494600204e-06,
+        -0.0030005213017423316
+      ],
+      "maximum_arm_joint_error_rad": 1.3235894651408842e-06,
+      "maximum_arm_speed_rad_s": 1.9672634557856873e-06,
+      "book_inward_axis_vs_base_x_rad": 0.00034133386484425153,
+      "gripper_master_position_m": 0.01819999945112714
+    },
+    "retention_verified": {
+      "receipt_ros_ns": 121478000000,
+      "pose_stamp_ns": 121336000000,
+      "joint_stamp_ns": 121474000000,
+      "pose_minus_joint_stamp_ns": -138000000,
+      "status_event": "retention_verified",
+      "book_center_world_m": [
+        2.9000087731380226,
+        -2.03778846431329,
+        0.9168588466830779
+      ],
+      "book_world_min_max_z_m": [
+        0.7918573280298733,
+        1.0418603653362826
+      ],
+      "book_center_base_m": [
+        0.7305280817740627,
+        -0.0515848635162226,
+        0.9168580449721745
+      ],
+      "book_front_base_m": [
+        0.6505280857190465,
+        -0.051559744210408445,
+        0.9168585117345553
+      ],
+      "target_minus_book_front_base_m": [
+        0.00032993656960744744,
+        -0.0002496422374011764,
+        0.011070503385679609
+      ],
+      "target_distance_to_book_front_plane_m": 0.0003299503476523658,
+      "measured_hand_base_m": [
+        0.675711619110901,
+        -0.051570817823958635,
+        0.927728307758026
+      ],
+      "measured_hand_minus_commanded_hand_m": [
+        1.16137111039194e-09,
+        -2.7783023590077782e-09,
+        5.567287963970102e-09
+      ],
+      "measured_hand_orientation_error_rad": 3.6500241499888574e-08,
+      "measured_hand_depth_from_book_front_plane_m": 0.02518347220686682,
+      "book_center_in_grasp_frame_m": [
+        0.05580327413203756,
+        -6.732307842316487e-06,
+        -0.0030003233221478354
+      ],
+      "maximum_arm_joint_error_rad": 1.471061672475571e-08,
+      "maximum_arm_speed_rad_s": 4.0841572310386376e-07,
+      "book_inward_axis_vs_base_x_rad": 0.0003357427723123016,
+      "gripper_master_position_m": 0.018199999997051755
+    },
+    "terminal_observation": {
+      "receipt_ros_ns": 121500000000,
+      "pose_stamp_ns": 121336000000,
+      "joint_stamp_ns": 121498000000,
+      "pose_minus_joint_stamp_ns": -162000000,
+      "status_event": null,
+      "book_center_world_m": [
+        2.9000087731380226,
+        -2.03778846431329,
+        0.9168588466830779
+      ],
+      "book_world_min_max_z_m": [
+        0.7918573280298733,
+        1.0418603653362826
+      ],
+      "book_center_base_m": [
+        0.7305280817740627,
+        -0.0515848635162226,
+        0.9168580449721745
+      ],
+      "book_front_base_m": [
+        0.6505280857190465,
+        -0.051559744210408445,
+        0.9168585117345553
+      ],
+      "target_minus_book_front_base_m": [
+        0.00032993656960744744,
+        -0.0002496422374011764,
+        0.011070503385679609
+      ],
+      "target_distance_to_book_front_plane_m": 0.0003299503476523658,
+      "measured_hand_base_m": [
+        0.675711620844936,
+        -0.05157082204092334,
+        0.9277283160894232
+      ],
+      "measured_hand_minus_commanded_hand_m": [
+        2.8954060260488745e-09,
+        -6.995267066989275e-09,
+        1.3898685202740069e-08
+      ],
+      "measured_hand_orientation_error_rad": 5.16191365590357e-08,
+      "measured_hand_depth_from_book_front_plane_m": 0.02518347394217713,
+      "book_center_in_grasp_frame_m": [
+        0.05580327454447431,
+        -6.736861540179717e-06,
+        -0.0030003141250003473
+      ],
+      "maximum_arm_joint_error_rad": 3.686450900097782e-08,
+      "maximum_arm_speed_rad_s": 1.0239093325811917e-06,
+      "book_inward_axis_vs_base_x_rad": 0.0003357427723123016,
+      "gripper_master_position_m": 0.018199999998525
+    }
+  },
+  "observed_book_motion": {
+    "unique_world_samples": 346,
+    "first_pose_stamp_ns": 34190000000,
+    "last_pose_stamp_ns": 121336000000,
+    "final_minus_first_center_world_m": [
+      9.693030774915457e-06,
+      0.0007280186131581878,
+      8.622492907450763e-07
+    ],
+    "maximum_center_displacement_from_first_m": 0.0007280836486449987,
+    "center_axis_peak_to_peak_m": [
+      9.693030774915457e-06,
+      0.0007280186131581878,
+      1.0159085865435458e-05
+    ],
+    "maximum_attitude_change_from_first_rad": 0.0029539380525459213,
+    "bottom_corner_z_range_m": [
+      0.7918441077390124,
+      0.7918576935409684
+    ],
+    "top_corner_z_range_m": [
+      1.041858279184391,
+      1.0418921793002929
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "official_repository": "https://github.com/dfl-rlab/erc_sim_2026",
+  "official_commit": "b1f9b05e20f4750b59f3321d88f172cc4dbb1386",
+  "checked_source_root": "/opt/erc_ws/results/collision_quality_final_22",
+  "scope": [
+    "src/",
+    "docker/"
+  ],
+  "allowed_extra_solution_packages": [
+    "erc_phase1_solution"
+  ],
+  "ignored_cache_directories": [
+    ".pytest_cache",
+    "__pycache__"
+  ],
+  "strict_bytes": true,
+  "allow_bytecode_header_refresh": true,
+  "bytecode_header_refreshes": [
+    {
+      "path": "src/sensors/sensors/__pycache__/__init__.cpython-310.pyc",
+      "official_header_hex": "6f0d0d0a00000000a758796a00000000",
+      "observed_header_hex": "6f0d0d0a00000000220ca36a00000000",
+      "payload_sha256": "895e1c478336b2b30cf36e9db1431a0570e3cf763e2c554c569e96ec43472506"
+    },
+    {
+      "path": "src/sensors/sensors/__pycache__/depth_to_cloud_node.cpython-310.pyc",
+      "official_header_hex": "6f0d0d0a00000000a758796ae5310000",
+      "observed_header_hex": "6f0d0d0a00000000220ca36ae5310000",
+      "payload_sha256": "8ed07eeb63df054575848b1fef3307a5f345b08691c67cd758569a20401ae598"
+    }
+  ],
+  "expected_files": 895,
+  "exact_matches": 893,
+  "crlf_only_matches": [],
+  "missing": [],
+  "changed": [],
+  "unexpected_files": [],
+  "pass": true,
+  "limits": "Checks source files only, not installed binaries, image digest, runtime environment, overridden parameters, or scoring."
+}

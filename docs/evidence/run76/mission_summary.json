@@ -1,0 +1,170 @@
+{
+  "bin_contact_confirmed": true,
+  "book_colour": "red",
+  "collision_episodes": 0,
+  "column_identified": true,
+  "delivery_outcome": "released_with_bin_contact",
+  "delivery_release_evidence": {
+    "contact_samples": 375,
+    "contact_span_seconds": 0.748,
+    "containment_verified": false,
+    "delivery_outcome": "released_with_bin_contact",
+    "hand_clear_verified": false,
+    "hand_return_measured": true,
+    "measured_open": true,
+    "operation_completed": true,
+    "physical_delivery_verified": false,
+    "physical_inside_verified": null,
+    "post_release_contact_verified": true,
+    "reason": null,
+    "status": "operation_completed",
+    "success_scope": "placement_operation_completed"
+  },
+  "detected_row": 1,
+  "dry_run": false,
+  "elapsed_seconds": 344.8864442049962,
+  "elapsed_seconds_basis": "mission_initialization_to_summary_wall_monotonic",
+  "expected_target_book_model": "book_col_3_row_2_red",
+  "failure_reason": "",
+  "navigation_goals": 7,
+  "navigation_runs": [
+    {
+      "artifact": "paths/trial_a246cdf5c93c_navigation_goal_01_visual_search_turn.json",
+      "executed_length_m": 2.5044937154298386e-11,
+      "executed_samples": 22,
+      "executed_to_planned_length_ratio": null,
+      "mission_goal_number": 1,
+      "navigator_goal_id": 1,
+      "outcome": "reached",
+      "planned_length_m": 0.0,
+      "planned_samples": 41,
+      "purpose": "visual_search_turn",
+      "reason": ""
+    },
+    {
+      "artifact": "paths/trial_a246cdf5c93c_navigation_goal_02_visual_search_turn.json",
+      "executed_length_m": 2.5053269895471313e-11,
+      "executed_samples": 22,
+      "executed_to_planned_length_ratio": null,
+      "mission_goal_number": 2,
+      "navigator_goal_id": 2,
+      "outcome": "reached",
+      "planned_length_m": 0.0,
+      "planned_samples": 41,
+      "purpose": "visual_search_turn",
+      "reason": ""
+    },
+    {
+      "artifact": "paths/trial_a246cdf5c93c_navigation_goal_03_shelf_observation_pose.json",
+      "executed_length_m": 1.407787183825933,
+      "executed_samples": 41,
+      "executed_to_planned_length_ratio": 0.9753719798849722,
+      "mission_goal_number": 3,
+      "navigator_goal_id": 3,
+      "outcome": "reached",
+      "planned_length_m": 1.4433336335866,
+      "planned_samples": 41,
+      "purpose": "shelf_observation_pose",
+      "reason": ""
+    },
+    {
+      "artifact": "paths/trial_a246cdf5c93c_navigation_goal_04_book_grasp_standoff.json",
+      "executed_length_m": 0.7521285920405503,
+      "executed_samples": 31,
+      "executed_to_planned_length_ratio": 0.9531947814435999,
+      "mission_goal_number": 4,
+      "navigator_goal_id": 4,
+      "outcome": "reached",
+      "planned_length_m": 0.7890607530409076,
+      "planned_samples": 41,
+      "purpose": "book_grasp_standoff",
+      "reason": ""
+    },
+    {
+      "artifact": "paths/trial_a246cdf5c93c_navigation_goal_05_carried_shelf_retreat.json",
+      "executed_length_m": 0.30841814988207833,
+      "executed_samples": 34,
+      "executed_to_planned_length_ratio": 0.8811947139487949,
+      "mission_goal_number": 5,
+      "navigator_goal_id": 5,
+      "outcome": "reached",
+      "planned_length_m": 0.35000000000000014,
+      "planned_samples": 41,
+      "purpose": "carried_shelf_retreat",
+      "reason": ""
+    },
+    {
+      "artifact": "paths/trial_a246cdf5c93c_navigation_goal_06_return_start_with_book.json",
+      "executed_length_m": 1.8474622815308073,
+      "executed_samples": 47,
+      "executed_to_planned_length_ratio": 1.0065723191765386,
+      "mission_goal_number": 6,
+      "navigator_goal_id": 6,
+      "outcome": "reached",
+      "planned_length_m": 1.83539945052551,
+      "planned_samples": 41,
+      "purpose": "return_start_with_book",
+      "reason": ""
+    },
+    {
+      "artifact": "paths/trial_a246cdf5c93c_navigation_goal_07_bin_placement_standoff.json",
+      "executed_length_m": 0.08451173934832855,
+      "executed_samples": 14,
+      "executed_to_planned_length_ratio": 0.6631602938346035,
+      "mission_goal_number": 7,
+      "navigator_goal_id": 7,
+      "outcome": "reached",
+      "planned_length_m": 0.1274378760821985,
+      "planned_samples": 41,
+      "purpose": "bin_placement_standoff",
+      "reason": ""
+    }
+  ],
+  "physical_inside_verified": null,
+  "pick_attempts": 1,
+  "row_identified": true,
+  "shelf_column_number": 2,
+  "success": true,
+  "success_scope": "placement_operation_completed",
+  "target_book_model": "book_col_3_row_2_red",
+  "target_identity_confirmed": true,
+  "team_name": "TEAM_NAME",
+  "timing": {
+    "clock_basis": "host_monotonic_seconds",
+    "first_target_bin_contact": {
+      "endpoint_basis": "first_exact_named_target_bin_contact_receipt",
+      "mission_state_at_receipt": "PLACE",
+      "pairs": [
+        [
+          "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+          "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision"
+        ]
+      ],
+      "producer_ros_time_ns": 129054000000,
+      "receipt_monotonic_seconds": 33799.622689248,
+      "receipt_utc": "2026-09-14T01:52:58.683060+00:00",
+      "source_topic": "/bin_contacts",
+      "target_book_model": "book_col_3_row_2_red"
+    },
+    "launch_origin": {
+      "basis": "solution.launch.py_module_entry_before_ros_imports",
+      "monotonic_seconds": 33462.286259682,
+      "status": "available",
+      "unavailable_reason": null,
+      "utc": "2026-09-14T01:47:21.346630+00:00"
+    },
+    "launch_to_first_target_bin_contact_basis": "host_monotonic_launch_origin_to_first_exact_named_contact_receipt",
+    "launch_to_first_target_bin_contact_status": "recorded",
+    "launch_to_first_target_bin_contact_wall_seconds": 337.3364295659994,
+    "mission_initialization": {
+      "basis": "mission_manager.wall_started_assignment",
+      "monotonic_seconds": 33464.935733842,
+      "utc": "2026-09-14T01:47:23.996107+00:00"
+    },
+    "mission_initialization_to_summary_wall_seconds": 344.8864442049962,
+    "mode": "physical_run",
+    "placement_verified_by_contact_timer": false,
+    "schema_version": 1
+  },
+  "trial_id": "a246cdf5c93c"
+}

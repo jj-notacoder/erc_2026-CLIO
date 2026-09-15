@@ -1,0 +1,15 @@
+*.sh text eol=lf
+*.py text eol=lf
+Dockerfile text eol=lf
+
+# Preserve the exact validated package and evidence bytes across platforms.
+# Regression fixtures and validation certificates include SHA-256 byte pins.
+src/erc_phase1_solution/** -text
+docs/evidence/revision57/** -text
+
+# Preserve current evidence and historical source-fixture pins.
+docs/evidence/run76/** -text
+tools/test_baselines/** -text
+
+# Preserve original five-minute evidence hashes.
+docs/evidence/five_minute/** -text

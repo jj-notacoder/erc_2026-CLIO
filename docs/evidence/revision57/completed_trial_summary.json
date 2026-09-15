@@ -1,0 +1,635 @@
+{
+  "trial_id": "547cfa24165d",
+  "recorded_utc": "2026-09-12T05:02:54.739905+00:00",
+  "source_revision": 57,
+  "validation": "collision_quality_final_22",
+  "source_files": 336,
+  "certificate_sha256": "16d418b4302989da42fc424ed0b4dccfc8bbff0516e2e5622d28ac808b34a20e",
+  "source_tree_sha256": "05f319b7fd7f2c2f6ca45c29ad7e7efe54ab85d196bfd6456bf5530074d7acd8",
+  "snapshot_sha256": "cf3cf0742d639cb1b88c9402e5ed19f50a739e867ee9a80ccabc0fccc7b4ec75",
+  "profile_sha256": "09b32818dae30efe7caa063ee8be730c733561e3ee4b226043bfce891a9681e5",
+  "full_validation_junit": {
+    "tests": 3706,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "status": "closed_verified_success",
+  "success": true,
+  "delivery_completed": true,
+  "mission_wall_seconds": 855.5584200830017,
+  "mission_wall_seconds_basis": "observer elapsed at DONE",
+  "headroom_wall_seconds": 44.44157991699831,
+  "fifteen_minute_target_met": true,
+  "measured_home_wall_seconds": 855.3038554279992,
+  "onboard_elapsed_seconds": 852.3124671359983,
+  "onboard_elapsed_seconds_basis": "mission_initialization_to_summary_wall_monotonic",
+  "onboard_delivery_release_evidence": {
+    "contact_samples": 375,
+    "contact_span_seconds": 0.748,
+    "containment_verified": false,
+    "delivery_outcome": "released_with_bin_contact",
+    "hand_clear_verified": false,
+    "hand_return_measured": true,
+    "measured_open": true,
+    "operation_completed": true,
+    "physical_delivery_verified": false,
+    "physical_inside_verified": null,
+    "post_release_contact_verified": true,
+    "reason": null,
+    "status": "operation_completed",
+    "success_scope": "placement_operation_completed"
+  },
+  "observer_vs_evaluator_scope": "Onboard reports completed release/contact and measured HOME; whole-book containment and settled support are independently assessed from saved evaluator poses.",
+  "final_containment": {
+    "pose_ns": 224006000000,
+    "receipt_ns": 224008000000,
+    "wall": 875.9208456380002,
+    "joint_ns": 224004000000,
+    "book_world": [
+      -0.9980189255501158,
+      0.040132631593366504,
+      0.759999942542712
+    ],
+    "book_orientation": [
+      0.7038675548190686,
+      0.0676032433273942,
+      0.0676058171602199,
+      0.7038676866078891
+    ],
+    "book_world_bounds": [
+      [
+        -1.1359608604581513,
+        -0.06219717075453702,
+        0.7499994491784191
+      ],
+      [
+        -0.8600769906420803,
+        0.14246243394127003,
+        0.7700004359070048
+      ]
+    ],
+    "lowest_corner_z": 0.7499994491784191,
+    "book_corners_in_bin": [
+      [
+        -0.09487729467831647,
+        -0.09499919826326252,
+        0.13596148209485948
+      ],
+      [
+        0.06219755505014009,
+        -0.09499922473094714,
+        0.1055067356210815
+      ],
+      [
+        -0.0948772914319936,
+        -0.07499919826326282,
+        0.1359614814566004
+      ],
+      [
+        0.06219755829646296,
+        -0.07499922473094744,
+        0.10550673498282243
+      ],
+      [
+        -0.14246283604359528,
+        -0.0949991983717393,
+        -0.1094679706058571
+      ],
+      [
+        0.014612013684861307,
+        -0.09499922483942393,
+        -0.13992271707963516
+      ],
+      [
+        -0.14246283279727243,
+        -0.07499919837173961,
+        -0.10946797124411617
+      ],
+      [
+        0.014612016931184166,
+        -0.07499922483942423,
+        -0.13992271771789425
+      ]
+    ],
+    "book_bin_bounds": [
+      [
+        -0.14246283604359528,
+        -0.09499922483942393,
+        -0.13992271771789425
+      ],
+      [
+        0.06219755829646296,
+        -0.07499919826326282,
+        0.13596148209485948
+      ]
+    ],
+    "signed_core_face_clearances_m": [
+      0.0025371639564047144,
+      7.751605760747404e-07,
+      0.10507728228210575,
+      0.08280244170353704,
+      0.17999919826326283,
+      0.10903851790514052
+    ],
+    "whole_book_inside_conservative_core": true,
+    "footprint_inside_core": true,
+    "floor_residual_m": 7.751605760747404e-07,
+    "floor_support_consistent": true,
+    "floor_support_analysis_tolerance_m": 1e-06,
+    "whole_book_above_rim_m": -0.19999922483942392,
+    "separated_from_bin_outer_bounds": false,
+    "bin_world": [
+      -1.000000002979682,
+      -1.8780107368578048e-11,
+      0.8449991468114767
+    ],
+    "bin_orientation": [
+      -0.49999999999174627,
+      0.500001836508167,
+      0.5000000000909992,
+      -0.4999981634023416
+    ],
+    "bin_displacement_m": 0.0,
+    "bin_yaw_degrees": -5.100346956579406e-15,
+    "bin_tilt_degrees": 0.0002104478435547912,
+    "bin_height_rise_m": 0.0,
+    "robot_base_world": [
+      -0.03995126951529787,
+      -0.033784329586737785,
+      -7.807417765417732e-08
+    ],
+    "robot_base_orientation": [
+      6.383735705717536e-08,
+      7.74658565296135e-08,
+      0.999582701563875,
+      0.028886376274212103
+    ],
+    "robot_base_height_rise_m": 1.2338792631993962e-06,
+    "robot_base_tilt_degrees": 1.1518036199983983e-05,
+    "arm7_base": [
+      0.2763417835266623,
+      0.20883318118664726,
+      0.540719849514588
+    ],
+    "arm7_world": [
+      -0.32789164293154055,
+      -0.22631055542148432,
+      0.5407198385823603
+    ],
+    "book_in_arm7": [
+      -0.5596894975651343,
+      0.1259214597966343,
+      0.4889148832743731
+    ],
+    "gripper_joint_feedback": {
+      "effort": 0.17856472361625522,
+      "position": 0.06899999999927951,
+      "velocity": 3.3688329903469594e-15
+    }
+  },
+  "physical_samples": 408,
+  "stable_book_bin_samples": 22,
+  "stable_span_ros_seconds": 20.104,
+  "final_minimum_side_clearance_m": 0.0025371639564047144,
+  "final_floor_residual_m": 7.751605760747404e-07,
+  "maximum_bin_displacement_m": 0,
+  "actual_contact_pairs": [
+    {
+      "first_ros_ns": 1676000000,
+      "last_ros_ns": 224006000000,
+      "messages": 111166,
+      "pair": [
+        "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision",
+        "erc_table::table_base_link::base_link_table_collision"
+      ],
+      "peak_force_newtons": null,
+      "peak_force_producer_ros_ns": null,
+      "source": "/bin_contacts"
+    },
+    {
+      "first_ros_ns": 100148000000,
+      "last_ros_ns": 200516000000,
+      "messages": 50114,
+      "pair": [
+        "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+        "tiago_pro::gripper_left_fingertip_right_link::gripper_left_fingertip_right_link_collision"
+      ],
+      "peak_force_newtons": 1298.0023099758469,
+      "peak_force_producer_ros_ns": 162090000000,
+      "source": "/contacts"
+    },
+    {
+      "first_ros_ns": 100164000000,
+      "last_ros_ns": 200574000000,
+      "messages": 50200,
+      "pair": [
+        "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+        "tiago_pro::gripper_left_fingertip_left_link::gripper_left_fingertip_left_link_collision"
+      ],
+      "peak_force_newtons": 1260.4084690588097,
+      "peak_force_producer_ros_ns": 142146000000,
+      "source": "/contacts"
+    },
+    {
+      "first_ros_ns": 199910000000,
+      "last_ros_ns": 200028000000,
+      "messages": 59,
+      "pair": [
+        "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+        "tiago_pro::gripper_left_inner_finger_right_link::gripper_left_inner_finger_right_link_collision"
+      ],
+      "peak_force_newtons": 6.525563655636595,
+      "peak_force_producer_ros_ns": 199908000000,
+      "source": "/contacts"
+    },
+    {
+      "first_ros_ns": 200688000000,
+      "last_ros_ns": 224006000000,
+      "messages": 11660,
+      "pair": [
+        "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+        "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision"
+      ],
+      "peak_force_newtons": null,
+      "peak_force_producer_ros_ns": null,
+      "source": "/bin_contacts"
+    }
+  ],
+  "scene_contact_depth_summary": {
+    "scope": "Maximum among saved changed-inventory messages only; not a full-run peak or physical episode count. No normal/force coordinate inference.",
+    "saved_message_limit_reached": false,
+    "pairs": [
+      {
+        "source": "/bin_contacts",
+        "pair": [
+          "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+          "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision"
+        ],
+        "delivered_evidence_count": 1,
+        "first_producer_ros_ns": 200688000000,
+        "last_producer_ros_ns": 200688000000,
+        "maximum_recorded_depth_m": 0.0014738703153169422,
+        "depth_witness": {
+          "producer_ros_ns": 200688000000,
+          "receipt_ros_ns": 200688000000,
+          "wall_elapsed": 823.772210957999,
+          "array_index": 1,
+          "sequence": 1,
+          "producer_frame_id": ""
+        },
+        "array_length_mismatch_count": 0
+      }
+    ]
+  },
+  "measured_home_event": {
+    "ros_ns": 214682000000,
+    "wall": 855.3038554279992,
+    "source": "manipulation",
+    "payload": {
+      "basis": "raw_actuated_feedback_at_checked_endpoint",
+      "command": "place",
+      "event": "placement_hand_return_measured",
+      "hand_clear_verified": false,
+      "master_position": 0.06899999999927882,
+      "master_velocity": 2.2452525949567814e-14,
+      "measured_joint_positions": [
+        0.10000244303347189,
+        0.35999999999932747,
+        -1.829999999999112,
+        0.4699999999998205,
+        -2.349999999996941,
+        5.059410998664544e-13,
+        -1.2000000000013966,
+        1.4245637151522667e-13
+      ],
+      "physical_inside_verified": null,
+      "placement_attempt_id": "570454bfe0ce464fa4426fd986fc1715",
+      "producer_stamp_ns": 214680000000,
+      "stationary_start_ns": 214580000000,
+      "target_model": "book_col_3_row_2_red",
+      "trial_id": "547cfa24165d",
+      "verified": true
+    }
+  },
+  "measured_open_event": {
+    "ros_ns": 200926000000,
+    "wall": 824.3154889210018,
+    "source": "manipulation",
+    "payload": {
+      "basis": "raw_actuated_feedback_at_checked_endpoint",
+      "command": "place",
+      "event": "placement_open_measured",
+      "hand_clear_verified": false,
+      "master_position": 0.06899975547901838,
+      "master_velocity": 6.792249494282912e-06,
+      "measured_joint_positions": [
+        0.3499999999959486,
+        0.577205758157291,
+        -0.11714916045547343,
+        0.0495012168281956,
+        -1.2574888902543735,
+        -1.7052211628525207,
+        0.83288089816517,
+        -0.648731064767924
+      ],
+      "physical_inside_verified": null,
+      "placement_attempt_id": "570454bfe0ce464fa4426fd986fc1715",
+      "producer_stamp_ns": 200924000000,
+      "stationary_start_ns": 200824000000,
+      "target_model": "book_col_3_row_2_red",
+      "trial_id": "547cfa24165d",
+      "verified": true
+    }
+  },
+  "done_event": {
+    "ros_ns": 214800000000,
+    "wall": 855.5584200830017,
+    "source": "mission",
+    "payload": {
+      "bin_contact": true,
+      "current": "DONE",
+      "delivery_outcome": "released_with_bin_contact",
+      "event": "state_transition",
+      "physical_inside_verified": null,
+      "previous": "WAIT_BIN_CONTACT",
+      "previous_elapsed": 0.1,
+      "state": "DONE",
+      "success_scope": "placement_operation_completed",
+      "trial_id": "547cfa24165d"
+    }
+  },
+  "preopen": {
+    "event": {
+      "ros_ns": 199766000000,
+      "wall": 820.9820509640012,
+      "source": "manipulation",
+      "payload": {
+        "admitted_ros_ns": 199764000000,
+        "base_angular_speed": 1.1872138422981961e-14,
+        "base_linear_speed": 2.633125101432526e-13,
+        "basis": "raw_actuated_feedback_before_open",
+        "book_stationarity_verified": false,
+        "command": "place",
+        "contact_epoch": 14,
+        "contact_generation": 99575,
+        "current_stock_retention_revalidated": true,
+        "earlier_contact_generation": 99575,
+        "event": "placement_preopen_stationary",
+        "latest_negative_joint_stamp_ns": 199764000000,
+        "latest_negative_odom_stamp_ns": 199754000000,
+        "measured_joint_positions": [
+          0.3499999524551653,
+          0.5772381801832946,
+          -0.11715029599450613,
+          0.04950028714357198,
+          -1.257488779671689,
+          -1.705221850577278,
+          0.8328810646661302,
+          -0.6487313361185612
+        ],
+        "measured_joint_velocities": [
+          1.3206418964646595e-06,
+          -0.0009006547317307765,
+          3.1544341506933946e-05,
+          2.582580323718265e-05,
+          -3.0717716509118947e-06,
+          1.9104275419901118e-05,
+          -4.624635069866434e-06,
+          7.533914653540946e-06
+        ],
+        "measured_master": 0.01699995751237836,
+        "measured_master_velocity": 1.1802117257913441e-06,
+        "odom_producer_stamp_ns": 199754000000,
+        "physical_inside_verified": null,
+        "placement_attempt_id": "570454bfe0ce464fa4426fd986fc1715",
+        "planned_master": 0.01700000322261607,
+        "producer_stamp_ns": 199764000000,
+        "reason": null,
+        "stationary_start_ns": 199664000000,
+        "target_model": "book_col_3_row_2_red",
+        "timing_diagnostics": {
+          "batch_gap_resets": 0,
+          "catchup_disturbances": 0,
+          "elapsed_ros_ns": 448000000,
+          "elapsed_wall_seconds": 2.729474346000643,
+          "final_attempts": 1,
+          "final_raw_retries": 0,
+          "future_wait_expired": 0,
+          "future_waits": 0,
+          "generation_advances_revalidated": 0,
+          "generation_retries": 0,
+          "invalid_sample_resets": 80,
+          "last_final_veto": null,
+          "last_sample_reason": "stationary_closed_at_checked_endpoint",
+          "maximum_stationary_span_ns": 100000000,
+          "producer_gap_resets": 0,
+          "samples_seen": 113,
+          "stationary_samples": 33
+        },
+        "trial_id": "547cfa24165d",
+        "verified": true
+      }
+    },
+    "metrics": {
+      "stationary_span_ros_seconds": 0.1,
+      "gate_elapsed_wall_seconds": 2.729474346000643,
+      "gate_observed_elapsed_ros_seconds": 0.448,
+      "remaining_ten_second_loop_allowance": 7.270525653999357,
+      "elapsed_less_than_original_five_second_allowance": true,
+      "max_arm_abs_velocity_rad_s": 0.0009006547317307765,
+      "torso_abs_velocity_m_s": 1.3206418964646595e-06,
+      "master_abs_velocity_m_s": 1.1802117257913441e-06,
+      "master_abs_error_m": 4.5710237709523094e-08,
+      "arm_abs_goal_errors_rad": [
+        3.242367630340581e-05,
+        1.1356023496000844e-06,
+        9.296628830368636e-07,
+        1.1058987170464718e-07,
+        6.877665723603599e-07,
+        1.665055068267307e-07,
+        2.7136232039204344e-07
+      ],
+      "max_arm_abs_goal_error_rad": 3.242367630340581e-05,
+      "base_linear_speed_m_s": 2.633125101432526e-13,
+      "base_angular_speed_rad_s": 1.1872138422981961e-14,
+      "fixed_joint_age_at_admission_ns": 0,
+      "fixed_odom_age_at_admission_ns": 10000000,
+      "gate_to_measured_open_wall_seconds": 3.3334379570005694,
+      "measured_open_to_full_home_wall_seconds": 30.98836650699741,
+      "measured_home_to_done_wall_seconds": 0.2545646550024685,
+      "final_arm_command_to_gate_status_wall_seconds": 4.00267305899979
+    },
+    "attribution": "One final attempt in2.729474s; no generation advance, no extra five-second allowance needed. Run49 final veto remains unknown; success cannot be assigned causally to either change. Actuator/base stationarity does not prove book stationarity."
+  },
+  "retrospective_geometry": {
+    "completed": true,
+    "numerical_jobs": 6,
+    "wall_seconds": 21.596316374998423,
+    "unique_screen_samples": 208,
+    "measured_tool_screen_samples": 208,
+    "measured_book_screen_samples": 208,
+    "scene_samples": 64,
+    "no_overlap_in_queried_samples": true,
+    "narrow_checks": 0,
+    "unavailable_measured_tool_links": [
+      "gripper_left_base_finger_left_link",
+      "gripper_left_base_finger_right_link",
+      "gripper_left_base_link"
+    ],
+    "measured_pose_skew_omissions": 0,
+    "all_available_atomic_samples_selected": true,
+    "phase_sample_counts": {
+      "pick": 103,
+      "compact": 30,
+      "place": 41,
+      "init_stow": 11,
+      "head_bin": 23
+    },
+    "phase_maximum_gaps_seconds": {
+      "pick": 1.004,
+      "compact": 0.424,
+      "place": 0.996,
+      "init_stow": 1.004,
+      "head_bin": 0.372
+    },
+    "phase_endpoint_gaps": {
+      "pick": {
+        "start": 0.9560000000000031,
+        "end": 0.10800000000000409
+      },
+      "compact": {
+        "start": 0.11199999999999477,
+        "end": 0.16800000000000637
+      },
+      "place": {
+        "start": 0.28600000000000136,
+        "end": 0.36599999999998545
+      },
+      "init_stow": {
+        "start": 0.43199999999999994,
+        "end": 0.766
+      },
+      "head_bin": {
+        "start": 0.1599999999999966,
+        "end": 0.23400000000000887
+      }
+    },
+    "scope": "AABB separation lower bounds for sampled pairs, not exact distances or continuous clearance. Three actual link poses unavailable; no nominal substitution. No general self-collision or competition score certificate.",
+    "initial_wrapper_issue": "Root reports Windows invocation raised FileNotFound before any Docker child. Corrected WSL invocation ran the six numerical jobs once; not a numerical retry."
+  },
+  "closure": {
+    "archive_files": 449,
+    "all_owned_processes_absent": 11,
+    "shutdown_recorded_utc": "2026-09-12T04:53:32.846791+00:00",
+    "observer_finished": {
+      "acquisition_contact_trace_windows": {},
+      "acquisition_trace_completion_scope": "A window may end with the observer or receive no later callback to report its time cap; these summaries do not prove contact absence",
+      "kind": "observer_finished",
+      "maximum_wall_seconds": 5700.0,
+      "micro_contact_trace_window": null,
+      "phases": [
+        "INIT_STOW",
+        "HEAD_MARKERS",
+        "SEARCH_COLUMN",
+        "SEARCH_TURN",
+        "SEARCH_COLUMN",
+        "SEARCH_TURN",
+        "SEARCH_COLUMN",
+        "NAVIGATE_SHELF",
+        "HEAD_BOOKS",
+        "FIND_BOOK",
+        "ALIGN_BOOK",
+        "HEAD_REACQUIRE_BOOK",
+        "REACQUIRE_BOOK",
+        "PICK",
+        "CLEAR_SHELF_WITH_BOOK",
+        "COMPACT_TRANSPORT",
+        "RETURN_START",
+        "HEAD_BIN",
+        "FIND_BIN",
+        "ALIGN_BIN",
+        "HEAD_REACQUIRE_BIN",
+        "REACQUIRE_BIN",
+        "PLACE",
+        "WAIT_BIN_CONTACT",
+        "DONE"
+      ],
+      "post_preflight_contact_trace_windows": {
+        "lift_first_measured_geometry_verified": {
+          "event_prefix": "post_preflight",
+          "finished": true,
+          "last_ns": 118548000000,
+          "maximum_messages": 20000,
+          "maximum_ros_ns": 15000000000,
+          "messages": 15000,
+          "start_ns": 103548000000
+        }
+      },
+      "ros_time_ns": 224008000000,
+      "scene_contact_evidence_maximum_messages": 5000,
+      "scene_contact_evidence_messages": 1,
+      "terminal_phase": "DONE",
+      "wall_elapsed": 875.9218158059994
+    },
+    "cpu_ledger": {
+      "wall_seconds": 949.1256645819994,
+      "samples": 95,
+      "stopped_by_request": true,
+      "sampler_cpu_seconds": 0.279383505
+    },
+    "cpu_scope": "95 process-ledger samples over949.1257 wall seconds, not949CPU seconds.",
+    "grasp_captures": 14,
+    "bin_frames": 6,
+    "bin_tf_errors": 30
+  },
+  "source_integrity": {
+    "saved_solution_check": {
+      "matched": true,
+      "files_checked": 336,
+      "mismatches": []
+    },
+    "official_before_after_pass": true,
+    "scope": "895 official files checked,893 exact with two permitted bytecode-header refreshes preserving payloads; official physics/settings unchanged."
+  },
+  "prior_verified_fallback": {
+    "revision": 54,
+    "run": 47,
+    "wall_seconds": 898.5568265350012,
+    "observed_wall_difference_seconds": 42.99840645199947,
+    "comparison_scope": "Separate successful trials, not an isolated causal benchmark."
+  },
+  "limitations": [
+    "One verified Run50 trial; no success-rate, repeatability or full competition-readiness claim.",
+    "Earlier sampled floor residual -1.477244 mm at wall824.468077 differs from settled support; geometry excludes book/bin landing contact.",
+    "Final2.537mm side clearance remains narrow; result does not certify gentle handling or scoring.",
+    "Camera TF errors and sampled geometry/link coverage limitations remain disclosed.",
+    "R55/Run48 and R56/Run49 failures and R54 fallback remain preserved."
+  ],
+  "evidence_sha256": {
+    "run50_review/quality_evaluation/physical_final01.json": "7dd6c0bc14f11764401015b932d57e3d302ddddadf0a1517a7314a41da60b681",
+    "run50_review/actual_geometry_audit/execution01/summary.json": "7572e2191ef0de42e34dc06715d31a8e0b310d4e37b38e59602b69e213caf964",
+    "run50_review/actual_geometry_audit/execution_evidence_manifest.json": "0eac69b734e3cd824350278e21dc707928305b1842b774e037275e943812cfff",
+    "run50_review/preopen_completion_independent_review/evidence.json": "3a28dc501df377cd399f6a3bc1947d7ebd481a35e600797e377e3e625ef39831",
+    "run50_review/shutdown/shutdown_observation.json": "709ed72275f7156cfeb36600923fa4fb304ec538c4d00d1964a18a915f133126",
+    "runtime/run_50/evidence_manifest.json": "ecb32915eadcd53efea337e169e633accb0e131d3829529f7d28c4353494298d",
+    "test_evidence/collision_quality_final_22/validation_certificate.json": "16d418b4302989da42fc424ed0b4dccfc8bbff0516e2e5622d28ac808b34a20e",
+    "collision_quality_candidate/revision57/runtime_profile.json": "09b32818dae30efe7caa063ee8be730c733561e3ee4b226043bfce891a9681e5",
+    "run47_review/completed_trial_summary.json": "c141a5c3a02b511f8a5232d1b3a1b87ee61bc09c05b6a75285812abe0f5649e0",
+    "run50_review/geometry_invocation_note.json": "ebb63de767968724bf9844eb9fee303f0f58955c47b10ce2fd12052a30d7024a",
+    "run50_review/root_final_readback.json": "4a1970b6e8f15abafdec6344fba296db1e211b7faa1675adef80337ea25b06be",
+    "run50_review/final_consistency_independent_review/review.json": "dbd4204d7d768975730637f2a67317ded2e5270b220a5dbd77963170125377c6",
+    "runtime/run_50/trial_547cfa24165d_summary.json": "01cd0ca9f5bff9e76082b7bb91299b2c1128c14276207f4741456f0b77dd84c1",
+    "runtime/run_50/official_source_check_before.json": "fcd4796eec35179459ee23c025510135482b3c8e0f38f0c21bc847322aeb5598",
+    "runtime/run_50/official_source_check_after.json": "fcd4796eec35179459ee23c025510135482b3c8e0f38f0c21bc847322aeb5598",
+    "runtime/run_50/solution_source_check_after.json": "072f75b7686c5b71f4e3af92636b0aaac81e6b509cfcec462305a36ea5c93ef5",
+    "runtime/run_50/runtime_cpu/closure_verified.json": "c892e9e900edb1b2bfa6423b658f44cf312fc6884b6089d7be2d229c6714cd72",
+    "runtime/run_50/runtime_cpu/finished.json": "02da5734f641ed8ec646fe8e1496fcb0b21d6ea978c73657d6197c5de6c12271",
+    "runtime/run_50/grasp_event_camera/capture_summary.json": "773bb2c5d882ebbc4d55c300ac93044e6a6cc4ed8cfa3f1f29bb1cbc5711adb9",
+    "runtime/run_50/bin_scene_capture_result.json": "4cf23c99649021887dffa6592c6533a17f280f30823fd44ec202300bb3ad2915",
+    "runtime/run_50/bin_scene_on_reacquire/manifest.json": "511be9ed2e8372a423ba3f126bd720d5e2c175254b5dcb0e31146c58e68849e7",
+    "run50_review/actual_geometry_audit/actual_geometry_review.md": "9a186772790722564929c43e9487e7258e031670752825f1e57f08b69268af7c",
+    "run50_review/preopen_completion_independent_review/README.md": "57445e6b95d0164a2179705a23a1a2f788e481f4d5b7cd3e1c488b6b81b8eb79"
+  },
+  "scope": "Closed-report/documentation work only. No journal rescan, runtime, tests or geometry executed by this summarizer."
+}

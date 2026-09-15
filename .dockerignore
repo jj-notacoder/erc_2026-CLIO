@@ -1,0 +1,16 @@
+# Dockerfile installs the environment; the workspace is mounted at runtime.
+.git
+build*
+install*
+log*
+results
+erc_images
+checkpoints
+output
+tmp
+report/rendered
+**/__pycache__
+**/.pytest_cache
+tools/gazebo_viewer_plugin/build*
+.env
+.env.*

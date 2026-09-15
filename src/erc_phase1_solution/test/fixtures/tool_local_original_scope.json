@@ -1,0 +1,23 @@
+{
+  "base_revision": 51,
+  "base_tree_sha256": "6101fcee15b13e4b7efa6a067f905245b96da872cdb66c1a38651f1cafeb675e",
+  "ast_format": "Python ast.dump(include_attributes=False), UTF-8 SHA256",
+  "whole_modules": {
+    "manipulation_node.py": {
+      "source_sha256": "01a758d295ee2b4f79591821a6d03f8e53a633017366db74847f203823ba254d",
+      "ast_sha256": "f5641db5cca9c879842542ac97f9e79bee2b0c6704c85fd43f40da7ae8d33618"
+    },
+    "empty_pickup_collision.py": {
+      "source_sha256": "4e1ca05d8e844fa060de2a2e810fb64f5333cf92151b10e802e11a2286b23fdc",
+      "ast_sha256": "61411d1f01b4de6441261cb071d672cefc16a7f575f1c52a98f6ee7f9fd23936"
+    },
+    "open_gripper_approach.py": {
+      "source_sha256": "02477bc22a03c47a8e810a8b50152e0aded401c2d00e8b6e3641aa0dff5004a9",
+      "ast_sha256": "cdfb3ab18696187a9696b2ba90fdc9fb5ee98465cca151e0a7fdc0d324c0e0c5"
+    }
+  },
+  "fixtures": {
+    "tool_local_original_scene.py": "abac3f8841c71bf3d080b9bf4c29b6b00b2dc8146fb973165c72c7d008c92326",
+    "tool_local_original_shelf.py": "398b408b2cad572cd6905768461861a0f43e99cdbe4eb95479d20fe4ae54cbfb"
+  }
+}

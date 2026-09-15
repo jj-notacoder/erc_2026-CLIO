@@ -1,0 +1,196 @@
+{
+  "schema": "collision_quality_affected_runtime_validation_v1",
+  "validation_kind": "affected_runtime_on_validated_base",
+  "full_suite_reran": false,
+  "runtime_python_byte_identical": false,
+  "inherited_junit": {
+    "tests": 5986,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "full_suite_current_snapshot": false,
+  "passed": true,
+  "source_files": 453,
+  "source_unchanged": true,
+  "additional_navigation_junit": {
+    "tests": 2263,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "additional_navigation_certificate_sha256": "9c9819417eba1a807919b1a5ff4e52ee908c8801ad705b4c100e84eab4e7a49c",
+  "parent_affected_junit": {
+    "tests": 659,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "parent_affected_certificate_sha256": "2c33f9abb7b88f05464eb086f87504311793182366bc6c04bea3246152175222",
+  "source_tree_sha256": "8e12e41f322caecfb64df8b1021a98c040ca75e27ee0c08619fc47f21e518de4",
+  "profile_sha256": "536b947d4d04f0dfc126a5e44f353d488eedee4750400d67ac9275cc0178f1ce",
+  "native_build_performed": true,
+  "constructor_modes": [
+    "defaults",
+    "selected",
+    "release_only_isolated"
+  ],
+  "stages": [
+    {
+      "name": "official_before",
+      "command": [
+        "/usr/bin/python3",
+        "check_official_integrity.py",
+        "check",
+        "--manifest",
+        "official_source_manifest.json",
+        "--root",
+        "/opt/erc_ws/results/normal_yaw69_focus",
+        "--allow-extra-package",
+        "erc_phase1_solution",
+        "--strict-bytes",
+        "--include-docker",
+        "--allow-bytecode-header-refresh",
+        "--output",
+        "official_before.json"
+      ],
+      "wall_budget_seconds": 35,
+      "pid": 12228,
+      "start_ticks": 4268904,
+      "session_id": 12228,
+      "returncode": 0,
+      "reaped": true,
+      "pid_absent": true,
+      "wall_seconds": 0.21453022000059718,
+      "owned_group_absent": true
+    },
+    {
+      "name": "asset_resolution",
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_assets.py"
+      ],
+      "wall_budget_seconds": 35,
+      "pid": 12229,
+      "start_ticks": 4268925,
+      "session_id": 12229,
+      "returncode": 0,
+      "reaped": true,
+      "pid_absent": true,
+      "wall_seconds": 0.1641765349995694,
+      "owned_group_absent": true
+    },
+    {
+      "name": "pytest_focus",
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_focus.py"
+      ],
+      "wall_budget_seconds": 240,
+      "pid": 12230,
+      "start_ticks": 4268942,
+      "session_id": 12230,
+      "returncode": 0,
+      "reaped": true,
+      "pid_absent": true,
+      "wall_seconds": 111.93730441699881,
+      "owned_group_absent": true
+    },
+    {
+      "name": "constructor_defaults",
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_constructor.py"
+      ],
+      "wall_budget_seconds": 35,
+      "pid": 12231,
+      "start_ticks": 4280135,
+      "session_id": 12231,
+      "returncode": 0,
+      "reaped": true,
+      "pid_absent": true,
+      "wall_seconds": 0.9163042569998652,
+      "owned_group_absent": true
+    },
+    {
+      "name": "constructor_selected",
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_constructor.py"
+      ],
+      "wall_budget_seconds": 35,
+      "pid": 12264,
+      "start_ticks": 4280227,
+      "session_id": 12264,
+      "returncode": 0,
+      "reaped": true,
+      "pid_absent": true,
+      "wall_seconds": 1.0666960720045608,
+      "owned_group_absent": true
+    },
+    {
+      "name": "constructor_release_only_isolated",
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_constructor.py"
+      ],
+      "wall_budget_seconds": 35,
+      "pid": 12297,
+      "start_ticks": 4280334,
+      "session_id": 12297,
+      "returncode": 0,
+      "reaped": true,
+      "pid_absent": true,
+      "wall_seconds": 0.916183141998772,
+      "owned_group_absent": true
+    },
+    {
+      "name": "official_after",
+      "command": [
+        "/usr/bin/python3",
+        "check_official_integrity.py",
+        "check",
+        "--manifest",
+        "official_source_manifest.json",
+        "--root",
+        "/opt/erc_ws/results/normal_yaw69_focus",
+        "--allow-extra-package",
+        "erc_phase1_solution",
+        "--strict-bytes",
+        "--include-docker",
+        "--allow-bytecode-header-refresh",
+        "--output",
+        "official_after.json"
+      ],
+      "wall_budget_seconds": 35,
+      "pid": 12330,
+      "start_ticks": 4280425,
+      "session_id": 12330,
+      "returncode": 0,
+      "reaped": true,
+      "pid_absent": true,
+      "wall_seconds": 0.21464961899619084,
+      "owned_group_absent": true
+    },
+    {
+      "name": "asset_resolution_after",
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_assets.py"
+      ],
+      "wall_budget_seconds": 35,
+      "pid": 12331,
+      "start_ticks": 4280450,
+      "session_id": 12331,
+      "returncode": 0,
+      "reaped": true,
+      "pid_absent": true,
+      "wall_seconds": 0.11455987000226742,
+      "owned_group_absent": true
+    }
+  ],
+  "after_errors": [],
+  "full_suite_ran": false,
+  "physical_runtime_touched": false,
+  "wall_seconds": 115.61308201000065
+}

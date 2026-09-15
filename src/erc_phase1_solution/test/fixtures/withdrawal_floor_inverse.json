@@ -1,0 +1,48 @@
+{
+  "parent_sha256": "5be25e60aceec45066ccb36a477d803c24ba92e8f48ef8d6d5c2177be8ce0231",
+  "candidate_sha256": "070f23d016ae3d4e8a740b11bc7eebcda8205a06d1e320d1b025231d747abb2f",
+  "source": "erc_phase1_solution/lift_first_extraction.py",
+  "original_newline": "\r\n",
+  "changes": [
+    {
+      "old": "    geometry = getattr(node, '_shelf_cradle_geometry', None)\r\n",
+      "new": "    minimum_withdrawal_rise = lift_m - 2*pos_tol\r\n    geometry = getattr(node, '_shelf_cradle_geometry', None)\r\n",
+      "count": 2
+    },
+    {
+      "old": "        raise ValueError('checked lift route or rise is invalid')\r\n",
+      "new": "        raise ValueError('checked lift route or rise is invalid')\r\n    pos_tol = float(getattr(node, 'pick_position_tolerance', .0005))\r\n    if (not math.isfinite(pos_tol) or not 0 < pos_tol <= .0005\r\n            or lift_m <= 2*pos_tol):\r\n        raise ValueError('checked lift requires a finite positive floor reserve')\r\n",
+      "count": 1
+    },
+    {
+      "old": "                raise ValueError(f'lift-first book-corner descent at leg {index}')\r\n",
+      "new": "                raise ValueError(f'lift-first book-corner descent at leg {index}')\r\n            if index > 0 and rise < minimum_withdrawal_rise:\r\n                raise ValueError(f'lift-first maintained floor rise at leg {index}: '\r\n                    f'observed_m={rise!r}, required_m={minimum_withdrawal_rise!r}')\r\n",
+      "count": 1
+    },
+    {
+      "old": "                raise ValueError(f'checked lift book-corner descent at leg {index}')\r\n",
+      "new": "                raise ValueError(f'checked lift book-corner descent at leg {index}')\r\n            if index > 0 and rise < minimum_withdrawal_rise:\r\n                raise ValueError(f'checked lift maintained floor rise at leg {index}: '\r\n                    f'observed_m={rise!r}, required_m={minimum_withdrawal_rise!r}')\r\n",
+      "count": 1
+    },
+    {
+      "old": "            minimum_corner_rise_m=minimum_rise,\r\n",
+      "new": "            minimum_corner_rise_m=minimum_rise,\r\n            required_minimum_corner_rise_m=(0. if index == 0 else minimum_withdrawal_rise),\r\n            corner_rise_reserve_m=minimum_rise-(0. if index == 0 else minimum_withdrawal_rise),\r\n",
+      "count": 2
+    },
+    {
+      "old": "        lift_m=lift_m, legs=records, registration_source=bay.source,\r\n",
+      "new": "        lift_m=lift_m, legs=records, registration_source=bay.source,\r\n        minimum_withdrawal_corner_rise_m=minimum_withdrawal_rise,\r\n        maintained_floor_reference='initial_upright_book_corners',\r\n",
+      "count": 1
+    },
+    {
+      "old": "        scope='Relative book no-descent and payload/tool roof/side bounds; '\r\n",
+      "new": "        scope='Relative book no-descent, maintained post-lift rise and payload/tool roof/side bounds; '\r\n",
+      "count": 1
+    },
+    {
+      "old": "    return dict(legs=records, validation_wall_seconds=time.monotonic()-validation_started,\n",
+      "new": "    return dict(legs=records, validation_wall_seconds=time.monotonic()-validation_started,\n                minimum_withdrawal_corner_rise_m=minimum_withdrawal_rise,\n                maintained_floor_reference='initial_upright_book_corners',\n",
+      "count": 1
+    }
+  ]
+}

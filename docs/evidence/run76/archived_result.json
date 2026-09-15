@@ -1,0 +1,60 @@
+{
+  "run": "Run76",
+  "trial_id": "a246cdf5c93c",
+  "candidate": "combined_candidate34",
+  "source_revision": 81,
+  "mission_operation_completed": true,
+  "launch_to_summary_seconds": 347.5359183649998,
+  "launch_to_first_contact_seconds": 337.3364295659994,
+  "simulator_startup_additional": true,
+  "five_minute_target_met": false,
+  "final_strict_inside": true,
+  "stable_samples": 21,
+  "stable_span_ros_seconds": 19.986,
+  "minimum_final_side_clearance_m": 0.00034405585597446775,
+  "final_floor_residual_m": 4.389311517583039e-07,
+  "actual_book_initial_rise_m": 0.019268410774725186,
+  "measured_rise_endpoints_ros_ns": [
+    87270000000,
+    88528000000
+  ],
+  "withdrawal_minimum_finite_floor_clearance_m": 0.01494651746340786,
+  "last_preopen_book_bottom_above_floor_m": 0.26207482702880613,
+  "maximum_preopen_center_drift_m": 0.0011317882440583494,
+  "maximum_preopen_rotation_drift_degrees": 0.16387652516554058,
+  "observed_seconds_saved_vs_run73": 17.47634152200044,
+  "closure_method": "confirmed_kernel_reboot_and_container_exited",
+  "physical_repeatability_proven": false,
+  "gentle_placement": false,
+  "published": false,
+  "inputs": {
+    "report": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run76\\RESULTS.md",
+      "sha256": "509d96d3a6526ae16e0dc6214e609ea159ad62d637a367097563e90058923750"
+    },
+    "archive": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run76\\archive_manifest.json",
+      "sha256": "11aa8291489e658d0a6d401dc96771ecec92875b5f630ff43e5e0f1773718535"
+    },
+    "summary": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run76\\raw\\trial_a246cdf5c93c_summary.json",
+      "sha256": "22819ff4e00ade5cb773a0a8607d9238f6fa4c72f6aa0d47dada5fe46f690706"
+    },
+    "lean": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run76\\reduction01\\lean_result.json",
+      "sha256": "177dd66cbc1c383de61cef8f88568e5bd7ecb841403ab5a4096f4f318c940531"
+    },
+    "lift": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run76\\lift_physical_binding01\\result01\\result.json",
+      "sha256": "7250eaa01d3b8b7d0a7a9a6f083fef21a69ea4ffadc06a619ff0e385f12e647c"
+    },
+    "place": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run76\\placement_binding01\\diagnosis.json",
+      "sha256": "189bf7abd270848eb58a4542a8810d8b3f0d8ce8b2a6caade9bc65c8e14420e9"
+    },
+    "closure": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run76\\runtime_closure.json",
+      "sha256": "4a565013082bc91683b6bf23111ba1863ead4642c41dcd17c8f404aa03fe7c54"
+    }
+  }
+}

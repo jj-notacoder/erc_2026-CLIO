@@ -1,0 +1,26 @@
+[
+  {
+    "old": "from .scene_checked_place import plan_scene_checked_place\n",
+    "new": "from .scene_checked_place import plan_scene_checked_place\nfrom .raw_contacts import raw_contacts_callback as _raw_contacts_callback\n"
+  },
+  {
+    "old": "        self.stock_gripper_close_diagnostic_enabled = bool(\n",
+    "new": "        self.raw_contacts_enabled = bool(\n            self.get_parameter('raw_contacts_enabled').value)\n        self.stock_gripper_close_diagnostic_enabled = bool(\n"
+  },
+  {
+    "old": "            'stock_gripper_close_diagnostic_enabled': False,\n",
+    "new": "            'raw_contacts_enabled': False,\n            'stock_gripper_close_diagnostic_enabled': False,\n"
+  },
+  {
+    "old": "        with self._lock:\n            if self._busy:\n",
+    "new": "        with self._lock:\n            if getattr(self, '_raw_contacts_first_failure', None) is not None:\n                self._publish_status(\n                    'rejected', command=command,\n                    reason='raw_contacts_decode_failed', **correlation,\n                )\n                return\n            if self._busy:\n"
+  },
+  {
+    "old": "        self.create_subscription(Contacts, '/contacts', _planning_cpu_callback(self, '_on_contacts', self._on_contacts), SENSOR_QOS)\n",
+    "new": "        if getattr(self, 'raw_contacts_enabled', False):\n            self.create_subscription(\n                Contacts, '/contacts',\n                _planning_cpu_callback(self, '_on_contacts',\n                    _raw_contacts_callback(self, self._on_contacts, '/contacts')),\n                SENSOR_QOS, raw=True,\n            )\n        else:\n            self.create_subscription(Contacts, '/contacts', _planning_cpu_callback(self, '_on_contacts', self._on_contacts), SENSOR_QOS)\n"
+  },
+  {
+    "old": "            self.create_subscription(\n                Contacts, '/bin_contacts',\n                _planning_cpu_callback(self, 'bin_contacts',\n                    lambda message: _observe_place_contacts(self, message, '/bin_contacts')),\n                SENSOR_QOS,\n            )\n",
+    "new": "            if getattr(self, 'raw_contacts_enabled', False):\n                self.create_subscription(\n                    Contacts, '/bin_contacts',\n                    _planning_cpu_callback(self, 'bin_contacts',\n                        _raw_contacts_callback(self,\n                            lambda message: _observe_place_contacts(self, message, '/bin_contacts'),\n                            '/bin_contacts')),\n                    SENSOR_QOS, raw=True,\n                )\n            else:\n                self.create_subscription(\n                    Contacts, '/bin_contacts',\n                    _planning_cpu_callback(self, 'bin_contacts',\n                        lambda message: _observe_place_contacts(self, message, '/bin_contacts')),\n                    SENSOR_QOS,\n                )\n"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "reason": "inconsistent_depth_geometry",
+  "metrics": {},
+  "scope": "Offline evaluation of one post-abort live RGB-D capture using unchanged configured thresholds; not a recording of the original callback."
+}

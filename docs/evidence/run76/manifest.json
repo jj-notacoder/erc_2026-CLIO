@@ -1,0 +1,15 @@
+{
+  "source": "Closed Run76 and completed validation49; inherited Full48 is separately labeled.",
+  "files": {
+    "archived_result.json": "1f278f31c02be21413861f97478bdb4449d77eed1144cd34113850243260feab",
+    "mission_summary.json": "22819ff4e00ade5cb773a0a8607d9238f6fa4c72f6aa0d47dada5fe46f690706",
+    "runtime_profile.json": "07c8cc9aad22b99bd520e89ae4eaa981d8a3c3b293834c83991444ee266d98c3",
+    "validation49_certificate.json": "339683a0fe73ab9f3502d4f1567e98f00718991088cb6b6a96aac65ccdab96bf",
+    "inherited_full48_certificate.json": "9cb31c6a6912c7b1e68c1ee907cbbee8c944665f0cddd84322c005b71b32ceaa",
+    "pytest_focus.xml": "4967d01df18c60b78a53ad691c820ad1bf1cc17e45f0f3ef6e8a79ede27e16f6",
+    "pytest_focus_result.json": "56645beb93ba1e7fe0f259aafb67968f1358f717af5240c4be228b23066be308",
+    "constructor_selected.json": "eda42c871136fc3f1b6a9ed94c5b18ce4034e392442671b79b80849e32f85bfb",
+    "constructor_defaults.json": "0027aee98ab2043bbec7a05a48fb77c41130cd8ed48701e8ab2a0ec7f141e5bd",
+    "lean_final_containment.json": "177dd66cbc1c383de61cef8f88568e5bd7ecb841403ab5a4096f4f318c940531"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "record_type": "root_operator_invocation_note",
+  "trial": "run50",
+  "purpose": "Preserve the corrected host invocation error without changing sealed numerical evidence.",
+  "first_invocation": {
+    "wrapper": "tmp/erc_status_review/run_run50_geometry.py",
+    "interpreter_environment": "Windows Python",
+    "result": "FileNotFoundError: [WinError 2] at subprocess creation for docker",
+    "child_started": false,
+    "geometry_jobs_started": 0,
+    "explanation": "The docker executable used by this workspace is available inside WSL; the wrapper was initially invoked from Windows."
+  },
+  "corrected_invocation": {
+    "interpreter_environment": "WSL ERC-Ubuntu-22.04 python3 -B",
+    "wrapper": "/mnt/c/Users/sir/Documents/New project/tmp/erc_status_review/run_run50_geometry.py",
+    "result": "Completed successfully",
+    "geometry_jobs_executed": 6,
+    "numerical_reruns": 0,
+    "summary": "actual_geometry_audit/execution01/summary.json",
+    "summary_sha256": "7572e2191ef0de42e34dc06715d31a8e0b310d4e37b38e59602b69e213caf964",
+    "evidence_manifest_sha256": "0eac69b734e3cd824350278e21dc707928305b1842b774e037275e943812cfff"
+  },
+  "scope": "This note records root-observed orchestration history; the sealed execution evidence supplies the numerical results. No source, inputs, or numerical job were changed or retried to correct the invocation."
+}

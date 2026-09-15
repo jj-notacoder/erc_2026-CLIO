@@ -1,0 +1,66 @@
+{
+  "parent_sha256": "d7fa3bdbf1b9bd2bccc7b5f65cba26de52a512bdaf7ae270db093f433b1f9450",
+  "inverses_in_reverse_order": [
+    {
+      "before": "                            diagnostics['last_final_veto'] = 'raw:' + ','.join(\n                                name for name, value in final_checks.items() if not value)\n",
+      "after": "                            diagnostics['last_final_veto'] = 'raw:' + ','.join(\n                                name for name, value in final_checks.items() if not value)\n                            diagnostics['last_final_raw_reasons'] = {\n                                name: ('missing' if sample is None else valid(sample, admitted_now, pending)[1])\n                                for name, sample, pending in (('fixed', fixed, False),\n                                    ('latest', latest, True), ('latest_odom', latest_with_odom, True))}\n                            diagnostics['last_final_raw_reasons']['newer_first_failure'] = next(\n                                (valid(sample, admitted_now, True)[1] for sample in newer\n                                 if not valid(sample, admitted_now, True)[0]), None)\n"
+    },
+    {
+      "before": "                if first is None or (previous is not None and stamp-previous > 75_000_000):\n                    first = stamp\n",
+      "after": "                if first is None or (previous is not None and stamp-previous > 75_000_000):\n                    if previous is not None and stamp-previous > 75_000_000:\n                        diagnostics['producer_gap_resets'] += 1\n                    first = stamp\n"
+    },
+    {
+      "before": "        invalid_sample_resets=0, future_waits=0, future_wait_expired=0,\n",
+      "after": "        invalid_sample_resets=0, producer_gap_resets=0, future_waits=0, future_wait_expired=0,\n"
+    },
+    {
+      "before": "    Five wall seconds maximum, including a <=0.5 s fixed-frame clock catch-up;\n",
+      "after": "    Ten wall seconds maximum, including a <=0.5 s fixed-frame clock catch-up;\n"
+    },
+    {
+      "before": "                                fields = dict(producer_stamp_ns=previous, stationary_start_ns=first,\n                                planned_master=master, measured_master=fixed['positions']['gripper_left_finger_joint'],\n                                measured_master_velocity=fixed['velocities']['gripper_left_finger_joint'],\n                                measured_joint_positions=[fixed['positions'][n] for n in IK_JOINTS],\n                                measured_joint_velocities=[fixed['velocities'][n] for n in IK_JOINTS],\n                                odom_producer_stamp_ns=fixed['odom']['stamp_ns'],\n                                base_linear_speed=fixed['odom']['linear_speed'],\n                                base_angular_speed=fixed['odom']['angular_speed'],\n                                latest_negative_joint_stamp_ns=latest['producer_stamp_ns'],\n                                latest_negative_odom_stamp_ns=latest_with_odom['odom']['stamp_ns'],\n                                admitted_ros_ns=admitted_now,\n                                contact_epoch=epoch, contact_generation=generation)\n",
+      "after": "                                fields = dict(producer_stamp_ns=previous, stationary_start_ns=first,\n                                    planned_master=master, measured_master=fixed['positions']['gripper_left_finger_joint'],\n                                    measured_master_velocity=fixed['velocities']['gripper_left_finger_joint'],\n                                    measured_joint_positions=[fixed['positions'][n] for n in IK_JOINTS],\n                                    measured_joint_velocities=[fixed['velocities'][n] for n in IK_JOINTS],\n                                    odom_producer_stamp_ns=fixed['odom']['stamp_ns'],\n                                    base_linear_speed=fixed['odom']['linear_speed'],\n                                    base_angular_speed=fixed['odom']['angular_speed'],\n                                    latest_negative_joint_stamp_ns=latest['producer_stamp_ns'],\n                                    latest_negative_odom_stamp_ns=latest_with_odom['odom']['stamp_ns'],\n                                    admitted_ros_ns=admitted_now,\n                                    contact_epoch=epoch, contact_generation=current_generation,\n                                    earlier_contact_generation=generation,\n                                    current_stock_retention_revalidated=selected_stock)\n"
+    },
+    {
+      "before": "                        final_ok = (latest is not None and valid(fixed, admitted_now)[0]\n                            and valid(latest, admitted_now, True)[0]\n                            and valid(latest_with_odom, admitted_now, True)[0]\n                            and all(valid(sample, admitted_now, True)[0] for sample in newer)\n                            and all(0 <= b-a <= 75_000_000 for a,b in zip(chronology, chronology[1:]))\n                            and (not newer or newer[0]['sequence'] == seen+1)\n                            and time.monotonic() < deadline)\n                        if not final_ok:\n                            first = previous = None\n                        elif generation == getattr(node, '_contact_generation', 0):\n                            fields = dict(producer_stamp_ns=previous, stationary_start_ns=first,\n",
+      "after": "                        final_checks = dict(\n                            fixed_fresh=valid(fixed, admitted_now)[0],\n                            latest_fresh=latest is not None and valid(latest, admitted_now, True)[0],\n                            latest_odom_fresh=latest_with_odom is not None and valid(latest_with_odom, admitted_now, True)[0],\n                            newer_samples_valid=all(valid(sample, admitted_now, True)[0] for sample in newer),\n                            newer_gaps_valid=all(0 <= b-a <= 75_000_000 for a,b in zip(chronology, chronology[1:])),\n                            newer_sequence_contiguous=not newer or newer[0]['sequence'] == seen+1,\n                            within_wall_deadline=time.monotonic() < deadline)\n                        final_ok = all(final_checks.values())\n                        if not final_ok:\n                            diagnostics['final_raw_retries'] += 1\n                            diagnostics['last_final_veto'] = 'raw:' + ','.join(\n                                name for name, value in final_checks.items() if not value)\n                            first = previous = None\n                        else:\n                            current_generation = getattr(node, '_contact_generation', 0)\n                            selected_stock = stock_enabled(node)\n                            if selected_stock:\n                                # Ordinary contact deliveries may advance the counter.\n                                # Re-prove current retention under this same sensor lock;\n                                # never approve using the earlier mixed-generation reads.\n                                fault = _stock_retention_locked(node, admitted_now,\n                                    min(.15, node.grasp_contact_max_age))\n                                if fault:\n                                    diagnostics['last_final_veto'] = 'retention:' + fault\n                                    reject(fault)\n                            if generation != current_generation and not selected_stock:\n                                diagnostics['generation_retries'] += 1\n                                diagnostics['last_final_veto'] = 'contact_generation_changed'\n                            else:\n                                if generation != current_generation:\n                                    diagnostics['generation_advances_revalidated'] += 1\n                                diagnostics['last_final_veto'] = None\n                                fields = dict(producer_stamp_ns=previous, stationary_start_ns=first,\n"
+    },
+    {
+      "before": "                previous = stamp\n            if first is not None and previous-first >= 100_000_000:\n",
+      "after": "                previous = stamp\n                diagnostics['maximum_stationary_span_ns'] = max(\n                    diagnostics['maximum_stationary_span_ns'], previous-first)\n            if first is not None and previous-first >= 100_000_000:\n                diagnostics['final_attempts'] += 1\n"
+    },
+    {
+      "before": "                seen = sample['sequence']\n                if not ok:\n                    first = previous = None\n                    continue\n",
+      "after": "                seen = sample['sequence']\n                diagnostics['samples_seen'] += 1\n                if not ok:\n                    diagnostics['invalid_sample_resets'] += 1\n                    first = previous = None\n                    continue\n                diagnostics['stationary_samples'] += 1\n"
+    },
+    {
+      "before": "            if disturbed:\n                first = previous = None\n",
+      "after": "            if now < future:\n                diagnostics['future_wait_expired'] += 1\n            if disturbed:\n                diagnostics['catchup_disturbances'] += 1\n                first = previous = None\n"
+    },
+    {
+      "before": "            disturbed = False\n",
+      "after": "            disturbed = False\n            if now < future <= now+100_000_000:\n                diagnostics['future_waits'] += 1\n"
+    },
+    {
+      "before": "            if batch[0]['sequence'] != seen+1:\n                first = previous = None\n",
+      "after": "            if batch[0]['sequence'] != seen+1:\n                diagnostics['batch_gap_resets'] += 1\n                first = previous = None\n"
+    },
+    {
+      "before": "                book_stationarity_verified=False, physical_inside_verified=None,\n",
+      "after": "                book_stationarity_verified=False, physical_inside_verified=None,\n                timing_diagnostics=dict(diagnostics,\n                    elapsed_wall_seconds=max(0., time.monotonic()-started_wall),\n                    elapsed_ros_ns=last_clock-entered, last_sample_reason=reason),\n"
+    },
+    {
+      "before": "    fields = None\n",
+      "after": "    fields = None\n    diagnostics = dict(samples_seen=0, stationary_samples=0, batch_gap_resets=0,\n        invalid_sample_resets=0, future_waits=0, future_wait_expired=0,\n        catchup_disturbances=0, final_attempts=0, final_raw_retries=0,\n        generation_retries=0, generation_advances_revalidated=0,\n        maximum_stationary_span_ns=0, last_final_veto=None)\n"
+    },
+    {
+      "before": "    deadline = time.monotonic()+5.\n",
+      "after": "    started_wall = time.monotonic()\n    deadline = started_wall+10.\n"
+    },
+    {
+      "before": "from .release_evidence import stamp_valid\n",
+      "after": "from .release_evidence import stamp_valid\nfrom .stock_gripper_close import enabled as stock_enabled, measured_position_in_range\n\n\ndef _stock_retention_locked(node, now_ns, max_age):\n    \"\"\"Recheck the existing selected-stock retention predicates under sensor lock.\n\n    No lock acquisition, callbacks, waits, publication or force-policy changes.\n    This fresh snapshot qualifies ordinary generation advances only; the caller\n    still performs the original scene/retention checks and all hard interlocks.\n    \"\"\"\n    guard = getattr(node, '_place_contact_guard', None)\n    if guard is not None and guard.fault is not None:\n        return 'place_scene_contact'\n    raw_fault = getattr(node, '_held_grip_sensor_fault', None)\n    if raw_fault:\n        return str(raw_fault)\n    history = getattr(node, '_gripper_feedback_samples', ())\n    feedback = history[-1] if history else None\n    if (feedback is None or not all(math.isfinite(v) for v in\n            (feedback.position, feedback.velocity, feedback.effort))\n            or not -100_000_000 <= now_ns-feedback.stamp_ns <= 150_000_000):\n        return 'invalid_stock_retained_feedback'\n    latched = getattr(node, '_payload_hazard_latched', None)\n    if latched is not None:\n        return str(latched)\n    if bool(getattr(node, '_target_robot_contact_latched', False)):\n        return 'payload_robot_contact'\n    # Exact _contact_timestamp_is_recent arithmetic and supported-side policy.\n    def recent(stamp):\n        return stamp > 0 and -.10 <= (now_ns-stamp)/1e9 <= max_age\n    left = recent(node._left_target_contact_ns)\n    right = recent(node._right_target_contact_ns)\n    retained = left if getattr(node, '_gravity_supported_payload', False) else left and right\n    if not retained:\n        return 'contact_lost'\n    width = float(node.joints.get('gripper_left_finger_joint', 0.0))\n    if not measured_position_in_range(width):\n        return 'closed_grip_not_retained'\n    return None\n"
+    }
+  ],
+  "candidate_sha256": "416fcf4e793adc6de620e9e2a6b643b684bec3061ac9b5df227df95b2394cee5"
+}

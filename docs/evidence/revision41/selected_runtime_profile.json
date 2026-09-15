@@ -1,0 +1,37 @@
+{
+  "candidate_scope": "Extended quality-validation allowance after Run38 exhausted its 900-second search deadline after full candidate validation. Pending new software validation and physical trial; trial_timeout_seconds=5400 is supplied by the launch harness, not a node-scoped profile override.",
+  "name": "collision_quality_registered_bin_place",
+  "overrides": {
+    "erc_manipulation": {
+      "bin_scene_required": true,
+      "book_centered_place_approach_x_m": 0.6,
+      "book_centered_place_clearance_height_m": 0.5,
+      "book_centered_place_enabled": true,
+      "book_centered_place_height_above_point_m": 0.27,
+      "command_timeout_seconds": 2400.0,
+      "delivery_evidence_enabled": true,
+      "fine_gripper_close_enabled": false,
+      "lift_first_extraction_enabled": true,
+      "lift_first_extraction_lift_m": 0.005,
+      "place_torso_height": 0.35,
+      "preclose_aperture_geometry_enabled": false,
+      "scene_cartesian_wall_seconds": 1800.0,
+      "stock_gripper_close_diagnostic_enabled": true,
+      "stock_gripper_close_target_position": 0.017,
+      "table_scene_required": true
+    },
+    "erc_mission_manager": {
+      "bin_standoff_distance": 0.82,
+      "delivery_evidence_enabled": true,
+      "lift_first_extraction_enabled": true,
+      "manipulation_timeout_seconds": 2400.0
+    },
+    "erc_perception": {
+      "bin_scene_enabled": true,
+      "table_scene_enabled": true
+    }
+  },
+  "parent_profile_sha256": "16b95a58194d23225d3775b8cd07afa3c72317ce112895082aa8690a018e56ef",
+  "planning_budget_parent_profile_sha256": "30adba14d789024515ac593ba261a306c0c9d3ae8ace7e816d2aead8e085e01e",
+  "purpose": "Fresh unscored development test of camera-fitted bin center/orientation, same-epoch table/bin/base admission, registered collision material with measurement allowance, supported book-centered placement and checked direct empty return. Preserves the existing navigation/front-patch contract, stock .017 grip, 5mm extraction lift, official physics and collision gates. Software and physical outcomes require separate validation."
+}

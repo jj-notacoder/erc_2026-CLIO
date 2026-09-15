@@ -1,0 +1,36 @@
+# Run50 sampled screen, table and bin geometry
+
+**No overlap was found in queried samples.** All six authorized jobs completed once in 21.596 monotonic seconds, with no cap firing. The exact final22/R57 source (336 files), selected inputs, helper and resolved assets remained unchanged. Trial `547cfa24165d` and certificate `16d418b4302989da42fc424ed0b4dccfc8bbff0516e2e5622d28ac808b34a20e` are bound in [the sealed execution manifest](execution01/execution_manifest.json).
+
+There are **208 atomic screen samples**, **208 eligible measured-tool/screen queries**, **208 measured-book/screen queries**, and **64 eligible table/bin pose samples**. All available atomic samples in the five requested windows were selected; the 200-sample limit did not subsample them. The stationary PLACE hold is excluded from the actual PLACE-motion window.
+
+| Minimum conservative screen separation, mm | INIT_STOW | PICK | COMPACT | HEAD_BIN | PLACE |
+|---|---:|---:|---:|---:|---:|
+| Arm collision meshes | 234.928 | 141.405 | 82.180 | 7.165 | 7.165 |
+| Arm visual meshes | 234.893 | 141.405 | 82.180 | 7.165 | 7.165 |
+| Nine nominal tools | 473.228 | 103.633 | 96.778 | 50.720 | 50.720 |
+| Available measured tools | 473.229 | 103.633 | 120.077 | 96.537 | 96.537 |
+| Actual stock book | 2750.404 | 417.739 | 54.225 | 56.604 | 22.411 |
+
+| Minimum conservative scene separation, mm | HEAD table | HEAD bin | PLACE table | PLACE bin |
+|---|---:|---:|---:|---:|
+| Arm collision meshes | 216.569 | 311.583 | 36.239 | 27.168 |
+| Arm visual meshes | 216.500 | 311.515 | 36.250 | 27.017 |
+| Nine nominal tools | 579.739 | 503.421 | 129.051 | 19.204 |
+| Available measured tools | 650.455 | 581.592 | 168.956 | 19.203 |
+
+These are world AABB separation lower bounds for the queried meshes, not exact closest distances or physical penetration depths. There were 0 narrow checks. Screen means the URDF visual envelope. Robot-versus-table/bin queries use official stock meshes and evaluator transforms only retrospectively. Book/bin landing contact, settled support and whole-book containment are separately established in [the physical report](../quality_evaluation/terminal_review01.md).
+
+| Phase | Requested ROS window | Atomic producer window | Samples | Max gap, s | Jointâˆ’pose skew, ms | Measured tool count | Max eligible arm7 FK residual, mm |
+|---|---|---|---:|---:|---|---:|---:|
+| init_stow | [3.2, 13.786] | [3.632, 13.02] | 11 | 1.004 | [-2.0, 0.0] | 11 | 0.409 |
+| pick | [82.428, 129.404] | [83.384, 129.296] | 103 | 1.004 | [-2.0, 14.0] | 103 | 0.461 |
+| compact | [134.4, 145.732] | [134.512, 145.564] | 30 | 0.424 | [-2.0, 14.0] | 30 | 0.428 |
+| head_bin | [157.5, 165.642] | [157.66, 165.408] | 23 | 0.372 | [-2.0, 12.0] | 23 | 0.001 |
+| place | [190.522, 214.682] | [190.808, 214.316] | 41 | 0.996 | [-2.0, 14.0] | 41 | 1.162 |
+
+The exact omitted samples and unavailable tool links are retained in [the summary](execution01/summary.json). The unchanged 20 ms filter rejects skewed/missing measured poses; nominal mimic tools never substitute for them. Atomic arm/head queries remain separate. No interpolation fills endpoint, intervening, or phase gaps. FK residuals include measurement timing/model differences and are not a calibrated uncertainty bound. INIT_STOW book geometry concerns the book still on the shelf.
+
+The reviewed Run40 copied-byte guard, stager and six-job runner are preserved in `parent_baseline`. [The narrow orchestration patch](orchestration.patch) changes only trial/labels/certificate and source count; the original geometry helper remains `f448eb510195654bae63fa8e2006e16898265075e1ca8380394924ae3ffdcd9e`. Shared240-second, phase60/30-second and external245-second bounds are unchanged. Root's stopped-world record is pinned. There were no retries, source/runtime/archive writes, new tests, subscriptions or controller inputs. Audit execution cost is not a live-planner performance measurement.
+
+[Exact outputs and logs](execution01/results/copied_output_manifest.json), [completion record](execution01/results/finished.json), and [summary/witnesses](execution01/summary.json) retain the result. This evidence covers the stated samples and pairs; it does not prove continuous clearance, general self-collision safety, or actual passive geometry between observations.

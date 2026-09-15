@@ -1,0 +1,42 @@
+{
+  "verdict": "CONSISTENT_WITH_EXPLICIT_SCOPE_LIMITS",
+  "evidence_sha256": {
+    "quality_evaluation/physical_final01.json": "7dd6c0bc14f11764401015b932d57e3d302ddddadf0a1517a7314a41da60b681",
+    "actual_geometry_audit/execution01/summary.json": "7572e2191ef0de42e34dc06715d31a8e0b310d4e37b38e59602b69e213caf964",
+    "preopen_completion_independent_review/evidence.json": "3a28dc501df377cd399f6a3bc1947d7ebd481a35e600797e377e3e625ef39831",
+    "shutdown/shutdown_observation.json": "709ed72275f7156cfeb36600923fa4fb304ec538c4d00d1964a18a915f133126"
+  },
+  "certificate_sha256": "16d418b4302989da42fc424ed0b4dccfc8bbff0516e2e5622d28ac808b34a20e",
+  "canonical_source_files": 336,
+  "canonical_exact_certified_source": true,
+  "promotion_record_sha256": "35bb96105ad051a9c8f7d13039195d37bd75a3bc35863389dae1fc0ac693cfce",
+  "geometry_invocation_note_sha256": "ebb63de767968724bf9844eb9fee303f0f58955c47b10ce2fd12052a30d7024a",
+  "verified_claims": {
+    "done_observer_wall_seconds": 855.5584200830017,
+    "measured_hand_home_wall_seconds": 855.3038554279992,
+    "final_inside_samples": 22,
+    "final_stable_span_ros_seconds": 20.104,
+    "all_eight_corners_inside_each_sample": true,
+    "final_floor_residual_m": 7.751605760747404e-07,
+    "final_side_clearance_m": 0.0025371639564047144,
+    "software_tests": 3706,
+    "geometry_jobs": 6,
+    "screen_atomic_samples": 208,
+    "eligible_scene_samples": 64,
+    "geometry_wall_seconds": 21.596316374998423
+  },
+  "contradictions": [],
+  "qualifications": [
+    "Mission DONE and raw measured HOME are operational/actuator evidence. Whole-book containment comes separately from retrospective evaluator poses, not the onboard status.",
+    "All22 settled samples have all8 corners in the conservative bin core with support consistent within the existing1micrometre analysis tolerance; this is a sampled final-state result.",
+    "Earlier saved floor residual is -1.477244466mm; the distinct saved book/bin contact depth is1.473870315mm. Final support does not imply penetration-free landing or continuous containment.",
+    "Geometry found no overlap only for queried pairs/times. It uses conservative AABB lower bounds,20ms skew rule, unfilled gaps and missing actual tool-base/two-base-finger links. It does not prove full continuous collision safety or exclude intended book/bin landing contact.",
+    "No numerical geometry rerun occurred; an initial Windows wrapper invocation failed before child creation and was corrected to WSL. Operator note preserves this distinction.",
+    "Run50 preopen success used2.729474s and equal generations; neither added timeout allowance nor changed-generation acceptance was needed. No causal attribution to a specific fix or guarantee of repeatability follows.",
+    "Certificate/promotion flags describe their creation stages; their historical physical_result/runtime_built=false fields do not contradict later separately recorded execution."
+  ],
+  "tests_or_numerical_replays_executed": false,
+  "live_access": false,
+  "sealed_evidence_modified": false,
+  "documentation_under_edit_reviewed": false
+}

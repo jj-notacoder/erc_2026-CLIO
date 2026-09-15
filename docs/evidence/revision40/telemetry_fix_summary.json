@@ -1,0 +1,63 @@
+{
+  "schema": "derived_revision40_telemetry_correction_v1",
+  "artifact_kind": "Portable source-review and focused-check summary with separate completed full-validation identity",
+  "source_tree_sha256": "5ce3935b60b595123df2ece8fa6a1497932e5605554980f922a95095668d5658",
+  "package_files": 268,
+  "profile_sha256": "16b95a58194d23225d3775b8cd07afa3c72317ce112895082aa8690a018e56ef",
+  "staging_record_sha256": "7f41873acb978be4ce5d17d71aa99ac2623ccd1b96a731621e0a40902d2f049e",
+  "failed_ancestor": {
+    "label": "collision_quality_final_06",
+    "passed_tests": 2654,
+    "failed_tests": 1,
+    "errors": 0,
+    "skipped": 0,
+    "constructors_passed": true,
+    "official_checks_passed": true,
+    "source_unchanged": true,
+    "validation_result_sha256": "f2186386238a0fa6cd4f88056237000880b15d2537f7497bcdb1f83bbb34651e",
+    "certified": false
+  },
+  "failure": "Eager initial diagnostic argument access replaced the original missing-bin admission error before entering the logger try block",
+  "correction": "Protect publisher lookup, initial telemetry argument construction and optional search-budget telemetry argument construction; original admission/geometry/solver exceptions still propagate",
+  "focused_tests": {
+    "passed": 26,
+    "existing_registered_bin_cases": 14,
+    "new_boundary_cases": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "nontelemetry_pipeline_ast_unchanged": true,
+  "valid_initial_payload_unchanged_excluding_elapsed": true,
+  "geometry_replayed_on_revision40": false,
+  "focused_proof_sha256": "e2cb8e418d9b25b9fe2c2b9e70f15f0b9d53462108c39e43a84f6c4ba52bee68",
+  "independent_review_sha256": "6ef78451dfa6035acd08d32530e9604e17f5cf67286579eadb611a1369d4c448",
+  "prior_review_correction": "Previous AST-stripping review missed eager Python argument evaluation outside the logging try; baseline AST recovery alone did not establish runtime error-order preservation.",
+  "full_validation": {
+    "label": "collision_quality_final_07",
+    "snapshot_sha256": "9a3b4f275f66b2bbef81ae04ecc836d9d1400710deaa4c78326e028d5ddf4241",
+    "status": "passed",
+    "certificate_sha256": "e96906f690ff6dcf25d4d69cb8bfb4b26b6de015cf49b2f98812e268ee3d59d3",
+    "junit": {
+      "tests": 2667,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "validation_result_sha256": "5709f75b4789a4e9f5d0dfedbf39e3ddaa08e5e3ef0ac4cf9e344f48b32b2ba0",
+    "full_validation_wall_seconds": 271.907507336,
+    "finished": "2026-09-11T15:52:13.107376+00:00",
+    "selected_and_default_actual_four_node_constructors_passed": true,
+    "constructor_sha256": {
+      "selected": "63b4daaac897d73a75d3b950ff0c7b0a31cf0cae7a0e5b3a43f56065b3a0de60",
+      "defaults": "8433351f20ff311712cbba327e023776fe763d82b895fa17a6478a9e1e124ca0"
+    },
+    "source_unchanged": true,
+    "official_files": 895,
+    "exact_official_bytes": 893,
+    "audited_header_only_refreshes": 2,
+    "resolved_urdf_meshes": 40,
+    "physical_trial_result": false
+  },
+  "run38_physical_outcome": "pending"
+}

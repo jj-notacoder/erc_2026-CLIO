@@ -1,0 +1,18 @@
+{
+  "candidate_sha256": "8289cb2aff6da2d03de0a02ab295f3599d90c9a300fecbaf5c249f93c9e0f439",
+  "complete_byte_inverse": true,
+  "parent_sha256": "e3d24f11727de111e71795f0bd4a81de8c1eeeed551a21202f6753501cfb430c",
+  "parent_source": "\"\"\"Optional four-leg withdrawal timing; no geometry, commands or sensor reads.\n\nRange admission is a software bound, not acceleration, tracking or retention\nproof. Each shortened goal still requires fresh locked joint-velocity admission.\n\"\"\"\nimport math\n\n\ndef checked_withdrawal_speed_scale(value):\n    if isinstance(value, bool):\n        raise ValueError('withdrawal_speed_scale must be a finite number in [1.0, 2.0]')\n    try:\n        scale = float(value)\n    except (TypeError, ValueError, OverflowError) as error:\n        raise ValueError('withdrawal_speed_scale must be a finite number in [1.0, 2.0]') from error\n    if not math.isfinite(scale) or not 1.0 <= scale <= 2.0:\n        raise ValueError('withdrawal_speed_scale must be a finite number in [1.0, 2.0]')\n    return scale\n\n\ndef withdrawal_leg_speed_scales(legs, *, command, speed_scale, arm_speed_scale,\n                                leg_offset, initial_pressure_gate):\n    \"\"\"Admit only the exact initial-lift/four-withdrawal prefix, never recovery.\n\nThe caller supplies the existing first PICK segment after unchanged geometry\nand pressure preflight. Do not copy/edit its joint arrays, legs or durations.\nAdditional carry phases retain scale1. Default callers need not enter here.\n\"\"\"\n    scale = checked_withdrawal_speed_scale(speed_scale)\n    if (command != 'pick' or arm_speed_scale != 1.0 or leg_offset != 0\n            or initial_pressure_gate is None):\n        raise ValueError('withdrawal scaling requires the unstacked initial lift-first PICK segment')\n    if not 5 <= len(legs) <= 256:\n        raise ValueError('withdrawal scaling requires exactly four withdrawal legs after the lift')\n    expected = ((1.0, 'initial_shelf_lift'), *((5.8, 'extraction'),) * 4)\n    for leg, (duration, phase) in zip(legs[:5], expected):\n        if len(leg) != 3 or leg[1] != duration or leg[2] != phase:\n            raise ValueError('withdrawal scaling requires the unchanged 1s lift and four 5.8s extraction legs')\n    if any(len(leg) != 3 or leg[2] in ('initial_shelf_lift', 'extraction') for leg in legs[5:]):\n        raise ValueError('extra extraction/lift legs are not admitted for withdrawal scaling')\n    return (1.0, scale, scale, scale, scale, *((1.0,) * (len(legs)-5)))\n",
+  "replacements": [
+    {
+      "new": "[1.0, 3.0]",
+      "occurrences": 3,
+      "old": "[1.0, 2.0]"
+    },
+    {
+      "new": "not 1.0 <= scale <= 3.0",
+      "occurrences": 1,
+      "old": "not 1.0 <= scale <= 2.0"
+    }
+  ]
+}

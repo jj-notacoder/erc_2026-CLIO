@@ -1,0 +1,46 @@
+# Local ROS 2 build products
+build/
+install/
+log/
+build_release/
+install_release/
+log_release/
+tools/gazebo_viewer_plugin/build_throttled/
+
+# Python test/runtime caches
+**/__pycache__/
+**/.pytest_cache/
+*.py[cod]
+
+# Local simulator evidence and generated deliverables
+erc_images/
+results/
+output/
+tmp/
+report/rendered/
+
+# Local test and coverage output
+.coverage
+htmlcov/
+*.log
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Optional local build variants and rollback archives
+build_native/
+install_native/
+log_native/
+checkpoints/
+.env
+.env.*
+
+# The pinned official simulator includes exactly these two bytecode assets.
+# Keep their original bytes so a clean checkout passes its integrity manifest.
+!src/sensors/sensors/__pycache__/
+src/sensors/sensors/__pycache__/*
+!src/sensors/sensors/__pycache__/__init__.cpython-310.pyc
+!src/sensors/sensors/__pycache__/depth_to_cloud_node.cpython-310.pyc

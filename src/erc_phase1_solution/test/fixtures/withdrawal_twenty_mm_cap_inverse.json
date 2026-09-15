@@ -1,0 +1,36 @@
+{
+  "helper": {
+    "path": "erc_phase1_solution/lift_first_extraction.py",
+    "parent_sha256": "d3ff5f4c45260d997e4886c75f679d2f6522f5c2cdd5621c5f2e7cc73c111509",
+    "candidate_sha256": "fdf2318a42e4bccd6ecbeb3a19e5b11153169f1a219b475e150e60583be84c98",
+    "replacements": [
+      {
+        "old": "not 0 < lift_m <= .008",
+        "new": "not 0 < lift_m <= .020",
+        "count": 2
+      },
+      {
+        "old": "lift-first rise must be positive and at most 8 mm",
+        "new": "lift-first rise must be positive and at most 20 mm",
+        "count": 1
+      }
+    ]
+  },
+  "node": {
+    "path": "erc_phase1_solution/manipulation_node.py",
+    "parent_sha256": "9fd743c3b645e13893fd9f6205e50580ee038b684ebf1b3764b352631461f750",
+    "candidate_sha256": "52e1d83329bf69925352a219670ac1a42bd33abddce3f7e1b81797dc035eb581",
+    "replacements": [
+      {
+        "old": "not 0.0 < self.lift_first_extraction_lift_m <= .008",
+        "new": "not 0.0 < self.lift_first_extraction_lift_m <= .020",
+        "count": 1
+      },
+      {
+        "old": "lift_first_extraction_lift_m must be positive and at most 8 mm",
+        "new": "lift_first_extraction_lift_m must be positive and at most 20 mm",
+        "count": 1
+      }
+    ]
+  }
+}

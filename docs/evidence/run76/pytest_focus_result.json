@@ -1,0 +1,27 @@
+{
+  "started_utc": "2026-09-14T01:42:57.189589+00:00",
+  "finished_utc": "2026-09-14T01:43:13.527272+00:00",
+  "wall_elapsed_seconds": 16.33770124199509,
+  "returncode": 0,
+  "command": [
+    "pytest",
+    "-q",
+    "/opt/erc_ws/results/collision_quality_config_variant_49/src/erc_phase1_solution/test/test_installed_selected_profile.py",
+    "/opt/erc_ws/results/collision_quality_config_variant_49/src/erc_phase1_solution/test/test_launch_collision_quality_profile.py",
+    "/opt/erc_ws/results/collision_quality_config_variant_49/src/erc_phase1_solution/test/test_empty_head_timing.py",
+    "/opt/erc_ws/results/collision_quality_config_variant_49/src/erc_phase1_solution/test/test_empty_head_torso_ownership.py",
+    "--junitxml=/opt/erc_ws/results/collision_quality_config_variant_49/pytest_focus.xml"
+  ],
+  "source_check": {
+    "unchanged": true,
+    "files": 1308,
+    "changed": []
+  },
+  "full_suite_current_snapshot": false,
+  "focused_modules": [
+    "test/test_installed_selected_profile.py",
+    "test/test_launch_collision_quality_profile.py",
+    "test/test_empty_head_timing.py",
+    "test/test_empty_head_torso_ownership.py"
+  ]
+}

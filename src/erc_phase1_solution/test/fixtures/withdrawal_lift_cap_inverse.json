@@ -1,0 +1,34 @@
+{
+  "helper": {
+    "candidate_sha256": "d3ff5f4c45260d997e4886c75f679d2f6522f5c2cdd5621c5f2e7cc73c111509",
+    "parent_sha256": "070f23d016ae3d4e8a740b11bc7eebcda8205a06d1e320d1b025231d747abb2f",
+    "replacements": [
+      {
+        "count": 2,
+        "new": "not 0 < lift_m <= .008",
+        "old": "not 0 < lift_m <= .005"
+      },
+      {
+        "count": 1,
+        "new": "lift-first rise must be positive and at most 8 mm",
+        "old": "lift-first rise must be positive and at most 5 mm"
+      }
+    ]
+  },
+  "node": {
+    "candidate_sha256": "8c04bb31ce8b816059cc80cd41a7e34a0aa25a2459353681ef84a826595ca876",
+    "parent_sha256": "4754b83123b43cb183856d279ce5dc935eb291642c5dcb4f27165f1707a043f6",
+    "replacements": [
+      {
+        "count": 1,
+        "new": "not 0.0 < self.lift_first_extraction_lift_m <= .008",
+        "old": "not 0.0 < self.lift_first_extraction_lift_m <= .005"
+      },
+      {
+        "count": 1,
+        "new": "lift_first_extraction_lift_m must be positive and at most 8 mm",
+        "old": "lift_first_extraction_lift_m must be positive and at most 5 mm"
+      }
+    ]
+  }
+}

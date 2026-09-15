@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/ErcViewerLighting">
+    <file>ErcViewerLighting.qml</file>
+  </qresource>
+</RCC>

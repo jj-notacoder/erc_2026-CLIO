@@ -1,0 +1,97 @@
+{
+  "schema": "closed_run_timing_scope_v1",
+  "passed": true,
+  "run": "Run97",
+  "trial_id": "88a0bc5a6116",
+  "scope": "Compact immutable-result/closure timing comparison; no independent geometry reconstruction or reducer rerun.",
+  "solution_operation_completed": true,
+  "solution_operation_seconds": 276.90620941700035,
+  "solution_operation_under_300_seconds": true,
+  "solution_operation_margin_below_300_seconds": 23.093790582999645,
+  "strict_physical_success": true,
+  "stable_samples": 22,
+  "stable_span_ros_seconds": 23.006,
+  "minimum_side_clearance_m": 0.0662131778295861,
+  "first_contact_seconds": 275.05186867299926,
+  "first_contact_is_containment_proof": false,
+  "world_marker_utc": "2026-09-14T19:30:41Z",
+  "solution_launch_utc": "2026-09-14T19:30:56.639348+00:00",
+  "approximate_world_marker_to_launch_seconds": 15.639348,
+  "approximate_world_marker_to_summary_seconds": 292.54555741700034,
+  "approximate_world_marker_to_completion_seconds": 292.54555741700034,
+  "world_marker_to_completion_under_300_seconds": true,
+  "world_marker_precision_seconds": 1,
+  "clock_scope": "Solution launch-to-summary and first receipt use host monotonic time. Startup offset uses the whole-second UTC world marker; adding it assumes no wall-clock step and excludes build/staging.",
+  "natural_initial_preflight": true,
+  "startup_troubleshooting_present": false,
+  "startup_attempts": [
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\startup_sequence01\\result.json",
+      "sha256": "7d5c97e84cd3f1db2ff950ca8337e3c20c71c734a70284debfbbb17d73650bd8",
+      "passed": true,
+      "started_utc": "2026-09-14T19:30:40.752112+00:00",
+      "finished_utc": "2026-09-14T19:31:00.092241+00:00",
+      "wall_seconds": 18.875315031000355
+    }
+  ],
+  "startup_sequence_seconds": 18.875315031000355,
+  "sequence_end_relative_to_launch_seconds": 3.452893,
+  "complete_video_under_5_minutes_verified": false,
+  "repeatability_proven": false,
+  "gentle_placement": false,
+  "last_preopen_book_bottom_above_floor_m": 0.26687246527655617,
+  "comparison": [
+    {
+      "run": 92,
+      "operation_completed": true,
+      "operation_seconds": 299.0351169610003,
+      "strict_success": true,
+      "elapsed_interval_difference_seconds": 22.128907543999958,
+      "successful_runtime_saving_seconds": 22.128907543999958
+    },
+    {
+      "run": 94,
+      "operation_completed": true,
+      "operation_seconds": 293.8086326729972,
+      "strict_success": false,
+      "elapsed_interval_difference_seconds": 16.902423255996837,
+      "successful_runtime_saving_seconds": null
+    },
+    {
+      "run": 95,
+      "operation_completed": false,
+      "operation_seconds": 255.33928107300017,
+      "strict_success": false,
+      "elapsed_interval_difference_seconds": -21.56692834400019,
+      "successful_runtime_saving_seconds": null
+    },
+    {
+      "run": 96,
+      "operation_completed": true,
+      "operation_seconds": 285.80946417000087,
+      "strict_success": true,
+      "elapsed_interval_difference_seconds": 8.90325475300051,
+      "successful_runtime_saving_seconds": 8.90325475300051
+    }
+  ],
+  "original_reports_unchanged": true,
+  "inputs": {
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\result.json": "0a7bc4b934593cb2be9f7ca001b938a72ddfc67ac37b5684efe274d57a19eaaf",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\archive_manifest.json": "e1553ac4d6d87a23934eed5bc65da6ef6cf0c060cf34b5648e63a5b7acced86e",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\runtime_closure.json": "e5e4896c8593be8860063352ad08efffc05c5ee0d4d87da7b91086237c6b9092",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\raw\\runtime_closure.json": "e5e4896c8593be8860063352ad08efffc05c5ee0d4d87da7b91086237c6b9092",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\raw\\trial_manifest.json": "b3145b7a5391584b8626d9b998e7847e8686cb1f36f2a75ffd7eacfffdf8824e",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\raw\\validation_certificate.json": "cce6fff8f0c49a0dd576495df10a98efbe648ec928481e1faca71e9debb60f21",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\raw\\trial_88a0bc5a6116_summary.json": "05627dda20d8b8f830fa41eb1bb87d20587a0533e82e15cdeca1cec7fb0f0360",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\raw\\world_launch_context.txt": "daa180684a1c588af0cde37fbbba348ab3f01cbd37a05168df799c666f1d9d46",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\raw\\launch_world.sh": "0c72e4947889b95af9e6ce6cc65ef325feccf9de088c251e38cf98cc0cbfbee2",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\startup_sequence01\\result.json": "7d5c97e84cd3f1db2ff950ca8337e3c20c71c734a70284debfbbb17d73650bd8",
+    "C:\\Users\\sir\\Documents\\New project\\tmp\\erc_status_review\\start_run97_sequence01.py": "a2b335214794cecbc69b63a62b1c0324b468c70584dae83af6412b32489802ef",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run92\\result.json": "8bfbc9e867fa3bc411555a25a7c04ec8cfe58841d50c30206f8c9f810d93fff5",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run94\\result.json": "44754ed6549592e9482d42005657a318cf83ee04ade2aade8d3e0c014565f3e2",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run95\\result.json": "9ed4c1831d95c1606d3660559e96486fecc0a8d7a4b3c4658e728a8e4f62a56c",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run96\\result.json": "cc7714f96caa89c4a32d5d88117b3ac8eb61dfad064f8a324267c3f57b6a515a",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\best_strict_runtime_after_run96.json": "cc7714f96caa89c4a32d5d88117b3ac8eb61dfad064f8a324267c3f57b6a515a",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\RESULTS.md": "3ea448cda6626b5322f2536556e292e0e454eb8ba11475b4cd1bf1ba6d1aac86"
+  }
+}

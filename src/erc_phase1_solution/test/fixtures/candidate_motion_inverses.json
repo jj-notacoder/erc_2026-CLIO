@@ -1,0 +1,202 @@
+{
+  "parents": {
+    "tool": "6891251fd80d1087fe99e6b9a97f72d38b6b26efd3f049210e486c719967afdf",
+    "tool_tests": "acead26abbfc17a3d5af251ab321bbe4eda3552a326cc489217e02cdb8dc2f09",
+    "arm": "6fefff4f239243f07c71a059e9f55efd4af2f3196f920a90dc9d2123f1168850",
+    "velocity": "5b8967c46eda31089f9915b81cc4c483797d98c4b4913c59f0afa807c7f14d69",
+    "torso_node": "7707e8ea127b33e241dfc6f4f200d30ec5e8cfa833cb1ea8faaa9b9c20cbe649",
+    "torso_test": "eba2260249f1db1d96e73e098355676b6e8a898fd8de6defb8f8ad12b1e9c1a6"
+  },
+  "layers": {
+    "nominal_torso": {
+      "parent_source_sha256": "01a758d295ee2b4f79591821a6d03f8e53a633017366db74847f203823ba254d",
+      "child_source_sha256": "7707e8ea127b33e241dfc6f4f200d30ec5e8cfa833cb1ea8faaa9b9c20cbe649",
+      "parent_ast_sha256": "f5641db5cca9c879842542ac97f9e79bee2b0c6704c85fd43f40da7ae8d33618",
+      "context_lines": 0,
+      "replacements": [
+        {
+          "before": "",
+          "after": "        self.measured_place_height_enabled = bool(\n            self.get_parameter('measured_place_height_enabled').value)\n",
+          "count": 1
+        },
+        {
+          "before": "",
+          "after": "            'measured_place_height_enabled': False,\n",
+          "count": 1
+        },
+        {
+          "before": "        if centered_target is not None and getattr(self, 'table_scene_required', False):\n",
+          "after": "        # The nominal route retains its complete carry-to-torso scene check.\n        # The micrometre measured-height shortcut is an explicit experiment.\n        if (centered_target is not None and getattr(self, 'table_scene_required', False)\n                and getattr(self, 'measured_place_height_enabled', False)):\n",
+          "count": 1
+        }
+      ]
+    },
+    "tool_node": {
+      "parent_source_sha256": "01a758d295ee2b4f79591821a6d03f8e53a633017366db74847f203823ba254d",
+      "child_source_sha256": "034204955b1e86d67cc6111f748da8efc40776ced7dfdb3a2dc9642375cf7ea4",
+      "parent_ast_sha256": "f5641db5cca9c879842542ac97f9e79bee2b0c6704c85fd43f40da7ae8d33618",
+      "context_lines": 0,
+      "replacements": [
+        {
+          "before": "                self._shelf_cradle_geometry = ShelfCradleGeometry(urdf, get_package_share_directory)\n",
+          "after": "                self._shelf_cradle_geometry = ShelfCradleGeometry(urdf, get_package_share_directory, immutable_local=True)\n",
+          "count": 1
+        }
+      ]
+    },
+    "arm_timing": {
+      "parent_source_sha256": "01a758d295ee2b4f79591821a6d03f8e53a633017366db74847f203823ba254d",
+      "child_source_sha256": "7d181ccc606fb64cb9503bab8101c23243800e9954ebbecfcb1c31871e565c2a",
+      "parent_ast_sha256": "f5641db5cca9c879842542ac97f9e79bee2b0c6704c85fd43f40da7ae8d33618",
+      "context_lines": 1,
+      "replacements": [
+        {
+          "before": "from pathlib import Path\nimport threading\n",
+          "after": "from pathlib import Path\n\nfrom .arm_trajectory_timing import checked_arm_speed_scale, scaled_arm_seconds\nimport threading\n",
+          "count": 1
+        },
+        {
+          "before": "            raise ValueError('bin_scene_required requires table_scene_required and book_centered_place_enabled')\n        self.scene_cartesian_wall_seconds = float(\n",
+          "after": "            raise ValueError('bin_scene_required requires table_scene_required and book_centered_place_enabled')\n        self.placement_transport_speed_scale = checked_arm_speed_scale(\n            self.get_parameter('placement_transport_speed_scale').value)\n        self.scene_cartesian_wall_seconds = float(\n",
+          "count": 1
+        },
+        {
+          "before": "            'bin_scene_required': False,\n            'scene_cartesian_wall_seconds': 420.0,\n",
+          "after": "            'bin_scene_required': False,\n            'placement_transport_speed_scale': 1.0,\n            'scene_cartesian_wall_seconds': 420.0,\n",
+          "count": 1
+        },
+        {
+          "before": "        pre_send_check=None,\n    ) -> bool:\n",
+          "after": "        pre_send_check=None,\n        trajectory_duration=None,\n    ) -> bool:\n",
+          "count": 1
+        },
+        {
+          "before": "        point.positions = [float(value) for value in positions]\n        point.time_from_start = Duration(seconds=float(duration)).to_msg()\n        goal.trajectory.points = [point]\n",
+          "after": "        point.positions = [float(value) for value in positions]\n        command_duration = float(duration)\n        if trajectory_duration is not None:\n            if client is not self.arm_client or tuple(names) != tuple(ARM_JOINTS):\n                raise ValueError('arm timing override requires the left arm controller and joints')\n            command_duration = float(trajectory_duration)\n            if (not math.isfinite(command_duration) or not math.isfinite(float(duration))\n                    or not 0.0 < float(duration) / 1.25 <= command_duration <= float(duration)):\n                raise ValueError('arm timing override must remain within the 1.0 to 1.25 speed range')\n        # Keep duration unchanged for the original wall watchdog below.\n        point.time_from_start = Duration(seconds=command_duration).to_msg()\n        goal.trajectory.points = [point]\n",
+          "count": 1
+        },
+        {
+          "before": "\n    def _move_arm_solution(self, solution: Sequence[float], duration: float) -> bool:\n        q = np.asarray(solution, dtype=float)\n        return self._follow(self.arm_client, ARM_JOINTS, q[1:], duration)\n\n",
+          "after": "\n    def _move_arm_solution(self, solution: Sequence[float], duration: float, *, trajectory_duration=None) -> bool:\n        q = np.asarray(solution, dtype=float)\n        return self._follow(self.arm_client, ARM_JOINTS, q[1:], duration,\n            **({'trajectory_duration': trajectory_duration} if trajectory_duration is not None else {}))\n\n",
+          "count": 1
+        },
+        {
+          "before": "        initial_pressure_gate=None,\n    ) -> Tuple[bool, int, bool]:\n        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        for index, (solution, duration, phase) in enumerate(legs):\n            try:\n                active_leg = [(solution, duration, phase)]\n                goal, total_duration = self._make_retained_arm_trajectory_goal(\n",
+          "after": "        initial_pressure_gate=None,\n        arm_speed_scale: float = 1.0,\n    ) -> Tuple[bool, int, bool]:\n        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        if arm_speed_scale != 1.0:\n            arm_speed_scale = checked_arm_speed_scale(arm_speed_scale)\n        for index, (solution, duration, phase) in enumerate(legs):\n            try:\n                command_duration = (duration if arm_speed_scale == 1.0 else\n                                    scaled_arm_seconds(duration, arm_speed_scale))\n                active_leg = [(solution, command_duration, phase)]\n                goal, total_duration = self._make_retained_arm_trajectory_goal(\n",
+          "count": 1
+        },
+        {
+          "before": "                moved, motion_contact_lost = self._send_retained_arm_trajectory(\n                    goal, total_duration, active_leg, command,\n                    leg_offset=index + leg_offset,\n",
+          "after": "                moved, motion_contact_lost = self._send_retained_arm_trajectory(\n                    # The goal/phase clock is scaled; the old watchdog allowance is not.\n                    goal, (total_duration if arm_speed_scale == 1.0 else float(duration)),\n                    active_leg, command,\n                    leg_offset=index + leg_offset,\n",
+          "count": 1
+        },
+        {
+          "before": "        direct_empty_home: Optional[Sequence[Sequence[float]]] = None,\n    ) -> bool:\n        \"\"\"Retrace the bin approach, then execute a prechecked unloaded fold.\"\"\"\n        endpoint_wait = None\n",
+          "after": "        direct_empty_home: Optional[Sequence[Sequence[float]]] = None,\n        arm_speed_scale: float = 1.0,\n    ) -> bool:\n        \"\"\"Retrace the bin approach, then execute a prechecked unloaded fold.\"\"\"\n        if arm_speed_scale != 1.0:\n            arm_speed_scale = checked_arm_speed_scale(arm_speed_scale)\n        endpoint_wait = None\n",
+          "count": 1
+        },
+        {
+          "before": "        for solution in reversed(cartesian_solutions[:-1]):\n            if not self._move_arm_solution(solution, 0.65):\n                return False\n",
+          "after": "        for solution in reversed(cartesian_solutions[:-1]):\n            if not self._move_arm_solution(solution, 0.65,\n                    **({'trajectory_duration': scaled_arm_seconds(.65, arm_speed_scale)}\n                       if arm_speed_scale != 1.0 else {})):\n                return False\n",
+          "count": 1
+        },
+        {
+          "before": "            return self._execute_unloaded_home(direct_empty_home, final_arm_duration=duration,\n                **({'endpoint_wait': endpoint_wait, 'endpoint_start': previous}\n",
+          "after": "            return self._execute_unloaded_home(direct_empty_home, final_arm_duration=duration,\n                **({'arm_speed_scale': arm_speed_scale} if arm_speed_scale != 1.0 else {}),\n                **({'endpoint_wait': endpoint_wait, 'endpoint_start': previous}\n",
+          "count": 1
+        },
+        {
+          "before": "        endpoint_start: Optional[Sequence[float]] = None,\n    ) -> bool:\n        \"\"\"Execute a forward, prechecked unloaded route and lower the torso.\"\"\"\n        previous = None\n",
+          "after": "        endpoint_start: Optional[Sequence[float]] = None,\n        arm_speed_scale: float = 1.0,\n    ) -> bool:\n        \"\"\"Execute a forward, prechecked unloaded route and lower the torso.\"\"\"\n        if arm_speed_scale != 1.0:\n            arm_speed_scale = checked_arm_speed_scale(arm_speed_scale)\n        previous = None\n",
+          "count": 1
+        },
+        {
+          "before": "        for waypoint in unloaded_home_waypoints:\n            if not self._move_arm_solution(waypoint, 2.2):\n                return False\n",
+          "after": "        for waypoint in unloaded_home_waypoints:\n            if not self._move_arm_solution(waypoint, 2.2,\n                    **({'trajectory_duration': scaled_arm_seconds(2.2, arm_speed_scale)}\n                       if arm_speed_scale != 1.0 else {})):\n                return False\n",
+          "count": 1
+        },
+        {
+          "before": "                previous = np.asarray(waypoint, dtype=float)\n        if not self._follow(self.arm_client, ARM_JOINTS, HOME[1:], final_arm_duration):\n            return False\n",
+          "after": "                previous = np.asarray(waypoint, dtype=float)\n        if not self._follow(self.arm_client, ARM_JOINTS, HOME[1:], final_arm_duration,\n                **({'trajectory_duration': scaled_arm_seconds(final_arm_duration, arm_speed_scale)}\n                   if arm_speed_scale != 1.0 else {})):\n            return False\n",
+          "count": 1
+        },
+        {
+          "before": "        # the cradle roll.\n        prepared_groups = [\n",
+          "after": "        # the cradle roll.\n        supported_watchdog_duration = None\n        arm_speed_scale = getattr(self, 'placement_transport_speed_scale', 1.0)\n        if arm_speed_scale != 1.0:\n            arm_speed_scale = checked_arm_speed_scale(arm_speed_scale)\n            supported_watchdog_duration = sum(item[1] for item in timed_groups[2])\n            # Only the post-roll supported group; keep its tiny-leg floor.\n            timed_groups[2] = [(q, scaled_arm_seconds(seconds, arm_speed_scale, minimum=.35), phase)\n                               for q, seconds, phase in timed_groups[2]]\n        prepared_groups = [\n",
+          "count": 1
+        },
+        {
+          "before": "            supported_goal,\n            supported_duration,\n            timed_groups[2],\n",
+          "after": "            supported_goal,\n            (supported_duration if supported_watchdog_duration is None\n             else supported_watchdog_duration),\n            timed_groups[2],\n",
+          "count": 1
+        },
+        {
+          "before": "            )\n        approach_legs: List[Tuple[Sequence[float], float, str]] = [\n",
+          "after": "            )\n        # Timing options apply only to this normal accepted, registered PLACE path.\n        arm_timing_options = {}\n        arm_speed_scale = getattr(self, 'placement_transport_speed_scale', 1.0)\n        if (direct_empty_home is not None and arm_speed_scale != 1.0\n                and getattr(self, 'table_scene_required', False)\n                and getattr(self, 'bin_scene_required', False)):\n            arm_timing_options['arm_speed_scale'] = checked_arm_speed_scale(arm_speed_scale)\n        approach_legs: List[Tuple[Sequence[float], float, str]] = [\n",
+          "count": 1
+        },
+        {
+          "before": "            'place',\n        )\n",
+          "after": "            'place',\n            **arm_timing_options,\n        )\n",
+          "count": 1
+        },
+        {
+          "before": "                    **({'direct_empty_home': direct_empty_home}\n                       if direct_empty_home is not None else {})):\n                return False\n",
+          "after": "                    **({'direct_empty_home': direct_empty_home}\n                       if direct_empty_home is not None else {}), **arm_timing_options):\n                return False\n",
+          "count": 1
+        },
+        {
+          "before": "               if direct_empty_home is not None else {}),\n        )\n",
+          "after": "               if direct_empty_home is not None else {}),\n            **arm_timing_options,\n        )\n",
+          "count": 1
+        }
+      ]
+    },
+    "velocity": {
+      "parent_source_sha256": "7d181ccc606fb64cb9503bab8101c23243800e9954ebbecfcb1c31871e565c2a",
+      "parent_ast_sha256": "798bd1e238286ac0f3b9e8b6a9e9b132fcb7d4a08b3e31addba5f683fe2ff7d0",
+      "replacements": [
+        {
+          "before": "from __future__ import annotations\n\nfrom collections import deque\nfrom dataclasses import dataclass, replace\nimport math\nfrom pathlib import Path\n\nfrom .arm_trajectory_timing import checked_arm_speed_scale, scaled_arm_seconds\nimport threading\nimport time\nfrom typing import Callable, Dict, List, Optional, Sequence, Tuple\n\nimport numpy as np\nimport rclpy\nfrom action_msgs.msg import GoalStatus\nfrom ament_index_python.packages import get_package_share_directory\n",
+          "after": "from __future__ import annotations\n\nfrom collections import deque\nfrom dataclasses import dataclass, replace\nimport math\nfrom pathlib import Path\n\nfrom .arm_trajectory_timing import checked_arm_speed_scale, scaled_arm_seconds\nfrom .arm_velocity_admission import (\n    ArmVelocityAdmissionRejected, require_arm_velocity_locked,\n    publish_arm_velocity_admission,\n)\nimport threading\nimport time\nfrom typing import Callable, Dict, List, Optional, Sequence, Tuple\n\nimport numpy as np\nimport rclpy\nfrom action_msgs.msg import GoalStatus\nfrom ament_index_python.packages import get_package_share_directory\n",
+          "count": 1
+        },
+        {
+          "before": "        if len(self.book_row_tilts) != 4:\n            raise ValueError('book_row_tilts must contain four top-to-bottom tilts')\n\n        urdf = (\n            Path(get_package_share_directory('erc_description'))\n            / 'urdf'\n            / 'tiago_pro.urdf'\n        )\n        self.chain = URDFChain.from_urdf(\n            urdf,\n            'base_footprint',\n            'gripper_left_grasping_link',\n            IK_JOINTS,\n        )\n        self.right_chain = URDFChain.from_urdf(\n            urdf,\n",
+          "after": "        if len(self.book_row_tilts) != 4:\n            raise ValueError('book_row_tilts must contain four top-to-bottom tilts')\n\n        urdf = (\n            Path(get_package_share_directory('erc_description'))\n            / 'urdf'\n            / 'tiago_pro.urdf'\n        )\n        if self.placement_transport_speed_scale > 1.0:\n            from .empty_pickup_collision import joint_velocity_limits\n            # Same deployed URDF as the model below; optional-only and once.\n            self._faster_arm_velocity_limits = tuple(float(v) for v in joint_velocity_limits(urdf)[1:])\n            self._faster_arm_velocity_urdf = str(urdf)\n        self.chain = URDFChain.from_urdf(\n            urdf,\n            'base_footprint',\n            'gripper_left_grasping_link',\n            IK_JOINTS,\n        )\n        self.right_chain = URDFChain.from_urdf(\n            urdf,\n",
+          "count": 1
+        },
+        {
+          "before": "        # Keep duration unchanged for the original wall watchdog below.\n        point.time_from_start = Duration(seconds=command_duration).to_msg()\n        goal.trajectory.points = [point]\n        if scene_reference is not None:\n            _require_place_contact_clear(self)\n            measured_scene_context(self, scene_reference)\n        if self._cancel.is_set():\n            return False\n        if getattr(self, '_place_contact_guard', None) is not None:\n            # Serialize only this PLACE send against the contact-stop latch.\n            # Do not hold the command lock while awaiting action acceptance.\n            with self._adaptive_command_guard():\n                _require_place_contact_clear(self)\n                if self._cancel.is_set():\n                    return False\n                if pre_send_check is not None:\n                    pre_send_check()\n",
+          "after": "        # Keep duration unchanged for the original wall watchdog below.\n        point.time_from_start = Duration(seconds=command_duration).to_msg()\n        goal.trajectory.points = [point]\n        if scene_reference is not None:\n            _require_place_contact_clear(self)\n            measured_scene_context(self, scene_reference)\n        if self._cancel.is_set():\n            return False\n        if trajectory_duration is not None:\n            velocity_record = None\n            velocity_rejection = None\n            try:\n                with self._adaptive_command_guard():\n                    _require_place_contact_clear(self)\n                    if self._cancel.is_set():\n                        return False\n                    if pre_send_check is not None:\n                        pre_send_check()\n                    if self._cancel.is_set():\n                        return False\n                    with self._lock:\n                        if self._cancel.is_set():\n                            return False\n                        try:\n                            velocity_record = require_arm_velocity_locked(self, goal)\n                        except ArmVelocityAdmissionRejected as error:\n                            velocity_rejection = error\n                            raise\n                        acceptance = client.send_goal_async(goal)\n            finally:\n                if velocity_record is not None or velocity_rejection is not None:\n                    publish_arm_velocity_admission(self,\n                        velocity_record if velocity_rejection is None else velocity_rejection.record,\n                        command='place', admitted=velocity_rejection is None,\n                        reason=None if velocity_rejection is None else str(velocity_rejection))\n            goal_handle = self._wait_future(acceptance, self.timeout)\n        elif getattr(self, '_place_contact_guard', None) is not None:\n            # Serialize only this PLACE send against the contact-stop latch.\n            # Do not hold the command lock while awaiting action acceptance.\n            with self._adaptive_command_guard():\n                _require_place_contact_clear(self)\n                if self._cancel.is_set():\n                    return False\n                if pre_send_check is not None:\n                    pre_send_check()\n",
+          "count": 1
+        },
+        {
+          "before": "        self,\n        goal: FollowJointTrajectory.Goal,\n        total_duration: float,\n        legs: Sequence[Tuple[Sequence[float], float, str]],\n        command: str,\n        *,\n        leg_offset: int = 0,\n        initial_pressure_gate=None,\n    ) -> Tuple[bool, bool]:\n        \"\"\"Send a continuous carried route and cancel it on payload danger.\"\"\"\n        if self._cancel.is_set():\n            return False, False\n\n        endpoint_contact_age = min(\n            0.15,\n            float(getattr(self, 'grasp_contact_max_age', 0.15)),\n        )\n\n        def watchdog_fault() -> Optional[str]:\n            return self._payload_hazard_reason(max_age=endpoint_contact_age)\n",
+          "after": "        self,\n        goal: FollowJointTrajectory.Goal,\n        total_duration: float,\n        legs: Sequence[Tuple[Sequence[float], float, str]],\n        command: str,\n        *,\n        leg_offset: int = 0,\n        initial_pressure_gate=None,\n        velocity_admission: bool = False,\n    ) -> Tuple[bool, bool]:\n        \"\"\"Send a continuous carried route and cancel it on payload danger.\"\"\"\n        if self._cancel.is_set():\n            return False, False\n        if type(velocity_admission) is not bool:\n            raise ArmVelocityAdmissionRejected('faster retained admission flag must be Boolean')\n        if velocity_admission and initial_pressure_gate is not None:\n            raise ArmVelocityAdmissionRejected('faster retained arm cannot use the lift pressure gate')\n\n        endpoint_contact_age = min(\n            0.15,\n            float(getattr(self, 'grasp_contact_max_age', 0.15)),\n        )\n\n        def watchdog_fault() -> Optional[str]:\n            return self._payload_hazard_reason(max_age=endpoint_contact_age)\n",
+          "count": 1
+        },
+        {
+          "before": "        initial_fault = watchdog_fault()\n        if initial_fault is not None:\n            publish_fault(initial_fault, self.get_clock().now().nanoseconds)\n            return False, True\n\n        acceptance_future = None\n        acceptance_fault = None\n        acceptance_token = object()\n        def request_goal():\n            # The pressure gate already holds the sensor mutex at admission.\n            # Ordinary callers register under that mutex immediately below.\n            pending = getattr(self, '_pending_retained_acceptances', set())\n            pending.add(acceptance_token)\n            self._pending_retained_acceptances = pending\n            return self.arm_client.send_goal_async(goal)\n        try:\n            if initial_pressure_gate is not None:\n                acceptance_future = initial_pressure_gate.send(request_goal)\n            elif getattr(self, '_place_contact_guard', None) is not None:\n                # Match the PLACE contact callback's command -> sensor order.\n                # Its committed stop must precede or prevent this publication;\n                # acceptance waiting remains outside both locks.\n                with self._adaptive_command_guard():\n                    if self._cancel.is_set():\n                        return False, False\n",
+          "after": "        initial_fault = watchdog_fault()\n        if initial_fault is not None:\n            publish_fault(initial_fault, self.get_clock().now().nanoseconds)\n            return False, True\n\n        acceptance_future = None\n        acceptance_fault = None\n        acceptance_token = object()\n        velocity_record = None\n        velocity_rejection = None\n        def request_goal():\n            nonlocal velocity_record, velocity_rejection\n            if velocity_admission:\n                try:\n                    velocity_record = require_arm_velocity_locked(self, goal)\n                except ArmVelocityAdmissionRejected as error:\n                    velocity_rejection = error\n                    raise\n            # The pressure gate already holds the sensor mutex at admission.\n            # Ordinary callers register under that mutex immediately below.\n            pending = getattr(self, '_pending_retained_acceptances', set())\n            pending.add(acceptance_token)\n            self._pending_retained_acceptances = pending\n            return self.arm_client.send_goal_async(goal)\n        try:\n            if velocity_admission:\n                with self._adaptive_command_guard():\n                    if self._cancel.is_set():\n                        return False, False\n                    final_fault = watchdog_fault()\n                    if final_fault is not None:\n                        publish_fault(final_fault, self.get_clock().now().nanoseconds)\n                        return False, True\n                    with self._lock:\n                        if self._cancel.is_set():\n                            return False, False\n                        acceptance_future = request_goal()\n            elif initial_pressure_gate is not None:\n                acceptance_future = initial_pressure_gate.send(request_goal)\n            elif getattr(self, '_place_contact_guard', None) is not None:\n                # Match the PLACE contact callback's command -> sensor order.\n                # Its committed stop must precede or prevent this publication;\n                # acceptance waiting remains outside both locks.\n                with self._adaptive_command_guard():\n                    if self._cancel.is_set():\n                        return False, False\n",
+          "count": 1
+        },
+        {
+          "before": "            goal_handle = acceptance_future.result()\n            if goal_handle is None or not isinstance(goal_handle.accepted, bool):\n                raise RuntimeError('retained arm goal acceptance result is invalid')\n        except LiftPressureRejected:\n            # Rejected before publication: no recovery route or gripper-open\n            # command is authorized by this unverified loaded state.\n            raise\n        except Exception as exc:\n            self._cancel.set()\n            if acceptance_future is not None:\n                # The server might still start this request. Observe/cancel a\n                # late handle without blocking this callback or guessing that a\n                # timeout means the robot stopped.\n                try:\n                    acceptance_future.add_done_callback(\n                        lambda future: self._cancel_late_retained_goal(\n                            future, acceptance_token))\n                except Exception:\n                    pass\n            raise RetainedMotionNotStopped(\n                'retained arm goal acceptance has no confirmed terminal state'\n            ) from exc\n        if not goal_handle.accepted:\n            with self._lock:\n                self._pending_retained_acceptances.discard(acceptance_token)\n            return False, False\n        with self._lock:\n            self._goal_handles.append(goal_handle)\n            self._pending_retained_acceptances.discard(acceptance_token)\n        keep_goal_registered = True\n",
+          "after": "            goal_handle = acceptance_future.result()\n            if goal_handle is None or not isinstance(goal_handle.accepted, bool):\n                raise RuntimeError('retained arm goal acceptance result is invalid')\n        except LiftPressureRejected:\n            # Rejected before publication: no recovery route or gripper-open\n            # command is authorized by this unverified loaded state.\n            raise\n        except Exception as exc:\n            if exc is velocity_rejection:\n                # Only this exact before-publication exception is a clean reject.\n                # A client exception after registration retains the old unknown\n                # acceptance handling, even if it has this exception's class.\n                raise\n            self._cancel.set()\n            if acceptance_future is not None:\n                # The server might still start this request. Observe/cancel a\n                # late handle without blocking this callback or guessing that a\n                # timeout means the robot stopped.\n                try:\n                    acceptance_future.add_done_callback(\n                        lambda future: self._cancel_late_retained_goal(\n                            future, acceptance_token))\n                except Exception:\n                    pass\n            raise RetainedMotionNotStopped(\n                'retained arm goal acceptance has no confirmed terminal state'\n            ) from exc\n        finally:\n            if velocity_record is not None or velocity_rejection is not None:\n                publish_arm_velocity_admission(self,\n                    velocity_record if velocity_rejection is None else velocity_rejection.record,\n                    command=command, admitted=velocity_rejection is None,\n                    reason=None if velocity_rejection is None else str(velocity_rejection))\n        if not goal_handle.accepted:\n            with self._lock:\n                self._pending_retained_acceptances.discard(acceptance_token)\n            return False, False\n        with self._lock:\n            self._goal_handles.append(goal_handle)\n            self._pending_retained_acceptances.discard(acceptance_token)\n        keep_goal_registered = True\n",
+          "count": 1
+        },
+        {
+          "before": "                goal, total_duration = self._make_retained_arm_trajectory_goal(\n                    active_leg,\n                )\n                moved, motion_contact_lost = self._send_retained_arm_trajectory(\n                    # The goal/phase clock is scaled; the old watchdog allowance is not.\n                    goal, (total_duration if arm_speed_scale == 1.0 else float(duration)),\n                    active_leg, command,\n                    leg_offset=index + leg_offset,\n                    **({'initial_pressure_gate': initial_pressure_gate}\n                       if index == 0 and initial_pressure_gate is not None else {}),\n                )\n            except LiftPressureRejected:\n                raise\n            except RetainedMotionNotStopped:\n                # The controller may still be moving. Do not enter a recovery\n                # that opens the hand or sends an arm goal from an assumed stop.\n                raise\n            except Exception as exc:\n                if getattr(self, '_goal_handles', ()):\n                    # An exception after acceptance is not a confirmed stop.\n",
+          "after": "                goal, total_duration = self._make_retained_arm_trajectory_goal(\n                    active_leg,\n                )\n                moved, motion_contact_lost = self._send_retained_arm_trajectory(\n                    # The goal/phase clock is scaled; the old watchdog allowance is not.\n                    goal, (total_duration if arm_speed_scale == 1.0 else float(duration)),\n                    active_leg, command,\n                    leg_offset=index + leg_offset,\n                    **({'velocity_admission': True} if arm_speed_scale != 1.0 else {}),\n                    **({'initial_pressure_gate': initial_pressure_gate}\n                       if index == 0 and initial_pressure_gate is not None else {}),\n                )\n            except (LiftPressureRejected, ArmVelocityAdmissionRejected):\n                # This optional pre-send refusal authorizes no recovery/open.\n                raise\n            except RetainedMotionNotStopped:\n                # The controller may still be moving. Do not enter a recovery\n                # that opens the hand or sends an arm goal from an assumed stop.\n                raise\n            except Exception as exc:\n                if getattr(self, '_goal_handles', ()):\n                    # An exception after acceptance is not a confirmed stop.\n",
+          "count": 1
+        },
+        {
+          "before": "\n        supported_goal, supported_duration = prepared_groups[2]\n        succeeded, _ = self._send_retained_arm_trajectory(\n            supported_goal,\n            (supported_duration if supported_watchdog_duration is None\n             else supported_watchdog_duration),\n            timed_groups[2],\n            'compact_transport',\n        )\n        if not succeeded:\n            raise RuntimeError('compact_transport_failed')\n\n        measured_terminal = self._wait_for_retained_endpoint(\n            cached_terminal,\n            command='compact_transport',\n            phase='compact_transport_final',\n",
+          "after": "\n        supported_goal, supported_duration = prepared_groups[2]\n        succeeded, _ = self._send_retained_arm_trajectory(\n            supported_goal,\n            (supported_duration if supported_watchdog_duration is None\n             else supported_watchdog_duration),\n            timed_groups[2],\n            'compact_transport',\n            **({'velocity_admission': True} if arm_speed_scale != 1.0 else {}),\n        )\n        if not succeeded:\n            raise RuntimeError('compact_transport_failed')\n\n        measured_terminal = self._wait_for_retained_endpoint(\n            cached_terminal,\n            command='compact_transport',\n            phase='compact_transport_final',\n",
+          "count": 1
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "owned_processes_closed": true,
+  "actions": [
+    {
+      "role": "team",
+      "members": [
+        {
+          "pid": 20802,
+          "status": "S",
+          "pgid": 20802,
+          "start_ticks": 4301004,
+          "argv": [
+            "/usr/bin/python3",
+            "/opt/ros/humble/bin/ros2",
+            "launch",
+            "erc_phase1_solution",
+            "solution.launch.py",
+            "shelf_column_number:=2",
+            "book_colour:=red",
+            "team_name:=TEAM_NAME"
+          ]
+        },
+        {
+          "pid": 20852,
+          "status": "S",
+          "pgid": 20802,
+          "start_ticks": 4301085,
+          "argv": [
+            "/usr/bin/python3",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/lib/erc_phase1_solution/perception_node",
+            "--ros-args",
+            "-r",
+            "__node:=erc_perception",
+            "--params-file",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/share/erc_phase1_solution/config/solution.yaml",
+            "--params-file",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/share/erc_phase1_solution/config/collision_quality.yaml",
+            "--params-file",
+            "/tmp/launch_params_mujs142f"
+          ]
+        },
+        {
+          "pid": 20854,
+          "status": "S",
+          "pgid": 20802,
+          "start_ticks": 4301085,
+          "argv": [
+            "/usr/bin/python3",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/lib/erc_phase1_solution/navigation_node",
+            "--ros-args",
+            "-r",
+            "__node:=erc_navigation",
+            "--params-file",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/share/erc_phase1_solution/config/solution.yaml",
+            "--params-file",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/share/erc_phase1_solution/config/collision_quality.yaml",
+            "--params-file",
+            "/tmp/launch_params_hs4usbvv"
+          ]
+        },
+        {
+          "pid": 20856,
+          "status": "S",
+          "pgid": 20802,
+          "start_ticks": 4301085,
+          "argv": [
+            "/usr/bin/python3",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/lib/erc_phase1_solution/manipulation_node",
+            "--ros-args",
+            "-r",
+            "__node:=erc_manipulation",
+            "--params-file",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/share/erc_phase1_solution/config/solution.yaml",
+            "--params-file",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/share/erc_phase1_solution/config/collision_quality.yaml",
+            "--params-file",
+            "/tmp/launch_params_9impm80d"
+          ]
+        },
+        {
+          "pid": 20913,
+          "status": "S",
+          "pgid": 20802,
+          "start_ticks": 4301285,
+          "argv": [
+            "/usr/bin/python3",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/lib/erc_phase1_solution/mission_manager",
+            "--ros-args",
+            "-r",
+            "__node:=erc_mission_manager",
+            "--params-file",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/share/erc_phase1_solution/config/solution.yaml",
+            "--params-file",
+            "/opt/erc_ws/results/official_b1f9b05_2026_09_11/run_97/install/erc_phase1_solution/share/erc_phase1_solution/config/collision_quality.yaml",
+            "--params-file",
+            "/tmp/launch_params_r2pevivc"
+          ]
+        }
+      ],
+      "signals": [
+        "SIGINT"
+      ]
+    },
+    {
+      "role": "world",
+      "members": [
+        {
+          "pid": 19821,
+          "status": "S",
+          "pgid": 19821,
+          "start_ticks": 4299587,
+          "argv": [
+            "/usr/bin/python3",
+            "/opt/ros/humble/bin/ros2",
+            "launch",
+            "erc_bringup",
+            "simulation.launch.py",
+            "headless:=true",
+            "depth_cloud:=false"
+          ]
+        },
+        {
+          "pid": 19859,
+          "status": "R",
+          "pgid": 19821,
+          "start_ticks": 4299713,
+          "argv": [
+            "gz sim -r -s /opt/erc_ws/install/erc_description/share/erc_description/worlds/erc_world.sdf"
+          ]
+        },
+        {
+          "pid": 19861,
+          "status": "S",
+          "pgid": 19821,
+          "start_ticks": 4299713,
+          "argv": [
+            "/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher",
+            "--ros-args",
+            "--params-file",
+            "/tmp/launch_params_q7a5el4g"
+          ]
+        },
+        {
+          "pid": 19863,
+          "status": "S",
+          "pgid": 19821,
+          "start_ticks": 4299713,
+          "argv": [
+            "/opt/ros/humble/lib/ros_gz_bridge/parameter_bridge",
+            "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
+            "/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist",
+            "/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry",
+            "/odom_tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V",
+            "/scan_front_raw@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan",
+            "/scan_rear_raw@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan",
+            "/base_imu@sensor_msgs/msg/Imu[gz.msgs.IMU",
+            "/world/erc_world/model/erc_collection_bin/link/collection_bin_base_link/sensor/bin_contact_sensor/contact@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+            "--ros-args",
+            "--params-file",
+            "/tmp/launch_params_3o1lc__o",
+            "-r",
+            "/odom_tf:=/tf",
+            "-r",
+            "/world/erc_world/model/erc_collection_bin/link/collection_bin_base_link/sensor/bin_contact_sensor/contact:=/bin_contacts"
+          ]
+        },
+        {
+          "pid": 19865,
+          "status": "S",
+          "pgid": 19821,
+          "start_ticks": 4299714,
+          "argv": [
+            "/opt/ros/humble/lib/ros_gz_bridge/parameter_bridge",
+            "--ros-args",
+            "-r",
+            "__node:=head_camera_bridge",
+            "--params-file",
+            "/tmp/launch_params_5vwot0ly"
+          ]
+        },
+        {
+          "pid": 19867,
+          "status": "S",
+          "pgid": 19821,
+          "start_ticks": 4299714,
+          "argv": [
+            "/opt/ros/humble/lib/ros_gz_bridge/parameter_bridge",
+            "--ros-args",
+            "-r",
+            "__node:=contact_bridge",
+            "--params-file",
+            "/tmp/launch_params_v1omwc8m"
+          ]
+        },
+        {
+          "pid": 20629,
+          "status": "R",
+          "pgid": 19821,
+          "start_ticks": 4300614,
+          "argv": [
+            "python3",
+            "/opt/erc_ws/install/erc_bringup/lib/erc_bringup/gripper_command_clamp.py",
+            "--ros-args",
+            "--params-file",
+            "/tmp/launch_params_7x5yygv4"
+          ]
+        }
+      ],
+      "signals": [
+        "SIGINT"
+      ]
+    }
+  ],
+  "run": "run_97",
+  "closed_utc": "2026-09-14T19:37:15.169199+00:00",
+  "reason": "All three bounded observers finished; all recorded runtime identities closed"
+}

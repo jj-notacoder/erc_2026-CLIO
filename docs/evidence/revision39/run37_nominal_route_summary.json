@@ -1,0 +1,146 @@
+{
+  "schema": "derived_run37_registered_nominal_replay_v1",
+  "artifact_kind": "Portable selection of executed result and fixture scope, not a reproduction kit or physical certificate",
+  "executed_revision": 39,
+  "execution": {
+    "passed": true,
+    "process_exit_code": 0,
+    "wall_seconds": 211.49382007900567,
+    "nominal_only": true,
+    "actual_live_route_reproduced": false,
+    "live_speed_prediction": false,
+    "driver_start_utc_observed_before_dispatch": "2026-09-11T15:32:53Z",
+    "source_snapshot_label": "collision_quality_final_06",
+    "source_snapshot_sha256": "d6795f0bbcb1e77a3f8da218c482da375b0d71daac42abed42c7fc2683d31caa",
+    "source_tree_sha256": "92cace485475b85e09c379b2ca73117ce1c64cb99327fe36e74c169dbc9a56aa",
+    "package_files": 266,
+    "selected_profile_sha256": "16b95a58194d23225d3775b8cd07afa3c72317ce112895082aa8690a018e56ef",
+    "execution_manifest_sha256": "7a8b9151310d2fb11a26f02b4e25dc671d084aff32f15dc7e07c3db42cda1ab4",
+    "result_sha256": "6e572558ea10e583424023e8778ae8d25da8844a6a13bc1b7a578c93a165cacb",
+    "scene_samples": 2338,
+    "exact_cache_hits": 110,
+    "setup_legs": 12,
+    "cartesian_waypoints": 11,
+    "opening_checks": 54,
+    "empty_return_legs": 12,
+    "measured_master_m": 0.01699994199587463,
+    "full_open_master_m": 0.069,
+    "opening_count_formula": "ceil(abs(0.069 - measured_master)/0.001) + 1",
+    "ik_calls": 86,
+    "full_candidates": 1,
+    "stage_timeline": [
+      {
+        "stage": "scene_construction_begin",
+        "replay_wall_seconds": 0.8727138630056288
+      },
+      {
+        "stage": "scene_construction_completed",
+        "replay_wall_seconds": 0.8841788139980054
+      },
+      {
+        "stage": "torso_validation_begin",
+        "replay_wall_seconds": 0.8843323309993139
+      },
+      {
+        "stage": "torso_validation_completed",
+        "replay_wall_seconds": 11.14213573600864
+      },
+      {
+        "stage": "unloaded_home_preparation_begin",
+        "replay_wall_seconds": 11.142383120997692
+      },
+      {
+        "stage": "unloaded_home_preparation_completed",
+        "replay_wall_seconds": 11.147187156006112
+      },
+      {
+        "stage": "cartesian_search_begin",
+        "replay_wall_seconds": 11.147310491011012
+      },
+      {
+        "stage": "candidate_begin",
+        "replay_wall_seconds": 36.711744120009826
+      },
+      {
+        "stage": "candidate_setup_begin",
+        "replay_wall_seconds": 36.71265812100319
+      },
+      {
+        "stage": "candidate_setup_body_completed",
+        "replay_wall_seconds": 40.015466917000595
+      },
+      {
+        "stage": "candidate_cartesian_legs_begin",
+        "replay_wall_seconds": 103.91780477600696
+      },
+      {
+        "stage": "candidate_opening_begin",
+        "replay_wall_seconds": 152.76173990400275
+      },
+      {
+        "stage": "candidate_empty_return_begin",
+        "replay_wall_seconds": 152.76338117000705
+      },
+      {
+        "stage": "candidate_accepted",
+        "replay_wall_seconds": 211.48558523500105
+      },
+      {
+        "stage": "cartesian_search_completed",
+        "replay_wall_seconds": 211.48599316499894
+      }
+    ],
+    "no_replay_rerun": true,
+    "archive_copy_note": "Initial host-side attempt to add a check file to the container-owned result directory was denied. Result files were then copied read-only to the workspace, and the successful after-check was saved there. Geometry was not rerun or changed."
+  },
+  "input_epochs_ros_seconds": {
+    "published_bin_table_scene": 276.046,
+    "atomic_joints": 276.094,
+    "joints_minus_scene_ms": 48
+  },
+  "planning_inputs": "Same-entry published registered bin/table scene, original nominal PICK attachment, measured carry as replacement IK seed, fixed recorded right/head/master context; no evaluator poses",
+  "exact_live_consumed_scene_known": false,
+  "exact_live_stored_staging_known": false,
+  "empty_return_scope": "Ten reversed Cartesian goals, arm HOME at torso .35, final HOME at torso .10; empty_return_from_clearance=[] is the direct-return flag, not zero checked legs",
+  "bounds": {
+    "outer_experiment_wall_seconds": 420,
+    "internal_search_wall_seconds": 900,
+    "ik_calls": 512,
+    "retained_paths": 24,
+    "full_candidates": 6,
+    "position_residual_m": 0.002,
+    "rotation_residual_rad": 0.02,
+    "joint_step_rad": 0.4,
+    "joint_limit_margin_rad": 0.1,
+    "signed_support_minimum": 0.75
+  },
+  "assets": {
+    "description_files_rehashed": 5,
+    "urdf_meshes_rehashed": 40,
+    "prior_895_source_proof_reused": true,
+    "new_full_895_file_audit": false
+  },
+  "runtime": {
+    "blas_threads": 1,
+    "python": "3.10.12",
+    "numpy": "1.21.5",
+    "scipy": "1.8.0",
+    "ros_node_created": false
+  },
+  "source_after_check_sha256": "bc8eadf60ff963afa3caa8f7ad66cfa9e069279e92f42a4741b004992d3a5aeb",
+  "execution_summary_sha256": "58976de4688108618e71b3e6d3b4014fd48448b43b608b820367f6c7c76f422e",
+  "execution_report_sha256": "6f12c6c97188def230f0bd7b32794660dd4099072855e17d5ce77e688410bfb4",
+  "revision40_scope_bridge": {
+    "geometry_rerun": false,
+    "nontelemetry_pipeline_ast_unchanged": true,
+    "valid_initial_payload_equal_excluding_elapsed": true,
+    "correction_review_sha256": "6ef78451dfa6035acd08d32530e9604e17f5cf67286579eadb611a1369d4c448"
+  },
+  "limitations": [
+    "Sampled nominal geometry, not continuous collision detection",
+    "No live feedback/cache stream or runtime speed prediction",
+    "Original padded rigid attachment does not model measured slip",
+    "Nominal mimic and screen visual envelope only; actual passive deflection and tool-to-tool pairs outside stated scope",
+    "No pressure admission, motion dispatch, falling/released-book simulation or physical containment proof"
+  ]
+}

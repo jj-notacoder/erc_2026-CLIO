@@ -1,0 +1,854 @@
+{
+  "scope": "Run09 archived producer histories from stationary microstep 1; physical outcome was failure.",
+  "source_observations_sha256": "d83c42d6cd653cd4f765e0e02fc0db767d3099ad219145f688f79e9554e3a06e",
+  "payload": {
+    "additional_commanded_closure": 9.999999999940612E-08,
+    "commanded_position": 0.018309289124819147,
+    "evaluation_ros_ns": 1272166000000,
+    "event": "fine_gripper_progress",
+    "expected_model": "book_col_3_row_2_red",
+    "feedback": {
+      "effort": 0.09381587204999689,
+      "position": 0.01830929382469711,
+      "stamp_ns": 1272164000000,
+      "velocity": -1.3056266822157256E-07
+    },
+    "force_histories": {
+      "left": [
+        {
+          "force_newtons": 0.535278766214911,
+          "stamp_ns": 1272048000000
+        },
+        {
+          "force_newtons": 0.5342257874531313,
+          "stamp_ns": 1272050000000
+        },
+        {
+          "force_newtons": 0.5331719849540261,
+          "stamp_ns": 1272052000000
+        },
+        {
+          "force_newtons": 0.5323502169085363,
+          "stamp_ns": 1272054000000
+        },
+        {
+          "force_newtons": 0.5313137175635548,
+          "stamp_ns": 1272056000000
+        },
+        {
+          "force_newtons": 0.5305206064915348,
+          "stamp_ns": 1272058000000
+        },
+        {
+          "force_newtons": 0.5295515851726967,
+          "stamp_ns": 1272060000000
+        },
+        {
+          "force_newtons": 0.528810299427096,
+          "stamp_ns": 1272062000000
+        },
+        {
+          "force_newtons": 0.5279150651183071,
+          "stamp_ns": 1272064000000
+        },
+        {
+          "force_newtons": 0.5272269945854035,
+          "stamp_ns": 1272066000000
+        },
+        {
+          "force_newtons": 1.8942423029492532,
+          "stamp_ns": 1272068000000
+        },
+        {
+          "force_newtons": 0.5260459204205886,
+          "stamp_ns": 1272070000000
+        },
+        {
+          "force_newtons": 0.5249857233076719,
+          "stamp_ns": 1272072000000
+        },
+        {
+          "force_newtons": 1.8888308621571608,
+          "stamp_ns": 1272074000000
+        },
+        {
+          "force_newtons": 0.5237658858240375,
+          "stamp_ns": 1272076000000
+        },
+        {
+          "force_newtons": 0.5228817045799937,
+          "stamp_ns": 1272078000000
+        },
+        {
+          "force_newtons": 0.5220765410194008,
+          "stamp_ns": 1272080000000
+        },
+        {
+          "force_newtons": 0.5214844889182485,
+          "stamp_ns": 1272082000000
+        },
+        {
+          "force_newtons": 0.5208410216407555,
+          "stamp_ns": 1272084000000
+        },
+        {
+          "force_newtons": 0.5203396575567304,
+          "stamp_ns": 1272086000000
+        },
+        {
+          "force_newtons": 0.5197671833993782,
+          "stamp_ns": 1272088000000
+        },
+        {
+          "force_newtons": 0.5193101838196569,
+          "stamp_ns": 1272090000000
+        },
+        {
+          "force_newtons": 0.5187830055782303,
+          "stamp_ns": 1272092000000
+        },
+        {
+          "force_newtons": 0.5183566627503727,
+          "stamp_ns": 1272094000000
+        },
+        {
+          "force_newtons": 0.5178656463900148,
+          "stamp_ns": 1272096000000
+        },
+        {
+          "force_newtons": 0.5174646355377648,
+          "stamp_ns": 1272098000000
+        },
+        {
+          "force_newtons": 0.5170050743529966,
+          "stamp_ns": 1272100000000
+        },
+        {
+          "force_newtons": 0.5166263441143228,
+          "stamp_ns": 1272102000000
+        },
+        {
+          "force_newtons": 0.5161948774830362,
+          "stamp_ns": 1272104000000
+        },
+        {
+          "force_newtons": 0.5158361373805017,
+          "stamp_ns": 1272106000000
+        },
+        {
+          "force_newtons": 0.5154299477095511,
+          "stamp_ns": 1272108000000
+        },
+        {
+          "force_newtons": 0.13958932610074193,
+          "stamp_ns": 1272110000000
+        }
+      ],
+      "right": [
+        {
+          "force_newtons": 0.246877286841512,
+          "stamp_ns": 1272036000000
+        },
+        {
+          "force_newtons": 0.24686512741327538,
+          "stamp_ns": 1272038000000
+        },
+        {
+          "force_newtons": 0.24687710013273495,
+          "stamp_ns": 1272040000000
+        },
+        {
+          "force_newtons": 0.24686615203914558,
+          "stamp_ns": 1272042000000
+        },
+        {
+          "force_newtons": 0.24687692373503994,
+          "stamp_ns": 1272044000000
+        },
+        {
+          "force_newtons": 0.246867067663318,
+          "stamp_ns": 1272046000000
+        },
+        {
+          "force_newtons": 0.7772923644249268,
+          "stamp_ns": 1272048000000
+        },
+        {
+          "force_newtons": 0.776580736403583,
+          "stamp_ns": 1272050000000
+        },
+        {
+          "force_newtons": 0.7755383611205795,
+          "stamp_ns": 1272052000000
+        },
+        {
+          "force_newtons": 0.7747095008213712,
+          "stamp_ns": 1272054000000
+        },
+        {
+          "force_newtons": 0.773683406260935,
+          "stamp_ns": 1272056000000
+        },
+        {
+          "force_newtons": 0.7728839257107389,
+          "stamp_ns": 1272058000000
+        },
+        {
+          "force_newtons": 0.7719242058604174,
+          "stamp_ns": 1272060000000
+        },
+        {
+          "force_newtons": 0.7711770942045284,
+          "stamp_ns": 1272062000000
+        },
+        {
+          "force_newtons": 0.7702901179378719,
+          "stamp_ns": 1272064000000
+        },
+        {
+          "force_newtons": 0.769596686094093,
+          "stamp_ns": 1272066000000
+        },
+        {
+          "force_newtons": 2.123487670945338,
+          "stamp_ns": 1272068000000
+        },
+        {
+          "force_newtons": 0.7683878181160846,
+          "stamp_ns": 1272070000000
+        },
+        {
+          "force_newtons": 0.7673644753165266,
+          "stamp_ns": 1272072000000
+        },
+        {
+          "force_newtons": 2.1181106635056355,
+          "stamp_ns": 1272074000000
+        },
+        {
+          "force_newtons": 0.7661164977566739,
+          "stamp_ns": 1272076000000
+        },
+        {
+          "force_newtons": 0.7652585407160744,
+          "stamp_ns": 1272078000000
+        },
+        {
+          "force_newtons": 0.7644589830930754,
+          "stamp_ns": 1272080000000
+        },
+        {
+          "force_newtons": 0.7638632991831414,
+          "stamp_ns": 1272082000000
+        },
+        {
+          "force_newtons": 0.7632243504607383,
+          "stamp_ns": 1272084000000
+        },
+        {
+          "force_newtons": 0.7627193976249937,
+          "stamp_ns": 1272086000000
+        },
+        {
+          "force_newtons": 0.7621507692166885,
+          "stamp_ns": 1272088000000
+        },
+        {
+          "force_newtons": 0.7616903709067914,
+          "stamp_ns": 1272090000000
+        },
+        {
+          "force_newtons": 0.7611665084679314,
+          "stamp_ns": 1272092000000
+        },
+        {
+          "force_newtons": 0.7607369773840046,
+          "stamp_ns": 1272094000000
+        },
+        {
+          "force_newtons": 0.7602488203636073,
+          "stamp_ns": 1272096000000
+        },
+        {
+          "force_newtons": 0.7598448198677579,
+          "stamp_ns": 1272098000000
+        },
+        {
+          "force_newtons": 0.7593877128538054,
+          "stamp_ns": 1272100000000
+        },
+        {
+          "force_newtons": 0.7590061760901813,
+          "stamp_ns": 1272102000000
+        },
+        {
+          "force_newtons": 0.758576800216318,
+          "stamp_ns": 1272104000000
+        },
+        {
+          "force_newtons": 0.758215419050876,
+          "stamp_ns": 1272106000000
+        },
+        {
+          "force_newtons": 0.7578109959707486,
+          "stamp_ns": 1272108000000
+        },
+        {
+          "force_newtons": 0.008564066678392266,
+          "stamp_ns": 1272110000000
+        },
+        {
+          "force_newtons": 0.8086037605334472,
+          "stamp_ns": 1272112000000
+        },
+        {
+          "force_newtons": 0.22716041627735403,
+          "stamp_ns": 1272114000000
+        },
+        {
+          "force_newtons": 0.2335456894524766,
+          "stamp_ns": 1272116000000
+        },
+        {
+          "force_newtons": 0.23956533563065363,
+          "stamp_ns": 1272118000000
+        },
+        {
+          "force_newtons": 0.24358932401629424,
+          "stamp_ns": 1272120000000
+        },
+        {
+          "force_newtons": 0.2445769683697956,
+          "stamp_ns": 1272122000000
+        },
+        {
+          "force_newtons": 0.24609709166332894,
+          "stamp_ns": 1272124000000
+        },
+        {
+          "force_newtons": 0.24596523460781428,
+          "stamp_ns": 1272126000000
+        },
+        {
+          "force_newtons": 0.24671891105041518,
+          "stamp_ns": 1272128000000
+        },
+        {
+          "force_newtons": 0.24632812039426255,
+          "stamp_ns": 1272130000000
+        },
+        {
+          "force_newtons": 0.24687024485113854,
+          "stamp_ns": 1272132000000
+        },
+        {
+          "force_newtons": 0.24645043905780217,
+          "stamp_ns": 1272134000000
+        },
+        {
+          "force_newtons": 0.24690430265585872,
+          "stamp_ns": 1272136000000
+        },
+        {
+          "force_newtons": 0.2465094512641956,
+          "stamp_ns": 1272138000000
+        },
+        {
+          "force_newtons": 0.24690941435330188,
+          "stamp_ns": 1272140000000
+        },
+        {
+          "force_newtons": 0.24654978642527034,
+          "stamp_ns": 1272142000000
+        },
+        {
+          "force_newtons": 0.246848687836535,
+          "stamp_ns": 1272144000000
+        },
+        {
+          "force_newtons": 0.24658269782784614,
+          "stamp_ns": 1272146000000
+        },
+        {
+          "force_newtons": 0.2469043203719126,
+          "stamp_ns": 1272148000000
+        },
+        {
+          "force_newtons": 0.2466117931625964,
+          "stamp_ns": 1272150000000
+        },
+        {
+          "force_newtons": 0.2469010413374405,
+          "stamp_ns": 1272152000000
+        },
+        {
+          "force_newtons": 0.24663769841863736,
+          "stamp_ns": 1272154000000
+        },
+        {
+          "force_newtons": 0.247287651356434,
+          "stamp_ns": 1272156000000
+        },
+        {
+          "force_newtons": 0.2465550121763233,
+          "stamp_ns": 1272158000000
+        },
+        {
+          "force_newtons": 0.2468950958821448,
+          "stamp_ns": 1272160000000
+        },
+        {
+          "force_newtons": 0.24668185996013908,
+          "stamp_ns": 1272162000000
+        }
+      ]
+    },
+    "legacy_evidence": {
+      "effort": 0.09381587204999689,
+      "effort_delta": 0.00011974926444127676,
+      "left_force": 0.13958932610074193,
+      "left_samples": 32,
+      "reason": "bilateral_sample_skew",
+      "right_force": 0.24668185996013908,
+      "right_samples": 26,
+      "verified": false,
+      "width": 0.01830929382469711
+    },
+    "legacy_minimum_force": 0.05,
+    "legacy_windows": {
+      "left": {
+        "first_producer_stamp_ns": 1272048000000,
+        "last_producer_stamp_ns": 1272110000000,
+        "samples": 32,
+        "span_seconds": 0.062
+      },
+      "right": {
+        "first_producer_stamp_ns": 1272112000000,
+        "last_producer_stamp_ns": 1272162000000,
+        "samples": 26,
+        "span_seconds": 0.05
+      }
+    },
+    "minimum_force": 6.0,
+    "pressure_evidence": {
+      "effort": 0.09381587204999689,
+      "effort_delta": 0.00011974926444127676,
+      "left_force": 0.13958932610074193,
+      "left_samples": 0,
+      "reason": "left_force_below_minimum",
+      "right_force": 0.24668185996013908,
+      "right_samples": 0,
+      "verified": false,
+      "width": 0.01830929382469711
+    },
+    "pressure_windows": {
+      "left": {
+        "first_producer_stamp_ns": null,
+        "last_producer_stamp_ns": null,
+        "samples": 0,
+        "span_seconds": 0.0
+      },
+      "right": {
+        "first_producer_stamp_ns": null,
+        "last_producer_stamp_ns": null,
+        "samples": 0,
+        "span_seconds": 0.0
+      }
+    },
+    "raw_force_histories": {
+      "left": [
+        {
+          "force_newtons": 0.535278766214911,
+          "stamp_ns": 1272048000000
+        },
+        {
+          "force_newtons": 0.5342257874531313,
+          "stamp_ns": 1272050000000
+        },
+        {
+          "force_newtons": 0.5331719849540261,
+          "stamp_ns": 1272052000000
+        },
+        {
+          "force_newtons": 0.5323502169085363,
+          "stamp_ns": 1272054000000
+        },
+        {
+          "force_newtons": 0.5313137175635548,
+          "stamp_ns": 1272056000000
+        },
+        {
+          "force_newtons": 0.5305206064915348,
+          "stamp_ns": 1272058000000
+        },
+        {
+          "force_newtons": 0.5295515851726967,
+          "stamp_ns": 1272060000000
+        },
+        {
+          "force_newtons": 0.528810299427096,
+          "stamp_ns": 1272062000000
+        },
+        {
+          "force_newtons": 0.5279150651183071,
+          "stamp_ns": 1272064000000
+        },
+        {
+          "force_newtons": 0.5272269945854035,
+          "stamp_ns": 1272066000000
+        },
+        {
+          "force_newtons": 1.8942423029492532,
+          "stamp_ns": 1272068000000
+        },
+        {
+          "force_newtons": 0.5260459204205886,
+          "stamp_ns": 1272070000000
+        },
+        {
+          "force_newtons": 0.5249857233076719,
+          "stamp_ns": 1272072000000
+        },
+        {
+          "force_newtons": 1.8888308621571608,
+          "stamp_ns": 1272074000000
+        },
+        {
+          "force_newtons": 0.5237658858240375,
+          "stamp_ns": 1272076000000
+        },
+        {
+          "force_newtons": 0.5228817045799937,
+          "stamp_ns": 1272078000000
+        },
+        {
+          "force_newtons": 0.5220765410194008,
+          "stamp_ns": 1272080000000
+        },
+        {
+          "force_newtons": 0.5214844889182485,
+          "stamp_ns": 1272082000000
+        },
+        {
+          "force_newtons": 0.5208410216407555,
+          "stamp_ns": 1272084000000
+        },
+        {
+          "force_newtons": 0.5203396575567304,
+          "stamp_ns": 1272086000000
+        },
+        {
+          "force_newtons": 0.5197671833993782,
+          "stamp_ns": 1272088000000
+        },
+        {
+          "force_newtons": 0.5193101838196569,
+          "stamp_ns": 1272090000000
+        },
+        {
+          "force_newtons": 0.5187830055782303,
+          "stamp_ns": 1272092000000
+        },
+        {
+          "force_newtons": 0.5183566627503727,
+          "stamp_ns": 1272094000000
+        },
+        {
+          "force_newtons": 0.5178656463900148,
+          "stamp_ns": 1272096000000
+        },
+        {
+          "force_newtons": 0.5174646355377648,
+          "stamp_ns": 1272098000000
+        },
+        {
+          "force_newtons": 0.5170050743529966,
+          "stamp_ns": 1272100000000
+        },
+        {
+          "force_newtons": 0.5166263441143228,
+          "stamp_ns": 1272102000000
+        },
+        {
+          "force_newtons": 0.5161948774830362,
+          "stamp_ns": 1272104000000
+        },
+        {
+          "force_newtons": 0.5158361373805017,
+          "stamp_ns": 1272106000000
+        },
+        {
+          "force_newtons": 0.5154299477095511,
+          "stamp_ns": 1272108000000
+        },
+        {
+          "force_newtons": 0.13958932610074193,
+          "stamp_ns": 1272110000000
+        }
+      ],
+      "right": [
+        {
+          "force_newtons": 0.246877286841512,
+          "stamp_ns": 1272036000000
+        },
+        {
+          "force_newtons": 0.24686512741327538,
+          "stamp_ns": 1272038000000
+        },
+        {
+          "force_newtons": 0.24687710013273495,
+          "stamp_ns": 1272040000000
+        },
+        {
+          "force_newtons": 0.24686615203914558,
+          "stamp_ns": 1272042000000
+        },
+        {
+          "force_newtons": 0.24687692373503994,
+          "stamp_ns": 1272044000000
+        },
+        {
+          "force_newtons": 0.246867067663318,
+          "stamp_ns": 1272046000000
+        },
+        {
+          "force_newtons": 0.7772923644249268,
+          "stamp_ns": 1272048000000
+        },
+        {
+          "force_newtons": 0.776580736403583,
+          "stamp_ns": 1272050000000
+        },
+        {
+          "force_newtons": 0.7755383611205795,
+          "stamp_ns": 1272052000000
+        },
+        {
+          "force_newtons": 0.7747095008213712,
+          "stamp_ns": 1272054000000
+        },
+        {
+          "force_newtons": 0.773683406260935,
+          "stamp_ns": 1272056000000
+        },
+        {
+          "force_newtons": 0.7728839257107389,
+          "stamp_ns": 1272058000000
+        },
+        {
+          "force_newtons": 0.7719242058604174,
+          "stamp_ns": 1272060000000
+        },
+        {
+          "force_newtons": 0.7711770942045284,
+          "stamp_ns": 1272062000000
+        },
+        {
+          "force_newtons": 0.7702901179378719,
+          "stamp_ns": 1272064000000
+        },
+        {
+          "force_newtons": 0.769596686094093,
+          "stamp_ns": 1272066000000
+        },
+        {
+          "force_newtons": 2.123487670945338,
+          "stamp_ns": 1272068000000
+        },
+        {
+          "force_newtons": 0.7683878181160846,
+          "stamp_ns": 1272070000000
+        },
+        {
+          "force_newtons": 0.7673644753165266,
+          "stamp_ns": 1272072000000
+        },
+        {
+          "force_newtons": 2.1181106635056355,
+          "stamp_ns": 1272074000000
+        },
+        {
+          "force_newtons": 0.7661164977566739,
+          "stamp_ns": 1272076000000
+        },
+        {
+          "force_newtons": 0.7652585407160744,
+          "stamp_ns": 1272078000000
+        },
+        {
+          "force_newtons": 0.7644589830930754,
+          "stamp_ns": 1272080000000
+        },
+        {
+          "force_newtons": 0.7638632991831414,
+          "stamp_ns": 1272082000000
+        },
+        {
+          "force_newtons": 0.7632243504607383,
+          "stamp_ns": 1272084000000
+        },
+        {
+          "force_newtons": 0.7627193976249937,
+          "stamp_ns": 1272086000000
+        },
+        {
+          "force_newtons": 0.7621507692166885,
+          "stamp_ns": 1272088000000
+        },
+        {
+          "force_newtons": 0.7616903709067914,
+          "stamp_ns": 1272090000000
+        },
+        {
+          "force_newtons": 0.7611665084679314,
+          "stamp_ns": 1272092000000
+        },
+        {
+          "force_newtons": 0.7607369773840046,
+          "stamp_ns": 1272094000000
+        },
+        {
+          "force_newtons": 0.7602488203636073,
+          "stamp_ns": 1272096000000
+        },
+        {
+          "force_newtons": 0.7598448198677579,
+          "stamp_ns": 1272098000000
+        },
+        {
+          "force_newtons": 0.7593877128538054,
+          "stamp_ns": 1272100000000
+        },
+        {
+          "force_newtons": 0.7590061760901813,
+          "stamp_ns": 1272102000000
+        },
+        {
+          "force_newtons": 0.758576800216318,
+          "stamp_ns": 1272104000000
+        },
+        {
+          "force_newtons": 0.758215419050876,
+          "stamp_ns": 1272106000000
+        },
+        {
+          "force_newtons": 0.7578109959707486,
+          "stamp_ns": 1272108000000
+        },
+        {
+          "force_newtons": 0.008564066678392266,
+          "stamp_ns": 1272110000000
+        },
+        {
+          "force_newtons": 0.8086037605334472,
+          "stamp_ns": 1272112000000
+        },
+        {
+          "force_newtons": 0.22716041627735403,
+          "stamp_ns": 1272114000000
+        },
+        {
+          "force_newtons": 0.2335456894524766,
+          "stamp_ns": 1272116000000
+        },
+        {
+          "force_newtons": 0.23956533563065363,
+          "stamp_ns": 1272118000000
+        },
+        {
+          "force_newtons": 0.24358932401629424,
+          "stamp_ns": 1272120000000
+        },
+        {
+          "force_newtons": 0.2445769683697956,
+          "stamp_ns": 1272122000000
+        },
+        {
+          "force_newtons": 0.24609709166332894,
+          "stamp_ns": 1272124000000
+        },
+        {
+          "force_newtons": 0.24596523460781428,
+          "stamp_ns": 1272126000000
+        },
+        {
+          "force_newtons": 0.24671891105041518,
+          "stamp_ns": 1272128000000
+        },
+        {
+          "force_newtons": 0.24632812039426255,
+          "stamp_ns": 1272130000000
+        },
+        {
+          "force_newtons": 0.24687024485113854,
+          "stamp_ns": 1272132000000
+        },
+        {
+          "force_newtons": 0.24645043905780217,
+          "stamp_ns": 1272134000000
+        },
+        {
+          "force_newtons": 0.24690430265585872,
+          "stamp_ns": 1272136000000
+        },
+        {
+          "force_newtons": 0.2465094512641956,
+          "stamp_ns": 1272138000000
+        },
+        {
+          "force_newtons": 0.24690941435330188,
+          "stamp_ns": 1272140000000
+        },
+        {
+          "force_newtons": 0.24654978642527034,
+          "stamp_ns": 1272142000000
+        },
+        {
+          "force_newtons": 0.246848687836535,
+          "stamp_ns": 1272144000000
+        },
+        {
+          "force_newtons": 0.24658269782784614,
+          "stamp_ns": 1272146000000
+        },
+        {
+          "force_newtons": 0.2469043203719126,
+          "stamp_ns": 1272148000000
+        },
+        {
+          "force_newtons": 0.2466117931625964,
+          "stamp_ns": 1272150000000
+        },
+        {
+          "force_newtons": 0.2469010413374405,
+          "stamp_ns": 1272152000000
+        },
+        {
+          "force_newtons": 0.24663769841863736,
+          "stamp_ns": 1272154000000
+        },
+        {
+          "force_newtons": 0.247287651356434,
+          "stamp_ns": 1272156000000
+        },
+        {
+          "force_newtons": 0.2465550121763233,
+          "stamp_ns": 1272158000000
+        },
+        {
+          "force_newtons": 0.2468950958821448,
+          "stamp_ns": 1272160000000
+        },
+        {
+          "force_newtons": 0.24668185996013908,
+          "stamp_ns": 1272162000000
+        }
+      ]
+    },
+    "reference_position": 0.018309389124819147,
+    "retention_verified": false,
+    "stage": "pressure_measurement",
+    "stationary_start_ros_ns": 1271966000000,
+    "step": 1
+  }
+}

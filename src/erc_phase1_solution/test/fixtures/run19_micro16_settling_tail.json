@@ -1,0 +1,3874 @@
+{
+  "scope": "Recorded worker-observed tail only: 256 of 561 distinct feedback stamps; no pressure or retention proof.",
+  "source_sha256": "8fab481ec8228efd40326d713374f6eac0f77b17d7c41a4f94d902561f6e750d",
+  "observation_source_sha256": "01346afb7ae39f073daf485d0d3e8a9d932280dd6db46c378e0873b436dfe9b9",
+  "terminal_ros_ns": 207388000000,
+  "diagnostic": {
+    "changed_feedback_same_stamp": 0,
+    "command_motion_end_ros_ns": 204552000000,
+    "distinct_feedback_stamps": 561,
+    "duplicate_feedback_polls": 1389,
+    "dwell_completed": false,
+    "elapsed_ros_seconds": 2.242,
+    "elapsed_wall_seconds": 10.971490397998423,
+    "feedback_stamp_basis": "Stored GripperFeedback timestamp; normal JointState callback may already clamp small future producer stamps",
+    "last_confirmed_stationary_ros_ns": 207386000000,
+    "longest_confirmed_stable_interval_seconds": 0.162,
+    "max_abs_velocity_mps": 8.614756620904922e-06,
+    "max_future_lag_ns": 0,
+    "max_position_error_m": 4.8710668422435877e-08,
+    "max_stored_feedback_gap_ns": 4000000,
+    "micro": true,
+    "nonstationary_new_feedback_by_reason": {
+      "position_error": 33,
+      "velocity": 24
+    },
+    "observed_feedback_samples": [
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379011058706,
+          "position": 0.018316793945337598,
+          "stamp_ns": 206364000000,
+          "velocity": -4.7898906545425744e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206366000000,
+        "position_error_m": 1.7239825712833667e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938137917660852,
+          "position": 0.018316793772901532,
+          "stamp_ns": 206368000000,
+          "velocity": -4.3109015855830914e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206370000000,
+        "position_error_m": 1.5515465058568711e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379331946213,
+          "position": 0.018316793617709076,
+          "stamp_ns": 206372000000,
+          "velocity": -3.879811419826764e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206374000000,
+        "position_error_m": 1.3963540497485827e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379477223581,
+          "position": 0.018316793478035866,
+          "stamp_ns": 206376000000,
+          "velocity": -3.491830279122362e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206378000000,
+        "position_error_m": 1.256680839251123e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379613383682,
+          "position": 0.018316793352329976,
+          "stamp_ns": 206380000000,
+          "velocity": -3.1426472531606055e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206382000000,
+        "position_error_m": 1.13097494910952e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938137974298715,
+          "position": 0.018316793239194676,
+          "stamp_ns": 206384000000,
+          "velocity": -2.8283825286089075e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206386000000,
+        "position_error_m": 1.017839649369856e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379864582787,
+          "position": 0.018316793137372903,
+          "stamp_ns": 206388000000,
+          "velocity": -2.5455442801704774e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206388000000,
+        "position_error_m": 9.160178761347115e-10,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379978631078,
+          "position": 0.01831679304573331,
+          "stamp_ns": 206392000000,
+          "velocity": -2.2909898442636904e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206394000000,
+        "position_error_m": 8.243782843864178e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381380088213301,
+          "position": 0.018316792963257673,
+          "stamp_ns": 206396000000,
+          "velocity": -2.061890868253983e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206396000000,
+        "position_error_m": 7.419026469557277e-10,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381380189137604,
+          "position": 0.018316792889029605,
+          "stamp_ns": 206400000000,
+          "velocity": -1.855701772931692e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206402000000,
+        "position_error_m": 6.676745788192218e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381380288671,
+          "position": 0.018316792822224343,
+          "stamp_ns": 206404000000,
+          "velocity": -1.670131602395271e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206406000000,
+        "position_error_m": 6.008693161085876e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0932416346558711,
+          "position": 0.018316810021675217,
+          "stamp_ns": 206408000000,
+          "velocity": 8.614756620904922e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206410000000,
+        "position_error_m": 1.7800320190053398e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381316811862309,
+          "position": 0.018316808241605264,
+          "stamp_ns": 206412000000,
+          "velocity": -4.450174562439834e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206414000000,
+        "position_error_m": 1.6020250237502864e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381374340883886,
+          "position": 0.018316806639542434,
+          "stamp_ns": 206416000000,
+          "velocity": -4.005157074675166e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206418000000,
+        "position_error_m": 1.4418187407883032e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381375168721519,
+          "position": 0.01831680519768589,
+          "stamp_ns": 206420000000,
+          "velocity": -3.6046413676377523e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206420000000,
+        "position_error_m": 1.297633086400074e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.093813758941089,
+          "position": 0.018316803900015,
+          "stamp_ns": 206424000000,
+          "velocity": -3.2441772316563373e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206426000000,
+        "position_error_m": 1.1678659973118899e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381376543321708,
+          "position": 0.018316802732111198,
+          "stamp_ns": 206428000000,
+          "velocity": -2.9197595087602363e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206430000000,
+        "position_error_m": 1.0510756171672186e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938137713041231,
+          "position": 0.018316801680997776,
+          "stamp_ns": 206432000000,
+          "velocity": -2.627783558034266e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206434000000,
+        "position_error_m": 9.459642749676256e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381377659976033,
+          "position": 0.018316800734995694,
+          "stamp_ns": 206436000000,
+          "velocity": -2.3650052029255964e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206438000000,
+        "position_error_m": 8.513640667451305e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381378139735715,
+          "position": 0.01831679988359382,
+          "stamp_ns": 206440000000,
+          "velocity": -2.128504682349843e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206442000000,
+        "position_error_m": 7.662238794836629e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381378587654567,
+          "position": 0.018316799117332135,
+          "stamp_ns": 206444000000,
+          "velocity": -1.9156542144357826e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206446000000,
+        "position_error_m": 6.8959771087895305e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938137896444175,
+          "position": 0.01831679842769662,
+          "stamp_ns": 206448000000,
+          "velocity": -1.724088792746199e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206450000000,
+        "position_error_m": 6.20634159342881e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379320359282,
+          "position": 0.018316797807024655,
+          "stamp_ns": 206452000000,
+          "velocity": -1.551679914029618e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206452000000,
+        "position_error_m": 5.585669628216383e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379642816702,
+          "position": 0.018316797248419888,
+          "stamp_ns": 206456000000,
+          "velocity": -1.3965119224565448e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206458000000,
+        "position_error_m": 5.027064861606867e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379934354367,
+          "position": 0.018316796745675597,
+          "stamp_ns": 206460000000,
+          "velocity": -1.2568607308952387e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206462000000,
+        "position_error_m": 4.524320570964413e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938138020113668,
+          "position": 0.018316796293205737,
+          "stamp_ns": 206464000000,
+          "velocity": -1.1311746582660671e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206466000000,
+        "position_error_m": 4.071850710773983e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381380441156663,
+          "position": 0.01831679588598286,
+          "stamp_ns": 206468000000,
+          "velocity": -1.0180571930265558e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206470000000,
+        "position_error_m": 3.664627833827039e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381380685887607,
+          "position": 0.018316795519482273,
+          "stamp_ns": 206472000000,
+          "velocity": -9.162514740120812e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206474000000,
+        "position_error_m": 3.2981272470034018e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381380859951204,
+          "position": 0.018316795189631745,
+          "stamp_ns": 206476000000,
+          "velocity": -8.246263273668872e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206478000000,
+        "position_error_m": 2.968276718168239e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381381041021752,
+          "position": 0.018316794892766268,
+          "stamp_ns": 206480000000,
+          "velocity": -7.421636949813716e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206482000000,
+        "position_error_m": 2.671411241522703e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381381205650667,
+          "position": 0.018316794625587336,
+          "stamp_ns": 206484000000,
+          "velocity": -6.679473259761128e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206486000000,
+        "position_error_m": 2.4042323097661633e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381381357658619,
+          "position": 0.018316794385126296,
+          "stamp_ns": 206488000000,
+          "velocity": -6.011525928971157e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206490000000,
+        "position_error_m": 2.1637712697974987e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381381493884097,
+          "position": 0.01831679416871136,
+          "stamp_ns": 206492000000,
+          "velocity": -5.41037333041559e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206494000000,
+        "position_error_m": 1.9473563352134793e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381381620750535,
+          "position": 0.01831679397393792,
+          "stamp_ns": 206496000000,
+          "velocity": -4.869335993912174e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206498000000,
+        "position_error_m": 1.7525828947817512e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381381733834843,
+          "position": 0.018316793798641824,
+          "stamp_ns": 206500000000,
+          "velocity": -4.3824023927894855e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206502000000,
+        "position_error_m": 1.5772867976993066e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323839072593737,
+          "position": 0.018316810126625123,
+          "stamp_ns": 206504000000,
+          "velocity": 8.203433271353287e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206506000000,
+        "position_error_m": 1.7905270096457704e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381352859348661,
+          "position": 0.01831680833606018,
+          "stamp_ns": 206508000000,
+          "velocity": -4.476412039185109e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206510000000,
+        "position_error_m": 1.6114705153613684e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381373693169472,
+          "position": 0.01831680672455186,
+          "stamp_ns": 206512000000,
+          "velocity": -4.0287708038622486e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206514000000,
+        "position_error_m": 1.4503196834464438e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381376697835254,
+          "position": 0.018316805274194374,
+          "stamp_ns": 206516000000,
+          "velocity": -3.625893723973022e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206518000000,
+        "position_error_m": 1.3052839347577061e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323505990909518,
+          "position": 0.01831681785412818,
+          "stamp_ns": 206520000000,
+          "velocity": 6.616297338330802e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 206522000000,
+        "position_error_m": 2.5632773154038446e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323776381730128,
+          "position": 0.018316828595053493,
+          "stamp_ns": 206524000000,
+          "velocity": 6.011291499820695e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 206526000000,
+        "position_error_m": 3.637369846640204e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938123747078121,
+          "position": 0.018316824957645715,
+          "stamp_ns": 206528000000,
+          "velocity": -9.093519130485075e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206530000000,
+        "position_error_m": 3.273629068864525e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381370161326257,
+          "position": 0.018316821683978843,
+          "stamp_ns": 206532000000,
+          "velocity": -8.18416718747811e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206534000000,
+        "position_error_m": 2.9462623816339795e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09459549639241362,
+          "position": 0.018316833025704776,
+          "stamp_ns": 206536000000,
+          "velocity": -7.365751257275201e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206536000000,
+        "position_error_m": 4.0804349749762325e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09298463689912852,
+          "position": 0.01831684093202345,
+          "stamp_ns": 206540000000,
+          "velocity": 4.9732775348820335e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 206542000000,
+        "position_error_m": 4.8710668422435877e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381355588426138,
+          "position": 0.018316836060918624,
+          "stamp_ns": 206544000000,
+          "velocity": -1.2177761620819514e-06
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206546000000,
+        "position_error_m": 4.383956359738095e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381370434754822,
+          "position": 0.01831683167692446,
+          "stamp_ns": 206548000000,
+          "velocity": -1.0959985414631676e-06
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206550000000,
+        "position_error_m": 3.9455569433161086e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938137237822804,
+          "position": 0.018316827731329716,
+          "stamp_ns": 206552000000,
+          "velocity": -9.863986873729583e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206554000000,
+        "position_error_m": 3.550997468987349e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381373976073219,
+          "position": 0.01831682418029444,
+          "stamp_ns": 206556000000,
+          "velocity": -8.877588187820949e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206558000000,
+        "position_error_m": 3.1958939415016596e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09298658839196383,
+          "position": 0.018316834637996496,
+          "stamp_ns": 206560000000,
+          "velocity": 6.027833962345065e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 206562000000,
+        "position_error_m": 4.241664147003332e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381360550728572,
+          "position": 0.018316830396294368,
+          "stamp_ns": 206564000000,
+          "velocity": -1.0604254882846812e-06
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206566000000,
+        "position_error_m": 3.817493934160643e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938137535056442,
+          "position": 0.01831682657876263,
+          "stamp_ns": 206568000000,
+          "velocity": -9.54382935083875e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206570000000,
+        "position_error_m": 3.435740760296402e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381376777010127,
+          "position": 0.01831682314298407,
+          "stamp_ns": 206572000000,
+          "velocity": -8.589446416211758e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206574000000,
+        "position_error_m": 3.092162904200224e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381378099505744,
+          "position": 0.01831682005078336,
+          "stamp_ns": 206576000000,
+          "velocity": -7.730501775945293e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206578000000,
+        "position_error_m": 2.782942833470803e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381379290326589,
+          "position": 0.018316817267802724,
+          "stamp_ns": 206580000000,
+          "velocity": -6.95745159918354e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206582000000,
+        "position_error_m": 2.5046447697102403e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381380439119258,
+          "position": 0.018316814763120148,
+          "stamp_ns": 206584000000,
+          "velocity": -6.261706439829838e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206586000000,
+        "position_error_m": 2.2541765121175672e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381381309023427,
+          "position": 0.018316812508905832,
+          "stamp_ns": 206588000000,
+          "velocity": -5.635535795561926e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206590000000,
+        "position_error_m": 2.0287550805964116e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381382148705282,
+          "position": 0.01831681048011295,
+          "stamp_ns": 206592000000,
+          "velocity": -5.071982216892394e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206592000000,
+        "position_error_m": 1.8258757922273716e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381382894047313,
+          "position": 0.01831680865419935,
+          "stamp_ns": 206596000000,
+          "velocity": -4.5647839962354234e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206598000000,
+        "position_error_m": 1.6432844324870688e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381383554952447,
+          "position": 0.018316807010877113,
+          "stamp_ns": 206600000000,
+          "velocity": -4.108305596957308e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206602000000,
+        "position_error_m": 1.4789522086167128e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381384137203601,
+          "position": 0.0183168055318871,
+          "stamp_ns": 206604000000,
+          "velocity": -3.6974750370797563e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206604000000,
+        "position_error_m": 1.3310532072374759e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381384653024495,
+          "position": 0.018316804200796087,
+          "stamp_ns": 206608000000,
+          "velocity": -3.327727533691295e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206610000000,
+        "position_error_m": 1.1979441060655516e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381385008185526,
+          "position": 0.018316803002814176,
+          "stamp_ns": 206612000000,
+          "velocity": -2.9949547806758323e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206614000000,
+        "position_error_m": 1.0781459149067363e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938138550531241,
+          "position": 0.018316801924630456,
+          "stamp_ns": 206616000000,
+          "velocity": -2.695459302932751e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206618000000,
+        "position_error_m": 9.70327542967886e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381385851786707,
+          "position": 0.018316800954265106,
+          "stamp_ns": 206620000000,
+          "velocity": -2.425913372934921e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206622000000,
+        "position_error_m": 8.732910079106704e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938138615349358,
+          "position": 0.018316800080936294,
+          "stamp_ns": 206624000000,
+          "velocity": -2.1833220351552725e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206626000000,
+        "position_error_m": 7.859581267061211e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381386420573659,
+          "position": 0.01831679929494036,
+          "stamp_ns": 206628000000,
+          "velocity": -1.9649898321775095e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206630000000,
+        "position_error_m": 7.073585332056931e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381386647210546,
+          "position": 0.01831679858754402,
+          "stamp_ns": 206632000000,
+          "velocity": -1.768490848573891e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206632000000,
+        "position_error_m": 6.366188992634747e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09463365741815727,
+          "position": 0.01831681147909578,
+          "stamp_ns": 206636000000,
+          "velocity": -1.5916425900506202e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206638000000,
+        "position_error_m": 1.9257740752759434e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381384775683153,
+          "position": 0.01831680955328389,
+          "stamp_ns": 206640000000,
+          "velocity": -4.814529703642181e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206642000000,
+        "position_error_m": 1.7331928864328106e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381385499094919,
+          "position": 0.0183168078200532,
+          "stamp_ns": 206644000000,
+          "velocity": -4.333076731674211e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206646000000,
+        "position_error_m": 1.5598698173413528e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381385996841479,
+          "position": 0.018316806260145577,
+          "stamp_ns": 206648000000,
+          "velocity": -3.8997690587807676e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206650000000,
+        "position_error_m": 1.4038790550202629e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381386473972153,
+          "position": 0.018316804856228715,
+          "stamp_ns": 206652000000,
+          "velocity": -3.5097921530940525e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206654000000,
+        "position_error_m": 1.2634873688965875e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381386891890331,
+          "position": 0.018316803592703542,
+          "stamp_ns": 206656000000,
+          "velocity": -3.158812937950747e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206658000000,
+        "position_error_m": 1.137134851558752e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381392532266367,
+          "position": 0.018316802455530887,
+          "stamp_ns": 206660000000,
+          "velocity": -2.842931644448949e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206662000000,
+        "position_error_m": 1.023417586093478e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938138636755597,
+          "position": 0.018316801432075498,
+          "stamp_ns": 206664000000,
+          "velocity": -2.558638480877921e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206666000000,
+        "position_error_m": 9.210720471053424e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381386641630514,
+          "position": 0.018316800510965642,
+          "stamp_ns": 206668000000,
+          "velocity": -2.302774633429266e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206670000000,
+        "position_error_m": 8.289610615996867e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381386883567086,
+          "position": 0.018316799681966773,
+          "stamp_ns": 206672000000,
+          "velocity": -2.0724971696683796e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206674000000,
+        "position_error_m": 7.460611746445966e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381387090692504,
+          "position": 0.01831679893586779,
+          "stamp_ns": 206676000000,
+          "velocity": -1.865247452267644e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206678000000,
+        "position_error_m": 6.714512765237934e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.009781006022364808,
+          "position": 0.018316811854855446,
+          "stamp_ns": 206680000000,
+          "velocity": -1.6786380307271757e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206682000000,
+        "position_error_m": 1.9633500419197203e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938430812313844,
+          "position": 0.018316809891450316,
+          "stamp_ns": 206684000000,
+          "velocity": -4.908469649619407e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206686000000,
+        "position_error_m": 1.7670095289745724e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380796360539406,
+          "position": 0.018316808124402985,
+          "stamp_ns": 206688000000,
+          "velocity": -4.417618332245481e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206690000000,
+        "position_error_m": 1.5903047958371053e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380808598022891,
+          "position": 0.018316806534060388,
+          "stamp_ns": 206692000000,
+          "velocity": -3.9758564993616977e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206694000000,
+        "position_error_m": 1.4312705361174682e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380820532137657,
+          "position": 0.01831680510275205,
+          "stamp_ns": 206696000000,
+          "velocity": -3.5782708500810365e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206698000000,
+        "position_error_m": 1.2881397021963226e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380832176967435,
+          "position": 0.018316803814574543,
+          "stamp_ns": 206700000000,
+          "velocity": -3.220443765173005e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206702000000,
+        "position_error_m": 1.159321951632597e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380842311308678,
+          "position": 0.01831680265521479,
+          "stamp_ns": 206704000000,
+          "velocity": -2.898399389021731e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206706000000,
+        "position_error_m": 1.0433859762293274e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380854648408139,
+          "position": 0.01831680161179101,
+          "stamp_ns": 206708000000,
+          "velocity": -2.608559450616556e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206710000000,
+        "position_error_m": 9.390435984357737e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380865494858438,
+          "position": 0.018316800672709608,
+          "stamp_ns": 206712000000,
+          "velocity": -2.347703506481785e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206714000000,
+        "position_error_m": 8.451354581440196e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380876094549224,
+          "position": 0.018316799827536347,
+          "stamp_ns": 206716000000,
+          "velocity": -2.1129331557935994e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206718000000,
+        "position_error_m": 7.606181320202188e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323784146164044,
+          "position": 0.01831681615045177,
+          "stamp_ns": 206720000000,
+          "velocity": 8.351621694414999e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206720000000,
+        "position_error_m": 2.3929096742286715e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380841012073475,
+          "position": 0.018316813757504165,
+          "stamp_ns": 206724000000,
+          "velocity": -5.982368695463128e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206726000000,
+        "position_error_m": 2.153614913832924e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380900311412146,
+          "position": 0.018316811603851447,
+          "stamp_ns": 206728000000,
+          "velocity": -5.38413179501044e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206730000000,
+        "position_error_m": 1.9382496420361495e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938091073290707,
+          "position": 0.018316809665564003,
+          "stamp_ns": 206732000000,
+          "velocity": -4.845718615857858e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206734000000,
+        "position_error_m": 1.7444208976619135e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380920848916224,
+          "position": 0.0183168079211053,
+          "stamp_ns": 206736000000,
+          "velocity": -4.361146754871311e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206738000000,
+        "position_error_m": 1.569975027412851e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380930691214408,
+          "position": 0.01831680635109247,
+          "stamp_ns": 206740000000,
+          "velocity": -3.925032079427548e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206742000000,
+        "position_error_m": 1.4129737442580836e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380940303108436,
+          "position": 0.01831680493808092,
+          "stamp_ns": 206744000000,
+          "velocity": -3.532528871526535e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206744000000,
+        "position_error_m": 1.2716725894534875e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380949604597665,
+          "position": 0.018316803666370528,
+          "stamp_ns": 206748000000,
+          "velocity": -3.1792759849595675e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206750000000,
+        "position_error_m": 1.144501550129351e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380958700360006,
+          "position": 0.018316802521831176,
+          "stamp_ns": 206752000000,
+          "velocity": -2.861348386584174e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206754000000,
+        "position_error_m": 1.0300476149111004e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380967569442429,
+          "position": 0.018316801491745756,
+          "stamp_ns": 206756000000,
+          "velocity": -2.5752135484680746e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206758000000,
+        "position_error_m": 9.270390729371192e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09380976219115432,
+          "position": 0.01831680056466888,
+          "stamp_ns": 206760000000,
+          "velocity": -2.3176921937857406e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206762000000,
+        "position_error_m": 8.34331385229925e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323947591477216,
+          "position": 0.018316816883060805,
+          "stamp_ns": 206764000000,
+          "velocity": 8.367788261139423e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206766000000,
+        "position_error_m": 2.4661705778222798e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938093734497386,
+          "position": 0.018316814416852296,
+          "stamp_ns": 206768000000,
+          "velocity": -6.165520955619171e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206770000000,
+        "position_error_m": 2.2195497269977826e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938099476187549,
+          "position": 0.018316812197264765,
+          "stamp_ns": 206772000000,
+          "velocity": -5.54896882890921e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206772000000,
+        "position_error_m": 1.997590973884522e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381003363337445,
+          "position": 0.018316810199635988,
+          "stamp_ns": 206776000000,
+          "velocity": -4.994071946237731e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206776000000,
+        "position_error_m": 1.797828096117282e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938101168761082,
+          "position": 0.01831680840177009,
+          "stamp_ns": 206780000000,
+          "velocity": -4.4946647520245457e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206782000000,
+        "position_error_m": 1.618041506334933e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381019764584272,
+          "position": 0.01831680678369078,
+          "stamp_ns": 206784000000,
+          "velocity": -4.0451982776966086e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206786000000,
+        "position_error_m": 1.4562335753920408e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381026379182517,
+          "position": 0.0183168053274194,
+          "stamp_ns": 206788000000,
+          "velocity": -3.640678450493335e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206790000000,
+        "position_error_m": 1.3106064372658821e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09437864992965815,
+          "position": 0.01831682115573715,
+          "stamp_ns": 206792000000,
+          "velocity": -3.276611178230828e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206794000000,
+        "position_error_m": 2.8934382122897118e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381035767614551,
+          "position": 0.018316818262261125,
+          "stamp_ns": 206796000000,
+          "velocity": -7.233690042899059e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206798000000,
+        "position_error_m": 2.604090609814591e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381043724672809,
+          "position": 0.01831681565813271,
+          "stamp_ns": 206800000000,
+          "velocity": -6.510321036779562e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206800000000,
+        "position_error_m": 2.343677768523733e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381051491451466,
+          "position": 0.01831681331441714,
+          "stamp_ns": 206804000000,
+          "velocity": -5.859288933692279e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206804000000,
+        "position_error_m": 2.109306211292572e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381058992677527,
+          "position": 0.018316811205073124,
+          "stamp_ns": 206808000000,
+          "velocity": -5.273360040308631e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206808000000,
+        "position_error_m": 1.8983718097498326e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381066252846625,
+          "position": 0.01831680930666351,
+          "stamp_ns": 206812000000,
+          "velocity": -4.7460240367683693e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206814000000,
+        "position_error_m": 1.7085308483960615e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381073320760736,
+          "position": 0.01831680759809486,
+          "stamp_ns": 206816000000,
+          "velocity": -4.271421633292869e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206818000000,
+        "position_error_m": 1.537673983281751e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381080111948277,
+          "position": 0.01831680606038307,
+          "stamp_ns": 206820000000,
+          "velocity": -3.8442794707477853e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206822000000,
+        "position_error_m": 1.3839028045053992e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381086737692176,
+          "position": 0.018316804676442464,
+          "stamp_ns": 206824000000,
+          "velocity": -3.459851523737517e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206826000000,
+        "position_error_m": 1.245508743710766e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381093169309872,
+          "position": 0.018316803430895916,
+          "stamp_ns": 206828000000,
+          "velocity": -3.1138663719471743e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206830000000,
+        "position_error_m": 1.120954088926207e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938109942112788,
+          "position": 0.018316802309904023,
+          "stamp_ns": 206832000000,
+          "velocity": -2.802479735006377e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206834000000,
+        "position_error_m": 1.0088548996201041e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381105502464049,
+          "position": 0.018316801301011317,
+          "stamp_ns": 206836000000,
+          "velocity": -2.522231761833277e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206838000000,
+        "position_error_m": 9.079656290711391e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381111419313347,
+          "position": 0.018316800393007884,
+          "stamp_ns": 206840000000,
+          "velocity": -2.2700085854619485e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206840000000,
+        "position_error_m": 8.171652857852374e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381117180994558,
+          "position": 0.018316799575804794,
+          "stamp_ns": 206844000000,
+          "velocity": -2.043007727262373e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206846000000,
+        "position_error_m": 7.354449767932314e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938112279205256,
+          "position": 0.018316798840322016,
+          "stamp_ns": 206848000000,
+          "velocity": -1.8387069549016203e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206850000000,
+        "position_error_m": 6.618966989085928e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938112826340968,
+          "position": 0.018316798178387512,
+          "stamp_ns": 206852000000,
+          "velocity": -1.6548362601336453e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206852000000,
+        "position_error_m": 5.957032485348623e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381133597217295,
+          "position": 0.018316797582646458,
+          "stamp_ns": 206856000000,
+          "velocity": -1.4893526344519382e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206858000000,
+        "position_error_m": 5.361291431638104e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381138797846193,
+          "position": 0.01831679704647951,
+          "stamp_ns": 206860000000,
+          "velocity": -1.3404173708974568e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206862000000,
+        "position_error_m": 4.825124483992527e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381143874915131,
+          "position": 0.018316796563929257,
+          "stamp_ns": 206864000000,
+          "velocity": -1.2063756339275155e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206866000000,
+        "position_error_m": 4.342574230764562e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381148804750736,
+          "position": 0.01831679612963403,
+          "stamp_ns": 206868000000,
+          "velocity": -1.0857380709121747e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206870000000,
+        "position_error_m": 3.908279002512449e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381153662150059,
+          "position": 0.01831679573876832,
+          "stamp_ns": 206872000000,
+          "velocity": -9.771642638567359e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206874000000,
+        "position_error_m": 3.5174132946569348e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381158392423122,
+          "position": 0.018316795386989188,
+          "stamp_ns": 206876000000,
+          "velocity": -8.794478369058677e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206878000000,
+        "position_error_m": 3.1656341610564187e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381163008416696,
+          "position": 0.018316795070387967,
+          "stamp_ns": 206880000000,
+          "velocity": -7.915030536445166e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206882000000,
+        "position_error_m": 2.849032940122065e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381167520017901,
+          "position": 0.018316794785446868,
+          "stamp_ns": 206884000000,
+          "velocity": -7.12352748533443e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206886000000,
+        "position_error_m": 2.564091841628091e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381171929571107,
+          "position": 0.01831679452899988,
+          "stamp_ns": 206888000000,
+          "velocity": -6.411174737473192e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206890000000,
+        "position_error_m": 2.3076448529835147e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381176270046852,
+          "position": 0.01831679429819759,
+          "stamp_ns": 206892000000,
+          "velocity": -5.770057265655753e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206894000000,
+        "position_error_m": 2.0768425625095066e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381180454077145,
+          "position": 0.018316794090475527,
+          "stamp_ns": 206896000000,
+          "velocity": -5.1930515409452475e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206898000000,
+        "position_error_m": 1.8691205007359546e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381184578347534,
+          "position": 0.01831679390352567,
+          "stamp_ns": 206900000000,
+          "velocity": -4.673746386229475e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206902000000,
+        "position_error_m": 1.6821706423642002e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381188610538689,
+          "position": 0.0183167937352708,
+          "stamp_ns": 206904000000,
+          "velocity": -4.2063717409939784e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206906000000,
+        "position_error_m": 1.5139157739929576e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381192555149505,
+          "position": 0.018316793583841418,
+          "stamp_ns": 206908000000,
+          "velocity": -3.7857345708139714e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206910000000,
+        "position_error_m": 1.3624863910710605e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381196416823755,
+          "position": 0.01831679344755497,
+          "stamp_ns": 206912000000,
+          "velocity": -3.4071611124467105e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206912000000,
+        "position_error_m": 1.2261999436657955e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381200195209073,
+          "position": 0.01831679332489717,
+          "stamp_ns": 206916000000,
+          "velocity": -3.066444994323861e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206918000000,
+        "position_error_m": 1.1035421430827252e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938120389320544,
+          "position": 0.018316793214505148,
+          "stamp_ns": 206920000000,
+          "velocity": -2.7598004919771393e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206922000000,
+        "position_error_m": 9.931501211701832e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381207511486135,
+          "position": 0.01831679311515233,
+          "stamp_ns": 206924000000,
+          "velocity": -2.4838204398629216e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206924000000,
+        "position_error_m": 8.937973035305635e-10,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381211054057244,
+          "position": 0.018316793025734794,
+          "stamp_ns": 206928000000,
+          "velocity": -2.235438394647144e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206930000000,
+        "position_error_m": 8.043797676549058e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381214524517173,
+          "position": 0.018316792945259015,
+          "stamp_ns": 206932000000,
+          "velocity": -2.0118945571047202e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206934000000,
+        "position_error_m": 7.239039888362608e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323773765958615,
+          "position": 0.01831680942898526,
+          "stamp_ns": 206936000000,
+          "velocity": 8.25997017252526e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206936000000,
+        "position_error_m": 1.720763023391192e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938116574193725,
+          "position": 0.018316807708184304,
+          "stamp_ns": 206940000000,
+          "velocity": -4.3020020717673187e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206942000000,
+        "position_error_m": 1.5486829277322478e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381218338325634,
+          "position": 0.018316806159463572,
+          "stamp_ns": 206944000000,
+          "velocity": -3.8718018332206065e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206946000000,
+        "position_error_m": 1.3938108545802352e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938122226815337,
+          "position": 0.018316804765614914,
+          "stamp_ns": 206948000000,
+          "velocity": -3.4846216505584997e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206950000000,
+        "position_error_m": 1.2544259887781184e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.093812260368545,
+          "position": 0.01831680351115112,
+          "stamp_ns": 206952000000,
+          "velocity": -3.136159486071639e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206954000000,
+        "position_error_m": 1.1289796094521298e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381229666904535,
+          "position": 0.018316802382133707,
+          "stamp_ns": 206956000000,
+          "velocity": -2.8225435373858705e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206958000000,
+        "position_error_m": 1.0160778680240456e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938123317558118,
+          "position": 0.018316801366018036,
+          "stamp_ns": 206960000000,
+          "velocity": -2.5402891840379214e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206962000000,
+        "position_error_m": 9.144663009469367e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381236595368415,
+          "position": 0.01831680045151393,
+          "stamp_ns": 206964000000,
+          "velocity": -2.2862602664069486e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206966000000,
+        "position_error_m": 8.230158905081497e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938123985625197,
+          "position": 0.018316799628460237,
+          "stamp_ns": 206968000000,
+          "velocity": -2.057634240368528e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206970000000,
+        "position_error_m": 7.407105210438525e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323540661266529,
+          "position": 0.018316814770780773,
+          "stamp_ns": 206972000000,
+          "velocity": 7.756347349377273e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206974000000,
+        "position_error_m": 2.254942574678176e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381190586369402,
+          "position": 0.018316812515800265,
+          "stamp_ns": 206976000000,
+          "velocity": -5.637450950297029e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206978000000,
+        "position_error_m": 2.0294445238905334e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381243007980652,
+          "position": 0.018316810486317937,
+          "stamp_ns": 206980000000,
+          "velocity": -5.073705823706309e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206982000000,
+        "position_error_m": 1.826496291018609e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381246651921905,
+          "position": 0.018316808659783843,
+          "stamp_ns": 206984000000,
+          "velocity": -4.566335241651181e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206986000000,
+        "position_error_m": 1.643842881607349e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381250122132286,
+          "position": 0.018316807015903158,
+          "stamp_ns": 206988000000,
+          "velocity": -4.1097017179658225e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206990000000,
+        "position_error_m": 1.4794548131719099e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381253445227225,
+          "position": 0.01831680553641054,
+          "stamp_ns": 206992000000,
+          "velocity": -3.698731547024676e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206994000000,
+        "position_error_m": 1.3315055513024587e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381256016265624,
+          "position": 0.018316804204867185,
+          "stamp_ns": 206996000000,
+          "velocity": -3.32885839266113e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 206998000000,
+        "position_error_m": 1.1983512158281195e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381259699222504,
+          "position": 0.018316803006478165,
+          "stamp_ns": 207000000000,
+          "velocity": -2.9959725538126515e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207002000000,
+        "position_error_m": 1.0785123138318253e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381262649207901,
+          "position": 0.018316801927928048,
+          "stamp_ns": 207004000000,
+          "velocity": -2.696375298757948e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207006000000,
+        "position_error_m": 9.706573021045495e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09439194229384046,
+          "position": 0.01831681585508144,
+          "stamp_ns": 207008000000,
+          "velocity": -2.426738353666436e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207010000000,
+        "position_error_m": 2.3633726413396783e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381266359169566,
+          "position": 0.018316813491670983,
+          "stamp_ns": 207012000000,
+          "velocity": -5.908526117618653e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207014000000,
+        "position_error_m": 2.1270315956473107e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938126293286621,
+          "position": 0.018316811364601584,
+          "stamp_ns": 207016000000,
+          "velocity": -5.317673503673964e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207018000000,
+        "position_error_m": 1.9143246557384863e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938126810818247,
+          "position": 0.018316809450239124,
+          "stamp_ns": 207020000000,
+          "velocity": -4.785906153673136e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207022000000,
+        "position_error_m": 1.722888409716461e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381271207926513,
+          "position": 0.01831680772731291,
+          "stamp_ns": 207024000000,
+          "velocity": -4.3073155388153976e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207026000000,
+        "position_error_m": 1.5505957882272492e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381274179313537,
+          "position": 0.018316806176679315,
+          "stamp_ns": 207028000000,
+          "velocity": -3.876583985032737e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207030000000,
+        "position_error_m": 1.3955324288522641e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381277002455089,
+          "position": 0.018316804781109083,
+          "stamp_ns": 207032000000,
+          "velocity": -3.4889255863177187e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207034000000,
+        "position_error_m": 1.2559754056229444e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381279710837441,
+          "position": 0.018316803525095873,
+          "stamp_ns": 207036000000,
+          "velocity": -3.1400330287648364e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207038000000,
+        "position_error_m": 1.1303740846124732e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381282307611044,
+          "position": 0.018316802394683983,
+          "stamp_ns": 207040000000,
+          "velocity": -2.8260297257832936e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207042000000,
+        "position_error_m": 1.0173328957030492e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381284799770277,
+          "position": 0.018316801377313282,
+          "stamp_ns": 207044000000,
+          "velocity": -2.5434267539824456e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207046000000,
+        "position_error_m": 9.155958255457897e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381287194275846,
+          "position": 0.01831680046167965,
+          "stamp_ns": 207048000000,
+          "velocity": -2.2890840783204146e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207050000000,
+        "position_error_m": 8.240324624042561e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381289499699205,
+          "position": 0.018316799637609384,
+          "stamp_ns": 207052000000,
+          "velocity": -2.06017567064439e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207054000000,
+        "position_error_m": 7.4162543571565376e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381291720847187,
+          "position": 0.018316798895946142,
+          "stamp_ns": 207056000000,
+          "velocity": -1.8541581037635063e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207058000000,
+        "position_error_m": 6.6745911159182825e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381293866513227,
+          "position": 0.018316798228449224,
+          "stamp_ns": 207060000000,
+          "velocity": -1.6687422938832866e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207062000000,
+        "position_error_m": 6.007094197069129e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.093812959357358,
+          "position": 0.018316797627702,
+          "stamp_ns": 207064000000,
+          "velocity": -1.5018680638891058e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207066000000,
+        "position_error_m": 5.406346974268228e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381297928056474,
+          "position": 0.018316797087029497,
+          "stamp_ns": 207068000000,
+          "velocity": -1.3516812582495957e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207070000000,
+        "position_error_m": 4.865674470971859e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381299860388914,
+          "position": 0.018316796600424245,
+          "stamp_ns": 207072000000,
+          "velocity": -1.216513132422251e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207074000000,
+        "position_error_m": 4.379069218352072e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381301735814394,
+          "position": 0.018316796162479516,
+          "stamp_ns": 207076000000,
+          "velocity": -1.094861819030948e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207078000000,
+        "position_error_m": 3.94112448925954e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381303550030395,
+          "position": 0.01831679576832926,
+          "stamp_ns": 207080000000,
+          "velocity": -9.853756368857509e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207082000000,
+        "position_error_m": 3.546974235157929e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381305309492265,
+          "position": 0.018316795413594034,
+          "stamp_ns": 207084000000,
+          "velocity": -8.86838073573936e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207086000000,
+        "position_error_m": 3.1922390078542584e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09439126093931617,
+          "position": 0.01831680920360602,
+          "stamp_ns": 207088000000,
+          "velocity": -7.981548494340445e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207090000000,
+        "position_error_m": 1.6982250994335146e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381302097442494,
+          "position": 0.018316807505343105,
+          "stamp_ns": 207092000000,
+          "velocity": -4.245657263367156e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207092000000,
+        "position_error_m": 1.5283988078623745e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381304365066151,
+          "position": 0.01831680597690649,
+          "stamp_ns": 207096000000,
+          "velocity": -3.8210915344002745e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207096000000,
+        "position_error_m": 1.3755551465238769e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938130662270719,
+          "position": 0.01831680460131354,
+          "stamp_ns": 207100000000,
+          "velocity": -3.4389823810659567e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207102000000,
+        "position_error_m": 1.237995851319229e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381308763152528,
+          "position": 0.018316803363279885,
+          "stamp_ns": 207104000000,
+          "velocity": -3.09508414305759e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207106000000,
+        "position_error_m": 1.1141924858432128e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938131080127836,
+          "position": 0.018316802249049594,
+          "stamp_ns": 207108000000,
+          "velocity": -2.7855757293317705e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207110000000,
+        "position_error_m": 1.0027694567066314e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381312745233751,
+          "position": 0.018316801246242333,
+          "stamp_ns": 207112000000,
+          "velocity": -2.507018156494654e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207114000000,
+        "position_error_m": 9.02488730622486e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381314597894133,
+          "position": 0.018316800343715797,
+          "stamp_ns": 207116000000,
+          "velocity": -2.2563163414176472e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207118000000,
+        "position_error_m": 8.122360770079773e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381316370485991,
+          "position": 0.018316799531441916,
+          "stamp_ns": 207120000000,
+          "velocity": -2.0306847073651123e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207120000000,
+        "position_error_m": 7.310086889977807e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0932363360188987,
+          "position": 0.01831681380352527,
+          "stamp_ns": 207124000000,
+          "velocity": 7.318803298839963e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 207126000000,
+        "position_error_m": 2.158217024192388e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381279956560452,
+          "position": 0.01831681164527031,
+          "stamp_ns": 207128000000,
+          "velocity": -5.39563707522314e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207130000000,
+        "position_error_m": 1.9423915285227134e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381315248552718,
+          "position": 0.01831680970284098,
+          "stamp_ns": 207132000000,
+          "velocity": -4.856073336181226e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207134000000,
+        "position_error_m": 1.7481485953263487e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323672661458034,
+          "position": 0.018316823903078937,
+          "stamp_ns": 207136000000,
+          "velocity": 7.537165578444462e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 207138000000,
+        "position_error_m": 3.168172391099233e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381264223455464,
+          "position": 0.018316820734868615,
+          "stamp_ns": 207140000000,
+          "velocity": -7.920525492237634e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 207142000000,
+        "position_error_m": 2.8513513588429573e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381314200833174,
+          "position": 0.018316817883479452,
+          "stamp_ns": 207144000000,
+          "velocity": -7.128472912064235e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 207146000000,
+        "position_error_m": 2.5662124425451793e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938131797131001,
+          "position": 0.018316815317229205,
+          "stamp_ns": 207148000000,
+          "velocity": -6.415625621250401e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207150000000,
+        "position_error_m": 2.3095874178424847e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381320351357257,
+          "position": 0.018316813007603985,
+          "stamp_ns": 207152000000,
+          "velocity": -5.774063059220446e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207154000000,
+        "position_error_m": 2.0786248958182263e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381322573905113,
+          "position": 0.018316810928941284,
+          "stamp_ns": 207156000000,
+          "velocity": -5.19665675424762e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207158000000,
+        "position_error_m": 1.870758625788227e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09438576587559513,
+          "position": 0.018316825535228908,
+          "stamp_ns": 207160000000,
+          "velocity": -4.6769916566664037e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 207162000000,
+        "position_error_m": 3.331387388172402e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381319755627673,
+          "position": 0.018316822203803707,
+          "stamp_ns": 207164000000,
+          "velocity": -8.328562985442057e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 207166000000,
+        "position_error_m": 2.998244868004929e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381322315447202,
+          "position": 0.018316819205521036,
+          "stamp_ns": 207168000000,
+          "velocity": -7.495706684945312e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 207168000000,
+        "position_error_m": 2.6984166009297317e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938132476664098,
+          "position": 0.01831681650706663,
+          "stamp_ns": 207172000000,
+          "velocity": -6.746136017081678e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207174000000,
+        "position_error_m": 2.4285711604926652e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381327037257081,
+          "position": 0.018316814078457668,
+          "stamp_ns": 207176000000,
+          "velocity": -6.07152241629042e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207178000000,
+        "position_error_m": 2.1857102641686943e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381329216745138,
+          "position": 0.0183168118927096,
+          "stamp_ns": 207180000000,
+          "velocity": -5.464370175492419e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207182000000,
+        "position_error_m": 1.967135457303648e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381331126149214,
+          "position": 0.01831680992553634,
+          "stamp_ns": 207184000000,
+          "velocity": -4.91793315823873e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207184000000,
+        "position_error_m": 1.7704181311944955e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381332969434253,
+          "position": 0.018316808155080404,
+          "stamp_ns": 207188000000,
+          "velocity": -4.426139842846587e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207190000000,
+        "position_error_m": 1.5933725377309527e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381334697963209,
+          "position": 0.018316806561670063,
+          "stamp_ns": 207192000000,
+          "velocity": -3.9835258592679605e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207194000000,
+        "position_error_m": 1.434031503613764e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381336315847527,
+          "position": 0.018316805127600755,
+          "stamp_ns": 207196000000,
+          "velocity": -3.585173274072567e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207198000000,
+        "position_error_m": 1.2906245728389054e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381337841198856,
+          "position": 0.01831680383693838,
+          "stamp_ns": 207200000000,
+          "velocity": -3.226655947250346e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207202000000,
+        "position_error_m": 1.1615583352803105e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381339275733945,
+          "position": 0.01831680267534224,
+          "stamp_ns": 207204000000,
+          "velocity": -2.9039903531489445e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207206000000,
+        "position_error_m": 1.0453987214081861e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381340630553106,
+          "position": 0.01831680162990571,
+          "stamp_ns": 207208000000,
+          "velocity": -2.6135913186236745e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207210000000,
+        "position_error_m": 9.408550685069406e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381341887741773,
+          "position": 0.018316800689012838,
+          "stamp_ns": 207212000000,
+          "velocity": -2.3522321862046777e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207214000000,
+        "position_error_m": 8.467657811039864e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381343117599854,
+          "position": 0.018316799842209252,
+          "stamp_ns": 207216000000,
+          "velocity": -2.1170089678046282e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207218000000,
+        "position_error_m": 7.62085422545411e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381344272722915,
+          "position": 0.018316799080086026,
+          "stamp_ns": 207220000000,
+          "velocity": -1.9053080716900823e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207222000000,
+        "position_error_m": 6.8587309998147106e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381345365946964,
+          "position": 0.018316798394175122,
+          "stamp_ns": 207224000000,
+          "velocity": -1.7147772648693198e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207226000000,
+        "position_error_m": 6.172820095351472e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.093813464064838,
+          "position": 0.01831679777685531,
+          "stamp_ns": 207228000000,
+          "velocity": -1.5432995391026234e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207230000000,
+        "position_error_m": 5.555500282028447e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381347398708856,
+          "position": 0.018316797221267476,
+          "stamp_ns": 207232000000,
+          "velocity": -1.388969585943171e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207232000000,
+        "position_error_m": 4.999912449343835e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381348345352146,
+          "position": 0.018316796721238423,
+          "stamp_ns": 207236000000,
+          "velocity": -1.2500726274510942e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207238000000,
+        "position_error_m": 4.4998833964582374e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381349251419116,
+          "position": 0.018316796271212275,
+          "stamp_ns": 207240000000,
+          "velocity": -1.1250653642698102e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207240000000,
+        "position_error_m": 4.04985724816731e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938135011945886,
+          "position": 0.018316795866188746,
+          "stamp_ns": 207244000000,
+          "velocity": -1.0125588273922348e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207246000000,
+        "position_error_m": 3.644833719562701e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381350950295099,
+          "position": 0.01831679550166757,
+          "stamp_ns": 207248000000,
+          "velocity": -9.113029448160753e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207250000000,
+        "position_error_m": 3.2803125424307744e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381351750409946,
+          "position": 0.01831679517359851,
+          "stamp_ns": 207252000000,
+          "velocity": -8.201726509927953e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207254000000,
+        "position_error_m": 2.952243484399819e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323819921653331,
+          "position": 0.018316811252815212,
+          "stamp_ns": 207256000000,
+          "velocity": 8.113423890135688e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 207258000000,
+        "position_error_m": 1.9031460185559013e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381297848967753,
+          "position": 0.01831680934963126,
+          "stamp_ns": 207260000000,
+          "velocity": -4.757959560923756e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207262000000,
+        "position_error_m": 1.7128276234845696e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381347814997405,
+          "position": 0.018316807636765832,
+          "stamp_ns": 207264000000,
+          "velocity": -4.282163573427573e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207264000000,
+        "position_error_m": 1.541541080549158e-08,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381349243000071,
+          "position": 0.018316806095186947,
+          "stamp_ns": 207268000000,
+          "velocity": -3.8539472164457467e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207270000000,
+        "position_error_m": 1.387383192011371e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381350547740577,
+          "position": 0.01831680470776595,
+          "stamp_ns": 207272000000,
+          "velocity": -3.468552495347393e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207274000000,
+        "position_error_m": 1.2486410922579738e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381351762843225,
+          "position": 0.018316803459087053,
+          "stamp_ns": 207276000000,
+          "velocity": -3.1216972458392167e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207278000000,
+        "position_error_m": 1.1237732026186942e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381351916222948,
+          "position": 0.018316802335276043,
+          "stamp_ns": 207280000000,
+          "velocity": -2.809527521714997e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207282000000,
+        "position_error_m": 1.0113921016657867e-08,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381353957050907,
+          "position": 0.018316801323846138,
+          "stamp_ns": 207284000000,
+          "velocity": -2.5285747692264764e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207286000000,
+        "position_error_m": 9.102491111551148e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381354950310725,
+          "position": 0.018316800413559223,
+          "stamp_ns": 207288000000,
+          "velocity": -2.2757172931221845e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207290000000,
+        "position_error_m": 8.19220419626121e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381355884954432,
+          "position": 0.018316799594301,
+          "stamp_ns": 207292000000,
+          "velocity": -2.048145564249827e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207294000000,
+        "position_error_m": 7.372945972500267e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381356763043709,
+          "position": 0.018316798856968595,
+          "stamp_ns": 207296000000,
+          "velocity": -1.8433310084212638e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207298000000,
+        "position_error_m": 6.635613569033749e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381357593492536,
+          "position": 0.018316798193369434,
+          "stamp_ns": 207300000000,
+          "velocity": -1.658997907401762e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207302000000,
+        "position_error_m": 5.972014407301662e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381358376054183,
+          "position": 0.01831679759613019,
+          "stamp_ns": 207304000000,
+          "velocity": -1.4930981174100105e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207306000000,
+        "position_error_m": 5.374775163130563e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381359117194189,
+          "position": 0.018316797058614866,
+          "stamp_ns": 207308000000,
+          "velocity": -1.3437883058891025e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207310000000,
+        "position_error_m": 4.837259839213237e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381359820020982,
+          "position": 0.018316796574851076,
+          "stamp_ns": 207312000000,
+          "velocity": -1.20940947510818e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207314000000,
+        "position_error_m": 4.353496049769312e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381360488413462,
+          "position": 0.018316796139463663,
+          "stamp_ns": 207316000000,
+          "velocity": -1.0884685277873143e-07
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207318000000,
+        "position_error_m": 3.918108636147277e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381361121853221,
+          "position": 0.01831679574761499,
+          "stamp_ns": 207320000000,
+          "velocity": -9.796216740934078e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207322000000,
+        "position_error_m": 3.5262599645813353e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938136172753806,
+          "position": 0.01831679539495119,
+          "stamp_ns": 207324000000,
+          "velocity": -8.816595065944035e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207326000000,
+        "position_error_m": 3.1735961636414345e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381362304828363,
+          "position": 0.01831679507755377,
+          "stamp_ns": 207328000000,
+          "velocity": -7.934935562531765e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207330000000,
+        "position_error_m": 2.8561987427955238e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381362856199951,
+          "position": 0.01831679479189609,
+          "stamp_ns": 207332000000,
+          "velocity": -7.141442009972465e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207334000000,
+        "position_error_m": 2.5705410647280935e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381363384197697,
+          "position": 0.01831679453480418,
+          "stamp_ns": 207336000000,
+          "velocity": -6.427297815139992e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207336000000,
+        "position_error_m": 2.3134491544674063e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381363890730371,
+          "position": 0.018316794303421462,
+          "stamp_ns": 207340000000,
+          "velocity": -5.7845680406917385e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207342000000,
+        "position_error_m": 2.082066435926677e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381364374290263,
+          "position": 0.018316794095177013,
+          "stamp_ns": 207344000000,
+          "velocity": -5.206111243830341e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207346000000,
+        "position_error_m": 1.8738219864644634e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381364844303605,
+          "position": 0.01831679390775701,
+          "stamp_ns": 207348000000,
+          "velocity": -4.685500119686915e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207348000000,
+        "position_error_m": 1.6864019833362498e-09,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0938136529327219,
+          "position": 0.018316793739079008,
+          "stamp_ns": 207352000000,
+          "velocity": -4.2169501129939516e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207354000000,
+        "position_error_m": 1.517723981214747e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381365726314501,
+          "position": 0.018316793587268804,
+          "stamp_ns": 207356000000,
+          "velocity": -3.7952551062048374e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207358000000,
+        "position_error_m": 1.3659137779176156e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381366144328794,
+          "position": 0.018316793450639617,
+          "stamp_ns": 207360000000,
+          "velocity": -3.415729598384848e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207362000000,
+        "position_error_m": 1.229284590786861e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381366547509798,
+          "position": 0.018316793327673355,
+          "stamp_ns": 207364000000,
+          "velocity": -3.0741566291051306e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207366000000,
+        "position_error_m": 1.1063183286141864e-09,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381366937525329,
+          "position": 0.018316793217003715,
+          "stamp_ns": 207368000000,
+          "velocity": -2.7667409765140538e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207370000000,
+        "position_error_m": 9.95648688495443e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381367315052337,
+          "position": 0.01831679311740104,
+          "stamp_ns": 207372000000,
+          "velocity": -2.4900668733982695e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207374000000,
+        "position_error_m": 8.960460151641314e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381367680508988,
+          "position": 0.018316793027758637,
+          "stamp_ns": 207376000000,
+          "velocity": -2.241060192260079e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207378000000,
+        "position_error_m": 8.064036105537298e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381368034612328,
+          "position": 0.01831679294708047,
+          "stamp_ns": 207380000000,
+          "velocity": -2.0169541788800892e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207382000000,
+        "position_error_m": 7.257254450165895e-10,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09381368378029059,
+          "position": 0.018316792874470123,
+          "stamp_ns": 207384000000,
+          "velocity": -1.8152587621532608e-08
+        },
+        "nonstationary_causes": [],
+        "observed_ros_ns": 207386000000,
+        "position_error_m": 6.531150967270527e-10,
+        "signed_feedback_age_ns": 2000000
+      }
+    ],
+    "observed_reset_samples": [
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09324832325213464,
+          "position": 0.01831680953225272,
+          "stamp_ns": 205292000000,
+          "velocity": 8.053843100059872e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 205294000000,
+        "position_error_m": 1.731089769446692e-08,
+        "previous_confirmed_stable_interval_seconds": 0.142,
+        "previous_stationary_start_ros_ns": 205150000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323647619482449,
+          "position": 0.01831680842958882,
+          "stamp_ns": 205460000000,
+          "velocity": 7.983159585428783e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 205462000000,
+        "position_error_m": 1.6208233793307825e-08,
+        "previous_confirmed_stable_interval_seconds": 0.162,
+        "previous_stationary_start_ros_ns": 205298000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0930491469184394,
+          "position": 0.018316822235626667,
+          "stamp_ns": 205468000000,
+          "velocity": 8.078143343796156e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 205470000000,
+        "position_error_m": 3.001427164098236e-08,
+        "previous_confirmed_stable_interval_seconds": 0.002,
+        "previous_stationary_start_ros_ns": 205466000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09437696065456709,
+          "position": 0.018316824252114783,
+          "stamp_ns": 205480000000,
+          "velocity": -5.316125807145735e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 205480000000,
+        "position_error_m": 3.2030759756357385e-08,
+        "previous_confirmed_stable_interval_seconds": 0.004,
+        "previous_stationary_start_ros_ns": 205476000000,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09324158884112396,
+          "position": 0.018316807730001883,
+          "stamp_ns": 205652000000,
+          "velocity": 7.572353146249834e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 205654000000,
+        "position_error_m": 1.5508646856315922e-08,
+        "previous_confirmed_stable_interval_seconds": 0.158,
+        "previous_stationary_start_ros_ns": 205494000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09324378858399675,
+          "position": 0.018316811317253223,
+          "stamp_ns": 205776000000,
+          "velocity": 8.295946298736271e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 205778000000,
+        "position_error_m": 1.909589819604207e-08,
+        "previous_confirmed_stable_interval_seconds": 0.12,
+        "previous_stationary_start_ros_ns": 205656000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09324384698372966,
+          "position": 0.018316818264841515,
+          "stamp_ns": 205804000000,
+          "velocity": 8.201373835590628e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 205806000000,
+        "position_error_m": 2.6043486488908085e-08,
+        "previous_confirmed_stable_interval_seconds": 0.022,
+        "previous_stationary_start_ros_ns": 205782000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09324313685022302,
+          "position": 0.018316818860666915,
+          "stamp_ns": 205916000000,
+          "velocity": 8.302866621860173e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 205918000000,
+        "position_error_m": 2.6639311888343453e-08,
+        "previous_confirmed_stable_interval_seconds": 0.106,
+        "previous_stationary_start_ros_ns": 205810000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09438152376886007,
+          "position": 0.018316817825533866,
+          "stamp_ns": 205960000000,
+          "velocity": -2.322171945727319e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 205960000000,
+        "position_error_m": 2.5604178839622183e-08,
+        "previous_confirmed_stable_interval_seconds": 0.038,
+        "previous_stationary_start_ros_ns": 205922000000,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09438197330256579,
+          "position": 0.018316817527882192,
+          "stamp_ns": 206004000000,
+          "velocity": -2.231939812733603e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206006000000,
+        "position_error_m": 2.5306527165480652e-08,
+        "previous_confirmed_stable_interval_seconds": 0.038,
+        "previous_stationary_start_ros_ns": 205966000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09324191393136667,
+          "position": 0.018316813564053114,
+          "stamp_ns": 206072000000,
+          "velocity": 8.44406327526082e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206074000000,
+        "position_error_m": 2.134269808801159e-08,
+        "previous_confirmed_stable_interval_seconds": 0.062,
+        "previous_stationary_start_ros_ns": 206010000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09324184848540037,
+          "position": 0.018316810453773667,
+          "stamp_ns": 206188000000,
+          "velocity": 8.585830552843596e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206188000000,
+        "position_error_m": 1.8232418640823367e-08,
+        "previous_confirmed_stable_interval_seconds": 0.11,
+        "previous_stationary_start_ros_ns": 206078000000,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09438372757503402,
+          "position": 0.018316818909396407,
+          "stamp_ns": 206260000000,
+          "velocity": -2.6191545602488597e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206260000000,
+        "position_error_m": 2.6688041381006666e-08,
+        "previous_confirmed_stable_interval_seconds": 0.066,
+        "previous_stationary_start_ros_ns": 206194000000,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0932416346558711,
+          "position": 0.018316810021675217,
+          "stamp_ns": 206408000000,
+          "velocity": 8.614756620904922e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206410000000,
+        "position_error_m": 1.7800320190053398e-08,
+        "previous_confirmed_stable_interval_seconds": 0.142,
+        "previous_stationary_start_ros_ns": 206266000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323839072593737,
+          "position": 0.018316810126625123,
+          "stamp_ns": 206504000000,
+          "velocity": 8.203433271353287e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206506000000,
+        "position_error_m": 1.7905270096457704e-08,
+        "previous_confirmed_stable_interval_seconds": 0.09,
+        "previous_stationary_start_ros_ns": 206414000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323505990909518,
+          "position": 0.01831681785412818,
+          "stamp_ns": 206520000000,
+          "velocity": 6.616297338330802e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 206522000000,
+        "position_error_m": 2.5632773154038446e-08,
+        "previous_confirmed_stable_interval_seconds": 0.01,
+        "previous_stationary_start_ros_ns": 206510000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323784146164044,
+          "position": 0.01831681615045177,
+          "stamp_ns": 206720000000,
+          "velocity": 8.351621694414999e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206720000000,
+        "position_error_m": 2.3929096742286715e-08,
+        "previous_confirmed_stable_interval_seconds": 0.134,
+        "previous_stationary_start_ros_ns": 206586000000,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323947591477216,
+          "position": 0.018316816883060805,
+          "stamp_ns": 206764000000,
+          "velocity": 8.367788261139423e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206766000000,
+        "position_error_m": 2.4661705778222798e-08,
+        "previous_confirmed_stable_interval_seconds": 0.038,
+        "previous_stationary_start_ros_ns": 206726000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09437864992965815,
+          "position": 0.01831682115573715,
+          "stamp_ns": 206792000000,
+          "velocity": -3.276611178230828e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 206794000000,
+        "position_error_m": 2.8934382122897118e-08,
+        "previous_confirmed_stable_interval_seconds": 0.022,
+        "previous_stationary_start_ros_ns": 206770000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323773765958615,
+          "position": 0.01831680942898526,
+          "stamp_ns": 206936000000,
+          "velocity": 8.25997017252526e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206936000000,
+        "position_error_m": 1.720763023391192e-08,
+        "previous_confirmed_stable_interval_seconds": 0.136,
+        "previous_stationary_start_ros_ns": 206800000000,
+        "signed_feedback_age_ns": 0
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323540661266529,
+          "position": 0.018316814770780773,
+          "stamp_ns": 206972000000,
+          "velocity": 7.756347349377273e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 206974000000,
+        "position_error_m": 2.254942574678176e-08,
+        "previous_confirmed_stable_interval_seconds": 0.03,
+        "previous_stationary_start_ros_ns": 206942000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.0932363360188987,
+          "position": 0.01831681380352527,
+          "stamp_ns": 207124000000,
+          "velocity": 7.318803298839963e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 207126000000,
+        "position_error_m": 2.158217024192388e-08,
+        "previous_confirmed_stable_interval_seconds": 0.146,
+        "previous_stationary_start_ros_ns": 206978000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323672661458034,
+          "position": 0.018316823903078937,
+          "stamp_ns": 207136000000,
+          "velocity": 7.537165578444462e-06
+        },
+        "nonstationary_causes": [
+          "position_error",
+          "velocity"
+        ],
+        "observed_ros_ns": 207138000000,
+        "position_error_m": 3.168172391099233e-08,
+        "previous_confirmed_stable_interval_seconds": 0.006,
+        "previous_stationary_start_ros_ns": 207130000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09438576587559513,
+          "position": 0.018316825535228908,
+          "stamp_ns": 207160000000,
+          "velocity": -4.6769916566664037e-07
+        },
+        "nonstationary_causes": [
+          "position_error"
+        ],
+        "observed_ros_ns": 207162000000,
+        "position_error_m": 3.331387388172402e-08,
+        "previous_confirmed_stable_interval_seconds": 0.01,
+        "previous_stationary_start_ros_ns": 207150000000,
+        "signed_feedback_age_ns": 2000000
+      },
+      {
+        "command_motion_end_ros_ns": 204552000000,
+        "feedback": {
+          "effort": 0.09323819921653331,
+          "position": 0.018316811252815212,
+          "stamp_ns": 207256000000,
+          "velocity": 8.113423890135688e-06
+        },
+        "nonstationary_causes": [
+          "velocity"
+        ],
+        "observed_ros_ns": 207258000000,
+        "position_error_m": 1.9031460185559013e-08,
+        "previous_confirmed_stable_interval_seconds": 0.082,
+        "previous_stationary_start_ros_ns": 207174000000,
+        "signed_feedback_age_ns": 2000000
+      }
+    ],
+    "out_of_order_feedback_stamps": 0,
+    "phase": "micro_preload",
+    "post_motion_max_abs_velocity_mps": 8.614756620904922e-06,
+    "post_motion_max_position_error_m": 4.8710668422435877e-08,
+    "reason": "step_wall_timeout",
+    "required_dwell_seconds": 0.2,
+    "resets_by_reason": {
+      "position_error": 11,
+      "velocity": 19
+    },
+    "sampling_basis": "Worker-observed distinct stored stamps; not an exhaustive sensor callback trace",
+    "stationary_epoch_starts": 26,
+    "stationary_resets": 25,
+    "stationary_start_ros_ns": 207262000000,
+    "target": 0.018316792221355026,
+    "wait_start_ros_ns": 205144000000
+  }
+}

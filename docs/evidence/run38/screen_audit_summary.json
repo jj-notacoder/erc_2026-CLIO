@@ -1,0 +1,91 @@
+{
+  "artifact_kind": "Portable selection from completed sampled screen audit",
+  "source": "collision_quality_final_07",
+  "groups": {
+    "pick": {
+      "completed": true,
+      "samples": 125,
+      "wall_seconds": 7.055124913999975,
+      "groups": {
+        "rigid_arms": {
+          "eligible_samples": 125,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.1411640376680575
+        },
+        "rigid_arm_visuals": {
+          "eligible_samples": 125,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.1411638694578474
+        },
+        "nominal_tools": {
+          "eligible_samples": 125,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.08537103394097706
+        },
+        "measured_tool_query": {
+          "eligible_samples": 124,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.0853710482593826
+        },
+        "measured_book_screen": {
+          "eligible_samples": 124,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.4117765162877859
+        }
+      },
+      "missing_tool_comparisons": 1,
+      "fk_max_m": 0.0006012067078373974
+    },
+    "compact": {
+      "completed": true,
+      "samples": 53,
+      "wall_seconds": 3.1966367500000388,
+      "groups": {
+        "rigid_arms": {
+          "eligible_samples": 53,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.08201568986344228
+        },
+        "rigid_arm_visuals": {
+          "eligible_samples": 53,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.08201568726454898
+        },
+        "nominal_tools": {
+          "eligible_samples": 53,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.09669794178277738
+        },
+        "measured_tool_query": {
+          "eligible_samples": 53,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.12002176958616852
+        },
+        "measured_book_screen": {
+          "eligible_samples": 53,
+          "overlaps": [],
+          "minimum_aabb_separation_m": 0.05442558949253521
+        }
+      },
+      "missing_tool_comparisons": 0,
+      "fk_max_m": 0.0015167821689510209
+    }
+  },
+  "total_atomic_samples": 178,
+  "actual_pose_eligible_samples": 177,
+  "pick_maximum_sample_gap_seconds": 0.96,
+  "compact_maximum_sample_gap_seconds": 0.388,
+  "pick_joint_minus_pose_ms": [
+    -2,
+    0
+  ],
+  "compact_joint_minus_pose_ms": [
+    -2,
+    14
+  ],
+  "source_summary_sha256": "19870def7c31fab14877aa2323b2357ee3fd6e286bf313b5083c9363934156c3",
+  "source_report_sha256": "497f86d2bd466455741bb79d3bcb36c0fad41fced193bfbdc46ff70f142edd4b",
+  "source_execution_manifest_sha256": "9f79b49077ae45ce48e244ea32ebf1c9e75a79ebf51d0648ba89c7a6beb7bf7b",
+  "local_archive": "run38_review/pick_compact_screen_audit/execution_review.md",
+  "limitations": "No sampled visual-screen overlap, not general self/table collision or continuous-clearance proof; one PICK pose stamp absent; nominal mimic and six available actual tool links are distinct."
+}

@@ -1,0 +1,4500 @@
+{
+  "schema_version": 1,
+  "official_repository": "https://github.com/dfl-rlab/erc_sim_2026",
+  "official_commit": "b1f9b05e20f4750b59f3321d88f172cc4dbb1386",
+  "git_object_format": "sha1",
+  "scope": "All tracked src and docker files; check defaults to src only.",
+  "entries": [
+    {
+      "path": "docker/.dockerignore",
+      "mode": "100644",
+      "git_blob_sha1": "c271a31739dabeb93852566005cf7ebb40d7e01d"
+    },
+    {
+      "path": "docker/Dockerfile",
+      "mode": "100644",
+      "git_blob_sha1": "0dd3cd6f75d25c82449a70b39e4f5f00c1a879ab"
+    },
+    {
+      "path": "docker/attach.sh",
+      "mode": "100755",
+      "git_blob_sha1": "861d4fa2790bb4f95214576aa487501e584b0c35"
+    },
+    {
+      "path": "docker/docker-compose.gpu.yml",
+      "mode": "100644",
+      "git_blob_sha1": "b163f99fc48a310e9587c3bc56e12e97a8dbcec2"
+    },
+    {
+      "path": "docker/docker-compose.yml",
+      "mode": "100644",
+      "git_blob_sha1": "e624d90544cf69284086208c57bbe8412bcdf85b"
+    },
+    {
+      "path": "docker/entrypoint.sh",
+      "mode": "100755",
+      "git_blob_sha1": "07d6c0acafe36a23a27310994ce1d83a794a24a9"
+    },
+    {
+      "path": "docker/stop.sh",
+      "mode": "100755",
+      "git_blob_sha1": "320cefbeb8139733bd814109a2489d0043d6b7e8"
+    },
+    {
+      "path": "docker/up.sh",
+      "mode": "100755",
+      "git_blob_sha1": "a9319a245c3f42095877429da14de3f4fc4dbd0d"
+    },
+    {
+      "path": "src/erc_bringup/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "7bf384a78c6e3e307aadf78eeb404344f488ccf4"
+    },
+    {
+      "path": "src/erc_bringup/config/controller_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "a06a120e76a86fc512694df74834883a51c4f46e"
+    },
+    {
+      "path": "src/erc_bringup/config/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "5461fe09dce557206b47652fb3dce1c3fea7a4b4"
+    },
+    {
+      "path": "src/erc_bringup/config/head_camera_bridge.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "a20493b247b5f319934a3383b01e885ace17d15a"
+    },
+    {
+      "path": "src/erc_bringup/launch/competition_run.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "cedc1d10c5392edcb6a9591c48e7e86e3cc9d2a4"
+    },
+    {
+      "path": "src/erc_bringup/launch/simulation.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "e999e9a42f3d031fbb84ed4af0cf5f14d96fa251"
+    },
+    {
+      "path": "src/erc_bringup/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "0de1cf5e2703d25a5d1c87f48d05542134cf773b"
+    },
+    {
+      "path": "src/erc_bringup/rviz/competition.rviz",
+      "mode": "100644",
+      "git_blob_sha1": "f7dd1011bee21354750f6473f0e3cb33967f378a"
+    },
+    {
+      "path": "src/erc_bringup/scripts/generate_urdf.py",
+      "mode": "100644",
+      "git_blob_sha1": "74fdb4c2e7347d5c6efaf7445bc14fa7b0807d3f"
+    },
+    {
+      "path": "src/erc_bringup/scripts/gripper_command_clamp.py",
+      "mode": "100755",
+      "git_blob_sha1": "59784e9bc2e594f6943960cadb58fa8e3899d0fd"
+    },
+    {
+      "path": "src/erc_description/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "713d2888dd3d77a239658d5aff150fea3d8e5b0d"
+    },
+    {
+      "path": "src/erc_description/materials/textures/arena_floor.png",
+      "mode": "100644",
+      "git_blob_sha1": "5c0ff06ad407bebe26489f0abb015a679ad60956"
+    },
+    {
+      "path": "src/erc_description/models/book/meshes/erc_base_book.STL",
+      "mode": "100644",
+      "git_blob_sha1": "ba82d0efb0475d83bb7eded8933c40fd1bd5d31c"
+    },
+    {
+      "path": "src/erc_description/models/book/sdf/erc_book.sdf",
+      "mode": "100644",
+      "git_blob_sha1": "5880513420b7d6b3bed02a220d4b51ed634fab9e"
+    },
+    {
+      "path": "src/erc_description/models/collection_bin/.gitkeep",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/erc_description/models/collection_bin/meshes/erc_base_collection_bin.STL",
+      "mode": "100644",
+      "git_blob_sha1": "89d25e5bb07867022a2439867e3bc4e640bd10cc"
+    },
+    {
+      "path": "src/erc_description/models/collection_bin/sdf/erc_collection_bin.sdf",
+      "mode": "100644",
+      "git_blob_sha1": "9c87d14f460897cd123931005903028e36456621"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/.gitkeep",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/sdf/erc_number_marker.sdf",
+      "mode": "100644",
+      "git_blob_sha1": "965853dd6b9755a421af24bf2dc34b01e493b6bc"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/0.png",
+      "mode": "100644",
+      "git_blob_sha1": "a44e3742c8bec93262fb742520f1b8150e88f8f0"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/1.png",
+      "mode": "100644",
+      "git_blob_sha1": "729cba099591739acfceea084d0f237fbc2de583"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/2.png",
+      "mode": "100644",
+      "git_blob_sha1": "b7e5c5086d93a701dcfc5e9ea5816911b0cf29a4"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/3.png",
+      "mode": "100644",
+      "git_blob_sha1": "64174bdbebf6dd8e6e49c7310549993786c49017"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/4.png",
+      "mode": "100644",
+      "git_blob_sha1": "0576ee9e303afacfbe9479e0042885d36ac69201"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/5.png",
+      "mode": "100644",
+      "git_blob_sha1": "b21f48f3be559a59efd59a87ad2f0da292c68186"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/6.png",
+      "mode": "100644",
+      "git_blob_sha1": "5e72f98871a5d75175b7aaa84988c893e881c30d"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/7.png",
+      "mode": "100644",
+      "git_blob_sha1": "cdf6777167d3ee4a949fd23b318d5ee3297c21bc"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/8.png",
+      "mode": "100644",
+      "git_blob_sha1": "99598fbbbe40fc77a908ec91fe136520ba0b6030"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/9.png",
+      "mode": "100644",
+      "git_blob_sha1": "7a5f0d1644e9ddaffce8adf9aa088ec38173e4f9"
+    },
+    {
+      "path": "src/erc_description/models/number_marker/textures/combined.jpg",
+      "mode": "100644",
+      "git_blob_sha1": "fdb9c9054aaa62f98571556e7d890b7e09a1113a"
+    },
+    {
+      "path": "src/erc_description/models/shelf/.gitkeep",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/erc_description/models/shelf/meshes/erc_base_shelf.STL",
+      "mode": "100644",
+      "git_blob_sha1": "3442954ab551402930e6532302cc719afa3aaffb"
+    },
+    {
+      "path": "src/erc_description/models/shelf/sdf/erc_shelf.sdf",
+      "mode": "100644",
+      "git_blob_sha1": "580fba4d22880bb3e582efd05cd0fe67e1f66fc4"
+    },
+    {
+      "path": "src/erc_description/models/table/meshes/erc_base_table.STL",
+      "mode": "100644",
+      "git_blob_sha1": "34afe380cb75e04d2cbb2d0d2f1c3c77d7c77064"
+    },
+    {
+      "path": "src/erc_description/models/table/sdf/erc_table.sdf",
+      "mode": "100644",
+      "git_blob_sha1": "2b3877f1d189f9230f9e733e6fd5eb4c7725a753"
+    },
+    {
+      "path": "src/erc_description/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "4b2d0a1cec323d040ab28100a0d1304f4ce8bf9f"
+    },
+    {
+      "path": "src/erc_description/urdf/tiago_pro.urdf",
+      "mode": "100644",
+      "git_blob_sha1": "7d94b3412711e37f5ee1eb224199a6118a97965e"
+    },
+    {
+      "path": "src/erc_description/worlds/.gitkeep",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/erc_description/worlds/erc_world.sdf",
+      "mode": "100644",
+      "git_blob_sha1": "85bb6e5e92205b75153d5c985016a01394c61c86"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/CODEOWNERS",
+      "mode": "100644",
+      "git_blob_sha1": "abc9fe8bffaa6565d9fb0642e64767f23ee74d7a"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/dependabot.yml",
+      "mode": "100644",
+      "git_blob_sha1": "3506a3c098a377db3846de4b27128e2cffde0f54"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/ci-format.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7521e7e52a7782ba504e996e378ef184b85503c1"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/ci-humble.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "a294f6b290a9a696676a4dbd1f281fc5f071767c"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/ci-jazzy.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "6d330fd32eb69c722d603794bab6b9c382c2b326"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/ci-kilted.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0683ecc309580b8dfedb560acc9efce8234f1260"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/ci-lyrical.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "eddc4209496da5d821b786e01126a14cfc53638f"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/ci-rolling.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "5a16b5e1558ec1fdbab1a9c8f48f4eca20ebfe1c"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/humble-check-docs.yml",
+      "mode": "100644",
+      "git_blob_sha1": "760b19b81c6bcd6f93e5c574922b4ab144b037c4"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/jazzy-check-docs.yml",
+      "mode": "100644",
+      "git_blob_sha1": "f59826efa19eee60d9d6ef0267cd009b963ceb94"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/kilted-check-docs.yml",
+      "mode": "100644",
+      "git_blob_sha1": "b02a7e291e6aa47898b6e6c864c3ec6dae97591c"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/lyrical-check-docs.yml",
+      "mode": "100644",
+      "git_blob_sha1": "75a2ee9efb47906b4879dfefbb5711601ae29dc5"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/rolling-check-docs.yml",
+      "mode": "100644",
+      "git_blob_sha1": "ea6999593a59aba03958e8a69f166ae116126369"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/triage.yml",
+      "mode": "100644",
+      "git_blob_sha1": "6f93ccd58f13ef25526f591ecc31e2c01aabb5e7"
+    },
+    {
+      "path": "src/gz_ros2_control/.github/workflows/update-pre-commit.yml",
+      "mode": "100644",
+      "git_blob_sha1": "6bedaa0c97a1855f366439440232c4dccc5a98de"
+    },
+    {
+      "path": "src/gz_ros2_control/.pre-commit-config.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "c08b21ff93906cd7930ec04f75a6a7ada51a0269"
+    },
+    {
+      "path": "src/gz_ros2_control/Dockerfile/Dockerfile",
+      "mode": "100644",
+      "git_blob_sha1": "837684a146567b2fe153965eebc085e7c5d323ba"
+    },
+    {
+      "path": "src/gz_ros2_control/Dockerfile/entrypoint.sh",
+      "mode": "100755",
+      "git_blob_sha1": "8516e83a76c1f1c1b3a19a5625f32a7620a91f05"
+    },
+    {
+      "path": "src/gz_ros2_control/LICENSE",
+      "mode": "100644",
+      "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+    },
+    {
+      "path": "src/gz_ros2_control/README.md",
+      "mode": "100644",
+      "git_blob_sha1": "d5bb95f626507232b7811ca1a8d9f5aec2a6c3b4"
+    },
+    {
+      "path": "src/gz_ros2_control/doc/img/diff_drive.gif",
+      "mode": "100644",
+      "git_blob_sha1": "19b84429de0e089960ba9ced3dd0a0ba22110290"
+    },
+    {
+      "path": "src/gz_ros2_control/doc/img/gz_gripper.gif",
+      "mode": "100644",
+      "git_blob_sha1": "da48c9fce69ccc9c571fe1454e922ff70152157b"
+    },
+    {
+      "path": "src/gz_ros2_control/doc/img/gz_ros2_control.gif",
+      "mode": "100644",
+      "git_blob_sha1": "65664bde015eaa50ab537f501ef638620f1deb9b"
+    },
+    {
+      "path": "src/gz_ros2_control/doc/index.rst",
+      "mode": "100644",
+      "git_blob_sha1": "03698eb8d799dfdfcc2a46f7fd3b519f4f1bff8d"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control.humble.repos",
+      "mode": "100644",
+      "git_blob_sha1": "acceadc9932916deaf33262de8d41b3aa7c4ac07"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control.jazzy.repos",
+      "mode": "100644",
+      "git_blob_sha1": "ab501a4d1692b9f7fa42f2086d651cb3a0d0aa5f"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control.kilted.repos",
+      "mode": "100644",
+      "git_blob_sha1": "ecdc99b02b41f3da21787853a2242d3fe839f5a1"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control.lyrical.repos",
+      "mode": "100644",
+      "git_blob_sha1": "63bbe72a0b27632e9ecd4192ef8184e898965c4d"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control.rolling.repos",
+      "mode": "100644",
+      "git_blob_sha1": "63bbe72a0b27632e9ecd4192ef8184e898965c4d"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "63286989852e88872c6820268a614ea1a60b482a"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "70ef13ec1fedec7ca5d8bfd4503c3497e5bddd00"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/LICENSE",
+      "mode": "100644",
+      "git_blob_sha1": "6d8d58fb676bbbcc9b4432da4951e4b438478306"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/gz_hardware_plugins.xml",
+      "mode": "100644",
+      "git_blob_sha1": "f4ed1aa6588aeb6c68ba859408652a5e2a121989"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/hooks/gz_ros2_control.dsv.in",
+      "mode": "100644",
+      "git_blob_sha1": "afbcf3a192fd356fde33f3e537c60571315aac8f"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/include/gz_ros2_control/gz_ros2_control_plugin.hpp",
+      "mode": "100644",
+      "git_blob_sha1": "e7c26603a0599e029e0ab90b07bee08bd6320e39"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/include/gz_ros2_control/gz_system.hpp",
+      "mode": "100644",
+      "git_blob_sha1": "3fea5c1be76e0d70043917a68f3fd807cc5d67d9"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/include/gz_ros2_control/gz_system_interface.hpp",
+      "mode": "100644",
+      "git_blob_sha1": "745864d35f1fca1efc3abcba2ce3c11d3618fddd"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "22c3339ddd81d2c9e7568ba368db5a00b858a245"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/src/gz_ros2_control_plugin.cpp",
+      "mode": "100644",
+      "git_blob_sha1": "b7cfe3b5ecac2e11bbdcb6f47def20929a2cfc50"
+    },
+    {
+      "path": "src/gz_ros2_control/gz_ros2_control/src/gz_system.cpp",
+      "mode": "100644",
+      "git_blob_sha1": "ff63aee728ed0e70ec8e9e73ea9cf154fc8ed810"
+    },
+    {
+      "path": "src/launch_pal/.gitignore",
+      "mode": "100644",
+      "git_blob_sha1": "0d20b6487c61e7d1bde93acf4a14b7a89083a16d"
+    },
+    {
+      "path": "src/launch_pal/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "e5b08112153735249471665f6dda60685de72409"
+    },
+    {
+      "path": "src/launch_pal/CONTRIBUTING.md",
+      "mode": "100644",
+      "git_blob_sha1": "58132eb678583988c3e047c97da0439bf46cb9d8"
+    },
+    {
+      "path": "src/launch_pal/LICENSE",
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "src/launch_pal/README.md",
+      "mode": "100644",
+      "git_blob_sha1": "16e51d0faa7d153ce42dae04689c432ec7cb5639"
+    },
+    {
+      "path": "src/launch_pal/config/robot_configuration.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0247014bdac327feb4363e52a0378a83ff8ddf72"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "c6b21b3e4af6fd6a7a4d283325d5bf46c725b2e1"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/actions/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "5c6adb7186b7f00b89f6b9327e7f7ba10c94c906"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/actions/check_public_sim.py",
+      "mode": "100644",
+      "git_blob_sha1": "f400080713d6721350932092bdd94f04160bca0b"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/actions/validate_launch_args.py",
+      "mode": "100644",
+      "git_blob_sha1": "f2d054a082a41a6d1af2115c2c51c939e89362b9"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/actions/validate_xacro_args.py",
+      "mode": "100644",
+      "git_blob_sha1": "369a7883e3a22c7ae2351d78c22774f009df6a7b"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/arg_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "7a3d24065c64f0aff3b1c1bfd6d2d452c210ea88"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/calibration_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "471ad99d23d50ea92aff3212d1d678852a9e5ded"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/composition_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "471bbda5a47522e351a6a1a5d0a4a7dee74cbd5f"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/conditions/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "b50ff4c28479cdaab7316ec002efdb883b6ae1a4"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/conditions/if_node_running.py",
+      "mode": "100644",
+      "git_blob_sha1": "737907e3ff5ce689a57b9149d45b5c1984c7763e"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/conditions/unless_node_running.py",
+      "mode": "100644",
+      "git_blob_sha1": "508207ca67db51fece7213b09fa979454297bd18"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/include_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "6255862eed383437afc7ee6544e5fb7e3854367a"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/logging_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "4b1c2a416d19eb12830cb195ae2c1b9712c3ebb8"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/pal_parameters.py",
+      "mode": "100644",
+      "git_blob_sha1": "47936f78be1d93e15d2f75a2a08675256ec77779"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/param_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "4d5ebef6574523d54e8c30cf1d32110f4baee6d1"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/robot_arguments/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "8cc34ba61f8e9322bb8b82effcc031d73e456f88"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/robot_arguments/common.py",
+      "mode": "100644",
+      "git_blob_sha1": "43d738fd02241e30407a265c968184a72741c591"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/robot_arguments/robot.py",
+      "mode": "100644",
+      "git_blob_sha1": "8a9b58430f64e39b6e364f0fa94541887f27d2b3"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/robot_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "bd7c546d77e02431d32b2ada7e00f8b66bb79b6f"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/substitutions/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "c7d99eddeb582b46557242ab07ec3744cfac4d9d"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/substitutions/concat_substitution.py",
+      "mode": "100644",
+      "git_blob_sha1": "3201e3ab81e7cdd6c019caa7266f2046a5709dc6"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/substitutions/load_file.py",
+      "mode": "100644",
+      "git_blob_sha1": "360a15304926427b6b4c42e527c217cf8195f369"
+    },
+    {
+      "path": "src/launch_pal/launch_pal/substitutions/robot_info_file.py",
+      "mode": "100644",
+      "git_blob_sha1": "1f891b28b7556854c6f7c4cfb85aaa5b0955725a"
+    },
+    {
+      "path": "src/launch_pal/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "1b8267b4c1bc525e57d6aeaa29d1d162c6edd911"
+    },
+    {
+      "path": "src/launch_pal/resource/launch_pal",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/launch_pal/setup.cfg",
+      "mode": "100644",
+      "git_blob_sha1": "6979e1eda0957f5243b93d95ad0df46b899452ac"
+    },
+    {
+      "path": "src/launch_pal/setup.py",
+      "mode": "100644",
+      "git_blob_sha1": "843791df1411911c6ada0e25ac42ef9971174a52"
+    },
+    {
+      "path": "src/launch_pal/test/mock_calibration_template/mock_calibration.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "fbe6b579b5929f2d989fdd7fe49adcaa6c97b095"
+    },
+    {
+      "path": "src/launch_pal/test/mock_calibration_template/mock_calibration.urdf.xacro.j2",
+      "mode": "100644",
+      "git_blob_sha1": "f70d9f67131f968e1139ca7e7dc37442e5a37627"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/etc/robot_info/conf.d/system.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9acfc347344d44424d69ffb76114687de9405b91"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/home/.pal/config/00-user_config.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "98986f89700f7a35d6d70ee307951fda631273f3"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/home/.pal/config/01-user_robot.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9774333c430dfddbc9bc93487d9c58e439759feb"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/home/.pal/config/subdir/20-user_config.yml",
+      "mode": "100644",
+      "git_blob_sha1": "0d0af096fb28d9669d9f4c67a8d4ac9bd4b089f2"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/home/.pal/robot_info/conf.d/user.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "b3a45a74d04cc28fd35344d27d7a57a6021d1b3f"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/ament_index/resource_index/packages/launch_pal",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/ament_index/resource_index/packages/test_node",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/ament_index/resource_index/packages/test_node_bad_use_if",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/ament_index/resource_index/packages/test_node_robot_cfg",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/ament_index/resource_index/pal_configuration.test_node/test_node",
+      "mode": "100644",
+      "git_blob_sha1": "a65022803fdd7c45ce1cab09a1316f67ebc55d74"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/ament_index/resource_index/pal_configuration.test_node/test_node_robot_cfg",
+      "mode": "100644",
+      "git_blob_sha1": "f791b4d17b4d30cd703f0b6aa551634203c886a6"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/ament_index/resource_index/pal_configuration.test_node_bad_use_if/test_node_bad_use_if",
+      "mode": "100644",
+      "git_blob_sha1": "8ce664af7295f244460eb4896d437dcc5ea7f8f2"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/ament_index/resource_index/pal_configuration_presets.test_node/test_node",
+      "mode": "100644",
+      "git_blob_sha1": "1a6916ac09dad3353013dbb7f254ca698f45ea88"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node/00-defaults.yml",
+      "mode": "100644",
+      "git_blob_sha1": "aa6f1f71dd5c9fb764b70f507e807e8860d14fff"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node/01-base-cfg.yml",
+      "mode": "100644",
+      "git_blob_sha1": "ebcd2514bd57ba85392a73f50a55e18b9ba004d9"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node/preset.yml",
+      "mode": "100644",
+      "git_blob_sha1": "47f1571a62d7db3c252c991baa21d6da156bf216"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node_bad_use_if/10-bad-use_if.yml",
+      "mode": "100644",
+      "git_blob_sha1": "73f37a06b62aafa6bda936f3d9131eee0e4d6de0"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node_robot_cfg/10-robot-cfg.yml",
+      "mode": "100644",
+      "git_blob_sha1": "1c753c2c13008883ca463dadfb71f7247473d5ae"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node_robot_cfg/11-robot-cfg.yml",
+      "mode": "100644",
+      "git_blob_sha1": "f7efe1b11d38f226faa24aedbab4189220391ac2"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node_robot_cfg/12-robot-cfg.yml",
+      "mode": "100644",
+      "git_blob_sha1": "2ffc0cd057bd9e62033c9fc6f518662def38215a"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node_robot_cfg/13-robot-cfg-list-match.yml",
+      "mode": "100644",
+      "git_blob_sha1": "75ece5bf7be88c2e9b9e8f94beb05169688d2e98"
+    },
+    {
+      "path": "src/launch_pal/test/mock_rosroot_pal_parameters/share/test_node_robot_cfg/14-robot-cfg-list-no-match.yml",
+      "mode": "100644",
+      "git_blob_sha1": "978e8f4407ec4aa5d40e1afc0606b50ed343ff99"
+    },
+    {
+      "path": "src/launch_pal/test/other_parametric.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "4639be472145fa1d56ff007464048b1ae9ad27db"
+    },
+    {
+      "path": "src/launch_pal/test/parametric.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "91f2f0c9911f95bf59f621c5bbd88f151831d5b6"
+    },
+    {
+      "path": "src/launch_pal/test/test_calibration.py",
+      "mode": "100644",
+      "git_blob_sha1": "65a51334b4c6e5697b617c46c9259704b5c82406"
+    },
+    {
+      "path": "src/launch_pal/test/test_copyright.py",
+      "mode": "100644",
+      "git_blob_sha1": "cc8ff03f79abb8eb061827a24f2a331e052c5c37"
+    },
+    {
+      "path": "src/launch_pal/test/test_flake8.py",
+      "mode": "100644",
+      "git_blob_sha1": "27ee1078ff077cc3a0fec75b7d023101a68164d1"
+    },
+    {
+      "path": "src/launch_pal/test/test_include_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "ac85cacc413e4f49c626629af6feb927e014a45b"
+    },
+    {
+      "path": "src/launch_pal/test/test_node_running_condition.py",
+      "mode": "100644",
+      "git_blob_sha1": "adaf1b86c034ca34319467065cbc60faa12b844f"
+    },
+    {
+      "path": "src/launch_pal/test/test_pal_parameters.py",
+      "mode": "100644",
+      "git_blob_sha1": "b4a05180a512c6ba53b5b04c53c3cdba6c51db5a"
+    },
+    {
+      "path": "src/launch_pal/test/test_param_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "3109a8358e6be3870547fd11130aacde5926dcf2"
+    },
+    {
+      "path": "src/launch_pal/test/test_pep257.py",
+      "mode": "100644",
+      "git_blob_sha1": "b234a3840f4c5bd38f043638c8622b8f240e1185"
+    },
+    {
+      "path": "src/launch_pal/test/test_robot_info_file_substitution.py",
+      "mode": "100644",
+      "git_blob_sha1": "e9736c1e756ddf7be19fcd298584e71e436489a0"
+    },
+    {
+      "path": "src/omni_base_robot/LICENSE",
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "9766a0188a0759a621eeda2b4424bbbc3dcd1063"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "2d39a0409937bbe21ff4975e6204a7d9273e5d19"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/config/joy_teleop/joystick_analyzers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "a3d9413edf823b95763159ce51e1bed1015d07c4"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/config/twist_mux/joystick.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "751236968db5aa49068df1acabd16af902080d57"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/config/twist_mux/twist_mux_analyzers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "26ca485d1ee4983a6664d2615e751f263ed99372"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/config/twist_mux/twist_mux_locks.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "16caecfcc95be9fa5203ec8c19714f1bdc600b60"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/config/twist_mux/twist_mux_topics.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7120d78455ea02e0fb65d8d3b0ef6152de665e50"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/launch/joystick_teleop.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "0f9eaf86e0f3db903dad51b602fd86788d2f9808"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/launch/omni_base_bringup.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "38479e5b69266fb823266f797eaba49961808409"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/launch/twist_mux.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "ab5cd1bea1ad0025b38b0d22b6c54114e97aef80"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/module/joystick.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "244e7df2daa7f5b3ba8df4f9cfc913f46fc501e8"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/module/twist_mux.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "73de23b4405f722eb4fafaa3a845ca963eeab5dd"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "3ad4b1ad2254c3151b8bc700b16dd9fe209f8929"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_bringup/params/joy_teleop/10_joy_teleop_omni_base.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9578d699d4c35f8a872459756b2207432a6bd516"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_controller_configuration/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "15115080cf8e2426bb5466e1afd7777df009c512"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_controller_configuration/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "cfe925b7883872e7dffad380811008afb235e7e0"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_controller_configuration/config/joint_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "aa8721513595a24a115c599581439b6a880b1f89"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_controller_configuration/config/mobile_base_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "5fe98ba58397d75e7146c3b62eab3ab993270673"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_controller_configuration/launch/default_controllers.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "fd37c079329955bd93541f771cd5477907c93409"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_controller_configuration/launch/mobile_base_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "cef50e648291bee25d3651ec6ff2392daeb4de6c"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_controller_configuration/module/00_default_controllers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "b6d8e78d41422e8c0c1a7435bed0ef789d0c6d3d"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_controller_configuration/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "f8bdff917a1e10c6db8de64e579f7c1c05e56207"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "c7c929fe9e79d49ed955b4f948ecb6f29367bc6e"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "72ec39db008a4957248cdb261a6964c0fd0d2642"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/config/omni_base_configuration.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7a6560833f14b63301d74e1dc6965ebac5c1a8ba"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/launch/robot_state_publisher.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "a515e5e605dbba4ecc09959b18f6801b8de941ac"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/launch/show.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "e1698ffee1b3ab586a3be211976ca45f8b9b7e03"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/base/base_antenna_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "d357b1ea0554c5a5a91cff646de073fb63611b15"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/base/base_antenna_link_reflected.stl",
+      "mode": "100644",
+      "git_blob_sha1": "8d330259e3156703e46424685d212d0ea59a5046"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/base/base_dock_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "58b63a4d6df4805c2a9729b945bc3e5f8c9b6cad"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/base/base_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "407a29873bc2560b6d2d3025bf1d7f1b05e4c0c5"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/cameras_add_on/camera_horizon.stl",
+      "mode": "100644",
+      "git_blob_sha1": "b7b7ceb026ad494fc10823cc71b61cf9aa449f1e"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/cameras_add_on/cameras_add_on.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f3bd3a7b6d2f20e81747b7e8eae88d069aa464e2"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/wheels/suspension_front_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "92381df305bbd0496624d4097728ff86613bf912"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/wheels/suspension_front_link_reflected.stl",
+      "mode": "100644",
+      "git_blob_sha1": "6672cdcd3389017d58b506b8aae559c9d236ea51"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/wheels/suspension_rear_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "37e6eb638fac743a81bc96e5ce31722aafc19b65"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/wheels/suspension_rear_link_reflected.stl",
+      "mode": "100644",
+      "git_blob_sha1": "39fdcc7289eed2ee2c39e4a03156345f56f908ac"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/wheels/wheel_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "823f025ec8876fb37abdda334099c1741c38aa40"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/meshes/wheels/wheel_link_reflected.stl",
+      "mode": "100644",
+      "git_blob_sha1": "02a7da46c22975fee63e75536b74d461384b362a"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/module/00_robot_state_publisher.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "eb581a833d2ffb11f6d4e9e798e0cdeeee994054"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/metadata.json",
+      "mode": "100644",
+      "git_blob_sha1": "e922a890713464b309c8c54189280ede98c9a164"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link/mtl_m6_wheel_link",
+      "mode": "100644",
+      "git_blob_sha1": "cf6a4f2238a5ff27063675ead120c52b3b2fac96"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link/wheel_link.obj",
+      "mode": "100644",
+      "git_blob_sha1": "d87cca77d48957ebda04e4cc12d819e1685e0c96"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link/wheel_link/material.mtl",
+      "mode": "100644",
+      "git_blob_sha1": "cf7cfa9b7e792ea9f79e03c7ad7e34fb869eac93"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link/wheel_link/wheel_link.obj",
+      "mode": "100644",
+      "git_blob_sha1": "aa02bb442b85b2cab6095f91c36867e2bef90a73"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link/wheel_link/wheel_link.xml",
+      "mode": "100644",
+      "git_blob_sha1": "08ded975d2a276da057b8cd1d9f969cd13c3b496"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link/wheel_link/wheel_link_collision_0.obj",
+      "mode": "100644",
+      "git_blob_sha1": "605663d9a3de87e41b67fcfd7120d5dd1e07ed60"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link/wheel_link/wheel_link_collision_1.obj",
+      "mode": "100644",
+      "git_blob_sha1": "1064f2aeb715e135f7fdadb1ba38a23d1fda0ec2"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link_reflected/mtl_m8_wheel_link_reflected",
+      "mode": "100644",
+      "git_blob_sha1": "01562f64b6a03cc22fd3ccddbd9a99bc30ff695a"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link_reflected/wheel_link_reflected.obj",
+      "mode": "100644",
+      "git_blob_sha1": "cb9641213ca6848272bdb2bf239180e10129e932"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link_reflected/wheel_link_reflected/material.mtl",
+      "mode": "100644",
+      "git_blob_sha1": "d1f46bccb5d1441907afbddb5152154b03de016d"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link_reflected/wheel_link_reflected/wheel_link_reflected.obj",
+      "mode": "100644",
+      "git_blob_sha1": "f62e9e3c9570673ad265ad909e428421203394dd"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link_reflected/wheel_link_reflected/wheel_link_reflected.xml",
+      "mode": "100644",
+      "git_blob_sha1": "326d387395ee299a6b353a7c8b9406184a8c100f"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link_reflected/wheel_link_reflected/wheel_link_reflected_collision_0.obj",
+      "mode": "100644",
+      "git_blob_sha1": "dc368668af3ba4c4935a2450744929175cf750a1"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/assets/decomposed/wheel_link_reflected/wheel_link_reflected/wheel_link_reflected_collision_1.obj",
+      "mode": "100644",
+      "git_blob_sha1": "e0bb301473b48858bdf2cd70e3a288468149cd89"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/mujoco/mj_tags.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "c6986f6535d758f91fd6bc64076f27028693f169"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/omni_base_description/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/omni_base_description/launch_arguments.py",
+      "mode": "100644",
+      "git_blob_sha1": "00288066045011109696b580726f1cb0a598a47f"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "7a95ed0e06b5540d6591d95609fd85b15d8e4f0e"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/robots/omni_base.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "24e5dc0adc2972713feb1fca2a2682f9e2c175a9"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/ros2_control/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "1ef43506c7a335aac1af4f1be130df79107ee43e"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/ros2_control/ros2_control.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "80d1f8ac9433b625352f833428dbca5ef9b99038"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/rviz/omni_base.rviz",
+      "mode": "100644",
+      "git_blob_sha1": "3a1ad2c7a50128fd050e9e7e42ddd0a530b89c02"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/test/test_description.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "e21d8a68de39199ec5a6768160dd4dad88e1fb4e"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/test/test_xacro.py",
+      "mode": "100644",
+      "git_blob_sha1": "692242f2d44d9af4b84f6dee9d623c3923e12f11"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/base/base.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "549873b5d568f54415aa8419fc51a0ec3950e126"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/base/base.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "97b95d9de51bd35c86d1ad51d1e87608512d580f"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/base/base_sensors.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "282498c5b6b58620d018e4de4283ec791944f8a9"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/cameras_add_on/camera_horizon_add_on.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "9f9c9962738f84f6d11a9c78b7678b47a6fa42cf"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/cameras_add_on/cameras.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "d5b6a8469c3876de1b560e793667fd7779efccbe"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/cameras_add_on/cameras_add_on.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "ad45e3a6d1be2c379ef047f043bcd2defb2858d0"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/objects/antenna.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "5d209d8c3c3b03003fc6ba82e69b3c20bead20e8"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/wheels/wheel.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "244ecefa79233c41a5dc3ed56793e6446902748f"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/wheels/wheel.ros2_control.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "d6a0213a04806d47974aa9f6077a79ae6ad3cfda"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_description/urdf/wheels/wheel.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "c77338c6ec299fb97b1587ae568a4740b34a0d52"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_robot/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "69ecb6ada958502464d091f6861e88c7c055c5cc"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_robot/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "21286c97d5c95c4725d97d54bd3d68483ff2468f"
+    },
+    {
+      "path": "src/omni_base_robot/omni_base_robot/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "64fc536e8c6c6117b82c0ca41d360ef5bea37dc4"
+    },
+    {
+      "path": "src/pal_gripper/LICENSE",
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "src/pal_gripper/README.md",
+      "mode": "100644",
+      "git_blob_sha1": "cef46109bc008f01439babfbe727cd2d347a444c"
+    },
+    {
+      "path": "src/pal_gripper/gazebo_screenshot.png",
+      "mode": "100644",
+      "git_blob_sha1": "d0429055d5b41716b946192a62f21fa133e196e2"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "d548e41d58d83b4480ec84389fcf2730ce07f29f"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "feb7f72dc4b253c09ebf9e9eb70b4d10a228cf15"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "18e737f4dd6d6a9b98884d39282a1cafdbba7518"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "461c423c6b7248e8ac0534963722f040ea813b0e"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "694aa14f6ad0d33dffaf88f1035c25a03aa8343f"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/config/current_limit_controllers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "71f5df4a72d6e75cee7fa0bc7338c7c81e4ccd43"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/config/current_limit_controllers_left.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "93b881190c5e3f09baf3355b5ca76bc0ef17e80f"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/config/current_limit_controllers_right.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9e6c69bafb68049f8bab995a04b8a8b8a82e23c2"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/config/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "46c722f5a7364c8d669140fb1e683070f0ca7d61"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/config/gripper_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "80cbcd6304af7e58010471a6f37e808683281e0a"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/config/joint_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "87daf564bfb0837387155413829ddaa46cfbf837"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/config/joint_trajectory_controllers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "dff30821d3070f8eda01de6d12bff39cc5b6bb35"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/config/pids.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e3b727e3faf6a8f2765fbfb6f0b37353d238163b"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/launch/current_limit_controllers.launch",
+      "mode": "100644",
+      "git_blob_sha1": "6ca399b2fd00dd84565503c386908deaa8be3a5f"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/launch/gripper_controller.launch",
+      "mode": "100644",
+      "git_blob_sha1": "a75e9b87e9131cb5831c5b1f3ce97b817246c417"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/launch/joint_state_broadcaster.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "3462757f40b724c685c33716e061e0f36bd73dd7"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/launch/pal_gripper_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "26dc15f0fcde0af97d60a3762c14380b4920fd39"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "16fd0548330d4c50dc047aa0bf6861e5401883a5"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_controller_configuration/scripts/home_gripper.py",
+      "mode": "100755",
+      "git_blob_sha1": "529c98a0aa912da98fa9ffeb2b4e793db9ac4a85"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "512ea07f9f3af051f4b0e7e0799f3718a164515f"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "5de500bb0bc03d9c7180a7a2db38844f15a51a22"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/config/gripper.rviz",
+      "mode": "100644",
+      "git_blob_sha1": "7c40c4ce70b5595d213363a19603f4e22c4b2fd8"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/gazebo/gazebo.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "cecaf87fabc3d33634beb6fdf9d43c873304e303"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/launch/gripper_kinematics_test.launch",
+      "mode": "100644",
+      "git_blob_sha1": "01e13fa34e438d5ae03930e845ebeefbc212b5ad"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/meshes/gripper_finger_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "e5cf5df5fa2b03f7b6eae862c7582ed8f262473e"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/meshes/gripper_finger_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "9659a2c8308130c28c864b734a4453b91f445056"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/meshes/gripper_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "57825a838f795dc48c39f7cbc4b0b963d0aa1994"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/meshes/gripper_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "bfc81f9e05d1304b065d13a98cfc3a6a2f838f93"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "934bd85d7f201fb57192710c9b59e12d0800f62c"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/robots/gripper_test.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "268cd159111701b7f9e5363c8aebf80049a9d383"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/robots/upload.launch",
+      "mode": "100644",
+      "git_blob_sha1": "cba77ed4e8b62a575daac72c3a14918eab5e184f"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/robots/upload_gripper.launch",
+      "mode": "100644",
+      "git_blob_sha1": "369844c799dd815d9f6bf65d1dd5431288cae5ad"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/ros2_control/ros2_control.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "82ff95cbf2ca8687be6c897d61d706db1da4c268"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/test/test_gripper_test.test",
+      "mode": "100644",
+      "git_blob_sha1": "14a9a0e73f9d8e5c0ecc904fdafcea4f2c8a6fcd"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/urdf/gripper.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "9406be037a1eb2609989e0aca5e4945670b55444"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/urdf/gripper.ros2_control.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "4ec2721a7a51153d982086dad84a0d0f5f4ab077"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/urdf/gripper.transmission.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "4cc8f715334784ed4ca2b01779569fe60a366b95"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_description/urdf/gripper.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "dd4da942659642d8dbe8c36e5b5622b2873c9440"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_simulation/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "a0f312dcd9d4602ca71e468a6449da66b93a954c"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_simulation/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "43e33842b208860c5e2cb096861f5e0dc1725bad"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_simulation/launch/gazebo.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "3879db31865ba37f7f31c2a5141191a4da718e49"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_simulation/launch/gripper_spawn.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "63c4ee5360dcb947b698beb61d80097c6c51ef92"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_simulation/launch/robot_state_publisher.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "accf89e591c800d6d2b82ff556cbb353ed003d58"
+    },
+    {
+      "path": "src/pal_gripper/pal_gripper_simulation/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "e89d81c5851375822dd2e07cfca478dabba8cb1e"
+    },
+    {
+      "path": "src/pal_pro_gripper/LICENSE.txt",
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "src/pal_pro_gripper/README.md",
+      "mode": "100644",
+      "git_blob_sha1": "de0debd6c595b8284fdcf2539ac6db02e60857c2"
+    },
+    {
+      "path": "src/pal_pro_gripper/gazebo_screenshot.png",
+      "mode": "100644",
+      "git_blob_sha1": "3a5e0f56de9265ab9345a619c9224fef5a41ad1e"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "e0ea6a83fea7cde239e80e542df6308db9cffa96"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "a408ec841e6fced6409b79edb8644482d158ed93"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "d64ad0b70ac89f8f0ea002b97191abbb15d513f7"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_bringup/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "77bc5ad420a0980fd1e570d21472145444695c28"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_bringup/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "aded18943d5c9430857d50d7edae4cb303272b5b"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_bringup/launch/pal_pro_gripper_bringup.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "005c5c72214785614c3e56e5af18c732c1411531"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_bringup/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "6568950803926c7a0576a3ff6b31cca1017801e4"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_controller_configuration/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "d2a897c1983401266cfe54918110a4f224a75a88"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_controller_configuration/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "9ff2622e727e8f20bfb2995091fdf7edbb0ba98b"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_controller_configuration/config/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "46c722f5a7364c8d669140fb1e683070f0ca7d61"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_controller_configuration/config/gripper_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "479e9cb9b575def36f0588541c11fe156b05c92a"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_controller_configuration/config/joint_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "87daf564bfb0837387155413829ddaa46cfbf837"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_controller_configuration/launch/pal_pro_gripper_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "1d4dc3fdbc71c668e785e19eeb1cd92e0d59ccda"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_controller_configuration/launch/pal_pro_gripper_controller_standalone.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "dc97ced767ca5492941786eede08393a72fc21f5"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_controller_configuration/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "bf9f257a9f45993c79a3771de14cb01e9f2998ef"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "b11a1ab5d2680073cb8e12a3e94355b7d9864ac5"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "05611637aac6ef1787d0651a37c63a6a6cd70af8"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/config/pal_pro_gripper_configuration.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "3917bdbfa43808820db0d8f9a8d6ddff2e7e0e1a"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/config/show.rviz",
+      "mode": "100644",
+      "git_blob_sha1": "d4a1442970969494bd72b6286f026f37cd747591"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/launch/robot_state_publisher.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "a9005df305e949d804d9e74cd59388193adf89cc"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/launch/show.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "7323e19ad53bee595edc656af1bdd13f079a6d7f"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/meshes/base_link_ntc.stl",
+      "mode": "100644",
+      "git_blob_sha1": "6244a9047aab8e073f5ba35e72f4749c41da8bbc"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/meshes/base_link_tc.stl",
+      "mode": "100644",
+      "git_blob_sha1": "11f4e8e15fa7f44ed91f1e761964e5f05ca646d8"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/meshes/fingertip.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f5a015f1f8bf388c182e75ca4041f63d3e00ce14"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/meshes/inner_finger.stl",
+      "mode": "100644",
+      "git_blob_sha1": "c8d57eb8fc44a171a0fadafdb5ee619c88404c26"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/meshes/outer_finger.stl",
+      "mode": "100644",
+      "git_blob_sha1": "609c60e315f2efb0d4468f73de08a199aff1b8db"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/meshes/screw.stl",
+      "mode": "100644",
+      "git_blob_sha1": "4e761d78fe0a6e97dc83343fa994659671a8fc6a"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/mujoco/mj_tags.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "62dca3d8949c1eb957509e31460e0750acf257f3"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "3731de13a5c64acdef48454171c04c71708c7b58"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/pal_pro_gripper_description/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/pal_pro_gripper_description/launch_arguments.py",
+      "mode": "100644",
+      "git_blob_sha1": "bcc4cbbebdffa79d504e5b46bd4add9a80a0273e"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/robots/pal_pro_gripper.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "75c946476c4d64f67b384b207ee9227eb8480710"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/ros2_control/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "1ef43506c7a335aac1af4f1be130df79107ee43e"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/ros2_control/ros2_control.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "0f8100deeea35f03db1146b8e81d9b62c0c7ef8c"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/urdf/gripper.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "32c892d90aa960c19543662b18986e646885cd99"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/urdf/gripper.ros2_control.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "5298572da6a46529688d8b184cd59afd6da4627a"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/urdf/gripper.transmission.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "254d3f3bf7df0331e3a7981d307941dd0f2046b7"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_description/urdf/gripper.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "f78f42a9289690a80a9a0a7f93318fd7fb94177f"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_simulation/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "336f129df6ce2324dd59dbc4b33e1f2a7af0ea09"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_simulation/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "ad15523e8bf05b6546b9cb6d86632a5907da9646"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_simulation/launch/pal_pro_gripper_gazebo.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "7d2a309507c4e9db1385dce9c1d4f93337eb84c8"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_simulation/launch/robot_spawn.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "b1b6fb3f6d33884f4b576a6e5f5227ed091fb238"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_simulation/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "4f22af867f780a7b002db0c6b9edd0b360152c23"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "44ab9e112cb45d10e63b9b6a417fd0622f9b50a9"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/config/gripper.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "8a247ed73f6550ecda625b271bdfbd6f9e47c543"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/launch/pal_pro_gripper_wrapper.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "61c3d75715d2f8a66d3dd6109e6cb05ef9fede71"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "2c364f1976364f7b36cda8f0bec3051214c752a7"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/pal_pro_gripper_wrapper/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/pal_pro_gripper_wrapper/gripper_grasper_srv.py",
+      "mode": "100644",
+      "git_blob_sha1": "a861cb326f1bee9e9f6ec53797523873cfa41c25"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/resource/pal_pro_gripper_wrapper",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/setup.cfg",
+      "mode": "100644",
+      "git_blob_sha1": "2fc1102d2698e5ec6f1900e8e1459396958d3861"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/setup.py",
+      "mode": "100644",
+      "git_blob_sha1": "0f25a614dd8feee94c36a3de3eb53d5d156e855b"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/test/test_copyright.py",
+      "mode": "100644",
+      "git_blob_sha1": "97a39196e84db97954341162a6d2e7f771d938c0"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/test/test_flake8.py",
+      "mode": "100644",
+      "git_blob_sha1": "27ee1078ff077cc3a0fec75b7d023101a68164d1"
+    },
+    {
+      "path": "src/pal_pro_gripper/pal_pro_gripper_wrapper/test/test_pep257.py",
+      "mode": "100644",
+      "git_blob_sha1": "b234a3840f4c5bd38f043638c8622b8f240e1185"
+    },
+    {
+      "path": "src/pal_sea_arm/LICENSE",
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "c62db34fa69ddaed4acc3e0d2fa52524d8829fde"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "09db291586a9544dd9b1a07058d6e27ee12793a0"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "23ec0341553ad3647a31f05dfbe58ea8aa9d531c"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "bbb0ce5cb3a385dbdff25752841482b9a4c871ef"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "f0d33b8ac30c006153bb3e581613e4c8feddddf5"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/config/motion_planner/motion_planner.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "df3fc22d6bba2950ca1498d89c8a7a7888c66d5b"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/config/motions/arm_standalone_motions.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "996466108a70e03bbbadbd492203bd794ce4f965"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/launch/arm_standalone_play_motion2.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "4f3fc4487ac5b3a75f82e22a43ab07a2c867f655"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/launch/pal_sea_arm_bringup.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "48b99e12eb0240202c7378b9650d4f54734b74c4"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/module/10_play_motion2.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "3043501f59e9c53fccc64beab5e840bdb79178bf"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "a82b5072e8f4349d4287dbd0c2675ac0468f5751"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/scripts/calibrate_ft_sensor.sh",
+      "mode": "100644",
+      "git_blob_sha1": "9a808e37e1510cb8ef41b5014e1bce89edf918e2"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_bringup/scripts/regen_em_file.py",
+      "mode": "100755",
+      "git_blob_sha1": "13a5e33a1cb08721eda0e6537ea77afdd836f689"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "ea00534839af47c01b89a6e5b583fe1bbe73d3c5"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "5804e91ed5715b89c49a1a5cd4d47eae63adc086"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/arm_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "4f259c58869f871446e634802abd3a08b5e42854"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/arm_controller_short_wrist.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "1ec52d819a196786b2f39f087c0115e0f7e54c05"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/arm_gravity_compensation_controller_effort.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "f6ce231a234eb0c352bd05396a8abe4151c18440"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/arm_gravity_compensation_controller_effort_short_wrist.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "92fd7a71d6253bf7f4fad9a69716f3f68c1e54ee"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/arm_gravity_compensation_controller_torque.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "4ab95012ec746a3d8423027428e9e9b5d7a323b9"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/ati_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "f505d2d9f50da656709b36823f386b08e673226f"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/ft_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "08d74197c992925dba8fe966c308f721daa0ba4a"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "aa416cbb4cbab2194b9ba980918c3cd7f62740a3"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/inertia_shaping_controller/S_minus_analytic_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "058307b34c3d1d4db26c63e30d1aa1dc2248c62d"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/inertia_shaping_controller/S_minus_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7a45eb06d6e294932ede2ecb9c902389db2773d9"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/inertia_shaping_controller/S_plus_analytic_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "3e21bccade8920beb63fd81e8d354da691eabf61"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/inertia_shaping_controller/S_plus_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "539b7eca34d1b736f2b1ea9b377fac261e3a660b"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/inertia_shaping_controller/XS_analytic_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "058307b34c3d1d4db26c63e30d1aa1dc2248c62d"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/inertia_shaping_controller/XS_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7a45eb06d6e294932ede2ecb9c902389db2773d9"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/joint_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "87daf564bfb0837387155413829ddaa46cfbf837"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/joint_torque_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "5ea149c1608e949c6bcbe16716f476597f58510c"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/mujoco_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "aa416cbb4cbab2194b9ba980918c3cd7f62740a3"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/rokubi_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "8101d524e0e8c7d1ca0b508df1842516bc34e2db"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/config/sea_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "cee59fc1cab3e8b877984d185976555ed5a035e6"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/launch/arm_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "8778f079feffd502190af90f5e461fc53d13c50d"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/launch/default_controllers.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "59114f95c076e34dd519fe8dbbbf0db0555ff406"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/launch/ft_sensor_broadcaster.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "aef064c1e8325047cd17743b11f3d8911708ab28"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/launch/ft_sensor_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "c0507bdc225fa9b7f031e6a2c4917a0b46c9f246"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/launch/gravity_compensation_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "5c1d42269b5c1071df09c7793fbf5740cfa15b94"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/launch/inertia_shaping_controllers.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "9c122d1f8c44667a31845f32336e01de5f9c9e7f"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/launch/sea_state_broadcaster_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "28b710ebc1791e76b8a7d27638c072b7fb7d6310"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/module/10_default_controllers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0db4076f867fbbd8fb0a31dfaaaca6602a84cce3"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_controller_configuration/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "a3822f6f392cb5cc0f65f0be9cc2ebbc34815b16"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "0f18d618d85e75897feef53ba6fd7254bf962216"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "8b232b6062746c27d9bbbbc58439eedb576dd5a2"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/config/pal_sea_arm_configuration.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "88b643d68268ae16bb876a18c0527c29549ee498"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/config/show.rviz",
+      "mode": "100644",
+      "git_blob_sha1": "8f6bb5f49c6c9f37b09cabb75a9fb5c0a34f61e5"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/gazebo/gazebo.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "14e971e7dd5b960f072b5ae3b393a545b0a8e611"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/launch/robot_state_publisher.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "e132e63381d98ccb985661dc79dd0288e33b85d8"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/launch/show.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "8aa2d776028e990f8bb58df2f813d8ae33e36565"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/allegro_coupler_link.STL",
+      "mode": "100644",
+      "git_blob_sha1": "af4499ed2aa55aad1834fb42b4af1d4d065f6556"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/allegro_tc_out_link.STL",
+      "mode": "100644",
+      "git_blob_sha1": "7cf85f3f84ab58d8aa9f7e89228513fe40fb3cc4"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_1_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "d9b9eba6a8565af69b44281daa4258b0c69f0a2e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_1_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "2266ff638f14a2c1b1beaa1e2dae3e4602bbd586"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_2_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f07dd9d04db5cfd4c73eb6264e956f5de37a462f"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_2_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "035853924fce1247696fb1b293b40e9d7ac75c26"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_3_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "6968797cdbe6d91d0978e46b560c3f8954f02cff"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_3_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "c3833b92e181b772fc3fb2f6f520c022f3698656"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_4_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "e10a1bbefe52eec2ac527c03b0aa1d9e4e1bf565"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_4_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "ccf8bccc6b57ef35823c78c3a25f1d89304047df"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/arm_base_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "7b084664955db8c1509bbc1d31013b5b48d13852"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/end_effector_camera_realsense_d405.stl",
+      "mode": "100644",
+      "git_blob_sha1": "6d5532695a0ce1b0aeef9881b435018aae912ac9"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/end_effector_camera_realsense_d435.stl",
+      "mode": "100644",
+      "git_blob_sha1": "ba0623be2fd9e4db50f9984815c2fc370e4251f8"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/short-wrist/arm_5_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "9bd2572149e47a259de3d8c4d7e6299003a5f412"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/short-wrist/arm_5_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "9e898e2268e1abe1dd53f969bbfe637a4e0661dd"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_5_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "70db217187519c80f0cdcf1ddcae2537aba919c2"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_5_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "5c0ce55a89a1691338c054af041d0dfd7f2a23dc"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_6_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "d0f935cc3d1260108ebe77df5b8511b26972d945"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_6_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "fc912c084d9b1e575cee9a3db8954d3d3e7ef567"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_7_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eb1c605976dd5016e83a07e877a6ef50b98618e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_7_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eb1c605976dd5016e83a07e877a6ef50b98618e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/straight-wrist/arm_5_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "9e6fbe53065a33ae063e7ce19035cf067874bee8"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/straight-wrist/arm_5_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "a3541e9d850685a9567e324d1b46cdadaec97530"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/straight-wrist/arm_6_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f4db9eac7a7ec5bef3c68b748f9c06bf82cc32fa"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/straight-wrist/arm_6_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "d9ce0ea03c39c98f705324c370248c0cc6627fe8"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/straight-wrist/arm_7_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eb1c605976dd5016e83a07e877a6ef50b98618e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/straight-wrist/arm_7_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eb1c605976dd5016e83a07e877a6ef50b98618e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/tool_changer_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "493d084ce0685faf250a1fe3f5213051fd7abf8e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_pro/tool_changer_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f620ef8a54dbdda192b975a3bdabe8be20f4efef"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/arm_1_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "24fccc8c9563ea4b27d0555a681ac7298f2a5b70"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/arm_1_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f3d225e9cbe79a992cfe5a8e5698388166dbfeeb"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/arm_2_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0f0dade2068c02d9ee3b64335a830281710f6b56"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/arm_2_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "749599d2dd1530cd4cb975beb47b2eaee0303aa3"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/arm_3_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "05663d025917cceba5ad2a8120cc74dbfee2356f"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/arm_3_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "d16e2cf03cd564511cf37ef09d21e0f1ec6113e6"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/arm_4_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0e82f1cdc935adbc08e0f51b8e3ec70c38995dd4"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/arm_4_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "4a3a09c4b5a4b7dce2bc2a4956e6088b0782c62b"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/straight-wrist/arm_5_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "b9f8ff69887b99da9496336234f02d664575b858"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/straight-wrist/arm_5_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "cd0df0696802671958fc63724617ef38937fc357"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/straight-wrist/arm_6_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eabefea5dc97b6fbf758f1692a1cc7e3e32c9e2"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/straight-wrist/arm_6_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "9af4a37634431e03e8764a48db946f7e98186604"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/straight-wrist/arm_7_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "5eb9d3f48224593e216de3487d44ccab88afe75d"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/straight-wrist/arm_7_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "057933eff90f797f0237440a1a029d5c308570c4"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/tool_changer_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "3d4bbb538dda102fc9ad8cb957fa087d77a0dee8"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/tool_changer_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f620ef8a54dbdda192b975a3bdabe8be20f4efef"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/arm_tiago_sea/tool_changer_link_original.stl",
+      "mode": "100644",
+      "git_blob_sha1": "681b899118894955619289d12bb12e33485f48de"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm/arm1_link.STL",
+      "mode": "100644",
+      "git_blob_sha1": "27bf3decbd58da493450637a161e21dd8cc86580"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm/arm2_link.STL",
+      "mode": "100644",
+      "git_blob_sha1": "ac70f21784a36d190bdd35a297919b10aa51fca1"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm/arm3_link.STL",
+      "mode": "100644",
+      "git_blob_sha1": "c83d656a4751d75024f9a6a9eea7bff90433e4d8"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm/arm4_link.STL",
+      "mode": "100644",
+      "git_blob_sha1": "91c8fd920f088606bfe230456bbd9c4331ab5d58"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm/arm_base_link.STL",
+      "mode": "100644",
+      "git_blob_sha1": "ce7e76db73ecdbaf4050ba3a7b7439917b6cbfba"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm/fake_forearm_left_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "6b82e77aae503181caf1be77bb8de13592cc7723"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm/fake_forearm_right_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "fde76c41c37984b3bcd3e2032782e4445fd9ed38"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm_cover/arm_cover_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f3d62c9a232b8d12b596d6c3a4e816b78dc877d7"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/humanoid/arm_cover/arm_cover_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "b4718e0d3cb9450e00041bd63fe178655ef3d74e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/arm_1_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "a853f755de7d59e35682b56d872d3f7150d5ee79"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/arm_1_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "2266ff638f14a2c1b1beaa1e2dae3e4602bbd586"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/arm_2_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "3ae8a42ff932cfe9b45a0fd487518ed513d2efe5"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/arm_2_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "035853924fce1247696fb1b293b40e9d7ac75c26"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/arm_3_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "daec9a18fa33884748820908c681e1a607ec6291"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/arm_3_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "c3833b92e181b772fc3fb2f6f520c022f3698656"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/arm_4_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "9184af45376f268f70e6b1958ddb2c88b960e36e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/arm_4_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "ccf8bccc6b57ef35823c78c3a25f1d89304047df"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/base_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "18fffd50b4979ba1cf201939ad11cb8dec8752ca"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/pen_gripper_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0a2df9223c7a1e82e30ba8ffc8f9a87296fd2ae5"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/spherical-wrist/arm_5_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "586ac73217addcb2efb16fc0f81aad219d2a2c6e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/spherical-wrist/arm_5_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "a0987110fadbd16448033c0ad3fefa0935319e5c"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/spherical-wrist/arm_6_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "de787266242b0f2e1773603ec04d3f73cbb2b6f7"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/spherical-wrist/arm_6_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "2c4c20fa22d77a9aa4a29f704450cb5816280b47"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/spherical-wrist/arm_7_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eb1c605976dd5016e83a07e877a6ef50b98618e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/spherical-wrist/arm_7_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eb1c605976dd5016e83a07e877a6ef50b98618e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/straight-wrist/arm_5_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "6d133879ee59dae888054ad461eb5976bf1366be"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/straight-wrist/arm_5_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "215451baaf1f6a784129d6e8969378c26622e104"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/straight-wrist/arm_6_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f4db9eac7a7ec5bef3c68b748f9c06bf82cc32fa"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/straight-wrist/arm_6_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "d9ce0ea03c39c98f705324c370248c0cc6627fe8"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/straight-wrist/arm_7_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eb1c605976dd5016e83a07e877a6ef50b98618e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/straight-wrist/arm_7_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0eb1c605976dd5016e83a07e877a6ef50b98618e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/tool_changer_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "3d4bbb538dda102fc9ad8cb957fa087d77a0dee8"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/tool_changer_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f620ef8a54dbdda192b975a3bdabe8be20f4efef"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/meshes/pal_sea_arm_standalone/tool_changer_link_original.stl",
+      "mode": "100644",
+      "git_blob_sha1": "681b899118894955619289d12bb12e33485f48de"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/module/10_robot_state_publisher.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "4f8d36d75d3577283856637f49c3647164455c87"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/mujoco/mj_tags.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "641cdfafef359d2e257fa4b8c85e209a6c6a1bdd"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "1aaa5e0ae61c38a20efb63950c34df03ba36340b"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/pal_sea_arm_description/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/pal_sea_arm_description/launch_arguments.py",
+      "mode": "100644",
+      "git_blob_sha1": "942a68c37fc27c381d00af3d80ccf227ef383f96"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/pal_sea_arm_description/pal_sea_arm_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "d99ab3e45ceb4f5adba866d143bc65c04f5c49fd"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/robots/pal_sea_arm.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "a5a0cbf9204e12968b813c86bf94bc57c79521c0"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/ros2_control/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "1ef43506c7a335aac1af4f1be130df79107ee43e"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/ros2_control/ros2_control.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "f2865f8bdca83c8b6dceff99fab1e58996ae963b"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/ros2_control/transmissions.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "032125eea699281f1fba51815b4decfded64f8ba"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/test/test_description.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "344bd4fdf88bf28727296f4a4f4461698a31c424"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/test/test_xacro.py",
+      "mode": "100644",
+      "git_blob_sha1": "af293e42873976db335b7a1b2903cff25de539ea"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm.ros2_control.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "f6f3905082e010af917ac0e725d8a693c55266c1"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "fd5760679b0694b60df623eae000ada0b202e4d4"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/pal-sea-arm-standalone/arm.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "d4da6dd20eb1a97e6ecada873ae941e05b8d8bcd"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/pal-sea-arm-standalone/short-wrist.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "af43790dc969751873c2fda348616b5685831852"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/pal-sea-arm-standalone/spherical-wrist.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "bb42df32feba19e7d38feb7f02c3bd55e9e3edf3"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/pal-sea-arm-standalone/straight-wrist.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "305ab0e49e9b1426b7f697f2369c4b1a5661ec44"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/tiago-pro/arm.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "677dc9442e632ba67bffb3ca1060f568d88f4531"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/tiago-pro/short-wrist.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "21ff60c62d1f25d1aa35957bb9243c92d024b717"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/tiago-pro/spherical-wrist.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "b22725329dc1aa07bf798ac7a6dad4c876b6725c"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/tiago-pro/straight-wrist.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "9439780ad007589dcfded33a31191e14aa762227"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/tiago-sea-dual/arm.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "463267034c4c56cde20d9ab0861d28dfe404fdf5"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/tiago-sea-dual/straight-wrist.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "95bdf519b2b2be096120a50ae2ca74973705eb7f"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/tiago-sea/arm.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "c70f712b038514b9f9497dd1ea28b3199894a16f"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_limits/tiago-sea/straight-wrist.limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "d1fb7202b1c178409a77eaa438ce773eb2191a16"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/humanoid/4dof_arm.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "24a51b28f0188dcbaa40ac8d3c20dcc7e6216ef6"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/humanoid/5dof_arm.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "f01f1a04f4b0d39d3157146123dc58c43fb444aa"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/humanoid/7dof_arm.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "48f6a24ae7afca7ba59d50805c1ce19845707fa3"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/humanoid/arm.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "d613736feaea5257d19f05ba9a65eefa8492a0d9"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/humanoid/arm_cover.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "b3160ef350fab55279524206f4710e3a813527c2"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/humanoid/ros2_control.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "fa0992d86f74be345874bed4eba1e70d566c136d"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/pal-sea-arm-standalone/arm.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "05307df8e9d29c25f26688470c204c6f40599c40"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/pal-sea-arm-standalone/short-wrist.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "2794db409af773b70ca9f8557d56d634fcafbc25"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/pal-sea-arm-standalone/spherical-wrist.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "8609682e35b4a057f86373db62bf5cfeecbf0849"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/pal-sea-arm-standalone/straight-wrist.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "18e71756da5e2f926f4094b4223cafcce82fb63c"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/tiago-pro/arm.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "4b8a735fbf8e0d265d40f3ab936612364d830dc5"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/tiago-pro/short-wrist.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "06f536b68ffcec61bfacd8719a1768db15cbead6"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/tiago-pro/spherical-wrist.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "0cc62b7a945b479ab9de02e25ddcdd3d6a0cffe5"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/tiago-pro/straight-wrist.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "073ed8ad04f826633643ee1db99a9cb71874709f"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/tiago-sea-dual/arm.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "697aa8e65ffc6412c615410aed68a584bf8d6cba"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/tiago-sea-dual/straight-wrist.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "64f02fbeb9dab707f2d0606c5cd3d515f7ac12c2"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/tiago-sea/arm.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "5c38f933016d6aaa92353aeb47f87387a9fd5762"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/arm/arm_properties/tiago-sea/straight-wrist.properties.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "67da5782e891436c03d2a06d99f0a712b438e092"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/calibration_constants.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "235cf17f21e87476f16fe006f763aa2ad9b84bcd"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/end_effector/end_effector.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "9e6cf6a049da1db3ddf58b0f687fc82ba5c082ae"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/end_effector/grasping_frames.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "a8325d371b8d056b8cfab525bb03a1dfadbb4b06"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/end_effector/humanoid/pal_pro_gripper.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "54a8e9e465fd9b059014b5aa98c994b366f75111"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/end_effector/humanoid/rh8d_hand.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "158c54aab85c7f7923d035e0f11f8371366262e9"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/end_effector/humanoid/ros2_control.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "90850f7be275070dc91d7917cd3c3e3404da7d24"
+    },
+    {
+      "path": "src/pal_sea_arm/pal_sea_arm_description/urdf/end_effector_camera/end_effector_camera.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "df585ec2a2b060ab6198b396267979774bf74683"
+    },
+    {
+      "path": "src/pal_urdf_utils/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "c081495164c29944a6785720e82ce1f44fb4e277"
+    },
+    {
+      "path": "src/pal_urdf_utils/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "476221f7275250f48726a7f207a20f0c90084b2e"
+    },
+    {
+      "path": "src/pal_urdf_utils/CONTRIBUTING.md",
+      "mode": "100644",
+      "git_blob_sha1": "f3c46602a90cec71dbcd66afc95018dc9d5b0bdf"
+    },
+    {
+      "path": "src/pal_urdf_utils/LICENSE",
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/camera/elp_camera.stl",
+      "mode": "100644",
+      "git_blob_sha1": "2999817e8e46a82a91362a8ce5d5a824299fbed3"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/camera/head_front_camera.stl",
+      "mode": "100644",
+      "git_blob_sha1": "1a9d5bc82c7a68b581dd3f4c38d82dc78b761780"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/camera/orbbec.STL",
+      "mode": "100644",
+      "git_blob_sha1": "af64fe9b65e4033611bbb4f043b521c05515dfc6"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/camera/os1_64.dae",
+      "mode": "100644",
+      "git_blob_sha1": "6f22875eb83f8cd9b220ec04c706ba79bb7e152c"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/camera/structure_sensor.stl",
+      "mode": "100644",
+      "git_blob_sha1": "cdfc72f0d901187ef507e69ad5c6967ab5fdb9a8"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/camera/t265.stl",
+      "mode": "100644",
+      "git_blob_sha1": "69e7e5a8068307a47f75fc4240bdd69af240ef91"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/camera/xtion_pro_live.dae",
+      "mode": "100644",
+      "git_blob_sha1": "506f3cd28767a88aab9361334cb9fad40cffa884"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/ft_sensors/ati_ft_sensor.stl",
+      "mode": "100644",
+      "git_blob_sha1": "ed617b058b21e5c5be32a818345225f3d709fc71"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/ft_sensors/rokubi_ft_sensor.stl",
+      "mode": "100644",
+      "git_blob_sha1": "acb37ab7e91f0a89106abcd057ff8636d0de4ba8"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/laser/hokuyo_urg_04lx_ug01.stl",
+      "mode": "100644",
+      "git_blob_sha1": "f6d27d08c7ca357988d4b7c73009944341e0bb00"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/laser/sick_picoscan150core.stl",
+      "mode": "100644",
+      "git_blob_sha1": "c7e0b3e044b7006fa719e2220c4994f1eb12c300"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/laser/sick_tim551.stl",
+      "mode": "100644",
+      "git_blob_sha1": "960b8412a9c8b87772baf962b7de7d8a06d171dd"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/laser/srf05.stl",
+      "mode": "100644",
+      "git_blob_sha1": "566c942f943b2b7acfd8dcfd424e6357a8dabf7c"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/laser/ydlidar.dae",
+      "mode": "100644",
+      "git_blob_sha1": "9b166034766954a96eabc27e013f3f5ab6572b90"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/laser/ydlidar.stl",
+      "mode": "100644",
+      "git_blob_sha1": "30cd079c8c857d175fbedabd9e44e071cae090d7"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/lidar/robosense_airy96.stl",
+      "mode": "100644",
+      "git_blob_sha1": "aae458aeb7868ca84db7bc455e2bd052e2d1ab5c"
+    },
+    {
+      "path": "src/pal_urdf_utils/meshes/lidar/robosense_e1r.stl",
+      "mode": "100644",
+      "git_blob_sha1": "fe8d086c89823e59d031a751c0e4d8b3596bcbd6"
+    },
+    {
+      "path": "src/pal_urdf_utils/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "6e63d95d401a71643a661c5793c01530a23154e1"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/OS1-64.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "96453852d3512e2abf4ccda8362ba9cfa59934df"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/elp_rgb.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "c228ed76f581ba1d36ca450a92d2400046242988"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/elp_rgb.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "37c7abd0346eb7757b99b37cf6773a42924de226"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/imx179_camera.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "237790cbf2efc29cbd1392845ea29d5d945c0284"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/openni.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "027ae7ef945a12a9b18438fb8c03595fddb5730b"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/openni_talos.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "f16a97f4d04d4cafc1c8ee82117258147ce9dc29"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/orbbec_astra.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "d71f008d828b416b208b2fe948930443637e3f48"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/orbbec_astra_pro.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "7455c77e0b2a60f6d4525d3c48ac65ab9bd27779"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/orbbec_astra_pro.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "df7dee56b99967759dfe90d3f4c5b0c7641652a2"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/realsense_d435.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "56ea568247e8e3ad97fc45f5ad2c2155be34354e"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/realsense_d435.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "2f29a4ea2c6dcc6dc4b3b134e9a94f684cfcffd7"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/realsense_d435i.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "92ccfa0990f76c465de52b20ebd77eb981ba58d1"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/realsense_d435i.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "7c6609b9318540c0d61d17e33375ccc9859f255d"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/realsense_d455.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "a196c663c885470898fba55c97ef6e9e22a893ab"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/realsense_d455.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "e6745aa9afadab78e47c73f8ebfc7612f0813750"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/realsense_t265.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "3c7db8423ff9cff1fa0f20b56e576d3dcdfedbaf"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/realsense_t265.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "7b28ae8230654182cd82b92f8cfd89b5c9a92b86"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/rpi_camera.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "afae63964289a20fc05e30a47d4b14aa37dbe78c"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/structure_sensor.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "09557a363e23b39a2cd1199b18ce55562e7bcdbc"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/structure_sensor.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "5f76f29e1fe2d06e3bd75b73008c6f1c4e6618a2"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/camera/xtion_pro_live.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "acaa318ac1569f418134e733317284f2a56efb8f"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/deg_to_rad.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "707e07e54f0194baf79a1eaa7f4454cafaab4685"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/ati.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "0cef5d0ffedf13b17abd58024bd5ef588c6c2126"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/ati_talos.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "ccd12db802c66e2fe477b59cd77e4c41b39e57bd"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/ati_talos.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "18b014a71a40271329ed435bcc39ad385c2c6000"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/ft_sensor.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "13ad7647fdd9c4ef7c918c1c5e68380c1db1b149"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/ft_sensor.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "16e842b560e52aba9afd66fcba1f0fd7c6ce1088"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/ftsensor.ros2_control.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "8e1f6c86914382b79c3e4501467bf533954bdf1e"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/rokubi.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "fd09a46f2dce50033483b8cf14830d1346f2d729"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/schunk.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "827cad1b7710e36a90024eda16001625342f13d2"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/ft_sensors/schunk.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "7b23e29b311f4ec0772e57df3dc5161329a60a84"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/interaction_sensors/imu.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "37f8a5b61b15b12045965aae46c0b609bea7c6c6"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/interaction_sensors/imu.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "91534019fb41953876ef78aa8f2e743ab86f9be4"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/interaction_sensors/imu_sensors.ros2_control.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "3278a8c32441626534672212b581f3eb09147253"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/interaction_sensors/imu_talos.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "c4665121b8d84cae33df3af5356330b0de057de3"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/interaction_sensors/imu_talos.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "b76598e0db632468844ebdaa4fd621e7df36f382"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/interaction_sensors/microphone.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "d396acdff69d6f113359df192306f86d86b5792c"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/hokuyo_urg_04lx_ug01_laser.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "fc577209444a7d2de91cccc5fd5360b5bb86df2e"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/hokuyo_urg_04lx_ug01_laser.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "b06564c2b8869c18c2abc117f2a13cb9ecb71b88"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/range.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "59c5cd830fb5d3416b6d7d143aa4cb72bb803800"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/range.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "830f5975a0e84960c0d811804babfb899c3ab312"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_nanoscan3_laser.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "b17a86eb1d5ae05f10294a3caeb9ea905441f604"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_nanoscan3_laser.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "a878675338d3913ad3dc47b5e9e7b0dfb346ad5f"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_picoscan150core_laser.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "12cf807aaad7d6c43da8d764ea9bd67b88518aeb"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_picoscan150core_laser.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "eae931a25da4a0bc255b6d466c188afe365a88bc"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_tim551_laser.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "de8f139d8651a84b1d6d221df281d4fbd39c2cca"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_tim551_laser.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "ae9b337258cd97066393385476a58da8011cfe5a"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_tim561_laser.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "a17e36b92b00004d49ec4cebbb319b0419f5c945"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_tim561_laser.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "fb56e13b2190d8f9c6721ca6f4c6d20ae74d3c77"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_tim571_laser.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "08a24a77795a75ab6b0c772971e851299eac2c58"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/sick_tim571_laser.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "ac00d9da1acf5f141ffad6da8afbfde0dc53a5f7"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/ydlidar_tg15_laser.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "75f49dcd24a39269cd4fdc2392384c34ce395eef"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/ydlidar_tg15_laser.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "f246e3bc8ceb01133859ca05f80bcc16211d1e51"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/ydlidar_tg30_laser.gazebo.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "3de37663a3b68bdc63dfa58badb1477577b4b44c"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/laser/ydlidar_tg30_laser.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "7e8f5004714a70cf4268321f6797fb7774e9a5cb"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/lidar/robosense_airy96_lidar.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "3ce0dee7194c14686f9bdc3a085256a66d2730b9"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/lidar/robosense_e1r_lidar.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "eacbc11e47ac4f0688076af5b89157c1088f9163"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/materials.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "dd5083f8bc20ec74dfe001534b3cb487821e1b73"
+    },
+    {
+      "path": "src/pal_urdf_utils/urdf/pi.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "58e2f8c73104d06723dfae1e0fcdc1df3ec9a94d"
+    },
+    {
+      "path": "src/sensors/README.md",
+      "mode": "100644",
+      "git_blob_sha1": "777339494906ccb7d2ed1ac72fb7b970fcea68ed"
+    },
+    {
+      "path": "src/sensors/launch/depth_to_cloud.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "0fda2bba8f8efcf43a97f7e350e2c441d77dd49a"
+    },
+    {
+      "path": "src/sensors/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "7dda3f65c3cd863203dcd108917b66b6f9a3afcd"
+    },
+    {
+      "path": "src/sensors/resource/sensors",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/sensors/sensors/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/sensors/sensors/__pycache__/__init__.cpython-310.pyc",
+      "mode": "100644",
+      "git_blob_sha1": "25d24a9637a4ee326d8cfd24076ef6f9cfefb49f",
+      "python_bytecode": {
+        "version": "3.10",
+        "magic_hex": "6f0d0d0a",
+        "header_size": 16,
+        "official_header_hex": "6f0d0d0a00000000a758796a00000000",
+        "payload_size": 122,
+        "payload_sha256": "895e1c478336b2b30cf36e9db1431a0570e3cf763e2c554c569e96ec43472506"
+      }
+    },
+    {
+      "path": "src/sensors/sensors/__pycache__/depth_to_cloud_node.cpython-310.pyc",
+      "mode": "100644",
+      "git_blob_sha1": "d751c1e8ada198383764324bace9d6984102d974",
+      "python_bytecode": {
+        "version": "3.10",
+        "magic_hex": "6f0d0d0a",
+        "header_size": 16,
+        "official_header_hex": "6f0d0d0a00000000a758796ae5310000",
+        "payload_size": 9835,
+        "payload_sha256": "8ed07eeb63df054575848b1fef3307a5f345b08691c67cd758569a20401ae598"
+      }
+    },
+    {
+      "path": "src/sensors/sensors/depth_to_cloud_node.py",
+      "mode": "100644",
+      "git_blob_sha1": "92135ddb72c19c699f4fa4d35a51d2ec0ce3c129"
+    },
+    {
+      "path": "src/sensors/setup.cfg",
+      "mode": "100644",
+      "git_blob_sha1": "ba71651479060404a64b45bce7cbcb041bc2b9d5"
+    },
+    {
+      "path": "src/sensors/setup.py",
+      "mode": "100644",
+      "git_blob_sha1": "7eabf71fb96612177a1ef927136bea88a3d519c5"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/LICENSE.txt",
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_bringup/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "cabc70658ffca25144108dbaed98c223f99a808f"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_bringup/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "bc5b3f64275a2f8193a41aff313c20994fa239db"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_bringup/config/motion_planner/motion_planner.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "16248002f2cfc084b8be5f7311de66405d2f2473"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_bringup/config/motions/head_motions.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "95aa9dd544411906db550296d053f78d445c4d5e"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_bringup/launch/tiago_pro_head_bringup.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "ebd9586c21bf0f72d8e6ba336ac92508a3f97684"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_bringup/launch/tiago_pro_head_play_motion2.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "4646ed0d977dc8a7b25bddca6f4cd590105cf35a"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_bringup/module/10_play_motion2.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "62746e670ac7cb67f0c2a30ce53ef10cc9ddc146"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_bringup/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "63511f12a967ef0874b9a67188574b30282f899b"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_controller_configuration/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "3e29ab7f31e7fb5eaf08a5a96c1646ae32769fc7"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_controller_configuration/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "eab95df50f5f803fd45d0e00ad2094ebb4dc2e55"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_controller_configuration/config/head_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "81ac9cfd5ffb00e72ce23be131f1efb0474291a1"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_controller_configuration/config/joint_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "87daf564bfb0837387155413829ddaa46cfbf837"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_controller_configuration/launch/default_controllers.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "8e2b861cf025e6b938dfb05b11d60d240b3abae7"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_controller_configuration/launch/head_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "70c7d7301de87ef01705824c3e524e8f82bee6e8"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_controller_configuration/module/10_default_controllers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "c4e9c2b31a5c1a92e9d3f003de0f70caa2041831"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_controller_configuration/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "336a620ce8b42c2d739edee2eac275cbc5f8c906"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "4f27f951c4318d21b686b49823865f9ee71b99e3"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "a4aaad2cc289550c02def6aa0789c8683d3ee79d"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/config/show.rviz",
+      "mode": "100644",
+      "git_blob_sha1": "2fd679f740253d0fad69c3126a7d5e945165bbaf"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/config/tiago_pro_head_configuration.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "495bd8c6cd9ee98acc9a15b61fa9d7830590ac75"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/launch/robot_state_publisher.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "5106beaf43771d7d7adf862c2de3673bae93501e"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/launch/show.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "e125c100e4e6dcba575b8b39851bb08c67b5912f"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/head_1_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "d404eff4fa618f8973f85ca1870a6a1b583aca45"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/head_1_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "9c315c27f4b1ab115cc7ba9de613590a5a5351f8"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/head_2_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "2c3368d41760181f6881d8be6442522074bf7a2b"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/head_2_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "bd41485c2636a26426cc3c9775b7eea414cb7ee0"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/head_base_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "36c2294508d36965d3b1a0af7cbbce34378127ca"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/head_base_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0fc5b0ba6ee48a9b6bd9f21b10091b03842a7cb7"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/realsense-d435_cover_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0bc3c12b15e41ce3fcb06a84c8a12105dbc5b900"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/realsense-d435i_cover_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "0bc3c12b15e41ce3fcb06a84c8a12105dbc5b900"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/meshes/realsense-d455_cover_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "4d1f9cc4072065cfd5d801fdc77f05c859be967b"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/module/10_robot_state_publisher.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9f660947be5f7067d15bd9d0e141d77163920ba9"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/mujoco/mj_tags.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "77b55dc4d2f16f08a80bc0d09546461c37047440"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "e847cfcc8b479f1499f58900c615cd4040501f4a"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/robots/tiago_pro_head.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "a09bb7b2912fbd533e2b0cb07d793dd19e2de21b"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/ros2_control/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "c4ba98f22c81dbb272f912db9e9ba1dba33fbae0"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/ros2_control/ros2_control.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "50f598f549ed0b9202f453d2910a97be82cec6a1"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/test/test_description.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "6890258a7902a3f06c8cab119122686e4cd68b89"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/test/test_xacro.py",
+      "mode": "100644",
+      "git_blob_sha1": "fd5eb7167517af7d6e1b6788f904145ec8282d18"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/tiago_pro_head_description/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/tiago_pro_head_description/launch_arguments.py",
+      "mode": "100644",
+      "git_blob_sha1": "f81b4e38ffab8146667d91fdb2db7870aa2e0710"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/urdf/head.ros2_control.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "c8aeb758c9c63ed868ef58b60d68cb62f9303e62"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/urdf/head.transmission.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "8c4cad347509dd795213617b9c7d01a5c24e07a7"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/urdf/head.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "dc68aa96126aecadd01ab47b0064d6619136a7ac"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_description/urdf/head_limits.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "190dbb4568950209c0b5ca6cbca9f3739be734c6"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_robot/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "b1ab386ed1dc60da7d54c2d899c97433221bd869"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_robot/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "4385192bf5db7b2aa6015b75fa7bb952465f1a4a"
+    },
+    {
+      "path": "src/tiago_pro_head_robot/tiago_pro_head_robot/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "c98b04a651c15707d064735e6e58e7b0d2b0f0c1"
+    },
+    {
+      "path": "src/tiago_pro_robot/LICENSE",
+      "mode": "100644",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "67e856b7bc14c73bc312b0717258658a344a94b2"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "d1976c04b6f1cfb74eecafbea28877d32a032e93"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/hardware/tiago_pro_hardware.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "d96e329121b86241bacb853d6443444a45b9037f"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/joy_teleop/joystick_analyzers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "136d4e4e8698507ab35b1887c785b06090ba117f"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner.yaml.em",
+      "mode": "100644",
+      "git_blob_sha1": "022b39beb2a28b35c99f3a0769e5a486fa0960f0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_allegro-hand.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_allegro-hand_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_custom.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_custom_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_no-arm.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "73d9f02cae34facbbaf84d7b336b200d1e4d6660"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_no-arm_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "05043faaac3bd9a926627e045864c6abe5a040dd"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_no-ee.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_no-ee_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_pal-pro-gripper.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "143f54636b29104b7c55dbafe7d5b91fc26b72a0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_allegro-hand_pal-pro-gripper_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0f621c5709cf79a103b7cd89f474cd49b320e012"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_allegro-hand.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_allegro-hand_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_custom.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_custom_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_no-arm.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "73d9f02cae34facbbaf84d7b336b200d1e4d6660"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_no-arm_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "05043faaac3bd9a926627e045864c6abe5a040dd"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_no-ee.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_no-ee_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_pal-pro-gripper.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "143f54636b29104b7c55dbafe7d5b91fc26b72a0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_custom_pal-pro-gripper_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0f621c5709cf79a103b7cd89f474cd49b320e012"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_allegro-hand.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "ff01db73262518dab895d5c5754844475fcf1f4b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_allegro-hand_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "23d8e0c1fc441de506f789872dfd0be63497a1d1"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_custom.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "ff01db73262518dab895d5c5754844475fcf1f4b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_custom_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "23d8e0c1fc441de506f789872dfd0be63497a1d1"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_no-arm.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "05fb951637193912bbcbe77bb37974b3b4a57bf2"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_no-arm_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "3e3bb1c54906e44ac37a2894b1eb1d46d294912b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_no-ee.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "ff01db73262518dab895d5c5754844475fcf1f4b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_no-ee_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "23d8e0c1fc441de506f789872dfd0be63497a1d1"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_pal-pro-gripper.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "a7af82d29ec7b9dbaca921f13ed7fc38416b7fc3"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-arm_pal-pro-gripper_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "2c3ec45a79e87e50a51937b11377327d95edba2b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_allegro-hand.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_allegro-hand_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_custom.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_custom_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_no-arm.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "73d9f02cae34facbbaf84d7b336b200d1e4d6660"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_no-arm_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "05043faaac3bd9a926627e045864c6abe5a040dd"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_no-ee.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "89143987c9b96b8e7bd9fb745100e025adc05c6b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_no-ee_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10efc35dc002a350e75515983eddf4328c6270af"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_pal-pro-gripper.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "143f54636b29104b7c55dbafe7d5b91fc26b72a0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_no-ee_pal-pro-gripper_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0f621c5709cf79a103b7cd89f474cd49b320e012"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_allegro-hand.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "90623dee1e9a4ba5a93e4d7b5bc91df384a24b59"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_allegro-hand_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7ec312170bcebeb07f84f05faf1f7e76df68d518"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_custom.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "90623dee1e9a4ba5a93e4d7b5bc91df384a24b59"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_custom_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7ec312170bcebeb07f84f05faf1f7e76df68d518"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_no-arm.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "755f96934194ea36b6033cb720bbc1037c568986"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_no-arm_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "8f627f1828dd4ca1acc9e70f4d97aef1851b1667"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_no-ee.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "90623dee1e9a4ba5a93e4d7b5bc91df384a24b59"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_no-ee_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7ec312170bcebeb07f84f05faf1f7e76df68d518"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_pal-pro-gripper.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "4aed539d10aa4f7f04dd3c2f77f9cb043c03890d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motion_planner/motion_planner_pal-pro-gripper_pal-pro-gripper_teleop-arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "19b98ad170a0a7c1b188fd501e892f864688a714"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_allegro-hand_left.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "26e76a0bd92c92fa80cf5596ddd735a919b76b6f"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_allegro-hand_right.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "26e76a0bd92c92fa80cf5596ddd735a919b76b6f"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_general_arm_left.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "edf2685ce3d8bc4a41255c6aa9724ba227d445d5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_general_arm_right.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "a446b726337f86832e83906ee152a01da14ffed3"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_general_spherical-wrist.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "fc0c236aa8129ec6e33f52ba9a22b8f0e51b4d08"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_general_straight-wrist.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "94067b3212d358635eea4b0e7213100e8a055db0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_no_arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7771a6ad0ee3068fc9777079c0b5c7e85840f639"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_pal-pro-gripper_left.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "2f42014565f8d939e08853652efb599e6e022e91"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_pal-pro-gripper_right.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "77ded7ccb4fdca812811bc22a799dc6d943be23b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/motions/tiago_pro_motions_teleop_arms.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "ea78d868a90e1afd6ac5c2776f7e78c669ccc837"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/twist_mux/joystick.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "1a23c13f311aff613772354c0b32b67eb8122d48"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/twist_mux/twist_mux_analyzers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "26ca485d1ee4983a6664d2615e751f263ed99372"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/twist_mux/twist_mux_locks.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "87e314b1e120bf36b16865b3274e56545936a695"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/config/twist_mux/twist_mux_topics.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "5d78d89f33ad745bfd6fe5178de5fc9d5b15cb8d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/launch/gripper_grasper.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "edd3320fa0fc58c63386d8eaa5c825d7fdbe87c5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/launch/joystick_teleop.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "e36ea45daa3e1c9ea7cd8e1126b666e876e174bf"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/launch/tiago_pro_bringup.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "78a040ac864f18e5eab9246202567318dbb9c375"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/launch/tiago_pro_play_motion2.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "fff3f0d9503e314e33edb852beb0d2b49ab25506"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/launch/twist_mux.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "3cc35e8b389e17e5b2cb64dfd15084b1cba1eec9"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/module/20_play_motion2.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9447f66c822bf9e24b2d8ead60a0232177817b1d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/module/gripper_grasper.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "d89a11b55e4c60aa013030935a7616e099a3ea46"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/module/joystick.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "c8685e046534d4a4c0655f78db80e87af2d20370"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/module/twist_mux.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e547ee9b076c4e045e2c2ce4a712ab6e5a011856"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "c27b682e1ad0e73ae31c0f6f93f91d7d9134c3b6"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/params/joy_teleop/10_joy_teleop_controller_tiago_pro.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "3001cf09f0eae2c6b79fb9334bf1186902623510"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/params/joy_teleop/end_effectors/10_joy_teleop_pal_pro_gripper_left.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "10343c6c9e4a763cf8074ee3e0a1c089dd6121c0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/params/joy_teleop/end_effectors/10_joy_teleop_pal_pro_gripper_right.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "dc34593002c49cd8656786821c2c126f1929b55d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/params/joy_teleop/mobile_bases/10_joy_teleop_omni_base.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "54495dc9dc4aec57bef6fecbc95b591c78824703"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_bringup/scripts/regen_em_file.py",
+      "mode": "100755",
+      "git_blob_sha1": "f7435fe9912687d2dc408ac78e1a2a89dc9f231d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "a7061c7c5a7c43b249a1e9a5108dc7d0b0cfbc79"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "51ab82fb91c27033a3033f713f1f22b49bc541db"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/current_limit_controllers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e2ddf2bbf3d82adb0e8412167f10f718754a610d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/forward_controller_vel.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "00a7a590a78e157c49c1f598127ec1d5d555b560"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/impedance_controller_arm.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "91428c25b19e8ae80f65f1d4cfe6f4705b3f1e20"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/impedance_controller_arm_jtc.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "dc88c979082fcfa9e8b7e2da3dccba6db942c46a"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/joint_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "87daf564bfb0837387155413829ddaa46cfbf837"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/joint_torque_state_broadcaster.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "5ea149c1608e949c6bcbe16716f476597f58510c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/actuator_safety_specific_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_1_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "5bdc7d2b739cbe73e3a6b1836f77b6de6a7384fc"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_1_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_2_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "5c6e39caf92e8e0bea016c70ceb4af34edea15b9"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_2_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_3_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0896e585bac1af58ec1d3c821344960ec6a1a7be"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_3_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_4_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "d161317f63675b00df7da9edad745a2267069624"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_4_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_5_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "6266de653cb0030318b97a273eb5425490f19019"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_5_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_6_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "c4b5f85d749fd3468ad2418ad71e1327d942cf0a"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_6_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_7_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "2bbae9c5ee0297f7117854577024fecd22745d76"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_left_7_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_1_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "3b0d470938e523fe01cecebcab808b54a8a9f770"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_1_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_2_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "aca5ee6f1221c4f06dbfb3bf1821c4bc875ec38a"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_2_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_3_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "8c19a2945e102fffe439515d7964eba74d0cf3d0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_3_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_4_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "cc12e836bbf2bf5bcf7540c4bac7b4cc4d105767"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_4_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_5_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9823a08d9d8d0096f53dffdd7ee406c327688031"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_5_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_6_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "1b69225c3da5bab50a4aa900753c8dc861c0715f"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_6_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_7_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "1a0216215ffe6a784876e45847591842422a931e"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/arm_right_7_joint_safety.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/gripper_left_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "c95133885645e51549939ae781d29bb03178aee9"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/gripper_right_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e81e84514689fae04f77f5fef3de4fe46c526484"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/inner_finger_1_left_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7e66e7f515909add448b5ff57cf7e7755e6d5357"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/inner_finger_1_right_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "befb8818f5a76c075efd0177ac0492daa6745592"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/actuator_parameters/torso_lift_joint.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "d46d5aaa5d40db3e1e83a3b59130f38c489ede47"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_left_1_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_left_2_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_left_3_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_left_4_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_left_5_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_left_6_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_left_7_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_right_1_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_right_2_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_right_3_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_right_4_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_right_5_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_right_6_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/arm_right_7_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/direct_position_control/torso_lift_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "82f6be1148eaac598c09360086bdf16cf6b90a1c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_left_1_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_left_2_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_left_3_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_left_4_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_left_5_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_left_6_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_left_7_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_right_1_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_right_2_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_right_3_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_right_4_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_right_5_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_right_6_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/arm_right_7_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/gripper_left_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/gripper_right_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/inner_finger_1_left_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/inner_finger_1_right_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/linear_actuator_left_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/linear_actuator_right_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/torso_lift_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/local_joint_control/no_control/torso_yaw_joint_params.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "03521cfd19fada8f227aa90f481e10734f95fab5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/torso_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "ec90b2018a7f6a8047d0d3b5cc21e99faae466f1"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/cartesian_space_controller_ee_frame.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "ba0e79b519c24cda1f3bc15ff5a80a22e3a527bb"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/cartesian_space_controller_robot_frame.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "403f127c14924f4e4cf90b5c4a2eefdab67ac109"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/cartesian_vel_controller_ee_frame.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "a052b71205654c6cc44dc977609f209a67e4d78c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/cartesian_vel_controller_robot_frame.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "2871a534338a040d02aa86a0dee09f7498a3508d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/cartesian_space_controller_ee_frame.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "4695a691e028c1bd7a022097f5f0d6cf5e38b46d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/cartesian_space_controller_ee_frame_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "50f30f906cf0a2089759312675adb8b47b8a1a5a"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/cartesian_space_controller_robot_frame.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "8f9d7e58a9f4df6fc7a0aa44a590aa713788d470"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/cartesian_space_controller_robot_frame_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "78bc1c636a65011bc720998b27cfc63ea032deef"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/cartesian_vel_controller_ee_frame.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "63d093a4efcc8ecc177f1f2a8700a2a467e55b8a"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/cartesian_vel_controller_ee_frame_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "3f568f71d559685f003fd00acdf377c8eb2f6a21"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/cartesian_vel_controller_robot_frame.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "da52fab18dc07d3974758d56a47d67fc347d7a4b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/cartesian_vel_controller_robot_frame_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "73b0219dfa26fd411cfa7383275cef0a62037dc8"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/joint_space_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e254835958055159c38c8f037a10a02418b314c5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/joint_space_controller_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "bb76d11b68f995042b499d84bff4eb0ae33c89bb"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/joint_space_controller_vel.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "2b006855c2c759dfab6112861794abb38b85a65c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/joint_space_controller_vel_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "1aa6837dc2a1dcdf3b7dcb7f07bc383af91a6b9c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/sin_joint_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "6d9fdb1897d285d60efae01cc081caff7d58dff5"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/sin_joint_controller_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "72f2595f81448c15d938e43e7359cbb989dcad56"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/torso_joint_space_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9bc6d7d8b096e874a76d28aa4d32e18d8ec589e0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/torso_joint_space_controller_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "9a01add98fcbcd475238ab7bd3a4c51756cf52d4"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/torso_joint_space_vel_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "4a263f094637ed7e1e4ee929c33195c9bcc2046d"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/gains/torso_joint_space_vel_controller_sim.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0ebf05eb254c0526b725e96e1be64dadb9062f6c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/joint_space_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "0204776f4f15b1ce28269d6913ebaf33e0acd0bc"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/joint_space_controller_vel.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "7881dce7b31433b8587518952e77a551890fbf4f"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/sin_joint_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "106718523e44c95249bc865ac8e8434df8662b15"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/torso_joint_space_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "a1149f4b790dd76db3f195723f1d3a7ea6c14e28"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/config/tsid/torso_joint_space_vel_controller.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e0ff1783a4dfa6c1b3168fc2c391fca310c3b276"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/launch/default_controllers.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "2e3a07a0bfe36a6683ed6852c622883d4ae6b088"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/launch/impedance_controller.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "9921fb1a2e217d9e68b30f469bc12973127aa0bc"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/launch/tsid_default_controllers.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "5c2a20cd8ebe6b0927ce123825dca97bc93b9bf3"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/launch/velocity_controllers.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "eb60aed64f0ab7e01a04653fd4d39158fe8115e0"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/module/20_default_controllers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "3a0e3abd695bdbb9bc625c2386391ed2dd15ecc8"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/module/tsid_default_controllers.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "e848aec05a6066d7263a17759309b897512a3c69"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_controller_configuration/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "2a190ba4d41f03ea547357744b653665a99fa234"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "bd31d08bf2451aed17ddc7f714098dfb93884410"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "a780d293cf86c9b05463ba5b918158077d6d4793"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/config/show.rviz",
+      "mode": "100644",
+      "git_blob_sha1": "14ef54ceeab74d1a5dcd590dddcd358f3e384a80"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/config/show_front.rviz",
+      "mode": "100644",
+      "git_blob_sha1": "364b5dfcc4be57342b92084f4b7deb024d696247"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/config/tiago_pro_configuration.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "2a142e6ca1468d842e408b653f44734b9f0fb69b"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/launch/robot_state_publisher.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "77037cc67141fb679e99b9c7a66e7c01e4e607f7"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/launch/show.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "821595ec7acf2dd9a91af50d1cab2bbd2bfbadf7"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/meshes/pilot_station/fixed_sit_station.stl",
+      "mode": "100644",
+      "git_blob_sha1": "5ad26f905fcda72ef0a7e2945faeb66a9aa27adb"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/meshes/pilot_station/teleop_handle.stl",
+      "mode": "100644",
+      "git_blob_sha1": "61b629369da2274ff376f8410470d38beb0be091"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/meshes/torso/laptop_tray_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "8987a044a5f43b718e2a297f6f907dbc9c3b4470"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/meshes/torso/torso_fixed.stl",
+      "mode": "100644",
+      "git_blob_sha1": "014ba6620f42a93b8d8f72765fc5aa2d9f2f31e2"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/meshes/torso/torso_fixed_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "60b26feca6c37d75b819c348495ccbbfea692550"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/meshes/torso/torso_lift_link.stl",
+      "mode": "100644",
+      "git_blob_sha1": "21821521551556c6205e2c35bb73483413a1cb21"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/meshes/torso/torso_lift_link_collision.stl",
+      "mode": "100644",
+      "git_blob_sha1": "1705772633e34f89e8999107e563c237ac2cefa2"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/module/20_robot_state_publisher.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "b4406ea67a78af0e6c830f9c91a020bfba17ce19"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "b8015a47717f32ab9e94e582637f8d5ef4cce6f1"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/robots/tiago_pro.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "7f2f5a6a2013b6b5165084ba37d5597798aa2afb"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/ros2_control/gazebo_controller_manager_cfg.yaml",
+      "mode": "100644",
+      "git_blob_sha1": "cad7eb51f45f7277ccb30fe2ec8f9def16175178"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/ros2_control/ros2_control.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "4cf2e449c18bf9a5d95f3dcd53d5b1d401dfa6cc"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/test/test_description.launch.py",
+      "mode": "100644",
+      "git_blob_sha1": "62b4710a6b8c649b635a023c2351448f6d59b3f6"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/test/test_xacro.py",
+      "mode": "100644",
+      "git_blob_sha1": "98c2c4615492eba4d994fb3a419bdcaec8018d0c"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/tiago_pro_description/__init__.py",
+      "mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/tiago_pro_description/launch_arguments.py",
+      "mode": "100644",
+      "git_blob_sha1": "6ba23ed7c894bab6ef9f59243808001d4f8f1d6f"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/tiago_pro_description/tiago_pro_launch_utils.py",
+      "mode": "100644",
+      "git_blob_sha1": "04351f14a76683d49b2ff39e64b3923f22e4d702"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/urdf/arm.mounting.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "aa9dcb250b008b6d78fb420867636133a751ea29"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/urdf/calibration/calibration_offset.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "5fae937f4cbdd5ea0ded0f69a18986033ae9edb7"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/urdf/calibration/calibration_offset.urdf.xacro.j2",
+      "mode": "100644",
+      "git_blob_sha1": "ce84e2e1fd3268caf197e229e1f8fb344ea1ae30"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/urdf/pilot_station/basestation.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "8f5efd6974fc940320b0374ae3dd5ac8cde76bda"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/urdf/pilot_station/teleop_handle.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "49833e4741114aa160fb2f842045a8aa202d31e9"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/urdf/torso/torso.ros2_control.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "229bf056d86cff6e8084e83675e38253c0cf5ffd"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/urdf/torso/torso.transmission.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "f78da7aecbbbc821e6773ebc54ee79d39cbb7629"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_description/urdf/torso/torso.urdf.xacro",
+      "mode": "100644",
+      "git_blob_sha1": "e3f0de9514d815e068e0ea548266ec45405d8903"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_robot/CHANGELOG.rst",
+      "mode": "100644",
+      "git_blob_sha1": "1c66780bbc2a116a972b82f599b4a9ad25bb53d9"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_robot/CMakeLists.txt",
+      "mode": "100644",
+      "git_blob_sha1": "caa41d7dd999a22c06e5a5d741da75731cba5b94"
+    },
+    {
+      "path": "src/tiago_pro_robot/tiago_pro_robot/package.xml",
+      "mode": "100644",
+      "git_blob_sha1": "3d7310529466f9055e1dbbcfe7261f5c227acd3e"
+    }
+  ]
+}

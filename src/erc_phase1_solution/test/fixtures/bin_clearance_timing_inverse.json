@@ -1,0 +1,75 @@
+{
+  "parent_node_lf_sha256": "8757b420bbc38de7525356d5d1e3e04d6833253f699a1b855abd03d410268d18",
+  "fragments": [
+    {
+      "old": "from .placement_scene_context import measured_scene_context, matching_table_scene\n",
+      "new": "from .placement_scene_context import measured_scene_context, matching_table_scene\nfrom .bin_clearance_timing import (\n    checked_enabled as checked_bin_clearance_timing_enabled,\n    normal_options as bin_clearance_normal_options,\n    validate_execution as validate_bin_clearance_execution,\n    timing_input as bin_clearance_timing_input,\n    require_endpoint as require_bin_clearance_endpoint,\n    require_publication_locked as require_bin_clearance_publication_locked,\n)\n",
+      "count": 1
+    },
+    {
+      "old": "        self.loaded_place_speed_scale_cap = checked_arm_speed_scale(\n            self.get_parameter('loaded_place_speed_scale_cap').value)\n",
+      "new": "        self.loaded_place_speed_scale_cap = checked_arm_speed_scale(\n            self.get_parameter('loaded_place_speed_scale_cap').value)\n        self.bin_clearance_timing_enabled = checked_bin_clearance_timing_enabled(\n            self.get_parameter('bin_clearance_timing_enabled').value)\n",
+      "count": 1
+    },
+    {
+      "old": "            'loaded_place_speed_scale_cap': 3.0,\n",
+      "new": "            'loaded_place_speed_scale_cap': 3.0,\n            'bin_clearance_timing_enabled': False,\n",
+      "count": 1
+    },
+    {
+      "old": "                or self.empty_pickup_setup_retiming_enabled):\n",
+      "new": "                or self.empty_pickup_setup_retiming_enabled or getattr(self, 'bin_clearance_timing_enabled', False)):\n",
+      "count": 1
+    },
+    {
+      "old": "        velocity_admission: bool = False,\n    ) -> Tuple[bool, bool]:\n",
+      "new": "        velocity_admission: bool = False,\n        velocity_headroom: bool = False,\n        clearance_admission=None,\n    ) -> Tuple[bool, bool]:\n",
+      "count": 1
+    },
+    {
+      "old": "        if velocity_admission and initial_pressure_gate is not None:\n",
+      "new": "        if type(velocity_headroom) is not bool or (velocity_headroom and not velocity_admission):\n            raise ArmVelocityAdmissionRejected('retained headroom requires faster admission')\n        if clearance_admission is not None and not (velocity_admission and velocity_headroom):\n            raise ArmVelocityAdmissionRejected('clearance timing requires retained headroom admission')\n        if velocity_admission and initial_pressure_gate is not None:\n",
+      "count": 1
+    },
+    {
+      "old": "                        if self._cancel.is_set():\n                            raise ArmVelocityAdmissionRejected('cancelled before retimed arm dispatch', velocity_record)\n                except ArmVelocityAdmissionRejected as error:\n",
+      "new": "                        if self._cancel.is_set():\n                            raise ArmVelocityAdmissionRejected('cancelled before retimed arm dispatch', velocity_record)\n                    if velocity_headroom:\n                        require_retimed_arm_headroom(velocity_record)\n                    if clearance_admission is not None:\n                        require_bin_clearance_publication_locked(self, clearance_admission, goal, command)\n                except ArmVelocityAdmissionRejected as error:\n",
+      "count": 1
+    },
+    {
+      "old": "        withdrawal_speed_scale: float = 1.0,\n    ) -> Tuple[bool, int, bool]:\n",
+      "new": "        withdrawal_speed_scale: float = 1.0,\n        clearance_timing=None,\n    ) -> Tuple[bool, int, bool]:\n",
+      "count": 1
+    },
+    {
+      "old": "        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n",
+      "new": "        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        if clearance_timing is not None:\n            validate_bin_clearance_execution(self, clearance_timing, legs, command,\n                leg_offset=leg_offset, initial_pressure_gate=initial_pressure_gate,\n                withdrawal_speed_scale=withdrawal_speed_scale,\n                fresh_retention_phases=fresh_retention_phases)\n",
+      "count": 1
+    },
+    {
+      "old": "                command_duration = (duration if effective_speed_scale == 1.0 else\n                                    scaled_arm_seconds(duration, effective_speed_scale))\n",
+      "new": "                faster_clearance = (clearance_timing is not None and index == clearance_timing.index)\n                timing_duration = (bin_clearance_timing_input(self, clearance_timing,\n                    index, solution, duration, phase) if faster_clearance else duration)\n                command_duration = (timing_duration if effective_speed_scale == 1.0 else\n                                    scaled_arm_seconds(timing_duration, effective_speed_scale))\n",
+      "count": 1
+    },
+    {
+      "old": "                    goal, (total_duration if effective_speed_scale == 1.0 else float(duration)),\n",
+      "new": "                    goal, (total_duration if effective_speed_scale == 1.0 and not faster_clearance else float(duration)),\n",
+      "count": 1
+    },
+    {
+      "old": "                    **({'velocity_admission': True} if effective_speed_scale != 1.0 else {}),\n",
+      "new": "                    **({'velocity_admission': True} if effective_speed_scale != 1.0 or faster_clearance else {}),\n                    **({'velocity_headroom': True, 'clearance_admission': clearance_timing}\n                       if faster_clearance else {}),\n",
+      "count": 1
+    },
+    {
+      "old": "            if phase in fresh_retention_phases:\n",
+      "new": "            if faster_clearance:\n                # A stopped controller result does not prove measured arrival.\n                # This added gate aborts without advancing/recovering on a miss.\n                require_bin_clearance_endpoint(self, clearance_timing, index)\n            if phase in fresh_retention_phases:\n",
+      "count": 1
+    },
+    {
+      "old": "        approach_ok, next_leg, contact_lost = self._execute_retained_arm_legs(\n",
+      "new": "        if getattr(self, 'bin_clearance_timing_enabled', False):\n            loaded_arm_timing_options.update(bin_clearance_normal_options(\n                self, correlation, direct_empty_home, approach_legs))\n        approach_ok, next_leg, contact_lost = self._execute_retained_arm_legs(\n",
+      "count": 1
+    }
+  ]
+}

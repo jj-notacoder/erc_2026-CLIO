@@ -1,0 +1,20 @@
+{
+  "repository": "https://github.com/dfl-rlab/erc_sim_2026",
+  "commit": "0a09806ecbade5edc9f8a148b7c9f439ed761554",
+  "tag": "v1.0.3",
+  "purpose": "Historical certificate test fixtures only; not current simulator assets",
+  "files": [
+    {
+      "name": "erc_book.sdf",
+      "source_path": "src/erc_description/models/book/sdf/erc_book.sdf",
+      "sha256": "778fe65e8db261b31b640104029c140beaf3cffc7ade7e6a081ee6b85171d345",
+      "text_lf_sha256": "778fe65e8db261b31b640104029c140beaf3cffc7ade7e6a081ee6b85171d345"
+    },
+    {
+      "name": "tiago_pro.urdf",
+      "source_path": "src/erc_description/urdf/tiago_pro.urdf",
+      "sha256": "15e6e4618a33c92d4a786092ccc9f1d82ed96bb42615557a865d6edc4dea14bd",
+      "text_lf_sha256": "15e6e4618a33c92d4a786092ccc9f1d82ed96bb42615557a865d6edc4dea14bd"
+    }
+  ]
+}

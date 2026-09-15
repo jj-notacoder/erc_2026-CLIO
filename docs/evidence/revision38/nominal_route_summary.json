@@ -1,0 +1,77 @@
+{
+  "schema": "derived_nominal_route_summary_v1",
+  "artifact_kind": "Editorial field selection from preserved results; not a replacement raw replay or independently rerun certificate",
+  "source_result_sha256": "9b37488a05bf8c15140fde5a3f2320a33b518af59105554c4337b8c1b1eb1d89",
+  "geometry_identity_sha256": "b9c0f11d4e4099269061406e866d583970fad356a83350e61752a1755b540602",
+  "solver_comparison_sha256": "b2600c317bb00a149d059d66d72fe80f8b766c97c015b5dbcbfc6a2346404f28",
+  "passed": true,
+  "software_node_sha256": "5037b9c7bed9d244f2443a7383ee9af4b65413ebedd2b267195a75f4ab4891d7",
+  "solver_sha256": "ad02330dd1353cb895aaa5636b45f6d5570812fbf94c059fcc6ebb97d735fd0c",
+  "geometry_identity": {
+    "selected_method_count": 23,
+    "all_other_node_AST_identical": true,
+    "changed_node_methods": [
+      "_on_contacts"
+    ],
+    "unchanged_pure_module_count": 62
+  },
+  "inputs": {
+    "trial": "Run36 / a2533d9f13ba",
+    "RGBD_and_TF_producer_ns": 300136000000,
+    "atomic_joints_producer_ns": 300290000000,
+    "retrospective_skew_ns": 154000000,
+    "live_epoch_admission_replayed": false,
+    "evaluator_inputs_used": false,
+    "counterfactual_base_shift_used": false,
+    "attachment": "Original planned nominal attachment; actual passive finger deflection and rigid attachment not established",
+    "staging_seed_basis": "Exact live stored staging is not logged; measured carry is used only as an IK seed. HOME/OFFER/PREGRASP remain unchanged."
+  },
+  "configuration": {
+    "torso_m": 0.35,
+    "book_clearance_above_fitted_floor_m": 0.5,
+    "book_release_above_fitted_floor_m": 0.27,
+    "initial_TCP_clearance_x_m": 0.6,
+    "closed_master_m": 0.017000033633431562,
+    "open_master_m": 0.069,
+    "bin_total_margin_m": 0.013998317201799448,
+    "table_total_margin_m": 0.02846973181868986
+  },
+  "result": {
+    "wall_seconds": 213.7895679550129,
+    "ik_calls": 86,
+    "full_candidates": 1,
+    "proximal_setup_steps": 10,
+    "checked_setup_legs": 12,
+    "cartesian_waypoints": 11,
+    "opening_samples": 53,
+    "checked_empty_return_legs": 12,
+    "direct_empty_fold": true,
+    "scene_samples": 2337,
+    "exact_cache_hits": 107,
+    "last_scene_rejection": null
+  },
+  "guards": {
+    "search_count_limits": {
+      "ik_calls": 512,
+      "retained_paths": 24,
+      "full_candidates": 6
+    },
+    "selected_wall_budget_seconds": 900.0,
+    "position_tolerance_m": 0.002,
+    "orientation_tolerance_rad": 0.02,
+    "maximum_joint_step_rad": 0.4,
+    "joint_margin_rad": 0.1,
+    "minimum_signed_support": 0.75,
+    "full_candidate_validator_required": true,
+    "open_tool_robot_self_checked": true,
+    "head_screen_visual_box_checked": true,
+    "tool_tool_pairs_checked": false
+  },
+  "portable_solver_tests": "59",
+  "limits": [
+    "Sampled nominal full body/tool/book/screen/bin/table, opening and return checks, not continuous collision proof.",
+    "No physical execution, passive deflection, attachment stability or released-book dynamics proof.",
+    "The earlier 22-leg Run33 replay used different inputs and a 100 mm counterfactual backoff; no controlled speed comparison.",
+    "Raw inputs, solver logs, route arrays and official assets remain in the separately retained archive, identified by hashes above."
+  ]
+}

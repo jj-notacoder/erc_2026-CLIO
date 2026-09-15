@@ -1,0 +1,26 @@
+{
+  "candidate_sha256": "e5b92428ecb4964439961c139886d1e0279140175db420162118d5fae7f9dd86",
+  "parent_sha256": "52e1d83329bf69925352a219670ac1a42bd33abddce3f7e1b81797dc035eb581",
+  "replacements": [
+    {
+      "count": 1,
+      "new": "from .arm_trajectory_timing import checked_arm_speed_scale, scaled_arm_seconds\nfrom .compact_timing import checked_supported_compact_minimum_seconds\n",
+      "old": "from .arm_trajectory_timing import checked_arm_speed_scale, scaled_arm_seconds\n"
+    },
+    {
+      "count": 1,
+      "new": "        self.withdrawal_speed_scale = checked_withdrawal_speed_scale(\n            self.get_parameter('withdrawal_speed_scale').value)\n        self.supported_compact_minimum_segment_seconds = checked_supported_compact_minimum_seconds(\n            self.get_parameter('supported_compact_minimum_segment_seconds').value)\n",
+      "old": "        self.withdrawal_speed_scale = checked_withdrawal_speed_scale(\n            self.get_parameter('withdrawal_speed_scale').value)\n"
+    },
+    {
+      "count": 1,
+      "new": "            'withdrawal_speed_scale': 1.0,\n            'supported_compact_minimum_segment_seconds': .35,\n",
+      "old": "            'withdrawal_speed_scale': 1.0,\n"
+    },
+    {
+      "count": 1,
+      "new": "            # Only the post-roll supported group uses the optional floor.\n            supported_minimum = getattr(self, 'supported_compact_minimum_segment_seconds', .35)\n            if not .175 <= supported_minimum <= .35:\n                raise ValueError('supported_compact_minimum_segment_seconds must be within [.175, .35]')\n            timed_groups[2] = [(q, scaled_arm_seconds(seconds, arm_speed_scale, minimum=supported_minimum), phase)\n",
+      "old": "            # Only the post-roll supported group; keep its tiny-leg floor.\n            timed_groups[2] = [(q, scaled_arm_seconds(seconds, arm_speed_scale, minimum=.35), phase)\n"
+    }
+  ]
+}

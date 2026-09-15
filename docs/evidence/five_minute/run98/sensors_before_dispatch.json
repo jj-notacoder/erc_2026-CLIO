@@ -1,0 +1,61 @@
+{
+  "passed": false,
+  "problems": [
+    "missing:/scan_front_raw",
+    "missing:/scan_rear_raw",
+    "missing:/head_front_camera/head_front_camera/depth/image_rect_raw",
+    "missing:/head_front_camera/head_front_camera/depth/camera_info"
+  ],
+  "samples": {
+    "/clock": {
+      "count": 3970,
+      "first_stamp_ns": 4000000,
+      "last_stamp_ns": 7942000000
+    },
+    "/odom": {
+      "count": 347,
+      "first_stamp_ns": 1010000000,
+      "last_stamp_ns": 7930000000
+    },
+    "/head_front_camera/head_front_camera/color/image_raw": {
+      "count": 211,
+      "first_stamp_ns": 1008000000,
+      "last_stamp_ns": 7922000000
+    },
+    "/joint_states": {
+      "count": 1683,
+      "first_stamp_ns": 1212000000,
+      "last_stamp_ns": 7940000000,
+      "joint_names": [
+        "torso_lift_joint",
+        "head_1_joint",
+        "head_2_joint",
+        "arm_left_2_joint",
+        "arm_left_6_joint",
+        "arm_left_7_joint",
+        "arm_left_3_joint",
+        "wheel_rear_left_joint",
+        "wheel_rear_right_joint",
+        "arm_right_4_joint",
+        "wheel_front_right_joint",
+        "wheel_front_left_joint",
+        "gripper_left_finger_joint",
+        "arm_right_7_joint",
+        "gripper_right_finger_joint",
+        "arm_left_4_joint",
+        "arm_right_2_joint",
+        "arm_right_6_joint",
+        "arm_left_1_joint",
+        "arm_right_5_joint",
+        "arm_left_5_joint",
+        "arm_right_3_joint",
+        "arm_right_1_joint"
+      ],
+      "missing_required_positions": [],
+      "finger_state_scope": "Only listed names are observed joint feedback; unlisted mimic hinges must remain explicitly modeled, not called measured"
+    }
+  },
+  "checked_utc": "2026-09-14T19:42:22.729160+00:00",
+  "wall_seconds": 20.002652501003467,
+  "read_only": true
+}

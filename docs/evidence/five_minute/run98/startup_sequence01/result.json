@@ -1,0 +1,42 @@
+{
+  "passed": false,
+  "dispatch_attempted": false,
+  "dispatch_returned_successfully": false,
+  "started_utc": "2026-09-14T19:41:58.447022+00:00",
+  "trial_manifest_sha256": "28aedd833a303259b9c14bfe0148964f85624877920653b2f5fd375c4afe8a81",
+  "master_sha256": "1c06d713a2e24d19b0367c0ad620fee90c9840738767f8c7f7e8be56fa552e82",
+  "helper_sha256": "663a62481f144a9231a144b002fc1a70b7992e374f87b942cb4510ce8b23b14d",
+  "steps": [
+    {
+      "name": "world",
+      "command": [
+        "bash",
+        "/home/sir/erc-official-current/results/official_b1f9b05_2026_09_11/run_98/launch_world.sh",
+        "run_98"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.5208230029966217
+    },
+    {
+      "name": "readiness",
+      "command": [
+        "python3",
+        "-B",
+        "/mnt/c/Users/sir/Documents/New project/output/official_reference/performance_20260913/run98_sensor_smoke_preparation01/run_run98_sensor_smoke.py",
+        "--trial-manifest-sha256",
+        "28aedd833a303259b9c14bfe0148964f85624877920653b2f5fd375c4afe8a81"
+      ],
+      "returncode": 1,
+      "wall_seconds": 22.62305663600273
+    }
+  ],
+  "error": {
+    "type": "RuntimeError",
+    "text": "readiness failed; preserve evidence and inspect owned world"
+  },
+  "finished_utc": "2026-09-14T19:42:23.433949+00:00",
+  "wall_seconds": 24.49610291299905,
+  "owned_world_requires_later_closure": true,
+  "mission_may_have_started": false,
+  "scope": "Consecutive launch, frame-validated readiness and dispatch. Readiness failures prevent dispatch; no automatic restart, retry or process signalling. Startup time remains additional to solution runtime."
+}

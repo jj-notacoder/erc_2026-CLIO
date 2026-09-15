@@ -1,0 +1,306 @@
+{
+  "schema": "run39_portable_outcome_v1",
+  "trial_id": "3f9468467cf5",
+  "current_software_certificate_sha256": "79995071b49f46d980c42bbd28dbba0454d2053197cd04bb45eb8ff41e67f6e0",
+  "selected_profile_sha256": "590bc458a136cd9d2ab9073104cd496077e5b2df65f0079ed4010a878dedd705",
+  "outcome": "Measured release, settled whole-book containment, completed empty return; evaluator analysis only.",
+  "mission_done": {
+    "ros_ns": 516600000000,
+    "observer_wall_seconds": 2432.730533841
+  },
+  "measured_open": {
+    "ros_ns": 491698000000,
+    "observer_wall_seconds": 2372.793858347
+  },
+  "measured_return": {
+    "ros_ns": 516402000000,
+    "observer_wall_seconds": 2432.280663342
+  },
+  "final": {
+    "pose_ros_ns": 525694000000,
+    "joint_ros_ns": 525692000000,
+    "receipt_ros_ns": 525696000000,
+    "book_world": [
+      -1.0125447748775267,
+      0.02966905569500554,
+      0.7599997521493372
+    ],
+    "book_orientation": [
+      0.6983152665238104,
+      0.11115057469697995,
+      0.11115172143866987,
+      0.6983170004414406
+    ],
+    "book_box_dimensions_m": [
+      0.25,
+      0.02,
+      0.16
+    ],
+    "cavity_frame_axes": [
+      "lateral X",
+      "up Y",
+      "long Z"
+    ],
+    "cavity_lower_m": [
+      -0.145,
+      -0.095,
+      -0.245
+    ],
+    "cavity_upper_m": [
+      0.145,
+      0.105,
+      0.245
+    ],
+    "book_corners_in_bin": [
+      [
+        -0.06690567540923702,
+        -0.09499918706977593,
+        0.15620602264611397
+      ],
+      [
+        0.0851872123806299,
+        -0.09499894125364226,
+        0.10652953440792905
+      ],
+      [
+        -0.0669057187471107,
+        -0.07499918706985124,
+        0.15620598892674808
+      ],
+      [
+        0.08518716904275624,
+        -0.07499894125371757,
+        0.10652950068856315
+      ],
+      [
+        -0.1445251882804607,
+        -0.09499975592517527,
+        -0.08143911452548969
+      ],
+      [
+        0.007567699509406236,
+        -0.0949995101090416,
+        -0.13111560276367462
+      ],
+      [
+        -0.14452523161833436,
+        -0.07499975592525059,
+        -0.0814391482448557
+      ],
+      [
+        0.0075676561715325615,
+        -0.07499951010911692,
+        -0.1311156364830405
+      ]
+    ],
+    "book_bin_bounds": [
+      [
+        -0.14452523161833436,
+        -0.09499975592517527,
+        -0.1311156364830405
+      ],
+      [
+        0.0851872123806299,
+        -0.07499894125371757,
+        0.15620602264611397
+      ]
+    ],
+    "signed_core_face_clearances_m": [
+      0.00047476838166563007,
+      2.440748247262148e-07,
+      0.11388436351695949,
+      0.05981278761937009,
+      0.17999894125371757,
+      0.08879397735388603
+    ],
+    "minimum_side_clearance_m": 0.00047476838166563007,
+    "minimum_length_clearance_m": 0.08879397735388603,
+    "whole_book_inside_core": true,
+    "floor_residual_m": 2.440748247262148e-07,
+    "floor_support_analysis_tolerance_m": 1e-06,
+    "final_gripper_position": 0.06899999999927951
+  },
+  "stable_pose_tail": {
+    "samples": 36,
+    "first_pose_ros_ns": 494668000000,
+    "last_pose_ros_ns": 525694000000,
+    "first_observer_wall": 2379.8779224669997,
+    "last_observer_wall": 2455.316670724,
+    "maximum_pose_gap_s": 0.984,
+    "pose_minus_joint_ms_min": -40.0,
+    "pose_minus_joint_ms_max": 2.0
+  },
+  "first_floor_support_sample": {
+    "pose_ros_ns": 493796000000,
+    "wall": 2377.735056507,
+    "floor_residual_m": -4.568600054516425e-07
+  },
+  "contact": {
+    "classification": "intended target-book/bin contact, not arm/tool-scene contact",
+    "inventory": {
+      "scope": "Observed delivered pair-inventory episodes by topic, not scored collisions or physical contact onset/separation. The two topics can report the same contact and are never summed as a physical count. Empty inventory is not proof of separation.",
+      "episodes_by_source": {
+        "/bin_contacts": 1,
+        "/contacts": 0
+      },
+      "open_delivered_episodes": 1,
+      "episodes": [
+        {
+          "source": "/bin_contacts",
+          "pair": [
+            "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+            "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision"
+          ],
+          "first_delivered_present": {
+            "receipt_ros_ns": 491542000000,
+            "wall": 2372.4139050979998,
+            "producer_ros_ns": 491542000000,
+            "producer_frame_id": ""
+          },
+          "initial_inventory_unknown": false,
+          "first_delivered_absent": null
+        }
+      ],
+      "raw_scene_record_count": 1,
+      "evidence_limits": []
+    },
+    "depth": {
+      "scope": "Maximum among saved changed-inventory messages only; not a full-run peak or physical episode count. No normal/force coordinate inference.",
+      "saved_message_limit_reached": false,
+      "pairs": [
+        {
+          "source": "/bin_contacts",
+          "pair": [
+            "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+            "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision"
+          ],
+          "delivered_evidence_count": 1,
+          "first_producer_ros_ns": 491542000000,
+          "last_producer_ros_ns": 491542000000,
+          "maximum_recorded_depth_m": 0.0018138471014196957,
+          "depth_witness": {
+            "producer_ros_ns": 491542000000,
+            "receipt_ros_ns": 491542000000,
+            "wall_elapsed": 2372.413568895,
+            "array_index": 1,
+            "sequence": 1,
+            "producer_frame_id": ""
+          },
+          "array_length_mismatch_count": 0
+        }
+      ]
+    },
+    "first_contact_minus_open_verified_ros_seconds": -0.156,
+    "gripper_at_first_contact": {
+      "joint_producer_ns": 491540000000,
+      "contact_producer_ns": 491542000000,
+      "skew_ms": 2.0,
+      "position": 0.0689851192707358,
+      "velocity": 0.0004133535906822303
+    },
+    "guard_contract": "Certified collision_pair scopes exact robot arm/tool versus table/bin, intentionally excluding book pairs. No guard-triggering pair or payload_hazard is recorded.",
+    "guard_source_sha256": "82a0ffd34f01226a3821cde6a90b03db4ff571861e981e11477991ce9bb91fea",
+    "raw_vector_scope": "Blank producer frame; depth values are reported scalars. Do not infer normal/force coordinates or full-run peaks from this single inventory-change message."
+  },
+  "return_endpoint_counts": {
+    "empty_return_cartesian": 10,
+    "empty_return_arm_home": 1,
+    "empty_return_torso_home": 1
+  },
+  "sampled_bin_translation_max_m": 0.0,
+  "sampled_bin_absolute_tilt_max_degrees": 0.0002104478435547912,
+  "total_valid_pose_samples": 1140,
+  "stationary_hold": {
+    "samples": 603,
+    "first_pose_ns": 263242000000,
+    "last_pose_ns": 469536000000,
+    "first_observer_wall": 947.6479220460001,
+    "last_observer_wall": 2241.989286094,
+    "sampled_ros_seconds": 206.294,
+    "sampled_observer_wall_seconds": 1294.3413640479998,
+    "maximum_sample_gap_ros_seconds": 0.396,
+    "pose_minus_atomic_joint_ms": {
+      "minimum": -14.0,
+      "maximum": 2.0
+    },
+    "maximum_book_relative_translation_m": 0.017254060800417536,
+    "maximum_book_relative_translation_pose_ns": 464684000000,
+    "maximum_book_relative_rotation_degrees": 20.741746399944546,
+    "maximum_book_relative_rotation_pose_ns": 469182000000,
+    "maximum_arm7_base_translation_m": 3.620906424004127e-05,
+    "endpoint_book_relative_translation_m": 0.017182258913015672,
+    "endpoint_book_relative_rotation_degrees": 20.732358279388393,
+    "endpoint_book_world_displacement_m": 0.01846725449245975,
+    "endpoint_arm7_world_displacement_m": 0.0017465464408596956,
+    "last_book_center_world": [
+      -0.12076629651019775,
+      0.27103874872880296,
+      1.3419303651795207
+    ],
+    "last_master_m": 0.017000031138168507,
+    "cutoff_inclusive": false,
+    "last_pose_before_pre_motion_ms": 120.0,
+    "reference_scope": "First evaluator pose after post-navigation retention; not acquisition or nominal attachment."
+  },
+  "earlier_nominal_envelope_comparison": {
+    "added_maximum_face_protrusion_m": 0.015428742244475574,
+    "comparison_pose_ros_seconds": [
+      263.242,
+      327.588
+    ],
+    "not_final_hold_envelope_fit": true,
+    "nominal_padding_each_face_m": 0.015
+  },
+  "archive": {
+    "manifested_files": 365,
+    "source_files": 268,
+    "official_files": 895,
+    "exact_official_files": 893,
+    "permitted_bytecode_header_refreshes": 2,
+    "resolved_meshes": 40,
+    "source_tar_sha256": "b611fb2635b6e0c8b309a5d6b6a97304b7d62f1a7e95f9b24445e45e27d3f37d",
+    "observations_sha256": "d79976f3e108ec4b5f5dac3ca263fa6a702f8ad4c4216a977556c65ff4ab00f8",
+    "evidence_manifest_sha256": "70116807310382ca724eef0128b4d3ba17030b7a2b85fc0a2e043ac54b6b3822"
+  },
+  "limitations": [
+    "Side clearance0.474768mm is an observed outcome, not a robustness margin.",
+    "No continuous/general collision proof, competition score, five-minute compliance or varied-trial success rate.",
+    "Operation events intentionally leave physical containment unknown; the physical result is retrospective.",
+    "Nominal attachment drift and submillimetre wall clearance remain material despite delivery.",
+    "Outside handoff-guard and world-AABB candidates are not this source or trial."
+  ],
+  "sources": [
+    {
+      "local_archive": "run39_review/quality_evaluation/terminal_review01.json",
+      "sha256": "40aad43929c510ba17eef7fdf4c2859c7511f24845ed8cc50d2ef0c8e129a94e"
+    },
+    {
+      "local_archive": "run39_review/quality_evaluation/terminal_review01.md",
+      "sha256": "e2795565ecc8d31574dbee2eb3b8b594adb0aabcbfcc2df3a21ffbb11253fdd4"
+    },
+    {
+      "local_archive": "run39_review/archive_integrity_review/verification.json",
+      "sha256": "d2532a06745cf594a3e4624df5bbb94ee77b8fe195a3ecc3973d7086145692c2"
+    },
+    {
+      "local_archive": "run39_review/archive_integrity_review/README.md",
+      "sha256": "492699ba2494ddf9c7b25eccca93b3feead55817281d185744e460d056647cb2"
+    },
+    {
+      "local_archive": "run39_review/place_motion_review/hold_setup_review.md",
+      "sha256": "230729ccfb88fd59e623628e934d55c5431c5a3d7ad80bd50fb746329d0958d5"
+    },
+    {
+      "local_archive": "run39_review/place_motion_review/attempt01/analysis.json",
+      "sha256": "8f284a7ee82ca6aba8582b0f4686b112f54c39abecd1b61f4e35748f975e8903"
+    },
+    {
+      "local_archive": "run39_review/quality_evaluation/held_corner_review01.json",
+      "sha256": "8dc1acd8e6878b3fcfa6463432f76c4bee9eeb4fea79f2d06c559f8995f25072"
+    },
+    {
+      "local_archive": "run39_review/shutdown/shutdown_observation.json",
+      "sha256": "077686bf24a884331333359fbc1bacefdbb01b9291bc72a369edf6c7e01c59d8"
+    }
+  ]
+}

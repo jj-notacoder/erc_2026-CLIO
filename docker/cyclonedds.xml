@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CycloneDDS xmlns="https://cdds.io/config">
+  <Domain id="any">
+    <Discovery>
+      <!-- Book spawning and controller startup use many ROS participants.
+           Keep localhost discovery bounded while allowing the full launch. -->
+      <MaxAutoParticipantIndex>120</MaxAutoParticipantIndex>
+    </Discovery>
+  </Domain>
+</CycloneDDS>

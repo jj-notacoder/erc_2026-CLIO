@@ -1,0 +1,15 @@
+# Optional WSLg rendering passthrough. This changes container access to the
+# host graphics driver only; the competition world and robot remain unchanged.
+services:
+  erc:
+    devices:
+      - /dev/dxg:/dev/dxg
+    environment:
+      - LD_LIBRARY_PATH=/usr/lib/wsl/lib
+      - WAYLAND_DISPLAY=wayland-0
+      - XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+    volumes:
+      # The vendor driver lives in drivers/, alongside the lib/ loader stubs.
+      # Mounting lib/ alone silently falls back to llvmpipe CPU rendering.
+      - /usr/lib/wsl:/usr/lib/wsl:ro
+      - /mnt/wslg:/mnt/wslg

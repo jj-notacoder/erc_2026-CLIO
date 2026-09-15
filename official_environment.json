@@ -1,0 +1,16 @@
+{
+  "official_repository": "https://github.com/dfl-rlab/erc_sim_2026",
+  "official_commit": "b1f9b05e20f4750b59f3321d88f172cc4dbb1386",
+  "exact_organizer_assets": [
+    {
+      "path": "src/erc_description/models/book/sdf/erc_book.sdf",
+      "sha256": "7bd20d0f96e179ac7cce44e41e1819f560837492da71206c3c2e3ced1d3d730c"
+    },
+    {
+      "path": "src/erc_description/urdf/tiago_pro.urdf",
+      "sha256": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0"
+    }
+  ],
+  "authority": "https://github.com/dfl-rlab/erc_sim_2026/issues/2#issuecomment-5582821341",
+  "generated_urdf": "Use the organizer checked-in URDF; do not regenerate with the older generator."
+}

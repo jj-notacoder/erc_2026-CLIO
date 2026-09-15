@@ -1,0 +1,147 @@
+{
+  "schema": "closed_run_timing_scope_v1",
+  "passed": true,
+  "run": "Run99",
+  "trial_id": "48ff97a94657",
+  "scope": "Compact immutable-result/closure timing comparison; no independent geometry reconstruction or reducer rerun.",
+  "solution_operation_completed": true,
+  "solution_operation_seconds": 283.6760134990036,
+  "solution_operation_under_300_seconds": true,
+  "solution_operation_margin_below_300_seconds": 16.323986500996398,
+  "strict_physical_success": true,
+  "stable_samples": 22,
+  "stable_span_ros_seconds": 20.992,
+  "minimum_side_clearance_m": 0.0007800723424797595,
+  "first_contact_seconds": 281.45451815600245,
+  "first_contact_is_containment_proof": false,
+  "world_marker_utc": "2026-09-14T19:44:34Z",
+  "solution_launch_utc": "2026-09-14T19:44:48.335865+00:00",
+  "approximate_world_marker_to_launch_seconds": 14.335865,
+  "approximate_world_marker_to_summary_seconds": 298.0118784990036,
+  "approximate_world_marker_to_completion_seconds": 298.0118784990036,
+  "world_marker_to_completion_under_300_seconds": true,
+  "world_marker_precision_seconds": 1,
+  "clock_scope": "Solution launch-to-summary and first receipt use host monotonic time. Startup offset uses the whole-second UTC world marker; adding it assumes no wall-clock step and excludes build/staging.",
+  "natural_initial_preflight": true,
+  "startup_troubleshooting_present": false,
+  "startup_attempts": [
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\startup_sequence01\\result.json",
+      "sha256": "cbff51b43427ead7e3472c227759930f09dad430a1dc53e6308605406c5f2f79",
+      "passed": true,
+      "started_utc": "2026-09-14T19:44:32.922552+00:00",
+      "finished_utc": "2026-09-14T19:44:51.714965+00:00",
+      "wall_seconds": 18.792442848993232
+    }
+  ],
+  "startup_sequence_seconds": 18.792442848993232,
+  "sequence_end_relative_to_launch_seconds": 3.3791,
+  "complete_video_under_5_minutes_verified": false,
+  "repeatability_proven": false,
+  "gentle_placement": false,
+  "last_preopen_book_bottom_above_floor_m": 0.26205275950716844,
+  "comparison": [
+    {
+      "run": 92,
+      "operation_completed": true,
+      "operation_seconds": 299.0351169610003,
+      "strict_success": true,
+      "elapsed_interval_difference_seconds": 15.35910346199671,
+      "successful_runtime_saving_seconds": 15.35910346199671
+    },
+    {
+      "run": 94,
+      "operation_completed": true,
+      "operation_seconds": 293.8086326729972,
+      "strict_success": false,
+      "elapsed_interval_difference_seconds": 10.13261917399359,
+      "successful_runtime_saving_seconds": null
+    },
+    {
+      "run": 95,
+      "operation_completed": false,
+      "operation_seconds": 255.33928107300017,
+      "strict_success": false,
+      "elapsed_interval_difference_seconds": -28.336732426003437,
+      "successful_runtime_saving_seconds": null
+    },
+    {
+      "run": 96,
+      "operation_completed": true,
+      "operation_seconds": 285.80946417000087,
+      "strict_success": true,
+      "elapsed_interval_difference_seconds": 2.133450670997263,
+      "successful_runtime_saving_seconds": 2.133450670997263
+    },
+    {
+      "run": 97,
+      "operation_completed": true,
+      "operation_seconds": 276.90620941700035,
+      "strict_success": true,
+      "elapsed_interval_difference_seconds": -6.7698040820032475,
+      "successful_runtime_saving_seconds": -6.7698040820032475
+    }
+  ],
+  "two_trial_observation": {
+    "runs": [
+      97,
+      99
+    ],
+    "same_validation_certificate_sha256": "cce6fff8f0c49a0dd576495df10a98efbe648ec928481e1faca71e9debb60f21",
+    "previous_timing_sha256": "d3a3b3ad08478c31e9475c2e7abae53adb138cd155d3f185d2baeff708d7aaa8",
+    "previous_world_marker_to_summary_seconds": 292.54555741700034,
+    "current_world_marker_to_summary_seconds": 298.0118784990036,
+    "both_strict_success": true,
+    "both_world_marker_to_completion_under_300": true,
+    "scope": "Exactly these two archived trials and their whole-second startup markers; no success-rate estimate or complete video verification."
+  },
+  "failed_startup_attempts": [
+    {
+      "run": "Run98",
+      "mission_dispatched": false,
+      "physical_trial_started": false,
+      "owned_processes_closed": true,
+      "readiness_problems": [
+        "missing:/scan_front_raw",
+        "missing:/scan_rear_raw",
+        "missing:/head_front_camera/head_front_camera/depth/image_rect_raw",
+        "missing:/head_front_camera/head_front_camera/depth/camera_info"
+      ],
+      "startup_sequence_wall_seconds": 24.49610291299905,
+      "startup_started_utc": "2026-09-14T19:41:58.447022+00:00",
+      "startup_finished_utc": "2026-09-14T19:42:23.433949+00:00",
+      "archive_sha256": "8655c3104d02c0a3acc9a58f740ec9e2d90b64480aba1cc6684ffe298ea09741",
+      "closure_sha256": "49b4e24a99a48234dd4b75203bb11d7abc4bc6a9b403ebe4053f42719e8d9437",
+      "scope": "Separate failed preflight between Run97 and Run99. No Run98 mission result or operation duration; not included in either successful-trial timer. This failure remains part of the overall attempt history."
+    }
+  ],
+  "previous_best_sha256": "0a7bc4b934593cb2be9f7ca001b938a72ddfc67ac37b5684efe274d57a19eaaf",
+  "original_reports_unchanged": true,
+  "inputs": {
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\result.json": "262c7ef60e68c95d3cf7a360666f6ab12c5bb2190973e2cffc3d670fc0c691f5",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\archive_manifest.json": "558cee3f03467801a6f299a7f01757ac493d8bc87b44a089421da096eb975f7e",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\runtime_closure.json": "e60d92237b4651ea2d3efa2007bd53f8d5ea6a8d24b5a9e63a71a79be7964b7c",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\runtime_closure.json": "e60d92237b4651ea2d3efa2007bd53f8d5ea6a8d24b5a9e63a71a79be7964b7c",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\trial_manifest.json": "7914ffa55fca096575e90636a56c66cddf36332fd17a5ff58fe63d5439d978d8",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\validation_certificate.json": "cce6fff8f0c49a0dd576495df10a98efbe648ec928481e1faca71e9debb60f21",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\trial_48ff97a94657_summary.json": "461bde367e4ed89cea18113c335c4c19f159873b80e94a5f5a8b3c758774a987",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\world_launch_context.txt": "9e9f478fe7c564e8e7f93090912e21798a12f47188110ef868c2f98770cb4085",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\launch_world.sh": "4a20bba9856d12099945bf5e4dbd0ecd5043b693b7f96ea0afd3bcd562a3c03b",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\startup_sequence01\\result.json": "cbff51b43427ead7e3472c227759930f09dad430a1dc53e6308605406c5f2f79",
+    "C:\\Users\\sir\\Documents\\New project\\tmp\\erc_status_review\\start_run99_sequence01.py": "c42db4ae0492e72a5c5cb6ccfaa343e42e44f7588fb70c1051906ca9ed9520df",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run92\\result.json": "8bfbc9e867fa3bc411555a25a7c04ec8cfe58841d50c30206f8c9f810d93fff5",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run94\\result.json": "44754ed6549592e9482d42005657a318cf83ee04ade2aade8d3e0c014565f3e2",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run95\\result.json": "9ed4c1831d95c1606d3660559e96486fecc0a8d7a4b3c4658e728a8e4f62a56c",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run96\\result.json": "cc7714f96caa89c4a32d5d88117b3ac8eb61dfad064f8a324267c3f57b6a515a",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\result.json": "0a7bc4b934593cb2be9f7ca001b938a72ddfc67ac37b5684efe274d57a19eaaf",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\best_strict_runtime_after_run97.json": "0a7bc4b934593cb2be9f7ca001b938a72ddfc67ac37b5684efe274d57a19eaaf",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run97\\timing_scope01.json": "d3a3b3ad08478c31e9475c2e7abae53adb138cd155d3f185d2baeff708d7aaa8",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run98\\archive_manifest.json": "8655c3104d02c0a3acc9a58f740ec9e2d90b64480aba1cc6684ffe298ea09741",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run98\\runtime_closure.json": "49b4e24a99a48234dd4b75203bb11d7abc4bc6a9b403ebe4053f42719e8d9437",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run98\\startup_sequence01\\result.json": "3f39e6c1cdb2c6b6972f39933a03fd0fead87f540f7871bbc88ff558764f9f52",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run98\\raw\\runtime_closure.json": "49b4e24a99a48234dd4b75203bb11d7abc4bc6a9b403ebe4053f42719e8d9437",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run98\\raw\\trial_manifest.json": "28aedd833a303259b9c14bfe0148964f85624877920653b2f5fd375c4afe8a81",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run98\\raw\\sensors_before_dispatch.json": "ec977e884660a3b0c0d05659a6dae7eb07a9850e0330b59150e495599802fdee",
+    "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\RESULTS.md": "4ba9a8a5de81bb57035b99673cda30c23decee50beefab626cdb6415112c08b1"
+  }
+}

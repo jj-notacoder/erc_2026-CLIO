@@ -1,0 +1,90 @@
+{
+  "artifact_kind": "Portable selection from completed Run38 evidence; raw archive retained separately",
+  "trial_id": "c0c9e18c32f6",
+  "source_certificate_sha256": "e96906f690ff6dcf25d4d69cb8bfb4b26b6de015cf49b2f98812e268ee3d59d3",
+  "outcome": "automatic placement_failed after complete nominal candidate validation exceeded search deadline",
+  "pickup_and_compact_completed": true,
+  "placement_motion": false,
+  "measured_open": false,
+  "release": false,
+  "empty_return": false,
+  "candidate_accepted": {
+    "ros_ns": 498086000000,
+    "wall": 2354.1406707080023,
+    "source": "manipulation",
+    "payload": {
+      "candidate_number": 1,
+      "command": "place",
+      "event": "place_planning_stage",
+      "planning_wall_seconds": 1383.1128663379932,
+      "scene_samples": 2337,
+      "stage": "candidate_accepted"
+    }
+  },
+  "post_candidate_search_failure": {
+    "ros_ns": 498088000000,
+    "wall": 2354.146071965006,
+    "source": "manipulation",
+    "payload": {
+      "command": "place",
+      "event": "place_planning_failed",
+      "exception_type": "SceneCartesianSearchError",
+      "planning_diagnostics": {
+        "candidates": 1,
+        "endpoint_samples": 11,
+        "full_candidate_validator_required": true,
+        "ik_calls": 23,
+        "joint_margin": 0.1,
+        "levels": [],
+        "maximum_joint_step": 0.4,
+        "minimum_signed_support": 0.75,
+        "opening_samples": 54,
+        "orientation_tolerance": 0.02,
+        "position_tolerance": 0.002,
+        "recorded_joint_path_used": false,
+        "rejections": {
+          "ik": 1
+        },
+        "search": "bounded_negative_wrist_variable_swivel_v1",
+        "strategy": {
+          "loose_paths": 1,
+          "refined_paths": 1
+        },
+        "wall_budget_seconds": 900.0,
+        "wall_seconds": 1316.0440608459903
+      },
+      "reason": "scene_cartesian_wall_budget"
+    }
+  },
+  "mission_abort": {
+    "ros_ns": 498200000000,
+    "wall": 2354.8773727429943,
+    "source": "mission",
+    "payload": {
+      "current": "ABORTED",
+      "event": "state_transition",
+      "reason": "placement_failed",
+      "state": "ABORTED",
+      "trial_id": "c0c9e18c32f6"
+    }
+  },
+  "mission_initialization_to_summary_wall_seconds": 2351.8054025340098,
+  "observer_finished_ros_seconds": 506.544,
+  "observer_finished_wall_seconds": 2406.2773125209933,
+  "bin_contact_confirmed": false,
+  "collision_episodes_reported": 0,
+  "physical_inside_verified": null,
+  "archive": {
+    "evidence_files": 360,
+    "package_files": 268,
+    "full_byte_verification": "Root-reported completed360-file archive and268-file source verification; raw archive separate",
+    "evidence_manifest_sha256": "9c49390898db6dc1a520b0425a1d38f492723fc7ff24636a6b76a579d6abf4e5",
+    "trial_manifest_sha256": "75d0180b5139b5b3fc433990c7f40d4e88e42d11a8b1df9b38ca51f873732479",
+    "trial_summary_sha256": "3c05e9e7e3f25a4d8f8c0a8fed5996447004ae38dbd8acec2e0bfc01f5872c5a"
+  },
+  "root_monitor_sha256": "7fb7a00935b1c633a5e402163866bed0168aae1e06c90a28dc5c28ed85a469ba",
+  "root_journal_sha256": "43edf249cc787b132ebda3879df48d6d8bc6a66469b47a745b49dbdcf20ac861",
+  "local_archive": "runtime/run_38",
+  "physical_delivery_claim": false,
+  "limitations": "No placement command or release; zero reported contacts is not proof of general or continuous collision clearance."
+}

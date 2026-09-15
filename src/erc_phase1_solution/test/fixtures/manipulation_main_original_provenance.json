@@ -1,0 +1,6 @@
+{
+  "baseline_node_sha256": "5f3d5ce232dcc79fb6e1713bf54ad8bb489ea34708c7a2f1b420fbf3199dffef",
+  "candidate_node_sha256": "aa749334288928984dc97d3f5fa80f4dbafedcf90e5aa1f3f58c478b79d123d8",
+  "original_main_ast_sha256": "7389640bed5681d149de27cf1db072bf2799ac1dbdf0c86dc8209a495315b006",
+  "fixture_sha256": "17e1b329237790e06b548d000f0d6b6348f803c1fb00ba5b5ed73a3e968bd08b"
+}

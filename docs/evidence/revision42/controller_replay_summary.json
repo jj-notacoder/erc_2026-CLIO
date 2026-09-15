@@ -1,0 +1,87 @@
+{
+  "schema": "revision42_controller_change_and_nominal_replay_summary_v1",
+  "current_software": {
+    "label": "collision_quality_final_09",
+    "certificate_sha256": "d02bf78fe7d7d9eaad9d936afbf8316eaa3e92a0234ab3619982f9e775829114",
+    "source_files": 272,
+    "source_tree_sha256": "f23d05216ac2abd66a41e08a5ae176f9b7ed1e9096dcb9a43cd065aacdbf34df",
+    "selected_profile_sha256": "590bc458a136cd9d2ab9073104cd496077e5b2df65f0079ed4010a878dedd705",
+    "junit": {
+      "tests": 2709,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "independent_checks_passed": 36,
+    "official_files": {
+      "total": 895,
+      "exact_bytes": 893,
+      "permitted_bytecode_header_refreshes_with_unchanged_payload": 2
+    }
+  },
+  "retained_place_send": {
+    "node_sha256": "4f641380bcc0103fe3e0a05e0803ed34c774034ae13536dda2456bdbd554951d",
+    "scope": "Active contact-guard PLACE only: command lock, cancellation/full-watchdog recheck, then sensor lock/cancel recheck and pending-token/action publication. Existing acceptance/result/cancellation flow retained.",
+    "regression_cases": 13,
+    "limitation": "Synthetic interleavings and unchanged-method checks; not universal executor-race or physical retention proof."
+  },
+  "per_sample_world_aabb": {
+    "helper_sha256": "6f64dc91bd91bb0e7cef36ba3b2208f36c5caea0c16357178f758ab689214903",
+    "scope": "Independently lazy exact min/max reductions for private ordinary float64 world arrays within one sample; unexpected custom/aliased provenance falls back. Original vertices, predicates and order retained.",
+    "regression_cases": 28,
+    "cross_sample_bounds_or_new_verdict_cache": false
+  },
+  "paired_nominal_replay": {
+    "baseline": "Exact final08 source",
+    "candidate": "Final08 plus only the reviewed scene helper; retained-send change is not exercised by this pure replay.",
+    "input_case": "Recorded Run38 logged planner input; fixed atomic right/head context 156 ms later; no evaluator input or new camera fit.",
+    "recorded_profile_sha256": "16b95a58194d23225d3775b8cd07afa3c72317ce112895082aa8690a018e56ef",
+    "search_budget_seconds": 900,
+    "current_selected_profile_is_replay_profile": false,
+    "completed_samples": 2337,
+    "trace_exact_equal": true,
+    "trace_sha256": "061b3cd2b7d693338076cf72ee575f82194ef8cdf0ff9ab0efed733beab1b1e3",
+    "plan_equal_except_wall_timings": true,
+    "maximum_joint_difference": 0.0,
+    "ik_calls": 23,
+    "accepted_candidates": 1,
+    "cache_hits": 105,
+    "setup_goals": 12,
+    "cartesian_solutions": 11,
+    "opening_samples": 54,
+    "complete_direct_empty_return_checked": true,
+    "baseline_monotonic_seconds": 191.58154140999977,
+    "candidate_monotonic_seconds": 181.94255740300014,
+    "reduction_fraction": 0.05031269680815147,
+    "limitations": [
+      "One ordered A/B pair; filesystem/OS warming may favor the candidate.",
+      "Both include identical trace/telemetry instrumentation.",
+      "Fixed parked context; no live executor contention or changing sensor/cache stream.",
+      "No live mission speedup, repeatability, physical safety or gentle-placement result."
+    ]
+  },
+  "physical_scope": {
+    "last_completed_run": "Run39",
+    "executed_revision": "revision41/final08",
+    "current_run": "Run40",
+    "current_outcome": "pending"
+  },
+  "local_archive_sources": {
+    "run39_review/world_aabb_dense_pair/RESULTS.md": "1af834bf18262ba62330e34274dbad3445798390489704251d970921c5c6e316",
+    "run39_review/world_aabb_dense_pair/comparison.json": "7c940c0a8775af377b6b28476a5cbd3571484156a2131a368b5cd1004c742184",
+    "run39_review/world_aabb_dense_pair/pair_manifest.json": "3168ae50a8dffecefc613414a05930aef6221a3023dca37d837f38abcf6b8274",
+    "run39_review/world_aabb_dense_pair/baseline/attempts/dense01/result.json": "800c97e9e6eaeaf51a04f1d2c03beb3657dfc06a08bb245561ce28cfc0ab4b9f",
+    "run39_review/world_aabb_dense_pair/candidate/attempts/dense01/result.json": "876da6707ae6f0586ac3007355852d6815d066801f2ff804254fb26646bbbbeb",
+    "run39_review/handoff_guard_independent_review/README.md": "0141d0920ad9ce0c32011cc26762bf45638bd7f1a9cee0294fc74403397b4db4",
+    "run39_review/revision42_source_review/README.md": "66edf3d135a9c38e6b66232a904825e1a26bd4fa2b719c7b635fed11b441708f",
+    "run39_review/revision42_source_review/verification.json": "e8d99c85b30f3758937de4d24add6fa8ae9d66fc6f7f2d19364ed049588a404e",
+    "collision_quality_candidate/revision42/staging_record.json": "55fae353c034006abf43eeca8119094e10c62a3ebea63ac31c2da8370fe18f52",
+    "collision_quality_candidate/revision42/promotion/promotion.json": "934a90c97ab30962871673611da16737f7e659b034b3c515aa6649700882b31a",
+    "run39_review/final09_independent_review/review.json": "5ca92217f4b95fa46e3b3b89b8993fd5abd92352387337c22fbdc3ebd43386cd",
+    "run39_review/final09_independent_review/README.md": "f20a199d6ef9c6112eb9226579f105bc8232b0042528dba45692f580539c1910"
+  },
+  "independent_final09_review": {
+    "local_archive": "run39_review/final09_independent_review/review.json",
+    "sha256": "5ca92217f4b95fa46e3b3b89b8993fd5abd92352387337c22fbdc3ebd43386cd"
+  }
+}

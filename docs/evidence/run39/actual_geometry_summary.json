@@ -1,0 +1,648 @@
+{
+  "schema": "run39_portable_sampled_geometry_v1",
+  "trial_id": "3f9468467cf5",
+  "source_certificate_sha256": "79995071b49f46d980c42bbd28dbba0454d2053197cd04bb45eb8ff41e67f6e0",
+  "source_snapshot_sha256": "96d73a762493713ef0d0ddac8fe6ebffb82937f56a998bd9b3515a8c48d31463",
+  "source_journal_sha256": "c0720f773c4c368a29f8b98ad11c716655b1a2963a46c9249a521fc8090ef305",
+  "screen_samples": 313,
+  "actual_pose_eligible_comparisons": 310,
+  "scene_eligible_samples": 124,
+  "no_overlap_in_selected_samples": true,
+  "continuous_or_general_self_collision_proof": false,
+  "phases": {
+    "pick": {
+      "samples": 121,
+      "requested_ros_window": [
+        163.13,
+        214.318
+      ],
+      "atomic_producer_window": [
+        163.2,
+        214.012
+      ],
+      "maximum_gap_seconds": 1.012,
+      "screen_groups": {
+        "rigid_arms": {
+          "queried_samples": 121,
+          "minimum_mesh_aabb_separation_m": 0.1479992031154705,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 175860000000,
+            "receipt_ros_ns": 175864000000,
+            "wall_elapsed": 415.88118885899985,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 121,
+          "minimum_mesh_aabb_separation_m": 0.14799918896710407,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 175860000000,
+            "receipt_ros_ns": 175864000000,
+            "wall_elapsed": 415.88118885899985,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "nominal_tools": {
+          "queried_samples": 121,
+          "minimum_mesh_aabb_separation_m": 0.10274106616364735,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 174044000000,
+            "receipt_ros_ns": 174048000000,
+            "wall_elapsed": 411.5763362109999,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "measured_tool_query": {
+          "queried_samples": 120,
+          "minimum_mesh_aabb_separation_m": 0.1023787979930772,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 174044000000,
+            "receipt_ros_ns": 174048000000,
+            "wall_elapsed": 411.5763362109999,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "measured_book_screen": {
+          "queried_samples": 120,
+          "minimum_mesh_aabb_separation_m": 0.4140647498654546,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 214012000000,
+            "receipt_ros_ns": 214014000000,
+            "wall_elapsed": 643.997428289,
+            "joint_minus_pose_ms": 0.0
+          }
+        }
+      },
+      "omissions": [
+        {
+          "joint_producer_ns": 176872000000,
+          "receipt_ros_ns": 176876000000,
+          "joint_minus_pose_ms": 44.0,
+          "measured_tool_query_omitted": "Pose skew exceeds 20ms or missing stamp"
+        }
+      ]
+    },
+    "compact": {
+      "samples": 54,
+      "requested_ros_window": [
+        219.3,
+        238.376
+      ],
+      "atomic_producer_window": [
+        219.356,
+        238.356
+      ],
+      "maximum_gap_seconds": 0.436,
+      "screen_groups": {
+        "rigid_arms": {
+          "queried_samples": 54,
+          "minimum_mesh_aabb_separation_m": 0.08201449365454816,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 238356000000,
+            "receipt_ros_ns": 238360000000,
+            "wall_elapsed": 790.096287048,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 54,
+          "minimum_mesh_aabb_separation_m": 0.08201449105564451,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 238356000000,
+            "receipt_ros_ns": 238360000000,
+            "wall_elapsed": 790.096287048,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "nominal_tools": {
+          "queried_samples": 54,
+          "minimum_mesh_aabb_separation_m": 0.0966972904596266,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 238356000000,
+            "receipt_ros_ns": 238360000000,
+            "wall_elapsed": 790.096287048,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "measured_tool_query": {
+          "queried_samples": 54,
+          "minimum_mesh_aabb_separation_m": 0.12002189470904093,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 238356000000,
+            "receipt_ros_ns": 238360000000,
+            "wall_elapsed": 790.096287048,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "measured_book_screen": {
+          "queried_samples": 54,
+          "minimum_mesh_aabb_separation_m": 0.05373929028766225,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 236944000000,
+            "receipt_ros_ns": 236948000000,
+            "wall_elapsed": 781.4956682749998,
+            "joint_minus_pose_ms": -2.0
+          }
+        }
+      },
+      "omissions": []
+    },
+    "place": {
+      "samples": 89,
+      "requested_ros_window": [
+        469.458,
+        516.402
+      ],
+      "atomic_producer_window": [
+        469.536,
+        516.112
+      ],
+      "maximum_gap_seconds": 0.952,
+      "screen_groups": {
+        "rigid_arms": {
+          "queried_samples": 89,
+          "minimum_mesh_aabb_separation_m": 0.007164960226916761,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 470284000000,
+            "receipt_ros_ns": 470288000000,
+            "wall_elapsed": 2246.273382628,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 89,
+          "minimum_mesh_aabb_separation_m": 0.007164957628001817,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 470284000000,
+            "receipt_ros_ns": 470288000000,
+            "wall_elapsed": 2246.273382628,
+            "joint_minus_pose_ms": -2.0
+          }
+        },
+        "nominal_tools": {
+          "queried_samples": 89,
+          "minimum_mesh_aabb_separation_m": 0.05059570203791251,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 472384000000,
+            "receipt_ros_ns": 472386000000,
+            "wall_elapsed": 2259.14775076,
+            "joint_minus_pose_ms": 0.0
+          }
+        },
+        "measured_tool_query": {
+          "queried_samples": 88,
+          "minimum_mesh_aabb_separation_m": 0.09348219275731583,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 472384000000,
+            "receipt_ros_ns": 472386000000,
+            "wall_elapsed": 2259.14775076,
+            "joint_minus_pose_ms": 0.0
+          }
+        },
+        "measured_book_screen": {
+          "queried_samples": 88,
+          "minimum_mesh_aabb_separation_m": 0.022577565848317577,
+          "overlaps": [],
+          "total_narrow_checks": 0,
+          "minimum_witness": {
+            "joint_producer_ns": 473092000000,
+            "receipt_ros_ns": 473094000000,
+            "wall_elapsed": 2263.430770634,
+            "joint_minus_pose_ms": 0.0
+          }
+        }
+      },
+      "omissions": [
+        {
+          "joint_producer_ns": 516112000000,
+          "receipt_ros_ns": 516116000000,
+          "joint_minus_pose_ms": 40.0,
+          "measured_tool_query_omitted": "Pose skew exceeds 20ms or missing stamp"
+        }
+      ],
+      "scene": {
+        "table": {
+          "rigid_arms": {
+            "queried_samples": 88,
+            "minimum_mesh_aabb_separation_m": 0.03202403814319615,
+            "total_narrow_checks": 0,
+            "overlaps": [],
+            "minimum_witness": {
+              "joint_producer_ns": 503628000000,
+              "receipt_ros_ns": 503630000000,
+              "wall_elapsed": 2401.409821487,
+              "joint_minus_pose_ms": 0.0
+            }
+          },
+          "rigid_arm_visuals": {
+            "queried_samples": 88,
+            "minimum_mesh_aabb_separation_m": 0.03178057489859502,
+            "total_narrow_checks": 0,
+            "overlaps": [],
+            "minimum_witness": {
+              "joint_producer_ns": 503628000000,
+              "receipt_ros_ns": 503630000000,
+              "wall_elapsed": 2401.409821487,
+              "joint_minus_pose_ms": 0.0
+            }
+          },
+          "nominal_tools": {
+            "queried_samples": 88,
+            "minimum_mesh_aabb_separation_m": 0.12486004855478296,
+            "total_narrow_checks": 0,
+            "overlaps": [],
+            "minimum_witness": {
+              "joint_producer_ns": 506332000000,
+              "receipt_ros_ns": 506336000000,
+              "wall_elapsed": 2407.839324702,
+              "joint_minus_pose_ms": -2.0
+            }
+          },
+          "measured_tools": {
+            "queried_samples": 88,
+            "minimum_mesh_aabb_separation_m": 0.17238903458797272,
+            "total_narrow_checks": 0,
+            "overlaps": [],
+            "minimum_witness": {
+              "joint_producer_ns": 507260000000,
+              "receipt_ros_ns": 507262000000,
+              "wall_elapsed": 2409.990656542,
+              "joint_minus_pose_ms": 0.0
+            }
+          }
+        },
+        "bin": {
+          "rigid_arms": {
+            "queried_samples": 88,
+            "minimum_mesh_aabb_separation_m": 0.029407499179746083,
+            "total_narrow_checks": 0,
+            "overlaps": [],
+            "minimum_witness": {
+              "joint_producer_ns": 490180000000,
+              "receipt_ros_ns": 490184000000,
+              "wall_elapsed": 2366.852347052,
+              "joint_minus_pose_ms": -2.0
+            }
+          },
+          "rigid_arm_visuals": {
+            "queried_samples": 88,
+            "minimum_mesh_aabb_separation_m": 0.029423059520887918,
+            "total_narrow_checks": 0,
+            "overlaps": [],
+            "minimum_witness": {
+              "joint_producer_ns": 490180000000,
+              "receipt_ros_ns": 490184000000,
+              "wall_elapsed": 2366.852347052,
+              "joint_minus_pose_ms": -2.0
+            }
+          },
+          "nominal_tools": {
+            "queried_samples": 88,
+            "minimum_mesh_aabb_separation_m": 0.016545125940445105,
+            "total_narrow_checks": 0,
+            "overlaps": [],
+            "minimum_witness": {
+              "joint_producer_ns": 491176000000,
+              "receipt_ros_ns": 491180000000,
+              "wall_elapsed": 2371.271246074,
+              "joint_minus_pose_ms": -2.0
+            }
+          },
+          "measured_tools": {
+            "queried_samples": 88,
+            "minimum_mesh_aabb_separation_m": 0.016584501902711546,
+            "total_narrow_checks": 0,
+            "overlaps": [],
+            "minimum_witness": {
+              "joint_producer_ns": 491176000000,
+              "receipt_ros_ns": 491180000000,
+              "wall_elapsed": 2371.271246074,
+              "joint_minus_pose_ms": -2.0
+            }
+          }
+        }
+      }
+    },
+    "init_stow": {
+      "samples": 12,
+      "requested_ros_window": [
+        2.9,
+        13.472
+      ],
+      "atomic_producer_window": [
+        3.42,
+        13.268
+      ],
+      "maximum_gap_seconds": 0.976,
+      "screen_groups": {
+        "rigid_arms": {
+          "queried_samples": 12,
+          "minimum_mesh_aabb_separation_m": 0.2349145835640833,
+          "minimum_witness": {
+            "joint_producer_ns": 12444000000,
+            "receipt_ros_ns": 12448000000,
+            "wall_elapsed": 25.902658932999884,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 12,
+          "minimum_mesh_aabb_separation_m": 0.23489220786084106,
+          "minimum_witness": {
+            "joint_producer_ns": 11584000000,
+            "receipt_ros_ns": 11586000000,
+            "wall_elapsed": 23.759416307000038,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "nominal_tools": {
+          "queried_samples": 12,
+          "minimum_mesh_aabb_separation_m": 0.4732294257795219,
+          "minimum_witness": {
+            "joint_producer_ns": 11584000000,
+            "receipt_ros_ns": 11586000000,
+            "wall_elapsed": 23.759416307000038,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_tool_query": {
+          "queried_samples": 12,
+          "minimum_mesh_aabb_separation_m": 0.4732306473693745,
+          "minimum_witness": {
+            "joint_producer_ns": 10676000000,
+            "receipt_ros_ns": 10680000000,
+            "wall_elapsed": 21.590349710000055,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_book_screen": {
+          "queried_samples": 12,
+          "minimum_mesh_aabb_separation_m": 2.75079583755765,
+          "minimum_witness": {
+            "joint_producer_ns": 11584000000,
+            "receipt_ros_ns": 11586000000,
+            "wall_elapsed": 23.759416307000038,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        }
+      },
+      "omissions": []
+    },
+    "head_bin": {
+      "samples": 37,
+      "requested_ros_window": [
+        250.2,
+        262.672
+      ],
+      "atomic_producer_window": [
+        250.224,
+        262.544
+      ],
+      "maximum_gap_seconds": 0.424,
+      "screen_groups": {
+        "rigid_arms": {
+          "queried_samples": 37,
+          "minimum_mesh_aabb_separation_m": 0.00716514920804337,
+          "minimum_witness": {
+            "joint_producer_ns": 253304000000,
+            "receipt_ros_ns": 253308000000,
+            "wall_elapsed": 884.791687677,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 37,
+          "minimum_mesh_aabb_separation_m": 0.007165146609129314,
+          "minimum_witness": {
+            "joint_producer_ns": 253304000000,
+            "receipt_ros_ns": 253308000000,
+            "wall_elapsed": 884.791687677,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "nominal_tools": {
+          "queried_samples": 37,
+          "minimum_mesh_aabb_separation_m": 0.0507202200651698,
+          "minimum_witness": {
+            "joint_producer_ns": 254652000000,
+            "receipt_ros_ns": 254654000000,
+            "wall_elapsed": 893.369034311,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_tool_query": {
+          "queried_samples": 36,
+          "minimum_mesh_aabb_separation_m": 0.096537229580569,
+          "minimum_witness": {
+            "joint_producer_ns": 260888000000,
+            "receipt_ros_ns": 260892000000,
+            "wall_elapsed": 932.5938690799999,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_book_screen": {
+          "queried_samples": 36,
+          "minimum_mesh_aabb_separation_m": 0.058170615802588574,
+          "minimum_witness": {
+            "joint_producer_ns": 258884000000,
+            "receipt_ros_ns": 258888000000,
+            "wall_elapsed": 919.689109921,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        }
+      },
+      "omissions": [
+        {
+          "joint_producer_ns": 256860000000,
+          "receipt_ros_ns": 256862000000,
+          "joint_minus_pose_ms": null,
+          "measured_tool_query_omitted": "Pose skew exceeds 20ms or missing stamp",
+          "scene_query_omitted": "Missing scene pose or joint/pose skew above20ms"
+        }
+      ],
+      "scene": {
+        "table": {
+          "rigid_arms": {
+            "queried_samples": 36,
+            "minimum_mesh_aabb_separation_m": 0.2052437964792726,
+            "minimum_witness": {
+              "joint_producer_ns": 262544000000,
+              "receipt_ros_ns": 262546000000,
+              "wall_elapsed": 943.3405451839999,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "rigid_arm_visuals": {
+            "queried_samples": 36,
+            "minimum_mesh_aabb_separation_m": 0.2052960397838844,
+            "minimum_witness": {
+              "joint_producer_ns": 262544000000,
+              "receipt_ros_ns": 262546000000,
+              "wall_elapsed": 943.3405451839999,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "nominal_tools": {
+            "queried_samples": 36,
+            "minimum_mesh_aabb_separation_m": 0.5752316623481973,
+            "minimum_witness": {
+              "joint_producer_ns": 262544000000,
+              "receipt_ros_ns": 262546000000,
+              "wall_elapsed": 943.3405451839999,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "measured_tools": {
+            "queried_samples": 36,
+            "minimum_mesh_aabb_separation_m": 0.644834961642233,
+            "minimum_witness": {
+              "joint_producer_ns": 262544000000,
+              "receipt_ros_ns": 262546000000,
+              "wall_elapsed": 943.3405451839999,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          }
+        },
+        "bin": {
+          "rigid_arms": {
+            "queried_samples": 36,
+            "minimum_mesh_aabb_separation_m": 0.30123860960886906,
+            "minimum_witness": {
+              "joint_producer_ns": 262544000000,
+              "receipt_ros_ns": 262546000000,
+              "wall_elapsed": 943.3405451839999,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "rigid_arm_visuals": {
+            "queried_samples": 36,
+            "minimum_mesh_aabb_separation_m": 0.3013154678793089,
+            "minimum_witness": {
+              "joint_producer_ns": 262544000000,
+              "receipt_ros_ns": 262546000000,
+              "wall_elapsed": 943.3405451839999,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "nominal_tools": {
+            "queried_samples": 36,
+            "minimum_mesh_aabb_separation_m": 0.49671530600120095,
+            "minimum_witness": {
+              "joint_producer_ns": 262544000000,
+              "receipt_ros_ns": 262546000000,
+              "wall_elapsed": 943.3405451839999,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "measured_tools": {
+            "queried_samples": 36,
+            "minimum_mesh_aabb_separation_m": 0.5750552612198567,
+            "minimum_witness": {
+              "joint_producer_ns": 262544000000,
+              "receipt_ros_ns": 262546000000,
+              "wall_elapsed": 943.3405451839999,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Separate windows only, no interpolation or omitted-endpoint substitution.",
+    "Screen is the URDF visual box; nominal passive meshes are separate from available actual tool poses.",
+    "Bounds are conservative world-AABB separation lower bounds, not exact closest distances/contact depths.",
+    "Fixed official table pose and separately stamped evaluator robot/bin poses are retrospective only.",
+    "One PICK44ms, one PLACE40ms and one head missing-pose row omit actual/scene queries; atomic screen queries remain."
+  ],
+  "sources": [
+    {
+      "local_archive": "run39_review/actual_geometry_audit/actual_geometry_review.md",
+      "sha256": "85cd169e43d9e382db395cf39ed3da352567bc19269180ff115d116a8d2a0f2b"
+    },
+    {
+      "local_archive": "run39_review/actual_geometry_audit/attempt01/final_summary.json",
+      "sha256": "317722f4cd0e2dcb9fc5cbefcf7f51bde29a4c09880afffb3888823c6df04712"
+    },
+    {
+      "local_archive": "run39_review/actual_geometry_audit/manifest.json",
+      "sha256": "aa7362250b66e023e0c0a96982b78e6f77ca7dc343c9082847a2a1ce37f4e840"
+    },
+    {
+      "local_archive": "run39_review/actual_geometry_audit/attempt02/supplement_review.md",
+      "sha256": "7644d57b2b1f62730ffe593a8861e14ba689b93ea78755a6c43c6c3fb2d6fee6"
+    },
+    {
+      "local_archive": "run39_review/actual_geometry_audit/attempt02/summary.json",
+      "sha256": "22b1726b94f6533f4e7ef743ee43e3541153fd6c7041f5c971efafb1ebbe4800"
+    },
+    {
+      "local_archive": "run39_review/actual_geometry_audit/attempt02/manifest.json",
+      "sha256": "1a64fe0f0445069ecf56ee804bdf241234d59c7ac72adc0c348887f3ef4f9df0"
+    }
+  ]
+}

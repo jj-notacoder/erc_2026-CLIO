@@ -1,0 +1,486 @@
+{
+  "current_sha256": "30f83b05b5766ae450b061d6e5c27a9b8ac814001bf95de0deb1b0881d2bceb8",
+  "fragments": [
+    {
+      "new": "from .withdrawal_timing import checked_withdrawal_speed_scale, withdrawal_leg_speed_scales\nfrom .withdrawal_half_timing import (\n    checked_enabled as checked_withdrawal_half_timing_enabled,\n    normal_options as withdrawal_half_normal_options,\n    validate_execution as validate_withdrawal_half_execution,\n    timing_input as withdrawal_half_timing_input,\n    require_publication_locked as require_withdrawal_half_publication_locked,\n    require_endpoint as require_withdrawal_half_endpoint,\n)",
+      "old": "from .withdrawal_timing import checked_withdrawal_speed_scale, withdrawal_leg_speed_scales"
+    },
+    {
+      "new": "        self.bin_clearance_timing_enabled = checked_bin_clearance_timing_enabled(\n            self.get_parameter('bin_clearance_timing_enabled').value)\n        self.withdrawal_half_timing_enabled = checked_withdrawal_half_timing_enabled(\n            self.get_parameter('withdrawal_half_timing_enabled').value)",
+      "old": "        self.bin_clearance_timing_enabled = checked_bin_clearance_timing_enabled(\n            self.get_parameter('bin_clearance_timing_enabled').value)"
+    },
+    {
+      "new": "            'bin_clearance_timing_enabled': False,\n            'withdrawal_half_timing_enabled': False,",
+      "old": "            'bin_clearance_timing_enabled': False,"
+    },
+    {
+      "new": "or self.empty_pickup_setup_retiming_enabled or getattr(self, 'bin_clearance_timing_enabled', False)\n                or getattr(self, 'withdrawal_half_timing_enabled', False)):",
+      "old": "or self.empty_pickup_setup_retiming_enabled or getattr(self, 'bin_clearance_timing_enabled', False)):"
+    },
+    {
+      "new": "        clearance_admission=None,\n        withdrawal_admission=None,\n    ) -> Tuple[bool, bool]:",
+      "old": "        clearance_admission=None,\n    ) -> Tuple[bool, bool]:"
+    },
+    {
+      "new": "        if withdrawal_admission is not None and (not (velocity_admission and velocity_headroom)\n                or clearance_admission is not None):\n            raise ArmVelocityAdmissionRejected('withdrawal timing requires exclusive retained headroom admission')\n        if velocity_admission and initial_pressure_gate is not None:\n            raise ArmVelocityAdmissionRejected('faster retained arm cannot use the lift pressure gate')",
+      "old": "        if velocity_admission and initial_pressure_gate is not None:\n            raise ArmVelocityAdmissionRejected('faster retained arm cannot use the lift pressure gate')"
+    },
+    {
+      "new": "                    if clearance_admission is not None:\n                        require_bin_clearance_publication_locked(self, clearance_admission, goal, command)\n                    if withdrawal_admission is not None:\n                        require_withdrawal_half_publication_locked(\n                            self, withdrawal_admission, goal, command, leg_offset)",
+      "old": "                    if clearance_admission is not None:\n                        require_bin_clearance_publication_locked(self, clearance_admission, goal, command)"
+    },
+    {
+      "new": "        clearance_timing=None,\n        withdrawal_timing=None,\n    ) -> Tuple[bool, int, bool]:",
+      "old": "        clearance_timing=None,\n    ) -> Tuple[bool, int, bool]:"
+    },
+    {
+      "new": "        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        if withdrawal_timing is not None:\n            validate_withdrawal_half_execution(self, withdrawal_timing, legs, command,\n                leg_offset=leg_offset, initial_pressure_gate=initial_pressure_gate,\n                arm_speed_scale=arm_speed_scale, withdrawal_speed_scale=withdrawal_speed_scale,\n                fresh_retention_phases=fresh_retention_phases, clearance_timing=clearance_timing)\n        if clearance_timing is not None:",
+      "old": "        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        if clearance_timing is not None:"
+    },
+    {
+      "new": "                faster_withdrawal = withdrawal_timing is not None and 1 <= index <= 4\n                withdrawal_admission = None\n                if faster_withdrawal:\n                    timing_duration, withdrawal_admission = withdrawal_half_timing_input(\n                        self, withdrawal_timing, index, solution, duration, phase)\n                command_duration = (timing_duration if effective_speed_scale == 1.0 else\n                                    scaled_arm_seconds(timing_duration, effective_speed_scale))",
+      "old": "                command_duration = (timing_duration if effective_speed_scale == 1.0 else\n                                    scaled_arm_seconds(timing_duration, effective_speed_scale))"
+    },
+    {
+      "new": "                    **({'velocity_headroom': True, 'withdrawal_admission': withdrawal_admission}\n                       if faster_withdrawal else {}),\n                    **({'initial_pressure_gate': initial_pressure_gate}\n                       if index == 0 and initial_pressure_gate is not None else {}),",
+      "old": "                    **({'initial_pressure_gate': initial_pressure_gate}\n                       if index == 0 and initial_pressure_gate is not None else {}),"
+    },
+    {
+      "new": "                require_bin_clearance_endpoint(self, clearance_timing, index)\n            if faster_withdrawal:\n                require_withdrawal_half_endpoint(self, withdrawal_admission)\n            if phase in fresh_retention_phases:",
+      "old": "                require_bin_clearance_endpoint(self, clearance_timing, index)\n            if phase in fresh_retention_phases:"
+    },
+    {
+      "new": "                **({'withdrawal_speed_scale': self.withdrawal_speed_scale}\n                   if lift_enabled and getattr(self, 'withdrawal_speed_scale', 1.0) != 1.0 else {}),\n                **withdrawal_half_normal_options(self, first_segment, initial_pressure_gate,\n                    lift_plan if lift_enabled else None,\n                    ordinary=bool(top_row and lift_enabled and not staged_empty_gripper\n                                  and deferred_post_retreat_return)),",
+      "old": "                **({'withdrawal_speed_scale': self.withdrawal_speed_scale}\n                   if lift_enabled and getattr(self, 'withdrawal_speed_scale', 1.0) != 1.0 else {}),"
+    },
+    {
+      "count": 1,
+      "new": "from .placement_scene_context import measured_scene_context, matching_table_scene\nfrom . import release_pose_finish",
+      "old": "from .placement_scene_context import measured_scene_context, matching_table_scene"
+    },
+    {
+      "count": 1,
+      "new": "        self.bin_clearance_timing_enabled = checked_bin_clearance_timing_enabled(\n            self.get_parameter('bin_clearance_timing_enabled').value)\n        self.place_finish_at_release_enabled = release_pose_finish.checked_enabled(\n            self.get_parameter('place_finish_at_release_enabled').value)\n        self._release_pose_owner = None\n        self._release_pose_fault_latched = None",
+      "old": "        self.bin_clearance_timing_enabled = checked_bin_clearance_timing_enabled(\n            self.get_parameter('bin_clearance_timing_enabled').value)"
+    },
+    {
+      "count": 1,
+      "new": "            'bin_clearance_timing_enabled': False,\n            'place_finish_at_release_enabled': False,",
+      "old": "            'bin_clearance_timing_enabled': False,"
+    },
+    {
+      "count": 1,
+      "new": "        if command in ('cancel', 'abort', 'stop'):\n            if (getattr(self, '_release_pose_owner', None) is not None\n                    and release_pose_finish.cancel_postopen(self)):\n                return\n",
+      "old": "        if command in ('cancel', 'abort', 'stop'):\n"
+    },
+    {
+      "count": 1,
+      "new": "            if (getattr(self, '_release_pose_owner', None) is not None\n                    or getattr(self, '_release_pose_fault_latched', None) is not None):\n                self._publish_status('rejected', command=command,\n                    reason='release_pose_owner_or_fault_active', **correlation)\n                return\n            head_owner = getattr(self, '_head_return_state', None)",
+      "old": "            head_owner = getattr(self, '_head_return_state', None)"
+    },
+    {
+      "count": 1,
+      "new": "                if (command == 'place' and getattr(self, '_release_pose_owner', None) is not None\n                        and release_pose_finish.publish_terminal(self, correlation)):\n                    pass\n                else:\n                    self._publish_status('succeeded', command=command, **fields, **correlation)",
+      "old": "                self._publish_status('succeeded', command=command, **fields, **correlation)"
+    },
+    {
+      "count": 1,
+      "new": "            if command == 'place':\n                _deactivate_place_contacts(self)\n                if getattr(self, '_release_pose_owner', None) is not None:\n                    release_pose_finish.deactivate(self)",
+      "old": "            if command == 'place':\n                _deactivate_place_contacts(self)"
+    },
+    {
+      "count": 1,
+      "new": "    def _place(self, payload=None) -> bool:\n        if (getattr(self, 'place_finish_at_release_enabled', False)\n                or (payload or {}).get('completion_mode') is not None):\n            release_pose_finish.validate_mode(self, payload)\n        correlation = None",
+      "old": "    def _place(self, payload=None) -> bool:\n        correlation = None"
+    },
+    {
+      "count": 1,
+      "new": "        release_owner = (release_pose_finish.prepare(\n            self, correlation, solutions[-1], direct_empty_home)\n            if getattr(self, 'place_finish_at_release_enabled', False) else None)\n        if correlation is not None:\n            # The original open command must attain its measured endpoint",
+      "old": "        if correlation is not None:\n            # The original open command must attain its measured endpoint"
+    },
+    {
+      "count": 1,
+      "new": "            def verify_open():\n                measured = observe_measured_open_pose(self, correlation, solutions[-1],\n                    'placement_open_measured')\n                if release_owner is not None:\n                    return release_pose_finish.remember_open(self, release_owner, measured)\n                return measured['verified']",
+      "old": "            def verify_open():\n                return observe_measured_open_pose(self, correlation, solutions[-1],\n                    'placement_open_measured')['verified']"
+    },
+    {
+      "count": 1,
+      "new": "            if release_owner is not None:\n                return release_pose_finish.finish(self, release_owner)\n            finish_options, measured_return_goal = raised_place_normal_finish(\n",
+      "old": "            finish_options, measured_return_goal = raised_place_normal_finish(\n"
+    },
+    {
+      "count": 1,
+      "new": "    def _hold_adaptive_gripper(self, reason: str) -> None:\n        \"\"\"Serialize a one-shot measured-position hold without cancelling recovery.\"\"\"\n        with self._adaptive_command_guard():\n            if ((getattr(self, '_release_pose_owner', None) is not None\n                    or getattr(self, '_release_pose_fault_latched', None) is not None)\n                    and release_pose_finish.block_postopen_gripper_hold(self)):\n                return\n",
+      "old": "    def _hold_adaptive_gripper(self, reason: str) -> None:\n        \"\"\"Serialize a one-shot measured-position hold without cancelling recovery.\"\"\"\n        with self._adaptive_command_guard():\n"
+    },
+    {
+      "count": 1,
+      "new": "            # RcutilsLogger in ROS 2 Humble has no ``exception`` method.  Log\n            # through the supported API so the failure status is still sent.\n            self.get_logger().error(f'{command} failed: {exc}')\n            failure_fields = {}\n            if (command == 'place'\n                    and isinstance(exc, release_pose_finish.ReleasePoseFeedbackStale)):\n                failure_fields['release_pose_feedback'] = exc.details\n            try:\n                # This is the existing outside-lock failed event. Diagnostics\n                # do not publish from a sensor callback or change its reason.\n                self._publish_status('failed', command=command, reason=str(exc),\n                                     **failure_fields, **correlation)\n            except Exception as publication_error:\n                if failure_fields:\n                    # Preserve the original safety fault if its extended\n                    # failure status cannot be serialized or delivered.\n                    raise exc from publication_error\n                raise\n        finally:\n            if command == 'place':\n                _deactivate_place_contacts(self)\n",
+      "old": "            # RcutilsLogger in ROS 2 Humble has no ``exception`` method.  Log\n            # through the supported API so the failure status is still sent.\n            self.get_logger().error(f'{command} failed: {exc}')\n            self._publish_status('failed', command=command, reason=str(exc), **correlation)\n        finally:\n            if command == 'place':\n                _deactivate_place_contacts(self)\n"
+    },
+    {
+      "count": 1,
+      "new": "from . import release_pose_finish\nfrom . import release_only_place_planning\n",
+      "old": "from . import release_pose_finish\n"
+    },
+    {
+      "count": 1,
+      "new": "        self.place_finish_at_release_enabled = release_pose_finish.checked_enabled(\n            self.get_parameter('place_finish_at_release_enabled').value)\n        self.release_only_place_planning_enabled = release_only_place_planning.checked_enabled(\n            self.get_parameter('release_only_place_planning_enabled').value)",
+      "old": "        self.place_finish_at_release_enabled = release_pose_finish.checked_enabled(\n            self.get_parameter('place_finish_at_release_enabled').value)"
+    },
+    {
+      "count": 1,
+      "new": "            'place_finish_at_release_enabled': False,\n            'release_only_place_planning_enabled': False,",
+      "old": "            'place_finish_at_release_enabled': False,"
+    },
+    {
+      "count": 1,
+      "new": "        \"\"\"Retrace the bin approach, then execute a prechecked unloaded fold.\"\"\"\n        from .release_only_place_planning import reject_return\n        reject_return(unloaded_home_waypoints)\n        reject_return(direct_empty_home)\n",
+      "old": "        \"\"\"Retrace the bin approach, then execute a prechecked unloaded fold.\"\"\"\n"
+    },
+    {
+      "count": 1,
+      "new": "        \"\"\"Execute a prechecked unloaded route, normally lowering the torso.\"\"\"\n        from .release_only_place_planning import reject_return\n        reject_return(unloaded_home_waypoints)\n",
+      "old": "        \"\"\"Execute a prechecked unloaded route, normally lowering the torso.\"\"\"\n"
+    },
+    {
+      "count": 1,
+      "new": "        \"\"\"Recover only when release is safe; otherwise stop while closed.\"\"\"\n        from .release_only_place_planning import reject_return\n        reject_return(unloaded_home_waypoints)\n",
+      "old": "        \"\"\"Recover only when release is safe; otherwise stop while closed.\"\"\"\n"
+    },
+    {
+      "count": 1,
+      "new": "    def _place(self, payload=None) -> bool:\n        release_only_request = release_only_endpoint = None\n        if getattr(self, 'release_only_place_planning_enabled', False):\n            if not getattr(self, 'book_centered_place_enabled', False):\n                raise RuntimeError('release-only planning requires normal centered PLACE')\n",
+      "old": "    def _place(self, payload=None) -> bool:\n"
+    },
+    {
+      "count": 1,
+      "new": "            if getattr(self, 'release_only_place_planning_enabled', False):\n                release_only_request = release_only_place_planning.capture(self, payload)\n            # Stored staging selects an IK branch only. The checked physical\n",
+      "old": "            # Stored staging selects an IK branch only. The checked physical\n"
+    },
+    {
+      "count": 1,
+      "new": "                    get_package_share_directory,\n                    **({'release_only_request': release_only_request}\n                       if release_only_request is not None else {}),\n                    table_scene=",
+      "old": "                    get_package_share_directory,\n                    table_scene="
+    },
+    {
+      "count": 1,
+      "new": "            place_scene_diagnostics = scene_plan.diagnostics\n            if release_only_request is not None:\n                release_only_endpoint = release_only_place_planning.require_plan(\n                    release_only_request, scene_plan, self, correlation)\n            elif getattr(scene_plan, 'release_only_endpoint', None) is not None:\n                raise RuntimeError('unexpected release-only plan in ordinary PLACE')\n",
+      "old": "            place_scene_diagnostics = scene_plan.diagnostics\n"
+    },
+    {
+      "count": 1,
+      "new": "        if release_only_endpoint is not None:\n            release_only_endpoint.require(self, correlation, solutions[-1])\n        if not self._fresh_retention_probe('place', 'pre_place_motion'):\n",
+      "old": "        if not self._fresh_retention_probe('place', 'pre_place_motion'):\n"
+    },
+    {
+      "count": 1,
+      "new": "        if ((direct_empty_home is not None or release_only_endpoint is not None) and arm_speed_scale != 1.0\n",
+      "old": "        if (direct_empty_home is not None and arm_speed_scale != 1.0\n"
+    },
+    {
+      "count": 1,
+      "new": "        if release_only_endpoint is not None:\n            release_only_endpoint.require(self, correlation, solutions[-1])\n        approach_ok, next_leg, contact_lost = self._execute_retained_arm_legs(\n",
+      "old": "        approach_ok, next_leg, contact_lost = self._execute_retained_arm_legs(\n"
+    },
+    {
+      "count": 1,
+      "new": "        if release_only_endpoint is not None:\n            release_only_endpoint.require(self, correlation, solutions[-1])\n        release_owner = (release_pose_finish.prepare(\n            self, correlation, solutions[-1], direct_empty_home,\n            **({'release_only_endpoint': release_only_endpoint}\n               if release_only_endpoint is not None else {}))\n            if getattr(self, 'place_finish_at_release_enabled', False) else None)\n        if release_only_endpoint is not None and release_owner is None:\n            raise RuntimeError('release-only plan cannot enter legacy release/return')",
+      "old": "        release_owner = (release_pose_finish.prepare(\n            self, correlation, solutions[-1], direct_empty_home)\n            if getattr(self, 'place_finish_at_release_enabled', False) else None)"
+    },
+    {
+      "count": 1,
+      "new": "        self.completed_head_hold_recheck_enabled = checked_enabled(\n            self.get_parameter('completed_head_hold_recheck_enabled').value)\n        self._empty_head_timing_owner = None\n",
+      "old": "        self._empty_head_timing_owner = None\n"
+    },
+    {
+      "count": 1,
+      "new": "            'empty_head_timing_enabled': False,\n            'completed_head_hold_recheck_enabled': False,\n",
+      "old": "            'empty_head_timing_enabled': False,\n"
+    },
+    {
+      "count": 1,
+      "new": "        def fallback(reason, *, recheck=False, deadline=None):\n",
+      "old": "        def fallback(reason):\n"
+    },
+    {
+      "count": 1,
+      "new": "            if deadline is None:\n                deadline = time.monotonic() + min(2.0, max(0.0, float(self.timeout)))\n",
+      "old": "            deadline = time.monotonic() + min(2.0, max(0.0, float(self.timeout)))\n"
+    },
+    {
+      "count": 1,
+      "new": "                    # A fresh start alone does not establish the exact target.\n                    # Only the initial snapshot miss may request this one retry;\n                    # the original geometry/final-lock proof below still runs.\n                    if recheck and time.monotonic() < deadline:\n                        strict = self._head_hold_snapshot(target, completed)\n                        if strict is not None:\n                            report('head_hold_fallback', reason,\n                                   phase='strict_target_recheck_ready', attempts=attempts)\n                            return strict, deadline\n                    # None retains the complete sweep/server/controller path.\n                    return None\n",
+      "old": "                    # None selects the existing complete sweep/server/controller\n                    # path in _follow. Never approve the old no-command geometry.\n                    return None\n"
+    },
+    {
+      "count": 1,
+      "new": "        recheck_deadline = None\n        snapshot = self._head_hold_snapshot(target, completed)\n        if snapshot is None:\n            recovered = fallback('initial_snapshot_ineligible', recheck=(\n                getattr(self, 'completed_head_hold_recheck_enabled', False) is True))\n            if not isinstance(recovered, tuple):\n                return recovered\n            snapshot, recheck_deadline = recovered\n",
+      "old": "        snapshot = self._head_hold_snapshot(target, completed)\n        if snapshot is None:\n            return fallback('initial_snapshot_ineligible')\n"
+    },
+    {
+      "count": 1,
+      "new": "        # Reuse the first waiting window; never start a second retry window.\n        if recheck_deadline is not None and time.monotonic() >= recheck_deadline:\n            return fallback('recheck_window_expired', deadline=recheck_deadline)\n        # No command or sensor lock spans geometry, callbacks or action waits.\n        if not self._head_hold_geometry_is_safe(snapshot):\n",
+      "old": "        # No command or sensor lock spans geometry, callbacks or action waits.\n        if not self._head_hold_geometry_is_safe(snapshot):\n"
+    },
+    {
+      "count": 1,
+      "new": "                    if (not fault and reason is None and recheck_deadline is not None\n                            and time.monotonic() >= recheck_deadline):\n                        reason = 'recheck_window_expired'\n                    if not fault and reason is None:\n                        self._last_completed_head_target = completed\n",
+      "old": "                    if not fault and reason is None:\n                        self._last_completed_head_target = completed\n"
+    },
+    {
+      "count": 1,
+      "new": "        return fallback(reason, deadline=recheck_deadline)\n\n    def _move_head",
+      "old": "        return fallback(reason)\n\n    def _move_head"
+    },
+    {
+      "count": 1,
+      "new": "        self.additional_arm_time_scale = checked_additional_arm_time_scale(\n            self.get_parameter('additional_arm_time_scale').value)\n        self.compact_extension_half_timing_enabled = self.get_parameter(\n            'compact_extension_half_timing_enabled').value\n        if type(self.compact_extension_half_timing_enabled) is not bool:\n            raise ValueError('compact_extension_half_timing_enabled must be Boolean')\n        if self.compact_extension_half_timing_enabled and self.additional_arm_time_scale != 2.0:\n            raise ValueError('compact extension half timing requires additional_arm_time_scale=2')\n",
+      "old": "        self.additional_arm_time_scale = checked_additional_arm_time_scale(\n            self.get_parameter('additional_arm_time_scale').value)\n"
+    },
+    {
+      "count": 1,
+      "new": "            'additional_arm_time_scale': 1.0,\n            'compact_extension_half_timing_enabled': False,\n",
+      "old": "            'additional_arm_time_scale': 1.0,\n"
+    },
+    {
+      "count": 1,
+      "new": "                or getattr(self, 'withdrawal_half_timing_enabled', False)\n                or getattr(self, 'compact_extension_half_timing_enabled', False)):\n",
+      "old": "                or getattr(self, 'withdrawal_half_timing_enabled', False)):\n"
+    },
+    {
+      "count": 1,
+      "new": "        extension_goal, extension_duration = prepared_groups[0]\n        extension_half_enabled = getattr(self, 'compact_extension_half_timing_enabled', False)\n        if extension_half_enabled and self.additional_arm_time_scale != 2.0:\n            raise ValueError('compact extension half timing requires additional_arm_time_scale=2')\n",
+      "old": "        extension_goal, extension_duration = prepared_groups[0]\n"
+    },
+    {
+      "count": 1,
+      "new": "            extension_goal,\n            extension_duration,\n            timed_groups[0],\n            'compact_transport',\n            **({'velocity_admission': True, 'velocity_headroom': True}\n               if extension_half_enabled else {}),\n",
+      "old": "            extension_goal,\n            extension_duration,\n            timed_groups[0],\n            'compact_transport',\n"
+    },
+    {
+      "count": 1,
+      "new": "        self.withdrawal_half_timing_enabled = checked_withdrawal_half_timing_enabled(\n            self.get_parameter('withdrawal_half_timing_enabled').value)\n        self.withdrawal_quarter_timing_enabled = self.get_parameter(\n            'withdrawal_quarter_timing_enabled').value\n        if type(self.withdrawal_quarter_timing_enabled) is not bool:\n            raise ValueError('withdrawal_quarter_timing_enabled must be Boolean')\n        if self.withdrawal_quarter_timing_enabled and not self.withdrawal_half_timing_enabled:\n            raise ValueError('withdrawal quarter timing requires withdrawal_half_timing_enabled')\n",
+      "old": "        self.withdrawal_half_timing_enabled = checked_withdrawal_half_timing_enabled(\n            self.get_parameter('withdrawal_half_timing_enabled').value)\n"
+    },
+    {
+      "count": 1,
+      "new": "            'withdrawal_half_timing_enabled': False,\n            'withdrawal_quarter_timing_enabled': False,\n",
+      "old": "            'withdrawal_half_timing_enabled': False,\n"
+    },
+    {
+      "count": 1,
+      "new": "from .placement_scene_context import measured_scene_context, matching_table_scene\nfrom . import place_transition_stop as _place_transition_stop\n",
+      "old": "from .placement_scene_context import measured_scene_context, matching_table_scene\n"
+    },
+    {
+      "count": 1,
+      "new": "        self.preopen_stationary_enabled = bool(\n            self.get_parameter('preopen_stationary_enabled').value)\n        self.place_transition_stop_enabled = _place_transition_stop.checked_enabled(\n            self.get_parameter('place_transition_stop_enabled').value)\n        self._place_transition_stop_owner = None\n        self._place_transition_scene_failure = None\n        if self.place_transition_stop_enabled and self.loaded_place_speed_scale_cap != 2.0:\n            raise ValueError('place transition stop requires loaded_place_speed_scale_cap=2')\n",
+      "old": "        self.preopen_stationary_enabled = bool(\n            self.get_parameter('preopen_stationary_enabled').value)\n"
+    },
+    {
+      "count": 1,
+      "new": "            'preopen_stationary_enabled': False,\n            'place_transition_stop_enabled': False,\n",
+      "old": "            'preopen_stationary_enabled': False,\n"
+    },
+    {
+      "count": 1,
+      "new": "        withdrawal_admission=None,\n        transition_stop=None,\n    ) -> Tuple[bool, bool]:\n",
+      "old": "        withdrawal_admission=None,\n    ) -> Tuple[bool, bool]:\n"
+    },
+    {
+      "count": 1,
+      "new": "                leg=leg + leg_offset,\n                reason=reason,\n                **(_place_transition_stop.diagnostic_fields(self, reason)\n                   if getattr(self, 'place_transition_stop_enabled', False) else {}),\n            )\n\n        # These constant-time gates",
+      "old": "                leg=leg + leg_offset,\n                reason=reason,\n            )\n\n        # These constant-time gates"
+    },
+    {
+      "count": 1,
+      "new": "            if transition_stop is not None:\n                transition_stop.require_publication_locked(self, goal, command, leg_offset)\n            pending = getattr(self, '_pending_retained_acceptances', set())\n            pending.add(acceptance_token)\n",
+      "old": "            pending = getattr(self, '_pending_retained_acceptances', set())\n            pending.add(acceptance_token)\n"
+    },
+    {
+      "count": 1,
+      "new": "                # acceptance handling, even if it has this exception's class.\n                raise\n            if transition_stop is not None and exc is transition_stop.publication_rejection:\n                # Exact added qualification failure precedes registration/publication.\n                raise\n            self._cancel.set()\n",
+      "old": "                # acceptance handling, even if it has this exception's class.\n                raise\n            self._cancel.set()\n"
+    },
+    {
+      "count": 1,
+      "new": "        withdrawal_timing=None,\n        transition_stop=None,\n    ) -> Tuple[bool, int, bool]:\n        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        if transition_stop is not None:\n            transition_stop.require_execution(self, legs, command,\n                arm_speed_scale=arm_speed_scale, leg_offset=leg_offset,\n                fresh_retention_phases=fresh_retention_phases, initial_pressure_gate=initial_pressure_gate,\n                clearance_timing=clearance_timing, withdrawal_timing=withdrawal_timing,\n                withdrawal_speed_scale=withdrawal_speed_scale)\n",
+      "old": "        withdrawal_timing=None,\n    ) -> Tuple[bool, int, bool]:\n        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n"
+    },
+    {
+      "count": 1,
+      "new": "                    **({'initial_pressure_gate': initial_pressure_gate}\n                       if index == 0 and initial_pressure_gate is not None else {}),\n                    **({'transition_stop': transition_stop}\n                       if transition_stop is not None and index == 1 else {}),\n                )\n",
+      "old": "                    **({'initial_pressure_gate': initial_pressure_gate}\n                       if index == 0 and initial_pressure_gate is not None else {}),\n                )\n"
+    },
+    {
+      "count": 1,
+      "new": "            except Exception as exc:\n                if transition_stop is not None and exc is transition_stop.publication_rejection:\n                    raise\n                if getattr(self, '_goal_handles', ()):\n",
+      "old": "            except Exception as exc:\n                if getattr(self, '_goal_handles', ()):\n"
+    },
+    {
+      "count": 1,
+      "new": "                return False, index, False\n            finally:\n                if transition_stop is not None and index == 1:\n                    transition_stop.close()\n            if not moved:\n",
+      "old": "                return False, index, False\n            if not moved:\n"
+    },
+    {
+      "count": 1,
+      "new": "            if not retained:\n                return False, index + 1, True\n            if transition_stop is not None and index == 0:\n                # Success and original retention precede the added no-motion wait.\n                transition_stop.qualify()\n        return True, len(legs), False\n",
+      "old": "            if not retained:\n                return False, index + 1, True\n        return True, len(legs), False\n"
+    },
+    {
+      "count": 1,
+      "new": "        if getattr(self, 'place_transition_stop_enabled', False):\n            loaded_arm_timing_options.update(_place_transition_stop.normal_options(\n                self, correlation, approach_legs, loaded_arm_timing_options.get('arm_speed_scale', 1.0),\n                (place_scene_diagnostics or {}).get('measured_master')))\n        approach_ok, next_leg, contact_lost = self._execute_retained_arm_legs(\n            approach_legs,\n",
+      "old": "        approach_ok, next_leg, contact_lost = self._execute_retained_arm_legs(\n            approach_legs,\n"
+    },
+    {
+      "count": 1,
+      "new": "from . import release_pose_finish\nfrom . import initial_stow_serial_timing as _initial_stow_serial\n",
+      "old": "from . import release_pose_finish\n"
+    },
+    {
+      "count": 1,
+      "new": "        self.initial_stow_serial_timing_enabled = _initial_stow_serial.checked_enabled(\n            self.get_parameter('initial_stow_serial_timing_enabled').value)\n        self._initial_stow_serial_owner = None\n        self._initial_stow_serial_command_seen = False\n        self._initial_stow_serial_limits = None\n        self.withdrawal_quarter_timing_enabled = self.get_parameter(\n",
+      "old": "        self.withdrawal_quarter_timing_enabled = self.get_parameter(\n"
+    },
+    {
+      "count": 1,
+      "new": "            'withdrawal_quarter_timing_enabled': False,\n            'initial_stow_serial_timing_enabled': False,\n",
+      "old": "            'withdrawal_quarter_timing_enabled': False,\n"
+    },
+    {
+      "count": 1,
+      "new": "        initialize_pickup_geometry_backend(self, get_package_share_directory)\n        if self.initial_stow_serial_timing_enabled:\n            self._initial_stow_serial_limits = _initial_stow_serial.load_limits(urdf)\n",
+      "old": "        initialize_pickup_geometry_backend(self, get_package_share_directory)\n"
+    },
+    {
+      "count": 1,
+      "new": "        with self._lock:\n            if getattr(self, '_initial_stow_serial_owner', None) is not None:\n                self._publish_status('rejected', command=command,\n                    reason='initial_stow_serial_owner_active', **correlation)\n                return\n            if getattr(self, '_empty_torso_planning_owner', None) is not None:\n",
+      "old": "        with self._lock:\n            if getattr(self, '_empty_torso_planning_owner', None) is not None:\n"
+    },
+    {
+      "count": 1,
+      "new": "        try:\n            initial_stow = (_initial_stow_serial.begin_command(self, command)\n                if getattr(self, 'initial_stow_serial_timing_enabled', False) else None)\n            if command == 'pick':\n                self._empty_head_pick_started = True\n",
+      "old": "        try:\n            if command == 'pick':\n                self._empty_head_pick_started = True\n"
+    },
+    {
+      "count": 1,
+      "new": "                'stow': (lambda: self._stow(initial_stow_serial=initial_stow))\n                    if initial_stow is not None else self._stow,\n",
+      "old": "                'stow': self._stow,\n"
+    },
+    {
+      "count": 1,
+      "new": "    def _stow(self, *, initial_stow_serial=None) -> bool:\n",
+      "old": "    def _stow(self) -> bool:\n"
+    },
+    {
+      "count": 1,
+      "new": "            raise RuntimeError('staged empty arm requires a checked recovery before stow')\n        if initial_stow_serial is not None:\n            return _initial_stow_serial.run_stow(self, initial_stow_serial)\n",
+      "old": "            raise RuntimeError('staged empty arm requires a checked recovery before stow')\n"
+    },
+    {
+      "count": 1,
+      "new": "        empty_torso_owner=None,\n        initial_stow_owner=None,\n    ) -> bool:\n",
+      "old": "        empty_torso_owner=None,\n    ) -> bool:\n"
+    },
+    {
+      "count": 1,
+      "new": "        if initial_stow_owner is not None:\n            if (empty_torso_owner is not None or empty_head_owner is not None\n                    or head_preflight or empty_pickup_setup or pre_send_check is not None\n                    or trajectory_duration is not None):\n                raise ValueError('initial stow timing cannot combine with another motion option')\n            initial_stow_owner.follow_started(client, names, positions, duration, _torso_hold_token)\n        if empty_torso_owner is not None and empty_head_owner is not None:\n",
+      "old": "        if empty_torso_owner is not None and empty_head_owner is not None:\n"
+    },
+    {
+      "count": 1,
+      "new": "        command_duration = (initial_stow_owner.command_duration()\n            if initial_stow_owner is not None else float(duration))\n",
+      "old": "        command_duration = float(duration)\n"
+    },
+    {
+      "count": 1,
+      "new": "        elif initial_stow_owner is not None:\n            with self._adaptive_command_guard():\n                _require_place_contact_clear(self)\n                with self._lock:\n                    initial_stow_owner.admit_locked(client, goal, _torso_hold_token)\n                    acceptance = client.send_goal_async(goal)\n                    initial_stow_owner.sent_locked(acceptance)\n            goal_handle = initial_stow_owner.wait_acceptance(acceptance, self.timeout)\n        elif trajectory_duration is not None:\n            velocity_record = None\n",
+      "old": "        elif trajectory_duration is not None:\n            velocity_record = None\n"
+    },
+    {
+      "count": 1,
+      "new": "            result_future = goal_handle.get_result_async()\n            if initial_stow_owner is not None:\n                with self._lock:\n                    initial_stow_owner.accepted_locked(goal_handle, result_future)\n            if empty_torso_owner is not None:\n",
+      "old": "            result_future = goal_handle.get_result_async()\n            if empty_torso_owner is not None:\n"
+    },
+    {
+      "count": 1,
+      "new": "            while not result_future.done():\n                if initial_stow_owner is not None:\n                    initial_stow_owner.check()\n                if empty_torso_owner is not None:\n",
+      "old": "            while not result_future.done():\n                if empty_torso_owner is not None:\n"
+    },
+    {
+      "count": 1,
+      "new": "            if initial_stow_owner is not None:\n                initial_stow_owner.terminal(result_future)\n            if empty_torso_owner is not None:\n                empty_torso_owner.action_completed(result_future)\n",
+      "old": "            if empty_torso_owner is not None:\n                empty_torso_owner.action_completed(result_future)\n"
+    },
+    {
+      "new": "from . import release_only_place_planning\nfrom . import release_only_clearance_timing as _release_clearance\n",
+      "old": "from . import release_only_place_planning\n"
+    },
+    {
+      "new": "        self._place_transition_scene_failure = None\n        self.release_only_clearance_timing_enabled = _release_clearance.checked_enabled(\n            self.get_parameter('release_only_clearance_timing_enabled').value)\n        self._release_only_clearance_owner = None\n        if self.release_only_clearance_timing_enabled and (\n                not self.release_only_place_planning_enabled or not self.place_transition_stop_enabled\n                or self.bin_clearance_timing_enabled or self.loaded_place_speed_scale_cap != 2.0\n                or self.additional_arm_time_scale != 2.0):\n            raise ValueError('release-only clearance requires exclusive release-only cap2 transition mode')\n",
+      "old": "        self._place_transition_scene_failure = None\n"
+    },
+    {
+      "new": "            'place_transition_stop_enabled': False,\n            'release_only_clearance_timing_enabled': False,\n",
+      "old": "            'place_transition_stop_enabled': False,\n"
+    },
+    {
+      "new": "                or getattr(self, 'compact_extension_half_timing_enabled', False)\n                or getattr(self, 'release_only_clearance_timing_enabled', False)):\n",
+      "old": "                or getattr(self, 'compact_extension_half_timing_enabled', False)):\n"
+    },
+    {
+      "new": "        clearance_admission=None,\n        release_clearance_admission=None,\n        withdrawal_admission=None,\n",
+      "old": "        clearance_admission=None,\n        withdrawal_admission=None,\n"
+    },
+    {
+      "new": "        if release_clearance_admission is not None and (\n                not (velocity_admission and velocity_headroom)\n                or clearance_admission is not None or withdrawal_admission is not None\n                or transition_stop is not None or total_duration != 2.8):\n            raise ArmVelocityAdmissionRejected('release-only clearance requires exclusive retained headroom')\n        if velocity_admission and initial_pressure_gate is not None:\n",
+      "old": "        if velocity_admission and initial_pressure_gate is not None:\n"
+    },
+    {
+      "new": "                    if release_clearance_admission is not None:\n                        release_clearance_admission.require_publication_locked(self, goal, command, leg_offset)\n                    if withdrawal_admission is not None:\n",
+      "old": "                    if withdrawal_admission is not None:\n"
+    },
+    {
+      "new": "        clearance_timing=None,\n        release_clearance=None,\n        withdrawal_timing=None,\n",
+      "old": "        clearance_timing=None,\n        withdrawal_timing=None,\n"
+    },
+    {
+      "new": "        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        if release_clearance is not None:\n            release_clearance.require_execution(self, legs, command,\n                arm_speed_scale=arm_speed_scale, leg_offset=leg_offset,\n                fresh_retention_phases=fresh_retention_phases, initial_pressure_gate=initial_pressure_gate,\n                clearance_timing=clearance_timing, withdrawal_timing=withdrawal_timing,\n                withdrawal_speed_scale=withdrawal_speed_scale, transition_stop=transition_stop)\n",
+      "old": "        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n"
+    },
+    {
+      "new": "        for index, (solution, duration, phase) in enumerate(legs):\n            release_connector = None\n            try:\n",
+      "old": "        for index, (solution, duration, phase) in enumerate(legs):\n            try:\n"
+    },
+    {
+      "new": "                if release_clearance is not None and index == release_clearance.index:\n                    release_connector = release_clearance.admit(index, solution, duration, phase)\n                    timing_duration = 1.4\n                faster_withdrawal = withdrawal_timing is not None and 1 <= index <= 4\n",
+      "old": "                faster_withdrawal = withdrawal_timing is not None and 1 <= index <= 4\n"
+    },
+    {
+      "new": "                    **({'velocity_headroom': True, 'release_clearance_admission': release_connector}\n                       if release_connector is not None else {}),\n                    **({'velocity_headroom': True, 'withdrawal_admission': withdrawal_admission}\n",
+      "old": "                    **({'velocity_headroom': True, 'withdrawal_admission': withdrawal_admission}\n"
+    },
+    {
+      "new": "            finally:\n                if release_connector is not None:\n                    release_connector.close()\n                if transition_stop is not None and index == 1:\n",
+      "old": "            finally:\n                if transition_stop is not None and index == 1:\n"
+    },
+    {
+      "new": "            if release_connector is not None:\n                release_connector.require_endpoint()\n            if faster_clearance:\n                # A stopped controller result does not prove measured arrival.\n",
+      "old": "            if faster_clearance:\n                # A stopped controller result does not prove measured arrival.\n"
+    },
+    {
+      "new": "                transition_stop.qualify()\n            if release_clearance is not None:\n                release_clearance.retained(index)\n        return True, len(legs), False\n",
+      "old": "                transition_stop.qualify()\n        return True, len(legs), False\n"
+    },
+    {
+      "new": "        if getattr(self, 'release_only_clearance_timing_enabled', False):\n            arm_timing_options.update(_release_clearance.normal_options(\n                self, correlation, release_only_endpoint, approach_legs,\n                arm_timing_options.get('transition_stop'), arm_speed_scale))\n        approach_ok, next_leg, contact_lost = self._execute_retained_arm_legs(\n            approach_legs,\n",
+      "old": "        approach_ok, next_leg, contact_lost = self._execute_retained_arm_legs(\n            approach_legs,\n"
+    },
+    {
+      "new": "        if getattr(self, 'release_only_clearance_timing_enabled', False):\n            loaded_arm_timing_options.update(_release_clearance.normal_options(\n                self, correlation, release_only_endpoint, approach_legs,\n                loaded_arm_timing_options.get('transition_stop'),\n                loaded_arm_timing_options.get('arm_speed_scale', 1.0)))\n",
+      "old": "        if getattr(self, 'release_only_clearance_timing_enabled', False):\n            arm_timing_options.update(_release_clearance.normal_options(\n                self, correlation, release_only_endpoint, approach_legs,\n                arm_timing_options.get('transition_stop'), arm_speed_scale))\n"
+    }
+  ],
+  "parent_sha256": "f2d251fda536e7cd96cf1651f56ad3f5795f063ffad8e0dfda57d4188029806c"
+}

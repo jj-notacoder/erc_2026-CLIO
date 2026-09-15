@@ -1,0 +1,255 @@
+{
+  "candidate_sha256": "4e7a9e01c75795f867d53da326f06258219904d453be977f82bcbf44e09b5d9e",
+  "parent_profile_sha256": "6e06944eb8eb119c0bfcb4b1d9ff0a7b4ed30e3265cf9bcae469a79f29a34bd1",
+  "parent_sha256": "98ef332abbec93aa4af1d9874cf01c2308a8dc8575a3b22ab790843ebebe4bea",
+  "replacements": [
+    {
+      "count": 1,
+      "new": "    lift_first_extraction_lift_m: 0.020\n    withdrawal_speed_scale: 3.0\n    supported_compact_minimum_segment_seconds: 0.175\n",
+      "old": "    lift_first_extraction_lift_m: 0.005\n"
+    },
+    {
+      "count": 1,
+      "new": "erc_navigation:\n  ros__parameters:\n    normal_linear_convergence_enabled: true\nerc_perception:\n",
+      "old": "erc_perception:\n"
+    },
+    {
+      "count": 1,
+      "new": "    withdrawal_speed_scale: 3.0\n    additional_arm_time_scale: 2.0\n    empty_pickup_setup_retiming_enabled: true\n    place_parallel_geometry_enabled: true\n    place_carried_volume_parallel_enabled: true\n    settled_place_torso_skip_enabled: true\n    pickup_parallel_geometry_enabled: true\n    pickup_post_retreat_parallel_geometry_enabled: true\n    geometry_process_workers: 8\n    loaded_place_speed_scale_cap: 1.25\n",
+      "old": "    withdrawal_speed_scale: 3.0\n"
+    },
+    {
+      "count": 1,
+      "new": "# Explicit development opt-in; layered after solution.yaml.\n# Runtime evidence records the exact selected overrides and source hashes.\n# Trial timeout remains a launch argument; no wildcard override is added here.\nerc_manipulation:\n  ros__parameters:\n    raw_contacts_enabled: true\n    stock_gripper_close_diagnostic_enabled: true\n    fine_gripper_close_enabled: false\n    preclose_aperture_geometry_enabled: false\n    lift_first_extraction_enabled: true\n    lift_first_extraction_lift_m: 0.020\n    withdrawal_speed_scale: 3.0\n    additional_arm_time_scale: 2.0\n    empty_pickup_setup_retiming_enabled: true\n    place_parallel_geometry_enabled: true\n    place_carried_volume_parallel_enabled: false\n    head_return_overlap_enabled: false\n    settled_place_torso_skip_enabled: true\n    pickup_parallel_geometry_enabled: true\n    pickup_post_retreat_parallel_geometry_enabled: true\n    geometry_process_workers: 8\n    loaded_place_speed_scale_cap: 1.25\n    supported_compact_minimum_segment_seconds: 0.175\n    command_timeout_seconds: 2400.0\n    stock_gripper_close_target_position: 0.017\n    book_centered_place_enabled: true\n    book_centered_place_height_above_point_m: 0.27\n    book_centered_place_approach_x_m: 0.6\n    table_scene_required: true\n    bin_scene_required: true\n    scene_cartesian_wall_seconds: 1800.0\n    delivery_evidence_enabled: true\n    book_centered_place_clearance_height_m: 0.5\n    place_torso_height: 0.35\n    measured_place_height_enabled: false\n    placement_transport_speed_scale: 3.0\n    preopen_stationary_enabled: true\nerc_mission_manager:\n  ros__parameters:\n    head_return_overlap_enabled: false\n    marker_search_negative_enabled: true\n    manipulation_timeout_seconds: 2400.0\n    lift_first_extraction_enabled: true\n    delivery_evidence_enabled: true\n    bin_standoff_distance: 0.82\nerc_navigation:\n  ros__parameters:\n    normal_linear_convergence_enabled: true\nerc_perception:\n  ros__parameters:\n    table_scene_enabled: true\n    bin_scene_enabled: true\n",
+      "old": "# Explicit development opt-in; layered after solution.yaml.\n# Runtime evidence records the exact selected overrides and source hashes.\n# Trial timeout remains a launch argument; no wildcard override is added here.\nerc_manipulation:\n  ros__parameters:\n    raw_contacts_enabled: true\n    stock_gripper_close_diagnostic_enabled: true\n    fine_gripper_close_enabled: false\n    preclose_aperture_geometry_enabled: false\n    lift_first_extraction_enabled: true\n    lift_first_extraction_lift_m: 0.020\n    withdrawal_speed_scale: 3.0\n    additional_arm_time_scale: 2.0\n    empty_pickup_setup_retiming_enabled: true\n    place_parallel_geometry_enabled: true\n    place_carried_volume_parallel_enabled: true\n    settled_place_torso_skip_enabled: true\n    pickup_parallel_geometry_enabled: true\n    pickup_post_retreat_parallel_geometry_enabled: true\n    geometry_process_workers: 8\n    loaded_place_speed_scale_cap: 1.25\n    supported_compact_minimum_segment_seconds: 0.175\n    command_timeout_seconds: 2400.0\n    stock_gripper_close_target_position: 0.017\n    book_centered_place_enabled: true\n    book_centered_place_height_above_point_m: 0.27\n    book_centered_place_approach_x_m: 0.6\n    table_scene_required: true\n    bin_scene_required: true\n    scene_cartesian_wall_seconds: 1800.0\n    delivery_evidence_enabled: true\n    book_centered_place_clearance_height_m: 0.5\n    place_torso_height: 0.35\n    measured_place_height_enabled: false\n    placement_transport_speed_scale: 3.0\n    preopen_stationary_enabled: true\nerc_mission_manager:\n  ros__parameters:\n    marker_search_negative_enabled: true\n    manipulation_timeout_seconds: 2400.0\n    lift_first_extraction_enabled: true\n    delivery_evidence_enabled: true\n    bin_standoff_distance: 0.82\nerc_navigation:\n  ros__parameters:\n    normal_linear_convergence_enabled: true\nerc_perception:\n  ros__parameters:\n    table_scene_enabled: true\n    bin_scene_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    stock_gripper_close_target_position: 0.018\n",
+      "old": "    stock_gripper_close_target_position: 0.017\n"
+    },
+    {
+      "count": 1,
+      "new": "    place_carried_volume_parallel_enabled: true\n",
+      "old": "    place_carried_volume_parallel_enabled: false\n"
+    },
+    {
+      "count": 2,
+      "new": "    head_return_overlap_enabled: true\n",
+      "old": "    head_return_overlap_enabled: false\n"
+    },
+    {
+      "count": 2,
+      "new": "    head_return_overlap_enabled: false\n",
+      "old": "    head_return_overlap_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    preopen_stationary_enabled: true\n    place_finish_keep_torso_height_enabled: true\n",
+      "old": "    preopen_stationary_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    normal_linear_convergence_enabled: true\n    max_angular_speed: 0.70\n",
+      "old": "    normal_linear_convergence_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    pickup_parallel_geometry_enabled: true\n    empty_pickup_parallel_geometry_enabled: true\n",
+      "old": "    pickup_parallel_geometry_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    settled_place_torso_skip_enabled: true\n    settled_place_torso_retry_enabled: true\n",
+      "old": "    settled_place_torso_skip_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    stock_gripper_close_target_position: 0.0181\n",
+      "old": "    stock_gripper_close_target_position: 0.018\n"
+    },
+    {
+      "count": 1,
+      "new": "    loaded_place_speed_scale_cap: 1.25\n    bin_clearance_timing_enabled: true\n",
+      "old": "    loaded_place_speed_scale_cap: 1.25\n"
+    },
+    {
+      "count": 1,
+      "new": "    bin_clearance_timing_enabled: false\n    empty_torso_planning_overlap_enabled: true\n    empty_head_timing_enabled: true\n",
+      "old": "    bin_clearance_timing_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "erc_mission_manager:\n  ros__parameters:\n    head_return_overlap_enabled: false\n    empty_head_timing_enabled: true\n    marker_search_negative_enabled: true\n    manipulation_timeout_seconds: 2400.0\n    lift_first_extraction_enabled: true\n    delivery_evidence_enabled: true\n    bin_standoff_distance: 0.82\nerc_navigation:\n  ros__parameters:\n    normal_linear_convergence_enabled: true\n    max_angular_speed: 0.70\nerc_perception:\n  ros__parameters:\n    table_scene_enabled: true\n    bin_scene_enabled: true\n",
+      "old": "erc_mission_manager:\n  ros__parameters:\n    head_return_overlap_enabled: false\n    marker_search_negative_enabled: true\n    manipulation_timeout_seconds: 2400.0\n    lift_first_extraction_enabled: true\n    delivery_evidence_enabled: true\n    bin_standoff_distance: 0.82\nerc_navigation:\n  ros__parameters:\n    normal_linear_convergence_enabled: true\n    max_angular_speed: 0.70\nerc_perception:\n  ros__parameters:\n    table_scene_enabled: true\n    bin_scene_enabled: true\n"
+    },
+    {
+      "count": 2,
+      "new": "    empty_head_timing_enabled: false\n",
+      "old": "    empty_head_timing_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    bin_clearance_timing_enabled: false\n    withdrawal_half_timing_enabled: true\n",
+      "old": "    bin_clearance_timing_enabled: false\n"
+    },
+    {
+      "count": 2,
+      "new": "    delivery_evidence_enabled: true\n    place_finish_at_release_enabled: true\n",
+      "old": "    delivery_evidence_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    place_finish_at_release_enabled: true\n    release_only_place_planning_enabled: true\n    book_centered_place_clearance_height_m:",
+      "old": "    place_finish_at_release_enabled: true\n    book_centered_place_clearance_height_m:"
+    },
+    {
+      "count": 1,
+      "new": "    loaded_place_speed_scale_cap: 1.5\n",
+      "old": "    loaded_place_speed_scale_cap: 1.25\n"
+    },
+    {
+      "count": 1,
+      "new": "    marker_search_negative_enabled: true\n    marker_search_first_probe_enabled: true\n",
+      "old": "    marker_search_negative_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    empty_head_timing_enabled: false\n    completed_head_hold_recheck_enabled: true\n    supported_compact_minimum_segment_seconds:",
+      "old": "    empty_head_timing_enabled: false\n    supported_compact_minimum_segment_seconds:"
+    },
+    {
+      "count": 1,
+      "new": "    additional_arm_time_scale: 2.0\n    compact_extension_half_timing_enabled: true\n",
+      "old": "    additional_arm_time_scale: 2.0\n"
+    },
+    {
+      "count": 1,
+      "new": "    withdrawal_half_timing_enabled: true\n    withdrawal_quarter_timing_enabled: true\n",
+      "old": "    withdrawal_half_timing_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "erc_mission_manager:\n  ros__parameters:\n    mission_raw_contacts_enabled: true\n",
+      "old": "erc_mission_manager:\n  ros__parameters:\n"
+    },
+    {
+      "count": 1,
+      "new": "    stock_gripper_close_target_position: 0.0182\n",
+      "old": "    stock_gripper_close_target_position: 0.0181\n"
+    },
+    {
+      "count": 1,
+      "new": "    loaded_place_speed_scale_cap: 2.0\n",
+      "old": "    loaded_place_speed_scale_cap: 1.5\n"
+    },
+    {
+      "count": 1,
+      "new": "    preopen_stationary_enabled: true\n    place_transition_stop_enabled: true\n",
+      "old": "    preopen_stationary_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    normal_linear_convergence_enabled: true\n    normal_translation_gain: 1.1\n",
+      "old": "    normal_linear_convergence_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    withdrawal_quarter_timing_enabled: true\n    initial_stow_serial_timing_enabled: true\n",
+      "old": "    withdrawal_quarter_timing_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    normal_translation_gain: 1.5\n",
+      "old": "    normal_translation_gain: 1.1\n"
+    },
+    {
+      "count": 1,
+      "new": "    normal_translation_gain: 1.8\n",
+      "old": "    normal_translation_gain: 1.5\n"
+    },
+    {
+      "count": 1,
+      "new": "    place_transition_stop_enabled: true\n    release_only_clearance_timing_enabled: true\n",
+      "old": "    place_transition_stop_enabled: true\n"
+    },
+    {
+      "count": 1,
+      "new": "    normal_translation_gain: 1.8\n    normal_yaw_gain: 1.8\n",
+      "old": "    normal_translation_gain: 1.8\n"
+    }
+  ],
+  "selected_overrides": {
+    "erc_manipulation": {
+      "additional_arm_time_scale": 2.0,
+      "bin_clearance_timing_enabled": false,
+      "bin_scene_required": true,
+      "book_centered_place_approach_x_m": 0.6,
+      "book_centered_place_clearance_height_m": 0.5,
+      "book_centered_place_enabled": true,
+      "book_centered_place_height_above_point_m": 0.27,
+      "command_timeout_seconds": 2400.0,
+      "compact_extension_half_timing_enabled": true,
+      "completed_head_hold_recheck_enabled": true,
+      "delivery_evidence_enabled": true,
+      "empty_head_timing_enabled": false,
+      "empty_pickup_parallel_geometry_enabled": true,
+      "empty_pickup_setup_retiming_enabled": true,
+      "empty_torso_planning_overlap_enabled": true,
+      "fine_gripper_close_enabled": false,
+      "geometry_process_workers": 8,
+      "head_return_overlap_enabled": false,
+      "initial_stow_serial_timing_enabled": true,
+      "lift_first_extraction_enabled": true,
+      "lift_first_extraction_lift_m": 0.02,
+      "loaded_place_speed_scale_cap": 2.0,
+      "measured_place_height_enabled": false,
+      "pickup_parallel_geometry_enabled": true,
+      "pickup_post_retreat_parallel_geometry_enabled": true,
+      "place_carried_volume_parallel_enabled": true,
+      "place_finish_at_release_enabled": true,
+      "place_finish_keep_torso_height_enabled": true,
+      "place_parallel_geometry_enabled": true,
+      "place_torso_height": 0.35,
+      "place_transition_stop_enabled": true,
+      "placement_transport_speed_scale": 3.0,
+      "preclose_aperture_geometry_enabled": false,
+      "preopen_stationary_enabled": true,
+      "raw_contacts_enabled": true,
+      "release_only_clearance_timing_enabled": true,
+      "release_only_place_planning_enabled": true,
+      "scene_cartesian_wall_seconds": 1800.0,
+      "settled_place_torso_retry_enabled": true,
+      "settled_place_torso_skip_enabled": true,
+      "stock_gripper_close_diagnostic_enabled": true,
+      "stock_gripper_close_target_position": 0.0182,
+      "supported_compact_minimum_segment_seconds": 0.175,
+      "table_scene_required": true,
+      "withdrawal_half_timing_enabled": true,
+      "withdrawal_quarter_timing_enabled": true,
+      "withdrawal_speed_scale": 3.0
+    },
+    "erc_mission_manager": {
+      "bin_standoff_distance": 0.82,
+      "delivery_evidence_enabled": true,
+      "empty_head_timing_enabled": false,
+      "head_return_overlap_enabled": false,
+      "lift_first_extraction_enabled": true,
+      "manipulation_timeout_seconds": 2400.0,
+      "marker_search_first_probe_enabled": true,
+      "marker_search_negative_enabled": true,
+      "mission_raw_contacts_enabled": true,
+      "place_finish_at_release_enabled": true
+    },
+    "erc_navigation": {
+      "max_angular_speed": 0.7,
+      "normal_linear_convergence_enabled": true,
+      "normal_translation_gain": 1.8,
+      "normal_yaw_gain": 1.8
+    },
+    "erc_perception": {
+      "bin_scene_enabled": true,
+      "table_scene_enabled": true
+    }
+  }
+}

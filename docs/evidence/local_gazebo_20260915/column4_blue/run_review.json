@@ -1,0 +1,23 @@
+{
+  "trial_id": "d0fcc30b05eb",
+  "requested_column": 4,
+  "requested_colour": "blue",
+  "seed": 101,
+  "expected_target_model": "book_col_5_row_4_blue",
+  "success": false,
+  "failure_reason": "book_reacquisition_failed",
+  "pick_attempts": 0,
+  "navigation_outcomes": [
+    "reached",
+    "reached",
+    "reached",
+    "reached",
+    "reached"
+  ],
+  "collision_episodes": 0,
+  "solution_to_abort_seconds": 133.9690518919997,
+  "simulator_to_abort_seconds": 144.44431092299965,
+  "mission_source_matches_restored_baseline": true,
+  "diagnostic": "In one post-abort RGB-D capture, the visible blue target failed the unchanged metric estimator with inconsistent_depth_geometry. No tracker thresholds, camera presets or mission source were changed.",
+  "physical_delivery_verified": false
+}

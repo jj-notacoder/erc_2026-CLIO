@@ -1,0 +1,883 @@
+{
+  "journal_sha256": "fe7bece6804eb0cd93bc4af5900da15ee65dce79a1ef9a7d0ea853a5732b0063",
+  "journal_file_bytes": 67238274,
+  "source_bytes": 195837814,
+  "trial_id": "547cfa24165d",
+  "source_sha256": {
+    "preopen_stationary.py": "416fcf4e793adc6de620e9e2a6b643b684bec3061ac9b5df227df95b2394cee5",
+    "manipulation_node.py": "4754b83123b43cb183856d279ce5dc935eb291642c5dcb4f27165f1707a043f6",
+    "mission_manager.py": "120891e3732859b15144cf5d581111b334ca19b6cbda5b3757ff45b9d033efb1",
+    "release_sensor_adapter.py": "755b00f25bc3d7fe46cc7eaf3bb2982689434df7ed25abe714cf583def0e4230"
+  },
+  "preopen_event": {
+    "ros_ns": 199766000000,
+    "wall": 820.9820509640012,
+    "source": "manipulation",
+    "payload": {
+      "admitted_ros_ns": 199764000000,
+      "base_angular_speed": 1.1872138422981961e-14,
+      "base_linear_speed": 2.633125101432526e-13,
+      "basis": "raw_actuated_feedback_before_open",
+      "book_stationarity_verified": false,
+      "command": "place",
+      "contact_epoch": 14,
+      "contact_generation": 99575,
+      "current_stock_retention_revalidated": true,
+      "earlier_contact_generation": 99575,
+      "event": "placement_preopen_stationary",
+      "latest_negative_joint_stamp_ns": 199764000000,
+      "latest_negative_odom_stamp_ns": 199754000000,
+      "measured_joint_positions": [
+        0.3499999524551653,
+        0.5772381801832946,
+        -0.11715029599450613,
+        0.04950028714357198,
+        -1.257488779671689,
+        -1.705221850577278,
+        0.8328810646661302,
+        -0.6487313361185612
+      ],
+      "measured_joint_velocities": [
+        1.3206418964646595e-06,
+        -0.0009006547317307765,
+        3.1544341506933946e-05,
+        2.582580323718265e-05,
+        -3.0717716509118947e-06,
+        1.9104275419901118e-05,
+        -4.624635069866434e-06,
+        7.533914653540946e-06
+      ],
+      "measured_master": 0.01699995751237836,
+      "measured_master_velocity": 1.1802117257913441e-06,
+      "odom_producer_stamp_ns": 199754000000,
+      "physical_inside_verified": null,
+      "placement_attempt_id": "570454bfe0ce464fa4426fd986fc1715",
+      "planned_master": 0.01700000322261607,
+      "producer_stamp_ns": 199764000000,
+      "reason": null,
+      "stationary_start_ns": 199664000000,
+      "target_model": "book_col_3_row_2_red",
+      "timing_diagnostics": {
+        "batch_gap_resets": 0,
+        "catchup_disturbances": 0,
+        "elapsed_ros_ns": 448000000,
+        "elapsed_wall_seconds": 2.729474346000643,
+        "final_attempts": 1,
+        "final_raw_retries": 0,
+        "future_wait_expired": 0,
+        "future_waits": 0,
+        "generation_advances_revalidated": 0,
+        "generation_retries": 0,
+        "invalid_sample_resets": 80,
+        "last_final_veto": null,
+        "last_sample_reason": "stationary_closed_at_checked_endpoint",
+        "maximum_stationary_span_ns": 100000000,
+        "producer_gap_resets": 0,
+        "samples_seen": 113,
+        "stationary_samples": 33
+      },
+      "trial_id": "547cfa24165d",
+      "verified": true
+    }
+  },
+  "preopen_metrics": {
+    "stationary_span_ros_seconds": 0.1,
+    "gate_elapsed_wall_seconds": 2.729474346000643,
+    "gate_observed_elapsed_ros_seconds": 0.448,
+    "remaining_ten_second_loop_allowance": 7.270525653999357,
+    "elapsed_less_than_original_five_second_allowance": true,
+    "max_arm_abs_velocity_rad_s": 0.0009006547317307765,
+    "torso_abs_velocity_m_s": 1.3206418964646595e-06,
+    "master_abs_velocity_m_s": 1.1802117257913441e-06,
+    "master_abs_error_m": 4.5710237709523094e-08,
+    "arm_abs_goal_errors_rad": [
+      3.242367630340581e-05,
+      1.1356023496000844e-06,
+      9.296628830368636e-07,
+      1.1058987170464718e-07,
+      6.877665723603599e-07,
+      1.665055068267307e-07,
+      2.7136232039204344e-07
+    ],
+    "max_arm_abs_goal_error_rad": 3.242367630340581e-05,
+    "base_linear_speed_m_s": 2.633125101432526e-13,
+    "base_angular_speed_rad_s": 1.1872138422981961e-14,
+    "fixed_joint_age_at_admission_ns": 0,
+    "fixed_odom_age_at_admission_ns": 10000000,
+    "gate_to_measured_open_wall_seconds": 3.3334379570005694,
+    "measured_open_to_full_home_wall_seconds": 30.98836650699741,
+    "measured_home_to_done_wall_seconds": 0.2545646550024685,
+    "final_arm_command_to_gate_status_wall_seconds": 4.00267305899979
+  },
+  "last_arm_goal_event": {
+    "ros_ns": 199094000000,
+    "wall": 816.9793779050015,
+    "source": "manipulation",
+    "payload": {
+      "admitted": true,
+      "command": "place",
+      "evaluated_ros_ns": 199090000000,
+      "event": "arm_velocity_admission",
+      "header_stamp_ns": 0,
+      "joint_names": [
+        "arm_left_1_joint",
+        "arm_left_2_joint",
+        "arm_left_3_joint",
+        "arm_left_4_joint",
+        "arm_left_5_joint",
+        "arm_left_6_joint",
+        "arm_left_7_joint"
+      ],
+      "maximum_commanded_velocity_limit_ratio": 0.25440272771696204,
+      "official_urdf": "/opt/erc_ws/install/erc_description/share/erc_description/urdf/tiago_pro.urdf",
+      "point_count": 1,
+      "points": [
+        {
+          "accelerations_count": 0,
+          "effort_count": 0,
+          "positions": [
+            0.5772057565069912,
+            -0.11714916039215653,
+            0.049501216806455015,
+            -1.2574888902615606,
+            -1.7052211628107057,
+            0.8328808981606234,
+            -0.6487310647562408
+          ],
+          "time_from_start_ns": 216666666,
+          "velocities_count": 0
+        }
+      ],
+      "producer_stamps_ns": [
+        199088000000,
+        199088000000,
+        199088000000,
+        199088000000,
+        199088000000,
+        199088000000,
+        199088000000
+      ],
+      "reason": null,
+      "record_complete": true,
+      "start_positions": [
+        0.5348682939962759,
+        -0.009664008262463619,
+        -0.00232175520681096,
+        -1.2236222544043975,
+        -1.6077782237331992,
+        0.9154182183247775,
+        -0.7533428205625593
+      ],
+      "velocity_limits": [
+        1.95,
+        1.95,
+        3.95,
+        3.95,
+        3.95,
+        3.95,
+        3.95
+      ]
+    }
+  },
+  "measured_open_event": {
+    "ros_ns": 200926000000,
+    "wall": 824.3154889210018,
+    "source": "manipulation",
+    "payload": {
+      "basis": "raw_actuated_feedback_at_checked_endpoint",
+      "command": "place",
+      "event": "placement_open_measured",
+      "hand_clear_verified": false,
+      "master_position": 0.06899975547901838,
+      "master_velocity": 6.792249494282912e-06,
+      "measured_joint_positions": [
+        0.3499999999959486,
+        0.577205758157291,
+        -0.11714916045547343,
+        0.0495012168281956,
+        -1.2574888902543735,
+        -1.7052211628525207,
+        0.83288089816517,
+        -0.648731064767924
+      ],
+      "physical_inside_verified": null,
+      "placement_attempt_id": "570454bfe0ce464fa4426fd986fc1715",
+      "producer_stamp_ns": 200924000000,
+      "stationary_start_ns": 200824000000,
+      "target_model": "book_col_3_row_2_red",
+      "trial_id": "547cfa24165d",
+      "verified": true
+    }
+  },
+  "measured_hand_home_event": {
+    "ros_ns": 214682000000,
+    "wall": 855.3038554279992,
+    "source": "manipulation",
+    "payload": {
+      "basis": "raw_actuated_feedback_at_checked_endpoint",
+      "command": "place",
+      "event": "placement_hand_return_measured",
+      "hand_clear_verified": false,
+      "master_position": 0.06899999999927882,
+      "master_velocity": 2.2452525949567814e-14,
+      "measured_joint_positions": [
+        0.10000244303347189,
+        0.35999999999932747,
+        -1.829999999999112,
+        0.4699999999998205,
+        -2.349999999996941,
+        5.059410998664544e-13,
+        -1.2000000000013966,
+        1.4245637151522667e-13
+      ],
+      "physical_inside_verified": null,
+      "placement_attempt_id": "570454bfe0ce464fa4426fd986fc1715",
+      "producer_stamp_ns": 214680000000,
+      "stationary_start_ns": 214580000000,
+      "target_model": "book_col_3_row_2_red",
+      "trial_id": "547cfa24165d",
+      "verified": true
+    }
+  },
+  "done_event": {
+    "ros_ns": 214800000000,
+    "wall": 855.5584200830017,
+    "source": "mission",
+    "payload": {
+      "bin_contact": true,
+      "current": "DONE",
+      "delivery_outcome": "released_with_bin_contact",
+      "event": "state_transition",
+      "physical_inside_verified": null,
+      "previous": "WAIT_BIN_CONTACT",
+      "previous_elapsed": 0.1,
+      "state": "DONE",
+      "success_scope": "placement_operation_completed",
+      "trial_id": "547cfa24165d"
+    }
+  },
+  "observer_finished": {
+    "acquisition_contact_trace_windows": {},
+    "acquisition_trace_completion_scope": "A window may end with the observer or receive no later callback to report its time cap; these summaries do not prove contact absence",
+    "kind": "observer_finished",
+    "maximum_wall_seconds": 5700.0,
+    "micro_contact_trace_window": null,
+    "phases": [
+      "INIT_STOW",
+      "HEAD_MARKERS",
+      "SEARCH_COLUMN",
+      "SEARCH_TURN",
+      "SEARCH_COLUMN",
+      "SEARCH_TURN",
+      "SEARCH_COLUMN",
+      "NAVIGATE_SHELF",
+      "HEAD_BOOKS",
+      "FIND_BOOK",
+      "ALIGN_BOOK",
+      "HEAD_REACQUIRE_BOOK",
+      "REACQUIRE_BOOK",
+      "PICK",
+      "CLEAR_SHELF_WITH_BOOK",
+      "COMPACT_TRANSPORT",
+      "RETURN_START",
+      "HEAD_BIN",
+      "FIND_BIN",
+      "ALIGN_BIN",
+      "HEAD_REACQUIRE_BIN",
+      "REACQUIRE_BIN",
+      "PLACE",
+      "WAIT_BIN_CONTACT",
+      "DONE"
+    ],
+    "post_preflight_contact_trace_windows": {
+      "lift_first_measured_geometry_verified": {
+        "event_prefix": "post_preflight",
+        "finished": true,
+        "last_ns": 118548000000,
+        "maximum_messages": 20000,
+        "maximum_ros_ns": 15000000000,
+        "messages": 15000,
+        "start_ns": 103548000000
+      }
+    },
+    "ros_time_ns": 224008000000,
+    "scene_contact_evidence_maximum_messages": 5000,
+    "scene_contact_evidence_messages": 1,
+    "terminal_phase": "DONE",
+    "wall_elapsed": 875.9218158059994
+  },
+  "return_endpoint_timeline": [
+    {
+      "wall": 824.9221948449995,
+      "ros_ns": 201188000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.021574310998403234,
+      "action_return_ros_ns": 201176000000,
+      "expected": [
+        0.35,
+        0.5419225328807092,
+        -0.02697169304573252,
+        0.002223830442331747,
+        -1.2324279078539846,
+        -1.6181363853378925,
+        0.9046659178930886,
+        -0.7427558815428005
+      ]
+    },
+    {
+      "wall": 825.500439317002,
+      "ros_ns": 201450000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.04210966900063795,
+      "action_return_ros_ns": 201428000000,
+      "expected": [
+        0.35,
+        0.497541383216191,
+        0.08078760980647767,
+        -0.028599162622356174,
+        -1.1803657416493867,
+        -1.550034900884009,
+        0.9740350512956695,
+        -0.8127537015870904
+      ]
+    },
+    {
+      "wall": 826.121625677999,
+      "ros_ns": 201720000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.10475609600325697,
+      "action_return_ros_ns": 201678000000,
+      "expected": [
+        0.35,
+        0.44995163061347526,
+        0.20535495115135385,
+        -0.04556154327558203,
+        -1.0981866081022165,
+        -1.5000345786094997,
+        1.034791112385048,
+        -0.8599236862965209
+      ]
+    },
+    {
+      "wall": 826.7386876579985,
+      "ros_ns": 201990000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.08242962999793235,
+      "action_return_ros_ns": 201952000000,
+      "expected": [
+        0.35,
+        0.4051193469652681,
+        0.34256446021718945,
+        -0.053678744377109205,
+        -0.9890961070297072,
+        -1.4645270234574894,
+        1.0825570434100238,
+        -0.8884572715781804
+      ]
+    },
+    {
+      "wall": 827.4180252090009,
+      "ros_ns": 202294000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.14472237099835183,
+      "action_return_ros_ns": 202224000000,
+      "expected": [
+        0.35,
+        0.3855533582872433,
+        0.19959854019198667,
+        -0.050063230640832096,
+        -1.292991185000532,
+        -1.390834071763698,
+        1.1247843159332045,
+        -1.0640284386243453
+      ]
+    },
+    {
+      "wall": 828.0585569639989,
+      "ros_ns": 202586000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.1231276889993751,
+      "action_return_ros_ns": 202526000000,
+      "expected": [
+        0.35,
+        0.36829977933437485,
+        0.09085556554206406,
+        -0.05789874532245225,
+        -1.5431273107552195,
+        -1.3350337339330427,
+        1.1783414691631333,
+        -1.2106585431778385
+      ]
+    },
+    {
+      "wall": 828.6770288389998,
+      "ros_ns": 202872000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.08313153999915812,
+      "action_return_ros_ns": 202834000000,
+      "expected": [
+        0.35,
+        0.35160125982686136,
+        0.010857183141647218,
+        -0.07318421187251893,
+        -1.7521816861947175,
+        -1.2993837722074753,
+        1.2408826241179904,
+        -1.336055449772813
+      ]
+    },
+    {
+      "wall": 829.298407369999,
+      "ros_ns": 203160000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.1048604030002025,
+      "action_return_ros_ns": 203110000000,
+      "expected": [
+        0.35,
+        0.33399893781232465,
+        -0.04722096856429618,
+        -0.09462255217031461,
+        -1.9360725668907222,
+        -1.2808423815049839,
+        1.310757023983139,
+        -1.4520178440171976
+      ]
+    },
+    {
+      "wall": 829.8981545230017,
+      "ros_ns": 203436000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.08291660400209366,
+      "action_return_ros_ns": 203398000000,
+      "expected": [
+        0.35,
+        0.3132371836829674,
+        -0.08559492873813357,
+        -0.1216365385302077,
+        -2.102439352555861,
+        -1.2792330385966395,
+        1.3873957436354103,
+        -1.565569198189986
+      ]
+    },
+    {
+      "wall": 830.4792127180008,
+      "ros_ns": 203706000000,
+      "phase": "empty_return_cartesian",
+      "elapsed_wall_seconds": 0.06262530399908428,
+      "action_return_ros_ns": 203678000000,
+      "expected": [
+        0.35,
+        0.2852777969111417,
+        -0.10078318854418263,
+        -0.15659154430454925,
+        -2.255835120011203,
+        -1.2947253510403285,
+        1.4737543954184138,
+        -1.6880773422449464
+      ]
+    },
+    {
+      "wall": 838.5616265040007,
+      "ros_ns": 207326000000,
+      "phase": "empty_return_arm_home",
+      "elapsed_wall_seconds": 0.06320556399805355,
+      "action_return_ros_ns": 207304000000,
+      "expected": [
+        0.35,
+        0.36,
+        -1.83,
+        0.47,
+        -2.35,
+        0.0,
+        -1.2,
+        0.0
+      ]
+    },
+    {
+      "wall": 854.7709112650009,
+      "ros_ns": 214434000000,
+      "phase": "empty_return_torso_home",
+      "elapsed_wall_seconds": 11.526330261000112,
+      "action_return_ros_ns": 209352000000,
+      "expected": [
+        0.1,
+        0.36,
+        -1.83,
+        0.47,
+        -2.35,
+        0.0,
+        -1.2,
+        0.0
+      ]
+    }
+  ],
+  "search_windows": [
+    {
+      "start": {
+        "ros_ns": 15100000000,
+        "wall": 30.747376445000555,
+        "source": "mission",
+        "payload": {
+          "current": "SEARCH_COLUMN",
+          "event": "state_transition",
+          "previous": "HEAD_MARKERS",
+          "previous_elapsed": 1.3,
+          "state": "SEARCH_COLUMN",
+          "trial_id": "547cfa24165d"
+        }
+      },
+      "end": {
+        "ros_ns": 15400000000,
+        "wall": 31.468126512998424,
+        "source": "mission",
+        "payload": {
+          "current": "SEARCH_TURN",
+          "event": "state_transition",
+          "previous": "SEARCH_COLUMN",
+          "previous_elapsed": 0.3,
+          "state": "SEARCH_TURN",
+          "trial_id": "547cfa24165d"
+        }
+      },
+      "wall_seconds": 0.7207500679978693,
+      "ros_seconds": 0.3,
+      "completed_frame_events": [
+        {
+          "ros_ns": 15136000000,
+          "wall": 30.834712441999727,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 15134000000,
+            "depth_stamp_ns": 15082000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 1,
+            "frame_valid": false,
+            "frame_valid_until_ns": 16082000000,
+            "marker_search_not_before_ns": 15100000000,
+            "marker_search_request_id": 1,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 15114000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        },
+        {
+          "ros_ns": 15202000000,
+          "wall": 30.99813419400016,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 15200000000,
+            "depth_stamp_ns": 15148000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 2,
+            "frame_valid": true,
+            "frame_valid_until_ns": 16148000000,
+            "marker_search_not_before_ns": 15100000000,
+            "marker_search_request_id": 1,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 15182000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        },
+        {
+          "ros_ns": 15268000000,
+          "wall": 31.153203783000208,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 15268000000,
+            "depth_stamp_ns": 15214000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 3,
+            "frame_valid": true,
+            "frame_valid_until_ns": 16214000000,
+            "marker_search_not_before_ns": 15100000000,
+            "marker_search_request_id": 1,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 15248000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        },
+        {
+          "ros_ns": 15334000000,
+          "wall": 31.31158431899894,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 15334000000,
+            "depth_stamp_ns": 15312000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 4,
+            "frame_valid": true,
+            "frame_valid_until_ns": 16312000000,
+            "marker_search_not_before_ns": 15100000000,
+            "marker_search_request_id": 1,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 15312000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        }
+      ],
+      "branch_inference": "Existing turn branch occurred before5s fallback; source requires early-negative readiness for this transition."
+    },
+    {
+      "start": {
+        "ros_ns": 18600000000,
+        "wall": 39.547969569001,
+        "source": "mission",
+        "payload": {
+          "current": "SEARCH_COLUMN",
+          "event": "state_transition",
+          "previous": "SEARCH_TURN",
+          "previous_elapsed": 3.2,
+          "state": "SEARCH_COLUMN",
+          "trial_id": "547cfa24165d"
+        }
+      },
+      "end": {
+        "ros_ns": 18900000000,
+        "wall": 40.20737401700171,
+        "source": "mission",
+        "payload": {
+          "current": "SEARCH_TURN",
+          "event": "state_transition",
+          "previous": "SEARCH_COLUMN",
+          "previous_elapsed": 0.3,
+          "state": "SEARCH_TURN",
+          "trial_id": "547cfa24165d"
+        }
+      },
+      "wall_seconds": 0.6594044480007142,
+      "ros_seconds": 0.3,
+      "completed_frame_events": [
+        {
+          "ros_ns": 18610000000,
+          "wall": 39.56821298399882,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 18600000000,
+            "depth_stamp_ns": 18548000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 53,
+            "frame_valid": true,
+            "frame_valid_until_ns": 19548000000,
+            "marker_search_not_before_ns": 15100000000,
+            "marker_search_request_id": 1,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 18580000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        },
+        {
+          "ros_ns": 18680000000,
+          "wall": 39.71670019800149,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 18668000000,
+            "depth_stamp_ns": 18646000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 1,
+            "frame_valid": true,
+            "frame_valid_until_ns": 19646000000,
+            "marker_search_not_before_ns": 18600000000,
+            "marker_search_request_id": 2,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 18646000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        },
+        {
+          "ros_ns": 18746000000,
+          "wall": 39.85887719799939,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 18734000000,
+            "depth_stamp_ns": 18712000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 2,
+            "frame_valid": true,
+            "frame_valid_until_ns": 19712000000,
+            "marker_search_not_before_ns": 18600000000,
+            "marker_search_request_id": 2,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 18712000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        },
+        {
+          "ros_ns": 18810000000,
+          "wall": 40.00290344300083,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 18800000000,
+            "depth_stamp_ns": 18778000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 3,
+            "frame_valid": true,
+            "frame_valid_until_ns": 19778000000,
+            "marker_search_not_before_ns": 18600000000,
+            "marker_search_request_id": 2,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 18778000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        },
+        {
+          "ros_ns": 18880000000,
+          "wall": 40.16077885800041,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 18868000000,
+            "depth_stamp_ns": 18844000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 4,
+            "frame_valid": true,
+            "frame_valid_until_ns": 19844000000,
+            "marker_search_not_before_ns": 18600000000,
+            "marker_search_request_id": 2,
+            "mode": "markers",
+            "outcome": "target_absent",
+            "rgb_stamp_ns": 18844000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 0,
+            "trial_id": "547cfa24165d"
+          }
+        }
+      ],
+      "branch_inference": "Existing turn branch occurred before5s fallback; source requires early-negative readiness for this transition."
+    },
+    {
+      "start": {
+        "ros_ns": 22100000000,
+        "wall": 47.234033606000594,
+        "source": "mission",
+        "payload": {
+          "current": "SEARCH_COLUMN",
+          "event": "state_transition",
+          "previous": "SEARCH_TURN",
+          "previous_elapsed": 3.2,
+          "state": "SEARCH_COLUMN",
+          "trial_id": "547cfa24165d"
+        }
+      },
+      "end": {
+        "ros_ns": 22202000000,
+        "wall": 47.444000311999844,
+        "source": "mission",
+        "payload": {
+          "current": "NAVIGATE_SHELF",
+          "event": "state_transition",
+          "previous": "SEARCH_COLUMN",
+          "previous_elapsed": 0.1,
+          "state": "NAVIGATE_SHELF",
+          "trial_id": "547cfa24165d"
+        }
+      },
+      "wall_seconds": 0.20996670599924983,
+      "ros_seconds": 0.102,
+      "completed_frame_events": [
+        {
+          "ros_ns": 22156000000,
+          "wall": 47.35423753199939,
+          "source": "perception",
+          "payload": {
+            "book_colour": "red",
+            "completed_ros_ns": 22134000000,
+            "depth_stamp_ns": 22110000000,
+            "event": "marker_search_frame_completed",
+            "frame_age_limit_ns": 1000000000,
+            "frame_sequence": 1,
+            "frame_valid": true,
+            "frame_valid_until_ns": 23110000000,
+            "marker_search_not_before_ns": 22100000000,
+            "marker_search_request_id": 3,
+            "mode": "markers",
+            "outcome": "cloud_published",
+            "rgb_stamp_ns": 22110000000,
+            "schema": 1,
+            "shelf_column_number": 2,
+            "target_candidate_count": 1,
+            "trial_id": "547cfa24165d"
+          }
+        }
+      ],
+      "branch_inference": "Positive shelf registration led to NAVIGATE_SHELF."
+    }
+  ],
+  "prior_run49_evidence_sha256": "bb172a53e4d211ea2649a0d6d44b09977e0d695b2b7aa3b1e242e6f3fde30049",
+  "prior_run49_failure_event": {
+    "ros_ns": 199766000000,
+    "wall": 829.0288324559988,
+    "source": "manipulation",
+    "payload": {
+      "basis": "raw_actuated_feedback_before_open",
+      "book_stationarity_verified": false,
+      "command": "place",
+      "event": "placement_preopen_stationary",
+      "physical_inside_verified": null,
+      "placement_attempt_id": "51e6cdcabd294c41b63db61976f932cb",
+      "reason": "measurement_timeout:stationary_closed_at_checked_endpoint",
+      "target_model": "book_col_3_row_2_red",
+      "trial_id": "9f573d4597cf",
+      "verified": false
+    }
+  },
+  "interpretation": [
+    "Run50 proves this gate reported a valid100ms producer span, current stock retention and all admission checks; it is not book stationarity or landing proof.",
+    "2.729474s fits within the former5s limit. Earlier/current generation are equal99575 and generation_advances_revalidated=0: neither extra timeout allowance nor changed-generation acceptance was needed on this successful admission.",
+    "Run49 lacked final-veto counters and observer samples were384/356ms apart. Its last per-sample success reason did not identify a completed span or failed final predicate. These separate runs do not isolate a causal fix.",
+    "Search phase boundaries are directly recorded; two0.3ROS turns imply the enabled early-negative source branch because fallback requires>5ROS. The separate marker_search_early_turn log is absent from this reduced journal; observed perception frames do not replace private mission receipt evidence.",
+    "Measured open and HOME are actuator evidence. Exact opening publication and physical book-detachment time are not present as standalone events in this closed reduction. DONE states operation completed with bin contact, physical_inside_verified=null."
+  ],
+  "no_geometry_or_tests": true,
+  "journal_modified": false
+}

@@ -1,0 +1,74 @@
+# Explicit development opt-in; layered after solution.yaml.
+# Runtime evidence records the exact selected overrides and source hashes.
+# Trial timeout remains a launch argument; no wildcard override is added here.
+erc_manipulation:
+  ros__parameters:
+    raw_contacts_enabled: true
+    stock_gripper_close_diagnostic_enabled: true
+    fine_gripper_close_enabled: false
+    preclose_aperture_geometry_enabled: false
+    lift_first_extraction_enabled: true
+    lift_first_extraction_lift_m: 0.020
+    withdrawal_speed_scale: 3.0
+    additional_arm_time_scale: 2.0
+    compact_extension_half_timing_enabled: true
+    empty_pickup_setup_retiming_enabled: true
+    place_parallel_geometry_enabled: true
+    place_carried_volume_parallel_enabled: true
+    head_return_overlap_enabled: false
+    settled_place_torso_skip_enabled: true
+    settled_place_torso_retry_enabled: true
+    pickup_parallel_geometry_enabled: true
+    empty_pickup_parallel_geometry_enabled: true
+    pickup_post_retreat_parallel_geometry_enabled: true
+    geometry_process_workers: 8
+    loaded_place_speed_scale_cap: 2.0
+    bin_clearance_timing_enabled: false
+    withdrawal_half_timing_enabled: true
+    withdrawal_quarter_timing_enabled: true
+    initial_stow_serial_timing_enabled: true
+    empty_torso_planning_overlap_enabled: true
+    empty_head_timing_enabled: false
+    completed_head_hold_recheck_enabled: true
+    supported_compact_minimum_segment_seconds: 0.175
+    command_timeout_seconds: 2400.0
+    stock_gripper_close_target_position: 0.0182
+    book_centered_place_enabled: true
+    book_centered_place_height_above_point_m: 0.27
+    book_centered_place_approach_x_m: 0.6
+    table_scene_required: true
+    bin_scene_required: true
+    scene_cartesian_wall_seconds: 1800.0
+    delivery_evidence_enabled: true
+    place_finish_at_release_enabled: true
+    release_only_place_planning_enabled: true
+    book_centered_place_clearance_height_m: 0.5
+    place_torso_height: 0.35
+    measured_place_height_enabled: false
+    placement_transport_speed_scale: 3.0
+    preopen_stationary_enabled: true
+    place_transition_stop_enabled: true
+    release_only_clearance_timing_enabled: true
+    place_finish_keep_torso_height_enabled: true
+erc_mission_manager:
+  ros__parameters:
+    mission_raw_contacts_enabled: true
+    head_return_overlap_enabled: false
+    empty_head_timing_enabled: false
+    marker_search_negative_enabled: true
+    marker_search_first_probe_enabled: true
+    manipulation_timeout_seconds: 2400.0
+    lift_first_extraction_enabled: true
+    delivery_evidence_enabled: true
+    place_finish_at_release_enabled: true
+    bin_standoff_distance: 0.82
+erc_navigation:
+  ros__parameters:
+    normal_linear_convergence_enabled: true
+    normal_translation_gain: 1.8
+    normal_yaw_gain: 1.8
+    max_angular_speed: 0.70
+erc_perception:
+  ros__parameters:
+    table_scene_enabled: true
+    bin_scene_enabled: true

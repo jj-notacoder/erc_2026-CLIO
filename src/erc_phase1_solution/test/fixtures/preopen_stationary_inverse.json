@@ -1,0 +1,9 @@
+{
+  "parent_node_sha256": "b4ecd4049b23ab62362af7676d28c2f219e55f60fa2103df08d8bd364c52979e",
+  "parent_tree_sha256": "871ab957a713d0b7b2ba07ede5ba6018fea757d19d9ba097c4468f58c64c1cde",
+  "insertions": [
+    "        self.preopen_stationary_enabled = bool(\n            self.get_parameter('preopen_stationary_enabled').value)\n",
+    "            'preopen_stationary_enabled': False,\n",
+    "        if getattr(self, 'preopen_stationary_enabled', False):\n            # Optional admission only; the original checked route/open stays intact.\n            from .preopen_stationary import require_stationary_closed_pose\n            require_stationary_closed_pose(\n                self, correlation, solutions[-1],\n                (place_scene_diagnostics or {}).get('measured_master'))\n"
+  ]
+}

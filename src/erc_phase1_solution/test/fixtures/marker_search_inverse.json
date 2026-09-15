@@ -1,0 +1,76 @@
+{
+  "erc_phase1_solution/mission_manager.py": {
+    "parent_sha256": "202094cb9dd18fc67f174dfe066f7b764fb50da81cefffb201524d2ce97a1034",
+    "changes": [
+      {
+        "old": "        self.marker_search_timeout = float(\n",
+        "new": "        self.marker_search_negative_enabled = bool(\n            self.get_parameter('marker_search_negative_enabled').value)\n        self.marker_search_timeout = float(\n"
+      },
+      {
+        "old": "            'marker_search_timeout_seconds': 5.0,\n",
+        "new": "            'marker_search_timeout_seconds': 5.0,\n            'marker_search_negative_enabled': False,\n"
+      },
+      {
+        "old": "    def _on_markers(self, message: PointCloud) -> None:\n        self.marker_cloud = message\n",
+        "new": "    def _on_markers(self, message: PointCloud) -> None:\n        self.marker_cloud = message\n        gate = getattr(self, '_marker_search_negative_gate', None)\n        if gate is not None:\n            gate.reset()  # Positive clouds retain priority over optional absence.\n"
+      },
+      {
+        "old": "        if payload.get('event') == 'ready':\n            self.ready['perception'] = True\n",
+        "new": "        if payload.get('event') == 'ready':\n            self.ready['perception'] = True\n        if (payload.get('event') == 'marker_search_frame_completed'\n                and getattr(self, 'marker_search_negative_enabled', False)\n                and self.state == 'SEARCH_COLUMN'):\n            gate = getattr(self, '_marker_search_negative_gate', None)\n            if gate is not None:\n                gate.observe(payload, int(self.get_clock().now().nanoseconds))\n"
+      },
+      {
+        "old": "    def _perception_mode(self, mode: str) -> None:\n",
+        "new": "    def _marker_search_negative_ready(self) -> bool:\n        gate = getattr(self, '_marker_search_negative_gate', None)\n        if (not getattr(self, 'marker_search_negative_enabled', False)\n                or self.state != 'SEARCH_COLUMN' or gate is None):\n            return False\n        request = gate.request\n        if (request.trial_id, request.target_column, request.target_colour) != (\n                self.trial_id, self.target_column, self.target_colour):\n            return False\n        return gate.ready(int(self.get_clock().now().nanoseconds))\n\n    def _perception_mode(self, mode: str) -> None:\n"
+      },
+      {
+        "old": "        if mode == 'books' and self.row_confirmed and self.detected_row is not None:\n            fields['confirmed_row'] = self.detected_row\n        self._command(self.mode_pub, mode, **fields)\n",
+        "new": "        if mode == 'books' and self.row_confirmed and self.detected_row is not None:\n            fields['confirmed_row'] = self.detected_row\n        if getattr(self, 'marker_search_negative_enabled', False):\n            from .marker_search_completion import NegativeFrameGate, request_from_fields\n            self._marker_search_negative_gate = None\n            if mode == 'markers':\n                self._marker_search_epoch = getattr(self, '_marker_search_epoch', 0)+1\n                optional = dict(fields, trial_id=self.trial_id,\n                    marker_search_request_id=self._marker_search_epoch,\n                    marker_search_not_before_ns=int(self.get_clock().now().nanoseconds))\n                request = request_from_fields(optional)\n                if request is not None:\n                    self._marker_search_negative_gate = NegativeFrameGate(request)\n                    fields.update({key:value for key,value in request.fields().items() if key != 'trial_id'})\n        self._command(self.mode_pub, mode, **fields)\n"
+      },
+      {
+        "old": "            if self._elapsed_state() > self.marker_search_timeout:\n",
+        "new": "            early_marker_turn = (getattr(self, 'marker_search_negative_enabled', False)\n                                 and self._marker_search_negative_ready())\n            if self._elapsed_state() > self.marker_search_timeout or early_marker_turn:\n"
+      },
+      {
+        "old": "                    self.search_turns += 1\n                    x, y, yaw = self.robot_pose\n",
+        "new": "                    if early_marker_turn and self._elapsed_state() <= self.marker_search_timeout:\n                        gate = self._marker_search_negative_gate\n                        self._log('marker_search_early_turn',\n                            marker_search_request_id=gate.request.request_id,\n                            negative_frames=gate.count, last_frame_sequence=gate.last_sequence,\n                            rgb_stamp_ns=gate.last_rgb_ns, depth_stamp_ns=gate.last_depth_ns,\n                            completed_ros_ns=gate.last_completed_ns, wait_seconds=self._elapsed_state())\n                    self.search_turns += 1\n                    x, y, yaw = self.robot_pose\n"
+      },
+      {
+        "old": "        if self.state == 'SEARCH_TURN':\n            if self._nav_reached():\n                self.marker_cloud = None\n                self._set_state('SEARCH_COLUMN')\n",
+        "new": "        if self.state == 'SEARCH_TURN':\n            if self._nav_reached():\n                self.marker_cloud = None\n                if getattr(self, 'marker_search_negative_enabled', False):\n                    self._perception_mode('markers')\n                self._set_state('SEARCH_COLUMN')\n"
+      }
+    ]
+  },
+  "erc_phase1_solution/perception_node.py": {
+    "parent_sha256": "863267e71eefbffbc4d7b319b81a1cbe46384b5a3300b1c47b12dd360d727d2c",
+    "changes": [
+      {
+        "old": "            self._publish_status('mode_changed', target_column=self.target_column,\n                                 target_colour=self.target_colour)\n",
+        "new": "            self._publish_status('mode_changed', target_column=self.target_column,\n                                 target_colour=self.target_colour)\n        if ('marker_search_request_id' in payload\n                or getattr(self, '_marker_search_request', None) is not None):\n            from .marker_search_completion import receive_request\n            receive_request(self, payload)\n"
+      },
+      {
+        "old": "    def _process_markers(self) -> None:\n        detections = detect_number_markers(\n            self.latest_rgb,\n            self.templates,\n            min_area=120.0,\n            min_confidence=self.marker_confidence,\n        )\n",
+        "new": "    def _process_markers(self) -> None:\n        marker_frame = None\n        if getattr(self, '_marker_search_request', None) is not None:\n            from .marker_search_completion import capture_frame, complete_frame\n            marker_frame = capture_frame(self)\n        try:\n            detections = detect_number_markers(\n                self.latest_rgb,\n                self.templates,\n                min_area=120.0,\n                min_confidence=self.marker_confidence,\n            )\n        except Exception:\n            if marker_frame is not None:\n                complete_frame(self, marker_frame, 'processing_error', None)\n            raise\n"
+      },
+      {
+        "old": "        if not targets or len(detections) < 3:\n            self.marker_history.clear()\n            return\n",
+        "new": "        if not targets or len(detections) < 3:\n            self.marker_history.clear()\n            if marker_frame is not None:\n                complete_frame(self, marker_frame,\n                    'target_absent' if not targets else 'target_present_pending', len(targets))\n            return\n"
+      },
+      {
+        "old": "        if not self._stable(self.marker_history):\n            return\n",
+        "new": "        if not self._stable(self.marker_history):\n            if marker_frame is not None:\n                complete_frame(self, marker_frame, 'target_present_pending', len(targets))\n            return\n"
+      },
+      {
+        "old": "        if self.target_column not in used_digits or len(cloud.points) < 3:\n            return\n",
+        "new": "        if self.target_column not in used_digits or len(cloud.points) < 3:\n            if marker_frame is not None:\n                complete_frame(self, marker_frame, 'depth_rejected', len(targets))\n            return\n"
+      },
+      {
+        "old": "        self.marker_pub.publish(cloud)\n",
+        "new": "        self.marker_pub.publish(cloud)\n        if marker_frame is not None:\n            complete_frame(self, marker_frame, 'cloud_published', len(targets))\n"
+      },
+      {
+        "old": "        if not self._ready():\n            if self.mode == 'books':\n",
+        "new": "        if not self._ready():\n            if (self.mode == 'markers'\n                    and getattr(self, '_marker_search_request', None) is not None):\n                from .marker_search_completion import capture_frame, complete_frame\n                complete_frame(self, capture_frame(self), 'frame_invalid', 0)\n            if self.mode == 'books':\n"
+      }
+    ]
+  }
+}

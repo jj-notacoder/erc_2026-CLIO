@@ -1,0 +1,235 @@
+{
+  "run": "Run99",
+  "trial_id": "48ff97a94657",
+  "target_model": "book_col_3_row_2_red",
+  "archived_utc": "2026-09-14T19:51:08.028823+00:00",
+  "files": {
+    "additional_navigation_certificate.json": {
+      "sha256": "9c9819417eba1a807919b1a5ff4e52ee908c8801ad705b4c100e84eab4e7a49c",
+      "bytes": 1156280
+    },
+    "additional_navigation_pytest.xml": {
+      "sha256": "be41201c746dfb80aff3dd33966d3c650279f5df09e55d8800b49ea40625bfe6",
+      "bytes": 332117
+    },
+    "asset_resolution_audit.json": {
+      "sha256": "60d46095cfa691f6d2f7d83ea9ed73b556af31f4fdd6d2bc206f3dafb040a64d",
+      "bytes": 27105
+    },
+    "base_runtime_profile.json": {
+      "sha256": "12731edc2833b04d4f814c0c49e66c04d564225b08ca1eaf27b433065b304c08",
+      "bytes": 3833
+    },
+    "base_validation_certificate.json": {
+      "sha256": "6d1f8425d466538511462221fbfac51fc10be4858b7f45522d56a4851af43087",
+      "bytes": 52927
+    },
+    "build_runtime.sh": {
+      "sha256": "bf6392f6345b3750f92d5a306c070565cf9c8e8f64bdaaea666d416ba4046040",
+      "bytes": 687
+    },
+    "candidate.launch.py": {
+      "sha256": "1dfc0298b00b95b973223314efde4336ee1ddab77eaacd1baa7fa9daa7aa9afe",
+      "bytes": 2025
+    },
+    "candidate_solution.yaml": {
+      "sha256": "56e5a53c6cfbaf2a137a0fa7e3471ac5cdc28403cfbb3a2f34a96f08d6df3ce7",
+      "bytes": 8781
+    },
+    "check_official_sensors.py": {
+      "sha256": "98dc0d148aec99a159b43e338b4816b4d15cfc82d51bda7a9d258c599cecea78",
+      "bytes": 3634
+    },
+    "closure_actions.json": {
+      "sha256": "b2e7de55c9ff2d1441b4a18045e5623497bf4b6042c462bc725ef32eb5338b72",
+      "bytes": 6896
+    },
+    "COLCON_IGNORE": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "constructor_smoke_defaults.json": {
+      "sha256": "488da7f50d6a19173e669d6ed0e2b79bb0fd6e3cd060300fc85e8d672b9497e5",
+      "bytes": 4878
+    },
+    "constructor_smoke_release_only_isolated.json": {
+      "sha256": "be225f30ff8e865a574987ab66f3cf9e5b3596fe7372ab8b8da2e5fe2b26266e",
+      "bytes": 5470
+    },
+    "constructor_smoke_selected.json": {
+      "sha256": "77c58c52d0b89deaa1f750dd8203f4daeac121210181390e6666ea065f250dbf",
+      "bytes": 7922
+    },
+    "dispatch.sh": {
+      "sha256": "c4bf84108465932c15918a038533db8ac9c8459729fb5bb2b32d736f2cd1bdd2",
+      "bytes": 3035
+    },
+    "frozen_snapshot.json": {
+      "sha256": "61d6c50fa4d71106a65f38e3cebd73511ca35cfd31b9c4c10ac71693fbe307fa",
+      "bytes": 55064
+    },
+    "launch_dispatch_utc.txt": {
+      "sha256": "8125e0a4ec2fe5a8e1089109560db7a6fa5731c7a063327ff69c0e65202c2a62",
+      "bytes": 36
+    },
+    "launch_world.sh": {
+      "sha256": "4a20bba9856d12099945bf5e4dbd0ecd5043b693b7f96ea0afd3bcd562a3c03b",
+      "bytes": 1464
+    },
+    "lifecycle_live.json": {
+      "sha256": "fbdb8bc99a63b0781cfb4fc56223d2860778e682c81312f5c460e33ba14cb429",
+      "bytes": 10870
+    },
+    "lift_observations.jsonl": {
+      "sha256": "b54b211e09d995598c50b81c911bfce86f6fec364f3a2abfb40443074a7f57f8",
+      "bytes": 250139
+    },
+    "lift_observer_errors.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "mission.log": {
+      "sha256": "6bb03ea94525497f49e9bc27c8c29002435e0b287dadf879f3029f71ccb9ff36",
+      "bytes": 8038
+    },
+    "observations.jsonl": {
+      "sha256": "123d677b4f2b7f1d1e3ea0bdd7de289906271919cd744d956cb84d66b44db2d0",
+      "bytes": 634399
+    },
+    "observer_errors.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "observe_lean_baseline.py": {
+      "sha256": "b165e0e24b8976d450e00133c10e2cfe443c273d0f3121fb5da0ce001fb7aacc",
+      "bytes": 11499
+    },
+    "observe_lift_window.py": {
+      "sha256": "ece8eb09ba75d04dd4af8e28dc2174cafaebfc292fcb5fa923717c76e25b64ac",
+      "bytes": 12750
+    },
+    "observe_placement_window.py": {
+      "sha256": "aa8b87ad97012a2db2950985227b802b0cdc3bb268818677f8109ebdd11db417",
+      "bytes": 14477
+    },
+    "parent_affected_certificate.json": {
+      "sha256": "2c33f9abb7b88f05464eb086f87504311793182366bc6c04bea3246152175222",
+      "bytes": 429649
+    },
+    "parent_affected_pytest.xml": {
+      "sha256": "3e5d02c82a939c23a2f95d0b6086cf972a29282b3849f7a56da8ae4632dd8373",
+      "bytes": 93838
+    },
+    "parent_affected_runtime_profile.json": {
+      "sha256": "9dcb88ffe833670cbd49b99626a713024bd11816f70f929f66185cd8c8413ebe",
+      "bytes": 4114
+    },
+    "placement_observations.jsonl": {
+      "sha256": "c827b0773a5ea1364341716b15f06f5a28d92f8cc218c0ee1a1d3837c73200ad",
+      "bytes": 417752
+    },
+    "placement_observer_errors.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "pytest_focus.xml": {
+      "sha256": "211d9de9f3047a94ed5bd6438609c3c95e0ff2bd5c26a038e35712a7db029e37",
+      "bytes": 80148
+    },
+    "pytest_focus_result.json": {
+      "sha256": "75ea927db965258a998a3a2aaadd152c51c4f4529c113409fd77e1bb9b863839",
+      "bytes": 87375
+    },
+    "run50_runtime_audit.py": {
+      "sha256": "04d4c604028c00b0acc01bff5bbbd4c7aabc247ac354db2e18f4f22840c6e490",
+      "bytes": 5952
+    },
+    "runtime_build.log": {
+      "sha256": "f1f6f59cd0066eecd84b01eb8865bad8f25afc03ccf61c8a397afbeceecca8a5",
+      "bytes": 111
+    },
+    "runtime_closure.json": {
+      "sha256": "e60d92237b4651ea2d3efa2007bd53f8d5ea6a8d24b5a9e63a71a79be7964b7c",
+      "bytes": 7534
+    },
+    "runtime_cpu_errors.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "runtime_cpu_stdout.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "runtime_install_audit.json": {
+      "sha256": "2448cc354e6258e63fe1280abe97c0bc03e61409cf699d6b520a8d9acf9123c5",
+      "bytes": 53352
+    },
+    "runtime_profile.json": {
+      "sha256": "536b947d4d04f0dfc126a5e44f353d488eedee4750400d67ac9275cc0178f1ce",
+      "bytes": 4146
+    },
+    "sample_lean_cpu.py": {
+      "sha256": "0358c50f85e46c2807bb6a67633751e6249679937222f7e964b8664ebab19fc0",
+      "bytes": 4075
+    },
+    "sensors_before_dispatch.json": {
+      "sha256": "76b2ce741349aaae3e734aa52706eda47ce9be510c19db523497626283235fe8",
+      "bytes": 2127
+    },
+    "simulation.log": {
+      "sha256": "3a83b6d44491eb7bfd79db2bcfdd5ce3da78636436cacf6374992c8d77635dfd",
+      "bytes": 81807
+    },
+    "trial_48ff97a94657.jsonl": {
+      "sha256": "eecb2c2ca91361f7dcdc99974815aee1cceddf615fe06d7d625922c4b02c5124",
+      "bytes": 504815
+    },
+    "trial_48ff97a94657_summary.json": {
+      "sha256": "461bde367e4ed89cea18113c335c4c19f159873b80e94a5f5a8b3c758774a987",
+      "bytes": 6123
+    },
+    "trial_manifest.json": {
+      "sha256": "7914ffa55fca096575e90636a56c66cddf36332fd17a5ff58fe63d5439d978d8",
+      "bytes": 59483
+    },
+    "validated_asset_resolution.json": {
+      "sha256": "60d46095cfa691f6d2f7d83ea9ed73b556af31f4fdd6d2bc206f3dafb040a64d",
+      "bytes": 27105
+    },
+    "validation_certificate.json": {
+      "sha256": "cce6fff8f0c49a0dd576495df10a98efbe648ec928481e1faca71e9debb60f21",
+      "bytes": 355686
+    },
+    "validation_result.json": {
+      "sha256": "c4b53a47d468f08c1fc91698a53803dea87264ec923e5d36b6a702675a64fe47",
+      "bytes": 5295
+    },
+    "world_launch.pid": {
+      "sha256": "2fc971b912ebceeba6f0ad29a9f0e8e4b779ecd0a015c799d642c7cd1cb113f3",
+      "bytes": 6
+    },
+    "world_launch_context.txt": {
+      "sha256": "9e9f478fe7c564e8e7f93090912e21798a12f47188110ef868c2f98770cb4085",
+      "bytes": 197
+    },
+    "runtime_cpu/finished.json": {
+      "sha256": "09d68479a2c046637bd09143aeeacf7b3ca16c2310adcd83b8a84cba60c0a217",
+      "bytes": 125
+    },
+    "runtime_cpu/identity.json": {
+      "sha256": "494b85b10799aa3f2a9e76ed713874c21d755510b7e861efe7ff2e91a2ebed58",
+      "bytes": 328
+    },
+    "runtime_cpu/samples.jsonl": {
+      "sha256": "d0d343d10d25a1c1261bc66b91c8ba53a03124a4303e3e053d281ea3636b96c0",
+      "bytes": 546577
+    },
+    "runtime_cpu/stop_requested": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "source_unchanged": true,
+  "source_files": 453,
+  "scope": "All top-level runtime records, exact harness and CPU ledger; official headless launch without an adapter. Certified source retained in finalfocus export. Controller images remain on host; static smoke separately retained in this review."
+}

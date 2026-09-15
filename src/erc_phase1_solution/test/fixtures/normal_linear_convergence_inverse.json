@@ -1,0 +1,68 @@
+{
+  "candidate_sha256": "e8ddfee4d8df49e24203e5c324d5af87984dde0669431fd0ba317e6569119725",
+  "parent_sha256": "0eb81df25293d404943bc515f50a64c88539dff152ae0596f30af46121729542",
+  "replacements": [
+    {
+      "new": "        self.linear_acceleration = float(\n            self.get_parameter('linear_acceleration_limit').value\n        )\n        self.normal_linear_convergence_enabled = bool(\n            self.get_parameter('normal_linear_convergence_enabled').value\n        )\n",
+      "old": "        self.linear_acceleration = float(\n            self.get_parameter('linear_acceleration_limit').value\n        )\n"
+    },
+    {
+      "new": "            'linear_acceleration_limit': 0.55,\n            'normal_linear_convergence_enabled': False,\n",
+      "old": "            'linear_acceleration_limit': 0.55,\n"
+    },
+    {
+      "new": "        if distance < 0.35 and not (\n            getattr(self, 'goal_profile', 'normal') == 'normal'\n            and getattr(self, 'normal_linear_convergence_enabled', False)\n        ):\n            scale = max(0.20, distance / 0.35)\n",
+      "old": "        if distance < 0.35:\n            scale = max(0.20, distance / 0.35)\n"
+    },
+    {
+      "new": "                (\n                    getattr(self, 'goal_profile', 'normal') == 'carried_retreat'\n                    or (\n                        getattr(self, 'goal_profile', 'normal') == 'normal'\n                        and getattr(self, 'normal_linear_convergence_enabled', False)\n                    )\n                )\n                and max(\n",
+      "old": "                getattr(self, 'goal_profile', 'normal') == 'carried_retreat'\n                and max(\n"
+    },
+    {
+      "count": 1,
+      "new": "def _checked_normal_translation_gain(value) -> float:\n    if (\n        type(value) not in (int, float)\n        or not 0.85 <= value <= 1.1\n        or not math.isfinite(value)\n    ):\n        raise ValueError('normal_translation_gain must be finite in [0.85, 1.1]')\n    return float(value)\n\n\nEMPTY_ARM_PROFILES = frozenset(('empty_arm_staging', 'empty_arm_advance'))\n",
+      "old": "EMPTY_ARM_PROFILES = frozenset(('empty_arm_staging', 'empty_arm_advance'))\n"
+    },
+    {
+      "count": 1,
+      "new": "        self.normal_linear_convergence_enabled = bool(\n            self.get_parameter('normal_linear_convergence_enabled').value\n        )\n        self.normal_translation_gain = _checked_normal_translation_gain(\n            self.get_parameter('normal_translation_gain').value\n        )\n",
+      "old": "        self.normal_linear_convergence_enabled = bool(\n            self.get_parameter('normal_linear_convergence_enabled').value\n        )\n"
+    },
+    {
+      "count": 1,
+      "new": "            'normal_linear_convergence_enabled': False,\n            'normal_translation_gain': 0.85,\n",
+      "old": "            'normal_linear_convergence_enabled': False,\n"
+    },
+    {
+      "count": 1,
+      "new": "        gain = (\n            getattr(self, 'normal_translation_gain', 0.85)\n            if getattr(self, 'goal_profile', 'normal') == 'normal'\n            and getattr(self, 'normal_linear_convergence_enabled', False)\n            else 0.85\n        )\n        vx = clamp(gain * body_x, -self.max_vx, self.max_vx)\n        vy = clamp(gain * body_y, -self.max_vy, self.max_vy)\n",
+      "old": "        vx = clamp(0.85 * body_x, -self.max_vx, self.max_vx)\n        vy = clamp(0.85 * body_y, -self.max_vy, self.max_vy)\n"
+    },
+    {
+      "count": 1,
+      "new": "def _checked_normal_translation_gain(value) -> float:\n    if (\n        type(value) not in (int, float)\n        or not 0.85 <= value <= 1.5\n        or not math.isfinite(value)\n    ):\n        raise ValueError('normal_translation_gain must be finite in [0.85, 1.5]')\n    return float(value)\n",
+      "old": "def _checked_normal_translation_gain(value) -> float:\n    if (\n        type(value) not in (int, float)\n        or not 0.85 <= value <= 1.1\n        or not math.isfinite(value)\n    ):\n        raise ValueError('normal_translation_gain must be finite in [0.85, 1.1]')\n    return float(value)\n"
+    },
+    {
+      "count": 1,
+      "new": "def _checked_normal_translation_gain(value) -> float:\n    if (\n        type(value) not in (int, float)\n        or not 0.85 <= value <= 1.8\n        or not math.isfinite(value)\n    ):\n        raise ValueError('normal_translation_gain must be finite in [0.85, 1.8]')\n    return float(value)\n",
+      "old": "def _checked_normal_translation_gain(value) -> float:\n    if (\n        type(value) not in (int, float)\n        or not 0.85 <= value <= 1.5\n        or not math.isfinite(value)\n    ):\n        raise ValueError('normal_translation_gain must be finite in [0.85, 1.5]')\n    return float(value)\n"
+    },
+    {
+      "new": "def _checked_normal_yaw_gain(value) -> float:\n    if (\n        type(value) not in (int, float)\n        or not 1.35 <= value <= 2.0\n        or not math.isfinite(value)\n    ):\n        raise ValueError('normal_yaw_gain must be finite in [1.35, 2.0]')\n    return float(value)\n\n\nEMPTY_ARM_PROFILES = frozenset(('empty_arm_staging', 'empty_arm_advance'))",
+      "old": "EMPTY_ARM_PROFILES = frozenset(('empty_arm_staging', 'empty_arm_advance'))"
+    },
+    {
+      "new": "        self.normal_translation_gain = _checked_normal_translation_gain(\n            self.get_parameter('normal_translation_gain').value\n        )\n        self.normal_yaw_gain = _checked_normal_yaw_gain(\n            self.get_parameter('normal_yaw_gain').value\n        )\n",
+      "old": "        self.normal_translation_gain = _checked_normal_translation_gain(\n            self.get_parameter('normal_translation_gain').value\n        )\n"
+    },
+    {
+      "new": "            'normal_translation_gain': 0.85,\n            'normal_yaw_gain': 1.35,\n",
+      "old": "            'normal_translation_gain': 0.85,\n"
+    },
+    {
+      "new": "        yaw_gain = (\n            getattr(self, 'normal_yaw_gain', 1.35)\n            if getattr(self, 'goal_profile', 'normal') == 'normal'\n            and getattr(self, 'normal_linear_convergence_enabled', False)\n            else 1.35\n        )\n        desired.angular.z = clamp(\n            yaw_gain * yaw_error,\n",
+      "old": "        desired.angular.z = clamp(\n            1.35 * yaw_error,\n"
+    }
+  ]
+}

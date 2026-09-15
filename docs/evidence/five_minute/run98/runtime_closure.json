@@ -1,0 +1,127 @@
+{
+  "owned_initial": [
+    {
+      "pid": 21681,
+      "ppid": 21641,
+      "process_group": 21641,
+      "start_ticks": 4366466,
+      "state": "S",
+      "argv": [
+        "/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher",
+        "--ros-args",
+        "--params-file",
+        "/tmp/launch_params_a2juuhrb"
+      ]
+    },
+    {
+      "pid": 22449,
+      "ppid": 21641,
+      "process_group": 21641,
+      "start_ticks": 4367367,
+      "state": "S",
+      "argv": [
+        "python3",
+        "/opt/erc_ws/install/erc_bringup/lib/erc_bringup/gripper_command_clamp.py",
+        "--ros-args",
+        "--params-file",
+        "/tmp/launch_params_1ldr62pr"
+      ]
+    },
+    {
+      "pid": 21683,
+      "ppid": 21641,
+      "process_group": 21641,
+      "start_ticks": 4366466,
+      "state": "S",
+      "argv": [
+        "/opt/ros/humble/lib/ros_gz_bridge/parameter_bridge",
+        "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
+        "/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist",
+        "/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry",
+        "/odom_tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V",
+        "/scan_front_raw@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan",
+        "/scan_rear_raw@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan",
+        "/base_imu@sensor_msgs/msg/Imu[gz.msgs.IMU",
+        "/world/erc_world/model/erc_collection_bin/link/collection_bin_base_link/sensor/bin_contact_sensor/contact@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "--ros-args",
+        "--params-file",
+        "/tmp/launch_params_3yz1etxs",
+        "-r",
+        "/odom_tf:=/tf",
+        "-r",
+        "/world/erc_world/model/erc_collection_bin/link/collection_bin_base_link/sensor/bin_contact_sensor/contact:=/bin_contacts"
+      ]
+    },
+    {
+      "pid": 21685,
+      "ppid": 21641,
+      "process_group": 21641,
+      "start_ticks": 4366466,
+      "state": "S",
+      "argv": [
+        "/opt/ros/humble/lib/ros_gz_bridge/parameter_bridge",
+        "--ros-args",
+        "-r",
+        "__node:=head_camera_bridge",
+        "--params-file",
+        "/tmp/launch_params_f5i_emg9"
+      ]
+    },
+    {
+      "pid": 21687,
+      "ppid": 21641,
+      "process_group": 21641,
+      "start_ticks": 4366466,
+      "state": "S",
+      "argv": [
+        "/opt/ros/humble/lib/ros_gz_bridge/parameter_bridge",
+        "--ros-args",
+        "-r",
+        "__node:=contact_bridge",
+        "--params-file",
+        "/tmp/launch_params_ubjsqdxt"
+      ]
+    },
+    {
+      "pid": 21641,
+      "ppid": 0,
+      "process_group": 21641,
+      "start_ticks": 4366341,
+      "state": "S",
+      "argv": [
+        "/usr/bin/python3",
+        "/opt/ros/humble/bin/ros2",
+        "launch",
+        "erc_bringup",
+        "simulation.launch.py",
+        "headless:=true",
+        "depth_cloud:=false"
+      ]
+    },
+    {
+      "pid": 21679,
+      "ppid": 21641,
+      "process_group": 21641,
+      "start_ticks": 4366466,
+      "state": "R",
+      "argv": [
+        "gz sim -r -s /opt/erc_ws/install/erc_description/share/erc_description/worlds/erc_world.sdf"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "pid": 21641,
+      "signal": 2,
+      "start_ticks": 4366341
+    }
+  ],
+  "owned_remaining": [],
+  "owned_processes_closed": true,
+  "run": "run_98",
+  "boot_id": "e347da9a-fb5c-4e88-94d1-e8dfa559f9cd",
+  "prelaunch_only": true,
+  "mission_dispatched": false,
+  "closed_utc": "2026-09-14T19:43:26.706391+00:00",
+  "reason": "Both official laser scan streams and depth image/info missing during unchanged readiness check; no mission command was dispatched."
+}

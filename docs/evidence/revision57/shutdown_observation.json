@@ -1,0 +1,98 @@
+{
+  "recorded_utc": "2026-09-12T04:53:32.846791+00:00",
+  "trial_id": "547cfa24165d",
+  "verified_absent_container_pids": [
+    37785,
+    37829,
+    38589,
+    38607,
+    38627,
+    38662,
+    38664,
+    38666,
+    38668,
+    38670,
+    38730
+  ],
+  "world_signal_record_sha256": "484faa9edb5cf9e176d10355d587ccd7e991225e044548bd36110909a2f551d0",
+  "archive_manifest_sha256": "ecb32915eadcd53efea337e169e633accb0e131d3829529f7d28c4353494298d",
+  "journal_sha256": "fe7bece6804eb0cd93bc4af5900da15ee65dce79a1ef9a7d0ea853a5732b0063",
+  "terminal": {
+    "ros_ns": 214800000000,
+    "wall": 855.5584200830017,
+    "source": "mission",
+    "payload": {
+      "current": "DONE",
+      "event": "state_transition",
+      "state": "DONE",
+      "trial_id": "547cfa24165d"
+    }
+  },
+  "observer_finished": {
+    "acquisition_contact_trace_windows": {},
+    "acquisition_trace_completion_scope": "A window may end with the observer or receive no later callback to report its time cap; these summaries do not prove contact absence",
+    "kind": "observer_finished",
+    "maximum_wall_seconds": 5700.0,
+    "micro_contact_trace_window": null,
+    "phases": [
+      "INIT_STOW",
+      "HEAD_MARKERS",
+      "SEARCH_COLUMN",
+      "SEARCH_TURN",
+      "SEARCH_COLUMN",
+      "SEARCH_TURN",
+      "SEARCH_COLUMN",
+      "NAVIGATE_SHELF",
+      "HEAD_BOOKS",
+      "FIND_BOOK",
+      "ALIGN_BOOK",
+      "HEAD_REACQUIRE_BOOK",
+      "REACQUIRE_BOOK",
+      "PICK",
+      "CLEAR_SHELF_WITH_BOOK",
+      "COMPACT_TRANSPORT",
+      "RETURN_START",
+      "HEAD_BIN",
+      "FIND_BIN",
+      "ALIGN_BIN",
+      "HEAD_REACQUIRE_BIN",
+      "REACQUIRE_BIN",
+      "PLACE",
+      "WAIT_BIN_CONTACT",
+      "DONE"
+    ],
+    "post_preflight_contact_trace_windows": {
+      "lift_first_measured_geometry_verified": {
+        "event_prefix": "post_preflight",
+        "finished": true,
+        "last_ns": 118548000000,
+        "maximum_messages": 20000,
+        "maximum_ros_ns": 15000000000,
+        "messages": 15000,
+        "start_ns": 103548000000
+      }
+    },
+    "ros_time_ns": 224008000000,
+    "scene_contact_evidence_maximum_messages": 5000,
+    "scene_contact_evidence_messages": 1,
+    "terminal_phase": "DONE",
+    "wall_elapsed": 875.9218158059994
+  },
+  "command": [
+    "wsl",
+    "-d",
+    "ERC-Ubuntu-22.04",
+    "--",
+    "docker",
+    "exec",
+    "erc_official_current",
+    "ps",
+    "-p",
+    "37785,37829,38589,38607,38627,38662,38664,38666,38668,38670,38730",
+    "-o",
+    "pid,ppid,args"
+  ],
+  "process_checks_exit_code": 1,
+  "process_checks_output": "    PID    PPID COMMAND\n",
+  "scope": "Completed observer/camera tail, owned team stop, explicit ledger closure, archive and owned world stop. This lifecycle record does not establish physical delivery or collision quality. No unrelated container stopped; WSL lease remains active."
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "derived_contact_aggregation_summary_v1",
+  "artifact_kind": "Editorial field selection from preserved differential tests and component profile; no rerun",
+  "profile_result_sha256": "6d0a29d6b1975f351f9273ed68a43a4810b4635399852c0d50fed9f876f2c693",
+  "package_test_result_sha256": "3f07afb6eaf0ed9999831346797b4d4dc53901d9ee6a6429cb19498164e45259",
+  "source_sha256": {
+    "baseline": "f795acd78a4fd53e62c56486f4757c2b18ca70c64f5f2689f644e2df6a1321fd",
+    "overlay": "5037b9c7bed9d244f2443a7383ee9af4b65413ebedd2b267195a75f4ab4891d7"
+  },
+  "fixture_sha256": "a8d36b6d729f474d13f0ab2b00f0b26173a1e0bc6cdb451921df4c64503a2303",
+  "source_trial": "a2533d9f13ba",
+  "differential": {
+    "passed": true,
+    "equal_input_deliveries": 2000,
+    "package_tests": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "package_test_sha256": "79d69ff5438cf2f89e07f745c41687d344121fa426a95f6e02d552674df70741",
+    "source_unchanged": true,
+    "coverage": [
+      "Duplicate/latest/stale/out-of-order stamps and pair ordering",
+      "Partial fingers, nonfinite and overflow forces",
+      "Reset/epoch races, identity faults, hold/cancel/status fields",
+      "Seeded valid transition sequences under the production writer/reset invariant"
+    ]
+  },
+  "profile": {
+    "repetitions_per_version": 5,
+    "delivery_order": "Five alternating equal-input baseline/candidate comparisons",
+    "saved_contact_entries": 2000,
+    "saved_wrench_vectors": 40000,
+    "medians": {
+      "baseline": {
+        "thread_cpu_seconds": 0.9283980649999997,
+        "wall_seconds": 0.9653268769907299
+      },
+      "overlay": {
+        "thread_cpu_seconds": 0.49471933299999904,
+        "wall_seconds": 0.5134545559994876
+      }
+    },
+    "relative_thread_cpu_reduction": 0.4671258464977529,
+    "profiling_overhead_excluded_from_speed": true
+  },
+  "mechanism": "Reuse each entry force calculation, including None; append or replace latest history under existing lock; original sort/rebuild fallback for out-of-order or detectable structural mismatch.",
+  "scope": "Available raw gripper-message component, actual ROS message access and exact callbacks under controlled held-stock fixture; no live node/geometry concurrency or planner-speed claim",
+  "limits": [
+    "Saved gripper-message component only, under a controlled held-stock fixture; non-gripper contacts were not retained.",
+    "No whole-node, concurrent planner, mission-time or physical performance result.",
+    "Equivalence relies on established production history/frame writers and reset invariant; it does not claim repair of arbitrary injected equal-length corrupt state.",
+    "Raw contacts and profile traces are separately archived; their identifiers are retained above."
+  ]
+}

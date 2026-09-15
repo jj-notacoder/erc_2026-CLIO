@@ -1,0 +1,221 @@
+/**:
+  ros__parameters:
+    use_sim_time: true
+
+erc_perception:
+  ros__parameters:
+    table_scene_enabled: false
+    bin_scene_enabled: false
+    rgb_topic: /head_front_camera/head_front_camera/color/image_raw
+    depth_topic: /head_front_camera/head_front_camera/depth/image_rect_raw
+    camera_info_topic: /head_front_camera/head_front_camera/depth/camera_info
+    detection_stability_frames: 3
+    minimum_marker_confidence: 0.48
+    minimum_colour_area_px: 70.0
+    # The RGB-D sensors run at 30 Hz.  Process at 15 Hz so guarded shelf
+    # transfer always has at least 10 fresh target observations per second.
+    publish_rate_hz: 15.0
+    maximum_frame_age_seconds: 1.0
+    maximum_rgb_depth_skew_seconds: 0.20
+    target_tracking_minimum_rate_hz: 10.0
+    target_tracking_maximum_age_seconds: 0.15
+    target_tracking_maximum_frame_skew_seconds: 0.04
+    target_tracking_minimum_consecutive_frames: 3
+    target_tracking_maximum_reacquisition_gap_seconds: 0.25
+    target_tracking_maximum_center_speed_mps: 0.45
+    target_tracking_minimum_depth_coverage: 0.65
+    target_tracking_maximum_plane_residual_m: 0.002
+    # An edge-on 11--13 px spine has about 0.72 mm of measured centre
+    # quantisation at the overview distance; the dominant-plane and residual
+    # gates still reject mixed book faces.
+    target_tracking_maximum_center_uncertainty_m: 0.0008
+    target_tracking_maximum_orientation_uncertainty_rad: 0.05
+
+erc_navigation:
+  ros__parameters:
+    odom_topic: /odom
+    cmd_vel_topic: /cmd_vel
+    front_scan_topic: /scan_front_raw
+    rear_scan_topic: /scan_rear_raw
+    control_rate_hz: 20.0
+    max_linear_speed: 0.42
+    max_lateral_speed: 0.32
+    max_angular_speed: 0.55
+    linear_acceleration_limit: 0.55
+    carried_retreat_max_speed: 0.10
+    carried_retreat_acceleration_limit: 0.06
+    carried_retreat_braking_acceleration: 0.06
+    carried_retreat_max_angular_speed: 0.08
+    carried_retreat_angular_acceleration_limit: 0.10
+    angular_acceleration_limit: 0.8
+    position_tolerance: 0.045
+    yaw_tolerance: 0.045
+    settle_time_seconds: 0.45
+    carried_retreat_settle_time_seconds: 0.10
+    emergency_stop_distance: 0.28
+    goal_timeout_seconds: 45.0
+    sensor_stale_timeout_seconds: 1.0
+
+erc_manipulation:
+  ros__parameters:
+    # Optional measured release/return and fresh post-release contact evidence.
+    delivery_evidence_enabled: false
+    command_timeout_seconds: 120.0
+    tf_timeout_seconds: 1.0
+    perception_max_age_seconds: 1.5
+    perception_wait_seconds: 2.0
+    # Volatile RGB-D target observations used by guarded shelf-edge motion.
+    # The manipulation consumer independently caps freshness at 150 ms.
+    target_tracking_maximum_age_seconds: 0.15
+    target_tracking_guard_wait_seconds: 0.25
+    target_tracking_minimum_rate_hz: 10.0
+    target_tracking_minimum_depth_coverage: 0.65
+    target_tracking_maximum_plane_residual_m: 0.002
+    target_tracking_maximum_center_uncertainty_m: 0.0008
+    target_tracking_maximum_extent_uncertainty_m: 0.0016
+    target_tracking_maximum_orientation_uncertainty_rad: 0.05
+    left_arm_action: /arm_left_controller/follow_joint_trajectory
+    right_arm_action: /arm_right_controller/follow_joint_trajectory
+    left_gripper_topic: /gripper_left_controller/joint_trajectory
+    head_action: /head_controller/follow_joint_trajectory
+    torso_action: /torso_controller/follow_joint_trajectory
+    book_overview_tilt: -0.10
+    book_row_tilts: [0.20, 0.00, -0.40, -0.70]
+    gripper_open_position: 0.069
+    gripper_closed_position: 0.0
+    # Official b1f9b05 uses a 20 mm book. Joint position is not jaw gap:
+    # the nominal URDF fingertip gap reaches 20 mm near q=0.01824 m.
+    # Seek actual bilateral target contact; these values only bound travel.
+    gripper_preclose_position: 0.025
+    gripper_preload_position: 0.018
+    gripper_transport_lock_position: 0.015
+    grasp_min_position: 0.0155
+    grasp_min_margin: 0.0005
+    grasp_max_position: 0.05
+    pregrasp_offset: 0.14
+    grasp_depth_offset: 0.025
+    # Keep the palm clear of the observed book front while the fingertips
+    # overlap its sides. The former 60 mm approach pushed the book inward.
+    top_row_grasp_depth_offset: 0.025
+    # Development candidate: requires independent physical retention validation.
+    shelf_side_cradle_enabled: false
+    top_row_grasp_vertical_offset: -0.015
+    top_row_grasp_lateral_offset: -0.001
+    # Keep the top-row book on the bay floor until the support handoff is
+    # complete.  A loaded vertical lift was live-proven to shed the pinch.
+    top_row_loaded_clearance_lift_distance: 0.0
+    retreat_distance: 0.18
+    place_clearance: 0.22
+    book_centered_place_enabled: false
+    table_scene_required: false
+    bin_scene_required: false
+    scene_cartesian_wall_seconds: 420.0
+    book_centered_place_height_above_point_m: 0.270
+    book_centered_place_approach_x_m: 0.60
+    book_centered_place_clearance_height_m: 0.40
+    ik_position_tolerance: 0.012
+    ik_orientation_tolerance: 0.10
+    # Precision applies only to pick approach/extraction, not carry/placement IK.
+    pick_ik_position_tolerance: 0.0005
+    pick_ik_orientation_tolerance: 0.01
+    place_joint_limit_margin_radians: 0.03
+    cartesian_clearance_distance: 0.45
+    top_row_cartesian_clearance_distance: 0.46
+    cartesian_step: 0.06
+    cartesian_joint_step_limit: 0.40
+    pick_torso_height: 0.35
+    place_torso_height: 0.30
+    gripper_settle_seconds: 1.0
+    grasp_contact_max_age_seconds: 0.75
+    # Position-only gripper adapter with physics-step contact force feedback
+    # (500 Hz at the official 2 ms step; the sensor's 30 Hz tag is not applied).
+    # Both profiles retain force, effort and width guards. The optional fine
+    # profile replaces the legacy preload with bounded pressure corrections;
+    # physical retention still requires an observed loaded trial.
+    # Calibration03 pressure profile; disabled until loaded retention is proven.
+    # The 300 s local bound applies only to the opt-in profile, not the score timer.
+    fine_gripper_close_enabled: false
+    # Explicit simulator-only ordinary 1s diagnostic (default q0); disables solution amplitude caps.
+    stock_gripper_close_diagnostic_enabled: false
+    stock_gripper_close_target_position: 0.0
+    fine_gripper_minimum_force: 1.0
+    fine_gripper_step_wall_seconds: 5.0
+    fine_gripper_wall_timeout_seconds: 300.0
+    # Opt-in microtarget tuning; ordinary closing and pre-lift gates are separate.
+    fine_gripper_micro_position_error_m: 0.000000025
+    fine_gripper_micro_stationary_velocity_mps: 0.000002
+    fine_gripper_micro_preload_steps: 20
+    fine_gripper_micro_preload_step_m: 0.0000001
+    fine_gripper_micro_motion_seconds: 0.20
+    fine_gripper_micro_preload_limit_m: 0.000002
+    # Optional diagnostic: lift 5 mm before the existing shelf withdrawal.
+    # Requires mission's matching option and fresh onboard shelf registration.
+    lift_first_extraction_enabled: false
+    # Optional pre-close nominal aperture interval; disabled until separately validated.
+    preclose_aperture_geometry_enabled: false
+    lift_first_extraction_lift_m: 0.005
+    # Fresh resultant-force evidence before lift; not a normal-force guarantee.
+    lift_first_minimum_contact_force: 3.5
+    # Independent lift admission envelope; never inherited from micro closure.
+    lift_first_maximum_gripper_velocity_mps: 0.000002
+    adaptive_gripper_close_step: 0.001
+    # Legacy step/preload settings below apply when the fine profile is disabled.
+    adaptive_gripper_step_motion_seconds: 0.32
+    adaptive_gripper_step_settle_seconds: 0.10
+    adaptive_gripper_preload_distance: 0.001
+    adaptive_gripper_confirmation_seconds: 0.12
+    adaptive_gripper_contact_force_minimum: 0.05
+    adaptive_gripper_contact_force_maximum: 8.0
+    adaptive_gripper_contact_samples: 3
+    adaptive_gripper_contact_max_age_seconds: 0.15
+    adaptive_gripper_contact_max_gap_seconds: 0.075
+    adaptive_gripper_contact_min_span_seconds: 0.05
+    adaptive_gripper_contact_max_skew_seconds: 0.05
+    adaptive_gripper_velocity_tolerance: 0.003
+    adaptive_gripper_effort_maximum: 4.0
+    adaptive_gripper_effort_delta_maximum: 3.0
+    # Allow the early finger up to four 1 mm resolving steps so the opposite
+    # finger can reach a laterally offset book; retry 22 showed 1 mm is too
+    # short, while the width floor still bounds total travel.
+    adaptive_gripper_unilateral_travel_limit: 0.004
+    adaptive_gripper_endpoint_tolerance: 0.0006
+    adaptive_gripper_start_tolerance: 0.0015
+    carried_book_dimensions: [0.16, 0.02, 0.25]
+    carried_book_padding: 0.015
+    carried_shelf_margin: 0.02
+    carried_shelf_retreat_clearance_distance: 0.25
+    carried_cradle_extension_distance: 0.12
+    carried_cradle_retraction_distance: 0.05
+    carried_cradle_roll_radians: -1.10
+    carried_cradle_transfer_seconds: 0.75
+    carried_supported_jaw_vertical_component: 0.75
+    carried_transition_samples: 61
+    carried_orientation_step_limit: 0.45
+    carried_navigation_radius_limit: 0.45
+    carried_maximum_tilt_radians: 1.0471975512
+
+erc_mission_manager:
+  ros__parameters:
+    # Optional measured release/return and fresh post-release contact evidence.
+    delivery_evidence_enabled: false
+    sensor_ready_timeout_seconds: 35.0
+    marker_search_timeout_seconds: 5.0
+    perception_timeout_seconds: 18.0
+    navigation_timeout_seconds: 50.0
+    manipulation_timeout_seconds: 180.0
+    shelf_standoff_distance: 1.30
+    grasp_standoff_distance: 0.65
+    top_row_grasp_standoff_distance: 0.65
+    # Paired development override: also enable manipulation's shelf-side cradle
+    # and use a verified final standoff/depth. Disabled until transport passes.
+    empty_arm_staging_enabled: false
+    empty_arm_staging_backoff_distance: 0.20
+    lift_first_extraction_enabled: false
+    bin_standoff_distance: 0.72
+    carried_shelf_retreat_distance: 0.35
+    grasp_lateral_bias_distance: 0.05
+    # A failed pinch can push the book deeper into the shelf.  Until retries
+    # have an explicit displacement guard, do not chase that disturbed pose.
+    maximum_pick_attempts: 1
+    maximum_search_turns: 8
+    search_turn_radians: -0.7853981634

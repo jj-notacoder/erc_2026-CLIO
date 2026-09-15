@@ -1,0 +1,31 @@
+{
+  "checked_utc": "2026-09-12T04:59:53.922388+00:00",
+  "passed": true,
+  "verified_package_files_per_location": 336,
+  "locations": {
+    "canonical": "C:\\Users\\sir\\Documents\\New project\\erc-2026-phase1-solution\\src\\erc_phase1_solution",
+    "revision57": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\collision_quality_candidate\\revision57\\source",
+    "full22_export": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\test_evidence\\collision_quality_final_22\\source"
+  },
+  "pinned_evidence": {
+    "output\\official_reference\\test_evidence\\collision_quality_final_22\\validation_certificate.json": "16d418b4302989da42fc424ed0b4dccfc8bbff0516e2e5622d28ac808b34a20e",
+    "output\\official_reference\\test_evidence\\collision_quality_final_22\\validation_result.json": "5b48225ce4cf1db805b6775601b1d6eec9d1918f20e6789e9f8443f99e28d258",
+    "output\\official_reference\\collision_quality_candidate\\revision57\\runtime_profile.json": "09b32818dae30efe7caa063ee8be730c733561e3ee4b226043bfce891a9681e5",
+    "output\\official_reference\\run50_review\\geometry_read_state.json": "fe7bece6804eb0cd93bc4af5900da15ee65dce79a1ef9a7d0ea853a5732b0063",
+    "output\\official_reference\\run50_review\\actual_geometry_audit\\execution01\\summary.json": "7572e2191ef0de42e34dc06715d31a8e0b310d4e37b38e59602b69e213caf964",
+    "output\\official_reference\\run50_review\\shutdown\\shutdown_observation.json": "709ed72275f7156cfeb36600923fa4fb304ec538c4d00d1964a18a915f133126",
+    "output\\official_reference\\run50_review\\geometry_invocation_note.json": "ebb63de767968724bf9844eb9fee303f0f58955c47b10ce2fd12052a30d7024a"
+  },
+  "full22_junit": {
+    "tests": 3706,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "owned_foreground_wsl_lease_closed": {
+    "finished_utc": "2026-09-12T04:59:18.893899+00:00",
+    "wall_seconds": 2269.8827310369998,
+    "stop_requested": true
+  },
+  "scope": "Final byte readback and owned lease completion only; no simulation, geometry, or test rerun."
+}

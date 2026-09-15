@@ -1,0 +1,90 @@
+{
+  "erc_phase1_solution/scene_checked_place.py": {
+    "parent_sha256": "659d31f242646d8b867382e98286bd403359f14f374d97db731be6b1865729c0",
+    "candidate_sha256": "d36f7292280d761f9ec7d4c06ec8b2200b35e802e6c96ff1585c0d479a3f9fc9",
+    "replacements": [
+      {
+        "old": "        self._entries = {}\n",
+        "new": "        self._entries = {}\n        self._geometry = {}\n"
+      },
+      {
+        "old": "    def merge(self, values):\n",
+        "new": "    def remember_cached(self, world, geometry):\n        from erc_phase1_solution.exact_world_geometry import _WorldSurface\n        if type(geometry) is _WorldSurface and geometry.matches(world):\n            _, bounds = geometry.views()\n            self._entries[id(world)] = (world, {'min': bounds[0], 'max': bounds[1]})\n            self._geometry[id(world)] = (world, geometry)\n\n    def snapshot_geometry(self, robot):\n        return {link: entry[1] for link, surface in robot.items()\n                if (entry := self._geometry.get(id(surface))) is not None\n                and entry[0] is surface}\n\n    def merge(self, values):\n"
+      },
+      {
+        "old": "        self.last_rejection = None\n\n    def _reject",
+        "new": "        self.last_rejection = None\n        self._world_geometry_cache = None\n        if (type(self) is PlaceSceneChecker and type(obstacle) is NominalBinObstacle\n                and (table is None or type(table) is TableSceneObstacle)\n                and (screen is None or type(screen) is ScreenEnvelope)\n                and type(tool_geometry) is ShelfCradleGeometry):\n            from erc_phase1_solution.exact_world_geometry import ExactWorldGeometry, ordinary_model_producer\n            if ordinary_model_producer(node):\n                self._world_geometry_cache = ExactWorldGeometry()\n\n    def _reject"
+      },
+      {
+        "old": "            world = surface @ transform[:3, :3].T + transform[:3, 3]\n            world_aabbs.remember_transform(world, surface, transform)",
+        "new": "            cached = (world_cache.capture(local_mesh, surface, transform)\n                      if world_cache is not None else None)\n            if cached is None:\n                world = surface @ transform[:3, :3].T + transform[:3, 3]\n                world_aabbs.remember_transform(world, surface, transform)\n            else:\n                world = cached.views()[0]\n                world_aabbs.remember_cached(world, cached)"
+      },
+      {
+        "old": "        for link, surface in self.tool.local_surfaces(aperture).items():\n            bin_surface = table_surface = surface",
+        "new": "        for link, surface in self.tool.local_surfaces(aperture).items():\n            local_mesh = None\n            bin_surface = table_surface = surface"
+      },
+      {
+        "old": "            tool[link] = surface @ hand[:3, :3].T + hand[:3, 3]\n            world_aabbs.remember_transform(tool[link], surface, hand)",
+        "new": "            cached = (world_cache.capture(local_mesh, surface, hand)\n                      if world_cache is not None else None)\n            if cached is None:\n                tool[link] = surface @ hand[:3, :3].T + hand[:3, 3]\n                world_aabbs.remember_transform(tool[link], surface, hand)\n            else:\n                tool[link] = cached.views()[0]\n                world_aabbs.remember_cached(tool[link], cached)"
+      },
+      {
+        "old": "            snapshot = _capture_scene_robot_snapshot(node, q, right, head, robot)",
+        "new": "            snapshot_options = ({'_world_geometry': world_aabbs.snapshot_geometry(robot)}\n                                if world_cache is not None else {})\n            snapshot = _capture_scene_robot_snapshot(node, q, right, head, robot, **snapshot_options)"
+      },
+      {
+        "old": "        transforms = node._collision_link_transforms(q, **context)\n        world_aabbs = _SampleWorldAabbs()",
+        "new": "        world_cache = self._world_geometry_cache\n        if world_cache is not None:\n            from erc_phase1_solution.exact_world_geometry import ordinary_model_producer\n            if not ordinary_model_producer(node):\n                world_cache = None\n        transforms = node._collision_link_transforms(q, **context)\n        world_aabbs = _SampleWorldAabbs()"
+      }
+    ],
+    "candidate_text_sha256": "d36f7292280d761f9ec7d4c06ec8b2200b35e802e6c96ff1585c0d479a3f9fc9",
+    "parent_text_sha256": "659d31f242646d8b867382e98286bd403359f14f374d97db731be6b1865729c0"
+  },
+  "erc_phase1_solution/sample_collision_snapshot.py": {
+    "parent_sha256": "4cdc9f327ee47610f17cb1349ed65d2b7a9b0af6482625745c008c8ffa1ee1af",
+    "candidate_sha256": "7e7f4c23f6933e7448546f0d998eefe2b90490cfe91398ab6829f3c30f676e69",
+    "replacements": [
+      {
+        "old": "from .kinematics import CollisionMesh\n",
+        "new": "from .kinematics import CollisionMesh\nfrom .exact_world_geometry import _WorldSurface\n"
+      },
+      {
+        "old": "    __slots__ = ('_owner', '_state', '_models', '_world', '_frozen')",
+        "new": "    __slots__ = ('_owner', '_state', '_models', '_world', '_frozen', '_geometry')"
+      },
+      {
+        "old": "    def __init__(self, owner, state, models, world):",
+        "new": "    def __init__(self, owner, state, models, world, geometry=None):"
+      },
+      {
+        "old": "        self._frozen = None\n",
+        "new": "        self._frozen = None\n        self._geometry = {} if geometry is None else dict(geometry)\n"
+      },
+      {
+        "old": "            for link, surface in self._world:\n                content = surface.tobytes(order='C')",
+        "new": "            for link, surface in self._world:\n                geometry = self._geometry.get(link)\n                if type(geometry) is _WorldSurface and geometry.matches(surface):\n                    frozen.append((link, *geometry.frozen()))\n                    continue\n                content = surface.tobytes(order='C')"
+      },
+      {
+        "old": "            self._world = ()\n",
+        "new": "            self._world = ()\n            self._geometry = {}\n"
+      },
+      {
+        "old": "def _capture_scene_robot_snapshot(node, q, right, head, robot):",
+        "new": "def _capture_scene_robot_snapshot(node, q, right, head, robot, *, _world_geometry=None):"
+      },
+      {
+        "old": "    world = []\n    for link, surface in robot.items():",
+        "new": "    world = []\n    geometry = _world_geometry if type(_world_geometry) is dict else {}\n    for link, surface in robot.items():\n        cached = geometry.get(link)\n        immutable = type(cached) is _WorldSurface and cached.matches(surface)"
+      },
+      {
+        "old": "                or not surface.flags.c_contiguous or not surface.flags.owndata\n                or surface.base is not None):",
+        "new": "                or not surface.flags.c_contiguous\n                or not (immutable or (surface.flags.owndata and surface.base is None))):"
+      },
+      {
+        "old": "    return _SceneRobotSnapshot(node, state, models, tuple(world))",
+        "new": "    return _SceneRobotSnapshot(node, state, models, tuple(world), geometry)"
+      }
+    ],
+    "candidate_text_sha256": "7e7f4c23f6933e7448546f0d998eefe2b90490cfe91398ab6829f3c30f676e69",
+    "parent_text_sha256": "4cdc9f327ee47610f17cb1349ed65d2b7a9b0af6482625745c008c8ffa1ee1af"
+  }
+}

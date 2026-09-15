@@ -1,0 +1,91 @@
+{
+  "schema": "derived_static_pair_separation_summary_v1",
+  "artifact_kind": "Editorial selection from preserved candidate checks; not a full-suite certificate or full-route replay",
+  "revision39_package_files": 266,
+  "revision39_source_tree_sha256": "92cace485475b85e09c379b2ca73117ce1c64cb99327fe36e74c169dbc9a56aa",
+  "revision39_staging_record_sha256": "d318b0cd64762d3ac8045a26ce78370cdc36f1e58dec75ab43804f6d1ef013a7",
+  "profile_sha256": "16b95a58194d23225d3775b8cd07afa3c72317ce112895082aa8690a018e56ef",
+  "candidate_manifest_sha256": "5b0962fa14fbbe33c1dbb99f08072bc9e7e25cb296b735180f6b2454359230e1",
+  "comparison_sha256": "8232910cd7e35aeb43d53cb5b56dd195556bb9f5360b25ab28292abd9bdabed7",
+  "tests": {
+    "pure01": {
+      "tests": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "ca411546bd40af82650ff28153767b8fb36d5941b26b299133825fb10e4d6c5f"
+    },
+    "compatibility01": {
+      "tests": 117,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "1d23089bf9531434bd5b2a1613e1beb5a94744e77666a1c6ba6742af4845483b"
+    }
+  },
+  "focused_tests_total": 150,
+  "full_suite_on_revision39": "FAILED final06: 2654 passed, 1 diagnostic regression; no current certificate",
+  "full_route_on_revision39": "PASS: executed recorded-input nominal replay; see run37_nominal_route_summary.json",
+  "run38_physical_outcome": "pending",
+  "identical_sample_inputs_verdicts_and_pair_order": true,
+  "identical_whole_static_cache_counts": true,
+  "matched_instrumented_modes": [
+    {
+      "mode": "frozen",
+      "baseline_wall": 0.7585616249998566,
+      "candidate_wall": 0.7930812280101236,
+      "baseline_cpu": 0.7318044010000003,
+      "candidate_cpu": 0.7630727579999997,
+      "cold_first_baseline_wall": 0.15707732699229382,
+      "cold_first_candidate_wall": 0.19397797601413913,
+      "warm_six_baseline_wall": 0.6014842980075628,
+      "warm_six_candidate_wall": 0.5991032519959845,
+      "static_pair_baseline": {
+        "calls": 66,
+        "wall_seconds": 0.05487020999134984,
+        "thread_cpu_seconds": 0.05315245900000032
+      },
+      "static_pair_candidate": {
+        "calls": 66,
+        "wall_seconds": 0.09222674700140487,
+        "thread_cpu_seconds": 0.08877038900000034
+      },
+      "static_narrow_baseline": 4,
+      "static_narrow_candidate": 0,
+      "wall_reduction_percent": -4.550665611416016,
+      "warm_six_wall_reduction_percent": 0.3958617073572146
+    },
+    {
+      "mode": "measured",
+      "baseline_wall": 1.0935527719848324,
+      "candidate_wall": 0.7867129779915558,
+      "baseline_cpu": 1.0522502000000005,
+      "candidate_cpu": 0.7558358070000002,
+      "cold_first_baseline_wall": 0.15506256400840357,
+      "cold_first_candidate_wall": 0.15596259399899282,
+      "warm_six_baseline_wall": 0.9384902079764288,
+      "warm_six_candidate_wall": 0.630750383992563,
+      "static_pair_baseline": {
+        "calls": 462,
+        "wall_seconds": 0.386472210942884,
+        "thread_cpu_seconds": 0.37191975099999586
+      },
+      "static_pair_candidate": {
+        "calls": 462,
+        "wall_seconds": 0.07095335386111401,
+        "thread_cpu_seconds": 0.06724770500000155
+      },
+      "static_narrow_baseline": 28,
+      "static_narrow_candidate": 0,
+      "wall_reduction_percent": 28.0589836955333,
+      "warm_six_wall_reduction_percent": 32.790946710825466
+    }
+  ],
+  "comparison_limitations": "One baseline-then-candidate comparison, frozen-first within each; cProfile and wrappers included. Hybrid recorded pose/context fixture, not a live route or mission speed proof.",
+  "fixture": "Seven accepted Run36 Cartesian poses with either one fixed or seven recorded Run37 parked-arm/head contexts; not a live Run37 route",
+  "startup_scope": "Frozen-first candidate includes approximately 0.036 seconds of first helper/SciPy import; hint generation costs approximately 0.030 seconds per fresh helper",
+  "certificate_contract": "Only sufficient whole-mesh separation: all original current world vertices projected along candidate axes; strict gap exceeds 100 micrometres plus operand-scale roundoff allowance",
+  "legacy_boolean_equivalence_claim": false,
+  "geometry_scope": "Can refine conservative degenerate-facet false positives; overlapping, touching, uncertain and custom-surface cases retain original fallback; no physical/model-accuracy claim",
+  "subsequent_revision40": "Telemetry-only correction passed final07 full software validation; Run38 physical result pending"
+}

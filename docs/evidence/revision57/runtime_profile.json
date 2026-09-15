@@ -1,0 +1,42 @@
+{
+  "candidate_scope": "Retain the R55 official-stock motion and collision profile, correct the stock-close open-proof lifecycle in source, and enable three fresh completed target-absent camera frames to end an unproductive marker-search wait early. Keep the five-second fallback, positive detection priority, turn limits, raw retention feedback, 100 ms pre-open stationary gate, speed scale 3.0, all geometry and velocity checks. Physical timing, retention and placement quality remain to be tested.",
+  "name": "collision_quality_registered_bin_place",
+  "overrides": {
+    "erc_manipulation": {
+      "bin_scene_required": true,
+      "book_centered_place_approach_x_m": 0.6,
+      "book_centered_place_clearance_height_m": 0.5,
+      "book_centered_place_enabled": true,
+      "book_centered_place_height_above_point_m": 0.27,
+      "command_timeout_seconds": 2400.0,
+      "delivery_evidence_enabled": true,
+      "fine_gripper_close_enabled": false,
+      "lift_first_extraction_enabled": true,
+      "lift_first_extraction_lift_m": 0.005,
+      "measured_place_height_enabled": false,
+      "place_torso_height": 0.35,
+      "placement_transport_speed_scale": 3.0,
+      "preclose_aperture_geometry_enabled": false,
+      "preopen_stationary_enabled": true,
+      "raw_contacts_enabled": true,
+      "scene_cartesian_wall_seconds": 1800.0,
+      "stock_gripper_close_diagnostic_enabled": true,
+      "stock_gripper_close_target_position": 0.017,
+      "table_scene_required": true
+    },
+    "erc_mission_manager": {
+      "bin_standoff_distance": 0.82,
+      "delivery_evidence_enabled": true,
+      "lift_first_extraction_enabled": true,
+      "manipulation_timeout_seconds": 2400.0,
+      "marker_search_negative_enabled": true
+    },
+    "erc_perception": {
+      "bin_scene_enabled": true,
+      "table_scene_enabled": true
+    }
+  },
+  "parent_profile_sha256": "34ad06c8bbe44249009e41008869705e05c6a4918ceca3bfbf1c32be861ec28c",
+  "planning_budget_parent_profile_sha256": "30adba14d789024515ac593ba261a306c0c9d3ae8ace7e816d2aead8e085e01e",
+  "purpose": "Reduce mission wall time while checking physical retention, placement, empty return and sampled collisions on unchanged official physics. Shelf lift/withdrawal, gripper, torso and navigation timing remain unchanged. Retain the five-second marker-search fallback while permitting an earlier turn after three fresh completed target-absent camera frames. No diagnostic or offline timing establishes a successful delivery."
+}

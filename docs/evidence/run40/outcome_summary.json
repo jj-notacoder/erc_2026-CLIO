@@ -1,0 +1,282 @@
+{
+  "schema": "run40_observed_outcome_summary_v1",
+  "trial_id": "11f08d9184fb",
+  "target_model": "book_col_3_row_2_red",
+  "executed_software": {
+    "revision": "revision42",
+    "label": "collision_quality_final_09",
+    "source_tree_sha256": "f23d05216ac2abd66a41e08a5ae176f9b7ed1e9096dcb9a43cd065aacdbf34df",
+    "certificate_sha256": "d02bf78fe7d7d9eaad9d936afbf8316eaa3e92a0234ab3619982f9e775829114",
+    "profile_sha256": "590bc458a136cd9d2ab9073104cd496077e5b2df65f0079ed4010a878dedd705",
+    "source_files": 272
+  },
+  "outcome": "Completed delivery and measured empty-hand return; strict sampled whole-book containment and floor support, with retained limitations.",
+  "timing": {
+    "done_observer_wall_seconds": 2530.733186198,
+    "done_ros_stamp_ns": 656600000000,
+    "done_observer_wall_display": "42m 10.733s",
+    "physical_inside_and_supported_first_sample_ns": 635266000000,
+    "contact_first_observer_wall_seconds": 2469.2615005479993,
+    "scope": "Observer-origin elapsed wall values; ROS entries are absolute simulation clock stamps, not elapsed wall time or a separately reconstructed official timer."
+  },
+  "settled_delivery": {
+    "first_pose_ns": 635266000000,
+    "last_pose_ns": 665956000000,
+    "identical_book_and_bin_pose_samples": 35,
+    "span_ros_seconds": 30.69,
+    "span_observer_wall_seconds": 73.21939799399934,
+    "maximum_gap_ros_seconds": 0.992,
+    "strict_zero_tolerance_whole_book_inside_core": true,
+    "floor_support_consistent_with_1um_analysis_tolerance": true,
+    "minimum_side_clearance_m": 0.0003792519055325627,
+    "minimum_length_clearance_m": 0.08002001336641285,
+    "floor_residual_m": 7.585985195429634e-07,
+    "final_book_world_center": [
+      -1.0215122600022992,
+      0.030249753030252936,
+      0.7599998709214333
+    ],
+    "final_book_world_orientation_xyzw": [
+      0.6985995122671741,
+      0.10935292376975135,
+      0.10935535044316952,
+      0.6986000764761802
+    ],
+    "final_book_corners_in_bin": [
+      [
+        -0.06822509086759179,
+        -0.09499918384769027,
+        0.16497998663358715
+      ],
+      [
+        0.08412140006509974,
+        -0.094999152358148,
+        0.11608676930751696
+      ],
+      [
+        -0.06822509602249402,
+        -0.07499918384769126,
+        0.16497998345236023
+      ],
+      [
+        0.0841213949101975,
+        -0.07499915235814889,
+        0.11608676612629006
+      ],
+      [
+        -0.1446207429395652,
+        -0.09499924140148046,
+        -0.07306140544874525
+      ],
+      [
+        0.007725747993126335,
+        -0.09499920991193808,
+        -0.12195462277481539
+      ],
+      [
+        -0.14462074809446743,
+        -0.07499924140148134,
+        -0.07306140862997215
+      ],
+      [
+        0.0077257428382241115,
+        -0.07499920991193908,
+        -0.12195462595604231
+      ]
+    ],
+    "final_bin_world_center": [
+      -1.000000002979682,
+      -1.8780107368578048e-11,
+      0.8449991468114767
+    ],
+    "maximum_bin_displacement_m": 0.0,
+    "final_master_position_m": 0.06899999999927951,
+    "arm7_world_displacement_during_settled_tail_m": 0.8795526988038431
+  },
+  "stationary_hold": {
+    "pose_count": 638,
+    "first_pose_ns": 388140000000,
+    "last_pose_ns": 608762000000,
+    "first_pose_after_postnav_ms": 240.0,
+    "last_pose_before_motion_admission_ms": 342.0,
+    "first_observer_wall": 963.1000963050001,
+    "last_observer_wall": 2332.5415195719997,
+    "sampled_duration_ros_seconds": 220.622,
+    "sampled_duration_observer_wall_seconds": 1369.4414232669997,
+    "maximum_pose_gap_ros_seconds": 0.402,
+    "pose_minus_atomic_joint_stamp_ms": [
+      -16.0,
+      2.0
+    ],
+    "minimum_book_lowest_corner_world_z_m": 1.2523540567591491,
+    "all_actual_corners_inside_nominal_box_count": 0,
+    "maximum_book_translation_mm": 13.770749036733271,
+    "maximum_book_rotation_degrees": 18.54985611646159,
+    "maximum_arm7_base_translation_um": 27.90003486481631,
+    "maximum_base_world_translation_mm": 1.0699176002607684,
+    "maximum_nominal_protrusion_mm": 47.641983735267054
+  },
+  "contacts": {
+    "scope": "Observed delivered pair-inventory episodes by topic, not scored collisions or physical contact onset/separation. The two topics can report the same contact and are never summed as a physical count. Empty inventory is not proof of separation.",
+    "episodes_by_source": {
+      "/bin_contacts": 2,
+      "/contacts": 0
+    },
+    "open_delivered_episodes": 1,
+    "episodes": [
+      {
+        "source": "/bin_contacts",
+        "pair": [
+          "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+          "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision"
+        ],
+        "first_delivered_present": {
+          "receipt_ros_ns": 631144000000,
+          "wall": 2469.2615005479993,
+          "producer_ros_ns": 631144000000,
+          "producer_frame_id": ""
+        },
+        "initial_inventory_unknown": false,
+        "first_delivered_absent": {
+          "receipt_ros_ns": 631158000000,
+          "wall": 2469.2906313159992,
+          "producer_ros_ns": 631158000000,
+          "producer_frame_id": ""
+        }
+      },
+      {
+        "source": "/bin_contacts",
+        "pair": [
+          "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+          "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision"
+        ],
+        "first_delivered_present": {
+          "receipt_ros_ns": 631160000000,
+          "wall": 2469.297339168,
+          "producer_ros_ns": 631160000000,
+          "producer_frame_id": ""
+        },
+        "initial_inventory_unknown": false,
+        "first_delivered_absent": null
+      }
+    ],
+    "raw_scene_record_count": 3,
+    "evidence_limits": []
+  },
+  "scene_depth_summary": {
+    "scope": "Maximum among saved changed-inventory messages only; not a full-run peak or physical episode count. No normal/force coordinate inference.",
+    "saved_message_limit_reached": false,
+    "pairs": [
+      {
+        "source": "/bin_contacts",
+        "pair": [
+          "book_col_3_row_2_red::book_base_link::base_link_book_collision",
+          "erc_collection_bin::collection_bin_base_link::base_link_collection_bin_collision"
+        ],
+        "delivered_evidence_count": 2,
+        "first_producer_ros_ns": 631144000000,
+        "last_producer_ros_ns": 631160000000,
+        "maximum_recorded_depth_m": 0.0012537435601199366,
+        "depth_witness": {
+          "producer_ros_ns": 631160000000,
+          "receipt_ros_ns": 631160000000,
+          "wall_elapsed": 2469.297140019,
+          "array_index": 2,
+          "sequence": 3,
+          "producer_frame_id": ""
+        },
+        "array_length_mismatch_count": 0
+      }
+    ]
+  },
+  "contact_classification": {
+    "unique_intended_book_bin_pair_count": 1,
+    "book_bin_changed_inventory_episodes": 2,
+    "arm_tool_bin_table_pairs": [],
+    "book_inner_finger_right_is_gripper_contact": true,
+    "last_fingertip_receipts_ns": {
+      "right": 630968000000,
+      "left": 631028000000
+    },
+    "scope": "Observed named contact inventory; two delivered episodes of the same book/bin pair are not two scored collisions. No physical separation proof from an absent inventory. Official self-collision is disabled; contacts do not prove screen/self clearance."
+  },
+  "measured_open": {
+    "ros_ns": 631246000000,
+    "observer_wall": 2469.4967920479994,
+    "producer_stamp_ns": 631244000000
+  },
+  "measured_return": {
+    "ros_ns": 656438000000,
+    "observer_wall": 2530.344890745999,
+    "producer_stamp_ns": 656436000000
+  },
+  "verified_empty_return_endpoints": 12,
+  "valid_pose_samples": 1186,
+  "excluded_pose_samples": 0,
+  "actual_place_selection": {
+    "requested_ros_window": [
+      608.904,
+      656.438
+    ],
+    "available_count": 91,
+    "selected_count": 91,
+    "all_available_selected": true,
+    "excluded_journal_indices": [],
+    "maximum_selected_gap_seconds": 0.948,
+    "selected_producer_ros_seconds": [
+      609.128,
+      655.628
+    ]
+  },
+  "geometry_audit": "Completed sampled checks; see actual_geometry_summary.json. No continuous/general safety claim.",
+  "archive_independent_verification": {
+    "passed": true,
+    "manifested_files": 373,
+    "total_with_manifest": 374,
+    "source_files": 272,
+    "manifest_sha256": "3eec807e25b71e326d94a2a42a421a99ea5d19427a2201db20fca9a4ec4dab3d",
+    "observations_sha256": "9b6987462536de96c2d91d39bc2a359e275ec3a520777fd1b41b123fd5517763",
+    "source_tar_sha256": "2aa36c726b5f50290838782687fb13692780217d6ba71bb0adb2bb0c670d6eb8",
+    "independent_review_sha256": "b989ad54e53911ed52e2d303a0c60afba80d2ce3ccb304fc7ec187f2f2c40e06",
+    "installed_modules": 64,
+    "installed_data_files": 11,
+    "resolved_meshes": 40,
+    "official_checks": {
+      "total": 895,
+      "exact": 893,
+      "permitted_timestamp_header_refreshes_unchanged_payload": 2
+    },
+    "saved_owned_pid_shutdown_record_sha256": "5d27d6687859ecda041881ccdc8faa61b7898c00bd6f6f200b4c7f4c75938ee3",
+    "scope": "Independent review of immutable archive and authenticated saved source/install/official/shutdown records; no current-process inference."
+  },
+  "root_journal_sha256": "e8bed7811b08b1950cf77418a455e2d957deae53ffa2808a994b17228013b5b3",
+  "observations_scanned_byte_offset": 283148786,
+  "local_archive_sources": {
+    "run40_review/quality_evaluation/terminal_review01.json": "3fc707ffa159b3ce153dcd553c4fd4521915f142fc81b29bf69896a93bea94b6",
+    "run40_review/quality_evaluation/terminal_review01.md": "76998b13c192bf018f9baad7064d84ea63406d20e3f9eb07e1f24fde2ac89187",
+    "run40_review/quality_evaluation/physical_final01.json": "2a020ab0b02326d004213691d9287d4fff6e01828147cbc642ef939f5729918d",
+    "run40_review/quality_evaluation/terminal_event_records01.json": "25c008d1a81e6a76d5a2aacc50b69a4798baedcb71178055c7bad2d2d586cc11",
+    "run40_review/quality_evaluation/place_hold_complete01.json": "8400fce808867d180082bcd3a28b69a784e1fb273329f7728dadb308a9c42c20",
+    "run40_review/quality_evaluation/selected_place01.json": "ce81fcdd854ac8487c95cf818ea170f4c61b41d346b6094adb0af436d3b48951",
+    "run40_review/quality_evaluation/pickup_review01.json": "ea4c2b95eb6cccb324206e82de736385ba40277a12fb4078ada316d3e97e9f69",
+    "run40_review/quality_evaluation/compact_review01.json": "f6b414a5ed7e6fd5a92d6976141ef1137a3a7316f0123fd28c412a3a67ed6625",
+    "run40_review/archive_integrity_review/verification.json": "b989ad54e53911ed52e2d303a0c60afba80d2ce3ccb304fc7ec187f2f2c40e06",
+    "run40_review/archive_integrity_review/README.md": "fecaca8ce6b42acd5a9a0ede8b40c045c6c5ca0b5627adbff86d747e596cd70d",
+    "run40_review/actual_geometry_audit/execution01/summary.json": "1969fe3d375d011e7ff1f54863a2d0ef6525860adfa7e517fbba23c868a18bea",
+    "run40_review/actual_geometry_audit/actual_geometry_review.md": "85d8dd2d10f06b048f68c1e986b322f95bba384121715af61b605ab3a2c74261",
+    "runtime/run_40/trial_manifest.json": "e56f7a4784379d2d4e7126c2aac8bfa721e467738ca6070211bae47e03a93f05"
+  },
+  "limits": [
+    "Successful sampled delivery does not establish gentle maximum-score placement, competition readiness or repeated-trial reliability.",
+    "1371.804626s full planning/1304.586086s search and42m10.733s observer-to-DONE do not show a live speedup over Run39.",
+    "Physical source is exact R42/final09. Software tests and nominal route checks do not eliminate observed attachment drift.",
+    "The original physical report predates the later geometry/archive reviews; its bytes and historical pending wording are preserved."
+  ],
+  "development_scenario": {
+    "seed": 101,
+    "column": 2,
+    "colour": "red",
+    "scored": false,
+    "scope": "Same development scenario as Run39, not randomized-trial reliability evidence."
+  }
+}

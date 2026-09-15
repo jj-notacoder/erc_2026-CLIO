@@ -1,0 +1,14 @@
+{
+  "trial_id": "9c768db2db9e",
+  "solution_launch_to_done_seconds": 318.006411739,
+  "mission_initialization_to_done_seconds": 315.291451498,
+  "startup_included_in_solution_timing": false,
+  "success": true,
+  "whole_book_inside_conservative_bin_core": true,
+  "minimum_side_clearance_m": 0.06665457164657913,
+  "containment_artifact": "containment.json",
+  "viewer": "separate Ogre1 spectator, local lighting, 15 FPS",
+  "controller_build": "Release -O3 -DNDEBUG from unchanged gz_ros2_control source",
+  "tests_passed_unique": 311,
+  "scope": "One clean optimized run, seed101 shelf2 red. Earlier successful diagnostic run took484.229s and included compilation and viewer changes."
+}

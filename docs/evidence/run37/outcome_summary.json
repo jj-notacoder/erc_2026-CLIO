@@ -1,0 +1,55 @@
+{
+  "schema": "derived_run37_outcome_summary_v1",
+  "artifact_kind": "Editorial selection from immutable archive reviews; not a raw-data reproduction kit",
+  "trial_id": "d9d1b6fd445f",
+  "software_certificate_sha256": "c12d024cede84c058d73b9a97cccbfdfecc8a9e02a7f0424d79385f2dc7a88c7",
+  "profile_sha256": "16b95a58194d23225d3775b8cd07afa3c72317ce112895082aa8690a018e56ef",
+  "terminal": {
+    "state": "ABORTED",
+    "reason": "trial_timeout",
+    "operator_cancelled": false,
+    "configured_trial_wall_seconds": 2700,
+    "ros_seconds": 547.3,
+    "observer_wall_seconds": 2703.059322659
+  },
+  "worker_after_cancel": {
+    "reason": "scene_cartesian_cancelled",
+    "ros_seconds": 547.396,
+    "proves_geometric_infeasibility": false
+  },
+  "pick_and_compact_succeeded": true,
+  "place_ik_ready": false,
+  "placement_motion": false,
+  "opening": false,
+  "release": false,
+  "empty_return": false,
+  "delivered": false,
+  "final_book_remained_held": true,
+  "final_whole_book_inside_core": false,
+  "final_book_footprint_inside_core": false,
+  "maximum_sampled_bin_displacement_m": 0.0,
+  "relevant_reported_robot_table_bin_or_book_bin_contacts": 0,
+  "valid_pose_samples": 1279,
+  "place_hold_relative_motion_including_observer_tail": {
+    "first_pose_ns": 276428000000,
+    "last_pose_ns": 555656000000,
+    "maximum_book_in_arm7_translation_m": 0.01741217947052835,
+    "maximum_book_in_arm7_rotation_deg": 24.180951732590103,
+    "maximum_arm7_base_translation_m": 3.48119094621953e-05
+  },
+  "attachment_scope": "Held possession did not imply rigid attachment; measured motion relative to arm7 is retrospective evaluator evidence, never a controller input",
+  "archive": {
+    "files_verified": 355,
+    "full_package_files_verified": 262,
+    "inventory_passed": true,
+    "official_files_checked": 895,
+    "official_check_passed": true,
+    "qualification": "893 exact official bytes plus two audited bytecode-header refreshes with unchanged payloads"
+  },
+  "source_result_sha256": "9e1afbf0a9e2bb73e2fc55f559adfa6a2a26a8c4d6b1eec7a0277dd02c040bfe",
+  "physical_report_sha256": "fd1aa3a0a0eaa5d9ad335ba1309bb3b9ef34188087c361409d269b6022de3225",
+  "archive_review_sha256": "2b00fc2bde486439af1df630af1d7d04cbafcb65d9f475b40a5e8d17b5e785da",
+  "registration_review_sha256": "1a13b4e331817fb4b150a6cc2433f7b5a9e5ef3f0afd1bc2e3d7d495383426a0",
+  "registration_scope": "Published same-epoch bin fit was reviewed; exact live consumed scene unproven without PLACE ik_ready",
+  "limitations": "No placement phases were exercised; sparse negative collision samples and absent reported contacts do not prove continuous clearance"
+}

@@ -1,0 +1,62 @@
+{
+  "scope": "Portable byte-exact copies of existing R57/Run50 records. These are archived agent-produced validation and review records, not an organizer score or independent competition certification. Original local paths embedded in these files are provenance references, not bundled dependencies.",
+  "source_root": "Local output/official_reference (not included in this repository)",
+  "files": {
+    "validation_certificate.json": {
+      "original_relative_path": "test_evidence/collision_quality_final_22/validation_certificate.json",
+      "sha256": "16d418b4302989da42fc424ed0b4dccfc8bbff0516e2e5622d28ac808b34a20e",
+      "bytes": 39837
+    },
+    "completed_trial_summary.json": {
+      "original_relative_path": "run50_review/completed_trial_summary.json",
+      "sha256": "11bd7782ded17a8ca4eb381dd03efb4065c16855b603ef87e26a61642fe76494",
+      "bytes": 24163
+    },
+    "geometry_review.txt": {
+      "original_relative_path": "run50_review/actual_geometry_audit/actual_geometry_review.md",
+      "sha256": "9a186772790722564929c43e9487e7258e031670752825f1e57f08b69268af7c",
+      "bytes": 4330
+    },
+    "preopen_evidence.json": {
+      "original_relative_path": "run50_review/preopen_completion_independent_review/evidence.json",
+      "sha256": "3a28dc501df377cd399f6a3bc1947d7ebd481a35e600797e377e3e625ef39831",
+      "bytes": 29705
+    },
+    "root_final_readback.json": {
+      "original_relative_path": "run50_review/root_final_readback.json",
+      "sha256": "4a1970b6e8f15abafdec6344fba296db1e211b7faa1675adef80337ea25b06be",
+      "bytes": 2047
+    },
+    "final_consistency_review.json": {
+      "original_relative_path": "run50_review/final_consistency_independent_review/review.json",
+      "sha256": "dbd4204d7d768975730637f2a67317ded2e5270b220a5dbd77963170125377c6",
+      "bytes": 3144
+    },
+    "shutdown_observation.json": {
+      "original_relative_path": "run50_review/shutdown/shutdown_observation.json",
+      "sha256": "709ed72275f7156cfeb36600923fa4fb304ec538c4d00d1964a18a915f133126",
+      "bytes": 2845
+    },
+    "geometry_invocation_note.json": {
+      "original_relative_path": "run50_review/geometry_invocation_note.json",
+      "sha256": "ebb63de767968724bf9844eb9fee303f0f58955c47b10ce2fd12052a30d7024a",
+      "bytes": 1372
+    },
+    "runtime_profile.json": {
+      "original_relative_path": "collision_quality_candidate/revision57/runtime_profile.json",
+      "sha256": "09b32818dae30efe7caa063ee8be730c733561e3ee4b226043bfce891a9681e5",
+      "bytes": 2531
+    },
+    "official_source_check_after.json": {
+      "original_relative_path": "test_evidence/collision_quality_final_22/official_source_check_after.json",
+      "sha256": "bb232ddbd8bbb75ac7f90268e759028c9a8ef1557eac6247c50868d2f2dd342f",
+      "bytes": 1419
+    },
+    "preopen_source_review.json": {
+      "original_relative_path": "run49_review/preopen_timing_independent_review/review.json",
+      "sha256": "5dc72a89981717752fdb42988334a070d210f04e8799b26a122bc2ff597753cd",
+      "bytes": 3303
+    }
+  },
+  "excluded": "Raw journals, images, runtime logs, full source copies, older trial archives and complete geometry job outputs remain in the local archive."
+}

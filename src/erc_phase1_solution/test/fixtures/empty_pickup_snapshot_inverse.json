@@ -1,0 +1,14 @@
+{
+  "parent": "859dbdd06825c58319d2d98622ed7999d47d2bead5742fa227e7271690ad730f",
+  "candidate": "d7596d1b8be46fab95eba84ce3f0c6d2b50adbff8ff9509e17feb703f5b373d1",
+  "replacements": [
+    {
+      "before": "        # Preserve the existing body/static verdict caches and their policy.\n        collision = self.node._robot_self_collision(q, **self.context)\n        if collision is not None:\n            return f'empty_pickup_robot_self:{collision}'\n        robot = self.node._world_collision_surfaces(q, **self.context)\n",
+      "after": "        # The ordinary body and tool checks use the same exact world facets.\n        # Custom producers keep the original body-first call path.\n        from erc_phase1_solution.exact_world_geometry import ordinary_model_producer\n        from erc_phase1_solution.sample_collision_snapshot import _capture_scene_robot_snapshot\n        robot = snapshot = None\n        if (ordinary_model_producer(self.node)\n                and type(self.geometry) is ShelfCradleGeometry\n                and type(self.screen) is ScreenEnvelope):\n            robot = self.node._world_collision_surfaces(q, **self.context)\n            snapshot = _capture_scene_robot_snapshot(\n                self.node, q, self.right, self.head, robot)\n        collision = (self.node._robot_self_collision(q, **self.context)\n                     if snapshot is None else self.node._robot_self_collision(\n                         q, **self.context, _scene_snapshot=snapshot))\n        if collision is not None:\n            return f'empty_pickup_robot_self:{collision}'\n        if robot is None:\n            robot = self.node._world_collision_surfaces(q, **self.context)\n        shared = (None if snapshot is None else snapshot.resolved(\n            self.node, q, self.right, self.head))\n        if shared is not None:\n            robot = shared[0]\n"
+    },
+    {
+      "before": "        bounds = {link: _bounds(surface) for link, surface in {**robot, **tool}.items()}\n",
+      "after": "        bounds = {link: (_bounds(surface) if shared is None or link in tool\n                         else shared[1][link])\n                  for link, surface in {**robot, **tool}.items()}\n"
+    }
+  ]
+}

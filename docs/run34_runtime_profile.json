@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "run": "Run34",
+  "trial_id": "7d9725f7b068",
+  "status": "completed_development_run_with_observed_collisions",
+  "official_repository": "https://github.com/dfl-rlab/erc_sim_2026",
+  "official_commit": "b1f9b05e20f4750b59f3321d88f172cc4dbb1386",
+  "scenario": {
+    "seed": 101,
+    "shelf_column_number": 2,
+    "book_colour": "red"
+  },
+  "scope": "Archived settings for a same-scenario development delivery on unchanged official physics. Not a competition-ready profile, a collision-free result, or a launch file.",
+  "launch_reproduction_gap": "Tracked solution.launch.py has no params_file argument and does not select these options through the required column/colour invocation. The external development launcher is not included here.",
+  "selected_profile_overrides": {
+    "erc_manipulation": {
+      "stock_gripper_close_diagnostic_enabled": true,
+      "fine_gripper_close_enabled": false,
+      "preclose_aperture_geometry_enabled": false,
+      "lift_first_extraction_enabled": true,
+      "lift_first_extraction_lift_m": 0.005,
+      "command_timeout_seconds": 2400.0,
+      "stock_gripper_close_target_position": 0.017,
+      "book_centered_place_enabled": true,
+      "book_centered_place_height_above_point_m": 0.27,
+      "book_centered_place_approach_x_m": 0.6
+    },
+    "erc_mission_manager": {
+      "manipulation_timeout_seconds": 2400.0,
+      "lift_first_extraction_enabled": true
+    }
+  },
+  "parameter_changes_from_archived_package_config": {
+    "erc_manipulation": {
+      "command_timeout_seconds": 2400.0,
+      "book_centered_place_enabled": true,
+      "stock_gripper_close_diagnostic_enabled": true,
+      "stock_gripper_close_target_position": 0.017,
+      "lift_first_extraction_enabled": true
+    },
+    "erc_mission_manager": {
+      "manipulation_timeout_seconds": 2400.0,
+      "lift_first_extraction_enabled": true
+    }
+  },
+  "development_launch_parameters": {
+    "trial_timeout_seconds": 2700,
+    "dry_run": false,
+    "team_name": "TEAM_NAME",
+    "mission_start_delay_seconds": 2.0,
+    "launch_origin_basis": "development_launch_file_module_entry"
+  },
+  "official_launch_arguments": {
+    "headless": "false",
+    "depth_cloud": "false"
+  },
+  "renderer_scope": "The external development gz adapter preserved DISPLAY/GPU and started the stock server separately; the GUI was attached separately. No asset, controller, or physics changes.",
+  "stock_close_scope": "One ordinary public position command to master target0.017m, held during carry. This diagnostic mode bypasses team force/effort-amplitude and pressure-qualification policies; official controller limits and named-contact monitoring remain. Master coordinate is not measured pad gap.",
+  "source_sha256": {
+    "runtime_profile.json": "c01062b9ced01e3f960c4ed1af7d3b387d448d70e8e73a0a2fcad37a93491ce0",
+    "candidate_solution.yaml": "c79262c9a317038201dcce9ee4850557985aacde537968fb3bd662b05043e3a1",
+    "candidate.launch.py": "dbc2e0fbc6180cc0f4517036459998a0a5d1ebc14bb1aa386f37aa897df06615",
+    "certified_source/config/solution.yaml": "439cf6a695358c1a8b3ce15fff7892910f720044a3082ea35e203e495a35247f",
+    "certified_source/erc_phase1_solution/manipulation_node.py": "4ca87ebafb5514b103c6c4601ff85e3d017db5f763f708d9120964f3e3532243",
+    "certified_source/launch/solution.launch.py": "d505d1ccfe19ce37b51848b4a8c1e523460079139b46855d9b1ae365dc1f0532"
+  },
+  "excluded_host_specific_values": [
+    "output directories",
+    "installed digit-template directory",
+    "host monotonic and UTC launch-origin values"
+  ],
+  "outcome_scope": {
+    "final_sampled_book_footprint_inside": true,
+    "strict_zero_tolerance_core_containment": false,
+    "ideal_floor_bottom_residual_m": -0.000000207,
+    "evaluator_poses_used_for_control": false,
+    "collision_free": false,
+    "observer_wall_seconds_to_done": 1547.556,
+    "five_minute_video_ready": false,
+    "varied_trial_coverage": false
+  }
+}

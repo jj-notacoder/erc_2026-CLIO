@@ -1,0 +1,450 @@
+{
+  "description_files": {
+    "urdf/tiago_pro.urdf": {
+      "snapshot_sha256": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0",
+      "resolved_path": "/opt/erc_ws/results/normal_yaw69_focus/install/erc_description/share/erc_description/urdf/tiago_pro.urdf",
+      "resolved_sha256": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0",
+      "pinned_sha256": "a9ab0ba01932706e4ba1539043cdf0533c77aa66b31611509454637e454a76b0",
+      "resolved_matches_snapshot": true
+    },
+    "models/book/sdf/erc_book.sdf": {
+      "snapshot_sha256": "7bd20d0f96e179ac7cce44e41e1819f560837492da71206c3c2e3ced1d3d730c",
+      "resolved_path": "/opt/erc_ws/results/normal_yaw69_focus/install/erc_description/share/erc_description/models/book/sdf/erc_book.sdf",
+      "resolved_sha256": "7bd20d0f96e179ac7cce44e41e1819f560837492da71206c3c2e3ced1d3d730c",
+      "pinned_sha256": "7bd20d0f96e179ac7cce44e41e1819f560837492da71206c3c2e3ced1d3d730c",
+      "resolved_matches_snapshot": true
+    },
+    "models/collection_bin/meshes/erc_base_collection_bin.STL": {
+      "snapshot_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+      "resolved_path": "/opt/erc_ws/results/normal_yaw69_focus/install/erc_description/share/erc_description/models/collection_bin/meshes/erc_base_collection_bin.STL",
+      "resolved_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+      "pinned_sha256": "7c036fe096a50eadc8c32f30837964c3bbbb012cf7a45b874eb7a6f96973aa2a",
+      "resolved_matches_snapshot": true
+    },
+    "models/table/sdf/erc_table.sdf": {
+      "snapshot_sha256": "90f3aa39affdadcf6ade532ed19a7898d84b813478791b38f40e2316e5d07f4f",
+      "resolved_path": "/opt/erc_ws/results/normal_yaw69_focus/install/erc_description/share/erc_description/models/table/sdf/erc_table.sdf",
+      "resolved_sha256": "90f3aa39affdadcf6ade532ed19a7898d84b813478791b38f40e2316e5d07f4f",
+      "pinned_sha256": "90f3aa39affdadcf6ade532ed19a7898d84b813478791b38f40e2316e5d07f4f",
+      "resolved_matches_snapshot": true
+    },
+    "models/table/meshes/erc_base_table.STL": {
+      "snapshot_sha256": "9a662650c305d09e67d112b1c3311c78c8b75454eb05c8c7981292eb1d354977",
+      "resolved_path": "/opt/erc_ws/results/normal_yaw69_focus/install/erc_description/share/erc_description/models/table/meshes/erc_base_table.STL",
+      "resolved_sha256": "9a662650c305d09e67d112b1c3311c78c8b75454eb05c8c7981292eb1d354977",
+      "pinned_sha256": "9a662650c305d09e67d112b1c3311c78c8b75454eb05c8c7981292eb1d354977",
+      "resolved_matches_snapshot": true
+    }
+  },
+  "unique_urdf_meshes": 40,
+  "meshes": [
+    {
+      "uri": "package://pal_urdf_utils/meshes/laser/sick_tim551.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_urdf_utils/share/pal_urdf_utils/meshes/laser/sick_tim551.stl",
+      "snapshot_sha256": "9e0184e01a67754bce3a008fb1f52b292dbda69857ed9092909d211817915cf2",
+      "resolved_sha256": "9e0184e01a67754bce3a008fb1f52b292dbda69857ed9092909d211817915cf2",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/base/base_link.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/base/base_link.stl",
+      "snapshot_sha256": "35cb915a06d5c78f4e80c41ac24a5b2376a7072502f9b1e144873db1dfe0cd48",
+      "resolved_sha256": "35cb915a06d5c78f4e80c41ac24a5b2376a7072502f9b1e144873db1dfe0cd48",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/base/base_dock_link.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/base/base_dock_link.stl",
+      "snapshot_sha256": "d13ab33c5a39f9daa7f34a1b728c6b8afa2b105671846af29eb9f2d8c617cd0c",
+      "resolved_sha256": "d13ab33c5a39f9daa7f34a1b728c6b8afa2b105671846af29eb9f2d8c617cd0c",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/base/base_antenna_link.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/base/base_antenna_link.stl",
+      "snapshot_sha256": "736b08ffb56bb2d461209bce857b9a0ad0411e49447329ff8d0d8fa7310b92be",
+      "resolved_sha256": "736b08ffb56bb2d461209bce857b9a0ad0411e49447329ff8d0d8fa7310b92be",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/base/base_antenna_link_reflected.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/base/base_antenna_link_reflected.stl",
+      "snapshot_sha256": "3c2c1d46198029ce11fcd4165465046ffa09f91f9f53abe14494b6bd6210471f",
+      "resolved_sha256": "3c2c1d46198029ce11fcd4165465046ffa09f91f9f53abe14494b6bd6210471f",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/wheels/suspension_front_link.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/wheels/suspension_front_link.stl",
+      "snapshot_sha256": "9a2f26924de595e4c6e2b0ef7465c7af1d09ee3070e9f7173523113b545119d5",
+      "resolved_sha256": "9a2f26924de595e4c6e2b0ef7465c7af1d09ee3070e9f7173523113b545119d5",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/wheels/wheel_link.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/wheels/wheel_link.stl",
+      "snapshot_sha256": "00e72531f701fe9571fc7f27fff061b212ef5b6390ffb4bddd9a519c3e931b4e",
+      "resolved_sha256": "00e72531f701fe9571fc7f27fff061b212ef5b6390ffb4bddd9a519c3e931b4e",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/wheels/suspension_front_link_reflected.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/wheels/suspension_front_link_reflected.stl",
+      "snapshot_sha256": "8085d4a3a665d641ed5a002f1afa7c5489c5a12c7fe8c91f876b37a96f099a3e",
+      "resolved_sha256": "8085d4a3a665d641ed5a002f1afa7c5489c5a12c7fe8c91f876b37a96f099a3e",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/wheels/wheel_link_reflected.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/wheels/wheel_link_reflected.stl",
+      "snapshot_sha256": "eb51f06c02c3607a17fb6d135a0538d4872b904a7920d8ce05c0d1f61f06c2a9",
+      "resolved_sha256": "eb51f06c02c3607a17fb6d135a0538d4872b904a7920d8ce05c0d1f61f06c2a9",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/wheels/suspension_rear_link.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/wheels/suspension_rear_link.stl",
+      "snapshot_sha256": "382922eaf317749b749ff3dd84c04e9f4dc206a2e7227a7a62c79f097f665c4c",
+      "resolved_sha256": "382922eaf317749b749ff3dd84c04e9f4dc206a2e7227a7a62c79f097f665c4c",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://omni_base_description/meshes/wheels/suspension_rear_link_reflected.stl",
+      "resolved_path": "/opt/erc_ws/install/omni_base_description/share/omni_base_description/meshes/wheels/suspension_rear_link_reflected.stl",
+      "snapshot_sha256": "6c2d0011eac2b5d27902dfd4b0e6cee943b9e68327ca27d937d1d7a24f87c717",
+      "resolved_sha256": "6c2d0011eac2b5d27902dfd4b0e6cee943b9e68327ca27d937d1d7a24f87c717",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_description/meshes/torso/torso_fixed.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_description/share/tiago_pro_description/meshes/torso/torso_fixed.stl",
+      "snapshot_sha256": "1f2adfb0ff0fd6d705cee85ff4b95a6f988f39fcfff3dfa9f95baf4477fa3553",
+      "resolved_sha256": "1f2adfb0ff0fd6d705cee85ff4b95a6f988f39fcfff3dfa9f95baf4477fa3553",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_description/meshes/torso/torso_fixed_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_description/share/tiago_pro_description/meshes/torso/torso_fixed_collision.stl",
+      "snapshot_sha256": "56a8f0732fdbb1f4145a61269d59f3ed07be1bb9c060e7caf44d8dd37cd06d80",
+      "resolved_sha256": "56a8f0732fdbb1f4145a61269d59f3ed07be1bb9c060e7caf44d8dd37cd06d80",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_description/meshes/torso/torso_lift_link.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_description/share/tiago_pro_description/meshes/torso/torso_lift_link.stl",
+      "snapshot_sha256": "98922a8c4c2b4e2ba57e9109faef69fa2a8288fd403912935da67ddf07df759c",
+      "resolved_sha256": "98922a8c4c2b4e2ba57e9109faef69fa2a8288fd403912935da67ddf07df759c",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_description/meshes/torso/torso_lift_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_description/share/tiago_pro_description/meshes/torso/torso_lift_link_collision.stl",
+      "snapshot_sha256": "6c45a1e2778576ad7ef2d6ced8ffbbf6a4aaf2a2de8aecb59f7b44329b758d0b",
+      "resolved_sha256": "6c45a1e2778576ad7ef2d6ced8ffbbf6a4aaf2a2de8aecb59f7b44329b758d0b",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_description/meshes/torso/laptop_tray_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_description/share/tiago_pro_description/meshes/torso/laptop_tray_collision.stl",
+      "snapshot_sha256": "849b78bbe967caf550ba918b02e274770f9652094fdf6aaff23c5c24358230a2",
+      "resolved_sha256": "849b78bbe967caf550ba918b02e274770f9652094fdf6aaff23c5c24358230a2",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_head_description/meshes/head_1_link.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_head_description/share/tiago_pro_head_description/meshes/head_1_link.stl",
+      "snapshot_sha256": "8912a5c065cddb61267801db4c49f35c32213e1d3f3be9c1a48c13f3bfcca5fb",
+      "resolved_sha256": "8912a5c065cddb61267801db4c49f35c32213e1d3f3be9c1a48c13f3bfcca5fb",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_head_description/meshes/head_1_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_head_description/share/tiago_pro_head_description/meshes/head_1_link_collision.stl",
+      "snapshot_sha256": "bf984aed7be282270a78b2ed0f751e9910e6db9500f769956b95bd0c3522983e",
+      "resolved_sha256": "bf984aed7be282270a78b2ed0f751e9910e6db9500f769956b95bd0c3522983e",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_head_description/meshes/realsense-d435i_cover_link.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_head_description/share/tiago_pro_head_description/meshes/realsense-d435i_cover_link.stl",
+      "snapshot_sha256": "610e506d141ce723c2bd76eea5d5657f6bfb07d7873bdfc41b021e0143327e70",
+      "resolved_sha256": "610e506d141ce723c2bd76eea5d5657f6bfb07d7873bdfc41b021e0143327e70",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_head_description/meshes/head_2_link.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_head_description/share/tiago_pro_head_description/meshes/head_2_link.stl",
+      "snapshot_sha256": "934da0461c8a633a119ed6362ab34d9b02dc0fc0c8a246e2a563bf5b2cd3736a",
+      "resolved_sha256": "934da0461c8a633a119ed6362ab34d9b02dc0fc0c8a246e2a563bf5b2cd3736a",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://tiago_pro_head_description/meshes/head_2_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/tiago_pro_head_description/share/tiago_pro_head_description/meshes/head_2_link_collision.stl",
+      "snapshot_sha256": "bdc70cb83ec4c699b70edcef550a635b66e3e2ad426ef517ba8d2b9a46abb098",
+      "resolved_sha256": "bdc70cb83ec4c699b70edcef550a635b66e3e2ad426ef517ba8d2b9a46abb098",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://realsense2_description/meshes/d435.dae",
+      "resolved_path": "/opt/ros/humble/share/realsense2_description/meshes/d435.dae",
+      "snapshot_sha256": null,
+      "resolved_sha256": "42f3b66f47a1f8f425a2e4dc07c1d9c283183167d8441f520a15623d98f9bf78",
+      "external_ros_dependency": true,
+      "external_dependency_pinned_sha256": "42f3b66f47a1f8f425a2e4dc07c1d9c283183167d8441f520a15623d98f9bf78",
+      "resolved_matches_external_pin": true,
+      "resolved_matches_snapshot": null
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/arm_1_link.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/arm_1_link.stl",
+      "snapshot_sha256": "8f3672dbbb71d5ff9a158f687eb4438de0455b8aa73c92e9bb64f6aa50cfcd38",
+      "resolved_sha256": "8f3672dbbb71d5ff9a158f687eb4438de0455b8aa73c92e9bb64f6aa50cfcd38",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/arm_1_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/arm_1_link_collision.stl",
+      "snapshot_sha256": "f911e6d2a6f9383c30183183962648c7e3872116bc29225f1bf10c8cd0491487",
+      "resolved_sha256": "f911e6d2a6f9383c30183183962648c7e3872116bc29225f1bf10c8cd0491487",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/arm_2_link.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/arm_2_link.stl",
+      "snapshot_sha256": "96ce7ed57708af6d2b3586dc4ec07d175a7d6025e9848f75539ef80d99b59375",
+      "resolved_sha256": "96ce7ed57708af6d2b3586dc4ec07d175a7d6025e9848f75539ef80d99b59375",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/arm_2_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/arm_2_link_collision.stl",
+      "snapshot_sha256": "5dd1d5f0843169ef66d4a05ff34e664e161bbb832917a80f939cd2766430e9f4",
+      "resolved_sha256": "5dd1d5f0843169ef66d4a05ff34e664e161bbb832917a80f939cd2766430e9f4",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/arm_3_link.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/arm_3_link.stl",
+      "snapshot_sha256": "30ece623c4d71cba0eae5ebb4e96c56fd85552eca388cd46cfe1fe5263f6a4d5",
+      "resolved_sha256": "30ece623c4d71cba0eae5ebb4e96c56fd85552eca388cd46cfe1fe5263f6a4d5",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/arm_3_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/arm_3_link_collision.stl",
+      "snapshot_sha256": "4d9d8428b84d4511e95ac362c541a951c83efcfe47b0db958e35e231e944f9ff",
+      "resolved_sha256": "4d9d8428b84d4511e95ac362c541a951c83efcfe47b0db958e35e231e944f9ff",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/arm_4_link.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/arm_4_link.stl",
+      "snapshot_sha256": "3b37e8c6d1ee5498e22f34491dc83fa08f0cfb0f1309cd4e00eff79365f167a9",
+      "resolved_sha256": "3b37e8c6d1ee5498e22f34491dc83fa08f0cfb0f1309cd4e00eff79365f167a9",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/arm_4_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/arm_4_link_collision.stl",
+      "snapshot_sha256": "8f86c50cda3e2c351c7b76c7f049fa28352e08ceabcae9b5eceaf58f204ff6c3",
+      "resolved_sha256": "8f86c50cda3e2c351c7b76c7f049fa28352e08ceabcae9b5eceaf58f204ff6c3",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_5_link.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_5_link.stl",
+      "snapshot_sha256": "8695a8df814a4e375a13201a24dd5f6cd1b640f7e568defd164637e77ed41a5a",
+      "resolved_sha256": "8695a8df814a4e375a13201a24dd5f6cd1b640f7e568defd164637e77ed41a5a",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_5_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_5_link_collision.stl",
+      "snapshot_sha256": "8d12d72d6114b807b2e7a20910672f06d64be64e1a760b3c6ec1ed774a59c6be",
+      "resolved_sha256": "8d12d72d6114b807b2e7a20910672f06d64be64e1a760b3c6ec1ed774a59c6be",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_6_link.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_6_link.stl",
+      "snapshot_sha256": "b17826b37b80a57831ff11da67adbb539b5144d8213a43bf8dac34749a4b878a",
+      "resolved_sha256": "b17826b37b80a57831ff11da67adbb539b5144d8213a43bf8dac34749a4b878a",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_6_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_6_link_collision.stl",
+      "snapshot_sha256": "b50fe52fd99bf91ed25de5988156ce3fa846fb68357c745afed0663d5242596a",
+      "resolved_sha256": "b50fe52fd99bf91ed25de5988156ce3fa846fb68357c745afed0663d5242596a",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_7_link.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_7_link.stl",
+      "snapshot_sha256": "5c4ce3f61cc50d55f2d10ba78443c2453b6c9e5c0caba587f4d80a2ef26a6fe5",
+      "resolved_sha256": "5c4ce3f61cc50d55f2d10ba78443c2453b6c9e5c0caba587f4d80a2ef26a6fe5",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_7_link_collision.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_sea_arm_description/share/pal_sea_arm_description/meshes/arm_tiago_pro/spherical-wrist/arm_7_link_collision.stl",
+      "snapshot_sha256": "5c4ce3f61cc50d55f2d10ba78443c2453b6c9e5c0caba587f4d80a2ef26a6fe5",
+      "resolved_sha256": "5c4ce3f61cc50d55f2d10ba78443c2453b6c9e5c0caba587f4d80a2ef26a6fe5",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_pro_gripper_description/meshes/base_link_tc.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_pro_gripper_description/share/pal_pro_gripper_description/meshes/base_link_tc.stl",
+      "snapshot_sha256": "e438c3363a7ad819b5ee44520f2b8e6a6e9636a0cc44afefacd98ae3f8a0ab2e",
+      "resolved_sha256": "e438c3363a7ad819b5ee44520f2b8e6a6e9636a0cc44afefacd98ae3f8a0ab2e",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_pro_gripper_description/meshes/inner_finger.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_pro_gripper_description/share/pal_pro_gripper_description/meshes/inner_finger.stl",
+      "snapshot_sha256": "ac2ec34c8b0cefe1d4637122553a8c9409a2ed6d389a90050962eed5a41cc5a3",
+      "resolved_sha256": "ac2ec34c8b0cefe1d4637122553a8c9409a2ed6d389a90050962eed5a41cc5a3",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_pro_gripper_description/meshes/outer_finger.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_pro_gripper_description/share/pal_pro_gripper_description/meshes/outer_finger.stl",
+      "snapshot_sha256": "f6b296645c242878eaba955b30bd9b932aae88491bb9a627383f4a41e79f3dcc",
+      "resolved_sha256": "f6b296645c242878eaba955b30bd9b932aae88491bb9a627383f4a41e79f3dcc",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    },
+    {
+      "uri": "package://pal_pro_gripper_description/meshes/fingertip.stl",
+      "resolved_path": "/opt/erc_ws/install/pal_pro_gripper_description/share/pal_pro_gripper_description/meshes/fingertip.stl",
+      "snapshot_sha256": "aef403084be21aa0fbc5ad411e4bf22c796a044a70b906834539453a5637df83",
+      "resolved_sha256": "aef403084be21aa0fbc5ad411e4bf22c796a044a70b906834539453a5637df83",
+      "external_ros_dependency": false,
+      "external_dependency_pinned_sha256": null,
+      "resolved_matches_external_pin": null,
+      "resolved_matches_snapshot": true
+    }
+  ],
+  "all_resolved_meshes_match_snapshot": true,
+  "external_ros_dependencies": 1,
+  "all_external_dependency_pins_match": true,
+  "external_pin_provenance": "book_centered_place_review_2026_09_11/asset_resolution_audit.json; independently rehashed in validation container",
+  "solution_share": "/opt/erc_ws/results/normal_yaw69_focus/install/erc_phase1_solution/share/erc_phase1_solution",
+  "solution_share_inside_snapshot": true,
+  "scope": "Resolved bytes and source only; no physics, runtime sensor or geometric-route proof",
+  "passed": true
+}

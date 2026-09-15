@@ -1,0 +1,44 @@
+{
+  "verdict": "CLEAR_SOURCE_PENDING_ACTUAL_FULL22",
+  "candidate_manifest_sha256": "553dad8da6dc037b6fcb5a81a1fae39bb60d8f33299459efeff19a8f4941477c",
+  "source_files": 336,
+  "source_tree_sha256": "05f319b7fd7f2c2f6ca45c29ad7e7efe54ab85d196bfd6456bf5530074d7acd8",
+  "packet_pins_verified": 354,
+  "helper_sha256": "416fcf4e793adc6de620e9e2a6b643b684bec3061ac9b5df227df95b2394cee5",
+  "new_test_sha256": "5cb346e3ec59ca9a997e81807e7b2cf7215bca9e2cc5e864c40ab6ea23aebafb",
+  "changed_paths": [
+    "erc_phase1_solution/preopen_stationary.py",
+    "test/candidate_composition_support.py",
+    "test/fixtures/preopen_timing_inverse.json",
+    "test/test_preopen_stationary.py",
+    "test/test_preopen_stationary_integration.py",
+    "test/test_preopen_timing.py",
+    "test/test_stock_close_lifecycle.py"
+  ],
+  "prepared_new_cases": {
+    "test_locked_stock_predicate_matches_actual_existing_helpers": 56,
+    "test_real_stock_flow_with_concurrent_callback_delivery": 6,
+    "test_slow_ros_clock_requires_full_span_and_respects_ten_second_cap": 3,
+    "test_ten_second_wall_cap_cannot_substitute_for_producer_span": 3,
+    "test_exact_helper_inverse_rejects_undeclared_changes": 3,
+    "test_original_stationary_predicate_and_all_numeric_bounds_restore_exactly": 1
+  },
+  "source_review": [
+    "Current stock snapshot reproduces original latest-feedback selection, finite/fresh windows, contact arithmetic/support-side policy, measured master range and fault predicates.",
+    "Original retention and scene calls remain before final lock; command-to-sensor lock order retained and the new stock predicate acquires no lock or callback. Nonstock generation equality remains.",
+    "Raw stationary predicate,100ms span,150ms freshness,75ms gap/future/catch-up rules,goal/attachment/epoch/reference/cancel/goal/open/monitor interlocks remain. Root-selected loop deadline alone changes5 to10 wall seconds.",
+    "Diagnostics remain one best-effort terminal status outside locks, with bounded labels/counters. No extra publication or action is authorized on refusal.",
+    "Exact complete helper inverse to R56, all seven source changes and four explicit old-test adaptations verified. Original node/callback/force/scene/controller bytes remain exact.",
+    "New72 prepared cases use actual existing stock helper parity, actual ROS callbacks with synchronized final-window worker delivery, controlled clock/settling/cap cases and strict source inverses. No collection or execution claimed."
+  ],
+  "qualifications": [
+    "Atomic claim is current stock retention only; scene check is not an atomic full-scene snapshot and existing later open checks remain.",
+    "Lifecycle fixture stubs planning/actions and scene context; concurrent callback tests do not establish physical retention, actual DDS scheduling, or landing.",
+    "Ten seconds is an observation-loop deadline; existing blocking locks/helper work and status delivery are not independently preempted by it.",
+    "Closed Run49 evidence cannot identify the private span/final veto; this review does not claim contact generation caused that failure or that ten seconds is sufficient."
+  ],
+  "findings": [],
+  "candidate_imports": false,
+  "tests_executed": false,
+  "runtime_or_journal_access": false
+}

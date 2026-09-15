@@ -1,0 +1,169 @@
+{
+  "run": "Run99",
+  "trial_id": "48ff97a94657",
+  "candidate": "combined_candidate69",
+  "source_revision": 117,
+  "mission_operation_completed": true,
+  "launch_to_summary_seconds": 283.6760134990036,
+  "launch_to_first_contact_seconds": 281.45451815600245,
+  "simulator_startup_additional": true,
+  "solution_operation_under_300": true,
+  "video_verified_false": true,
+  "physical_repeatability_proven": false,
+  "published": false,
+  "final_strict_inside": true,
+  "stable_samples": 22,
+  "stable_span_ros_seconds": 20.992,
+  "minimum_final_side_clearance_m": 0.0007800723424797595,
+  "final_floor_residual_m": 2.0249681836892464e-07,
+  "actual_book_initial_rise_m": 0.019340993225133385,
+  "measured_rise_endpoints_ros_ns": [
+    48956000000,
+    50212000000
+  ],
+  "withdrawal_minimum_finite_floor_clearance_m": 0.017323036795947766,
+  "last_preopen_book_bottom_above_floor_m": 0.26205275950716844,
+  "maximum_preopen_center_drift_m": 0.0017157334583337838,
+  "maximum_preopen_rotation_drift_degrees": 0.4641534391187366,
+  "gentle_placement": false,
+  "recorded_release_completion_admitted": true,
+  "completion_evidence_sha256": "28816f14fe78d5e02dd5c1b420c2cb81599a62711fa22d2605023e8fe5d620f8",
+  "completion_mode": "release_pose",
+  "hand_return_measured": false,
+  "fully_verified_success": true,
+  "observed_time_difference_vs_run97_seconds": -6.7698040820032475,
+  "observed_seconds_saved_vs_run97": -6.7698040820032475,
+  "new_strict_best": false,
+  "software_evidence": {
+    "certificate_sha256": "cce6fff8f0c49a0dd576495df10a98efbe648ec928481e1faca71e9debb60f21",
+    "profile_sha256": "536b947d4d04f0dfc126a5e44f353d488eedee4750400d67ac9275cc0178f1ce",
+    "validation_kind": "affected_runtime_on_validated_base",
+    "focused_junit": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 534
+    },
+    "inherited_junit": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 5986
+    },
+    "parent_affected_junit": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 659
+    },
+    "parent_affected_certificate_sha256": "2c33f9abb7b88f05464eb086f87504311793182366bc6c04bea3246152175222",
+    "inherited_certificate_sha256": "6d1f8425d466538511462221fbfac51fc10be4858b7f45522d56a4851af43087",
+    "source_files": 453,
+    "full_suite_current_snapshot": false,
+    "prepared_focus_plan_sha256": "74fd545c5114081109067fca7175e1065303e3f57080fd4e3e5234ef099fef6d"
+  },
+  "variant_sidecars": [
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\base_validation_certificate.json",
+      "sha256": "6d1f8425d466538511462221fbfac51fc10be4858b7f45522d56a4851af43087"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\base_runtime_profile.json",
+      "sha256": "12731edc2833b04d4f814c0c49e66c04d564225b08ca1eaf27b433065b304c08"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\pytest_focus_result.json",
+      "sha256": "75ea927db965258a998a3a2aaadd152c51c4f4529c113409fd77e1bb9b863839"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\pytest_focus.xml",
+      "sha256": "211d9de9f3047a94ed5bd6438609c3c95e0ff2bd5c26a038e35712a7db029e37"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\constructor_smoke_selected.json",
+      "sha256": "77c58c52d0b89deaa1f750dd8203f4daeac121210181390e6666ea065f250dbf"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\constructor_smoke_defaults.json",
+      "sha256": "488da7f50d6a19173e669d6ed0e2b79bb0fd6e3cd060300fc85e8d672b9497e5"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\constructor_smoke_release_only_isolated.json",
+      "sha256": "be225f30ff8e865a574987ab66f3cf9e5b3596fe7372ab8b8da2e5fe2b26266e"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\validation_result.json",
+      "sha256": "c4b53a47d468f08c1fc91698a53803dea87264ec923e5d36b6a702675a64fe47"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\frozen_snapshot.json",
+      "sha256": "61d6c50fa4d71106a65f38e3cebd73511ca35cfd31b9c4c10ac71693fbe307fa"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\asset_resolution_audit.json",
+      "sha256": "60d46095cfa691f6d2f7d83ea9ed73b556af31f4fdd6d2bc206f3dafb040a64d"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\parent_affected_certificate.json",
+      "sha256": "2c33f9abb7b88f05464eb086f87504311793182366bc6c04bea3246152175222"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\parent_affected_runtime_profile.json",
+      "sha256": "9dcb88ffe833670cbd49b99626a713024bd11816f70f929f66185cd8c8413ebe"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\parent_affected_pytest.xml",
+      "sha256": "3e5d02c82a939c23a2f95d0b6086cf972a29282b3849f7a56da8ae4632dd8373"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\additional_navigation_certificate.json",
+      "sha256": "9c9819417eba1a807919b1a5ff4e52ee908c8801ad705b4c100e84eab4e7a49c"
+    },
+    {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\additional_navigation_pytest.xml",
+      "sha256": "be41201c746dfb80aff3dd33966d3c650279f5df09e55d8800b49ea40625bfe6"
+    }
+  ],
+  "inputs": {
+    "archive": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\archive_manifest.json",
+      "sha256": "558cee3f03467801a6f299a7f01757ac493d8bc87b44a089421da096eb975f7e"
+    },
+    "summary": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\trial_48ff97a94657_summary.json",
+      "sha256": "461bde367e4ed89cea18113c335c4c19f159873b80e94a5f5a8b3c758774a987"
+    },
+    "closure": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\runtime_closure.json",
+      "sha256": "e60d92237b4651ea2d3efa2007bd53f8d5ea6a8d24b5a9e63a71a79be7964b7c"
+    },
+    "trial": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\raw\\trial_manifest.json",
+      "sha256": "7914ffa55fca096575e90636a56c66cddf36332fd17a5ff58fe63d5439d978d8"
+    },
+    "previous_best": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\best_strict_runtime_after_run97.json",
+      "sha256": "0a7bc4b934593cb2be9f7ca001b938a72ddfc67ac37b5684efe274d57a19eaaf"
+    },
+    "lean": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\reduction01\\lean_result.json",
+      "sha256": "e5532204f9d613be0ca75ed2defee99b0a7941fcbc485eedbecbd050f7a0249f"
+    },
+    "lift": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\lift_physical_binding01\\result01\\result.json",
+      "sha256": "c890264a3475b76aa529a6e60675e52373197c9f7fd63f26ac0f58428deded0e"
+    },
+    "place": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\placement_binding01\\diagnosis.json",
+      "sha256": "8f659ef906fae8b765be46fd0c5ec8b9a25a14e808104b5f84acad2c7c9f04e1"
+    },
+    "completion": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\placement_binding01\\completion_evidence.json",
+      "sha256": "28816f14fe78d5e02dd5c1b420c2cb81599a62711fa22d2605023e8fe5d620f8"
+    },
+    "report": {
+      "path": "C:\\Users\\sir\\Documents\\New project\\output\\official_reference\\performance_20260913\\run99\\RESULTS.md",
+      "sha256": "4ba9a8a5de81bb57035b99673cda30c23decee50beefab626cdb6415112c08b1"
+    }
+  }
+}

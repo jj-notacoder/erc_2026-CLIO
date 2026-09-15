@@ -1,0 +1,104 @@
+{
+  "passed": false,
+  "finished_utc": "2026-09-11T15:41:08.316528+00:00",
+  "wall_elapsed_seconds": 270.4612320269953,
+  "full_suite_ran": true,
+  "full_suite_passed": false,
+  "junit": {
+    "tests": 2655,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  "constructors": {
+    "selected": true,
+    "defaults": true
+  },
+  "official_checks_passed": true,
+  "source_unchanged": true,
+  "frozen_snapshot_sha256": "d6795f0bbcb1e77a3f8da218c482da375b0d71daac42abed42c7fc2683d31caa",
+  "selected_runtime_profile_sha256": "16b95a58194d23225d3775b8cd07afa3c72317ce112895082aa8690a018e56ef",
+  "stages": [
+    {
+      "name": "official_source_check_before",
+      "returncode": 0,
+      "wall_seconds": 0.22626464000495616,
+      "command": [
+        "/usr/bin/python3",
+        "check_official_integrity.py",
+        "check",
+        "--manifest",
+        "official_source_manifest.json",
+        "--root",
+        "/opt/erc_ws/results/collision_quality_final_06",
+        "--allow-extra-package",
+        "erc_phase1_solution",
+        "--strict-bytes",
+        "--include-docker",
+        "--allow-bytecode-header-refresh",
+        "--output",
+        "official_source_check_before.json"
+      ]
+    },
+    {
+      "name": "asset_resolution",
+      "returncode": 0,
+      "wall_seconds": 0.17654421500628814,
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_assets.py"
+      ]
+    },
+    {
+      "name": "pytest_full",
+      "returncode": 1,
+      "wall_seconds": 267.8100962089957,
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_full.py"
+      ]
+    },
+    {
+      "name": "constructor_selected",
+      "returncode": 0,
+      "wall_seconds": 0.9402725299878512,
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_constructor.py"
+      ]
+    },
+    {
+      "name": "constructor_defaults",
+      "returncode": 0,
+      "wall_seconds": 0.9395464550034376,
+      "command": [
+        "/usr/bin/python3",
+        "collision_quality_validation_constructor.py"
+      ]
+    },
+    {
+      "name": "official_source_check_after",
+      "returncode": 0,
+      "wall_seconds": 0.1988242539955536,
+      "command": [
+        "/usr/bin/python3",
+        "check_official_integrity.py",
+        "check",
+        "--manifest",
+        "official_source_manifest.json",
+        "--root",
+        "/opt/erc_ws/results/collision_quality_final_06",
+        "--allow-extra-package",
+        "erc_phase1_solution",
+        "--strict-bytes",
+        "--include-docker",
+        "--allow-bytecode-header-refresh",
+        "--output",
+        "official_source_check_after.json"
+      ]
+    }
+  ],
+  "physical_runtime_touched": false,
+  "production_promoted": false,
+  "physical_success_claim": false
+}

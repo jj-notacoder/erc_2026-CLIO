@@ -1,0 +1,801 @@
+{
+  "schema": "run40_actual_geometry_summary_v1",
+  "trial_id": "11f08d9184fb",
+  "certificate_sha256": "d02bf78fe7d7d9eaad9d936afbf8316eaa3e92a0234ab3619982f9e775829114",
+  "snapshot_sha256": "b94912c7222bbc944e512bfa88768439e9c6a4e34426a18c19c77ff2250cf341",
+  "profile_sha256": "590bc458a136cd9d2ab9073104cd496077e5b2df65f0079ed4010a878dedd705",
+  "source_tree_sha256": "f23d05216ac2abd66a41e08a5ae176f9b7ed1e9096dcb9a43cd065aacdbf34df",
+  "no_overlap_in_queried_samples": true,
+  "total_narrow_checks": 0,
+  "unique_screen_samples": 317,
+  "actual_tool_screen_samples": 316,
+  "actual_book_screen_samples": 316,
+  "scene_pose_eligible_samples": 129,
+  "shutdown_record_sha256": "5d27d6687859ecda041881ccdc8faa61b7898c00bd6f6f200b4c7f4c75938ee3",
+  "limits": [
+    "Sampled retrospective evidence, not continuous clearance or general self-collision proof.",
+    "AABB separation is a conservative mesh-distance lower bound, not exact closest distance or recorded penetration depth.",
+    "Missing or >20ms-skewed actual passive/tool poses omitted, never replaced with nominal geometry.",
+    "Nominal passive mimic geometry remains a model; actual retained-book drift is separately reported.",
+    "Evaluator world/model/link poses are retrospective only and never controller inputs."
+  ],
+  "helper_sha256": "f448eb510195654bae63fa8e2006e16898265075e1ca8380394924ae3ffdcd9e",
+  "execution": {
+    "completed": true,
+    "jobs": 6,
+    "all_exit_zero": true,
+    "total_monotonic_seconds": 36.020250328001566,
+    "finished_utc": "2026-09-11T20:25:16.721254+00:00",
+    "bound_files_changed": []
+  },
+  "phases": {
+    "pick": {
+      "samples": 124,
+      "selection": {
+        "input_sha256": "981faaa10d2c1d2caf302ccbc9382f534aa170323eaef1265c254080086f297c",
+        "source_journal_sha256": "4fd32b0cedbf16f64d969289246e1139e21b888fa743191950df517b3c5a2ec0",
+        "source_scanned_byte_offset": 170901446,
+        "requested_ros_window": [
+          287.134,
+          338.742
+        ],
+        "available_count": 124,
+        "selected_count": 124,
+        "all_available_selected": true,
+        "maximum_selected_gap_seconds": 0.956,
+        "selected_producer_ros_seconds": [
+          287.8,
+          338.424
+        ],
+        "observer_finished": null
+      },
+      "endpoint_gaps_seconds": {
+        "start": 0.6659999999999968,
+        "end": 0.3180000000000405
+      },
+      "screen": {
+        "rigid_arms": {
+          "queried_samples": 124,
+          "minimum_mesh_aabb_separation_m": 0.1444052770228343,
+          "minimum_witness": {
+            "joint_producer_ns": 299980000000,
+            "receipt_ros_ns": 299982000000,
+            "wall_elapsed": 420.3491598169994,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 124,
+          "minimum_mesh_aabb_separation_m": 0.14440526494027336,
+          "minimum_witness": {
+            "joint_producer_ns": 299980000000,
+            "receipt_ros_ns": 299982000000,
+            "wall_elapsed": 420.3491598169994,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "nominal_tools": {
+          "queried_samples": 124,
+          "minimum_mesh_aabb_separation_m": 0.08603958777706708,
+          "minimum_witness": {
+            "joint_producer_ns": 298176000000,
+            "receipt_ros_ns": 298178000000,
+            "wall_elapsed": 416.0582004329999,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_tool_query": {
+          "queried_samples": 124,
+          "minimum_mesh_aabb_separation_m": 0.08603959889599337,
+          "minimum_witness": {
+            "joint_producer_ns": 298176000000,
+            "receipt_ros_ns": 298178000000,
+            "wall_elapsed": 416.0582004329999,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_book_screen": {
+          "queried_samples": 124,
+          "minimum_mesh_aabb_separation_m": 0.40883002279303987,
+          "minimum_witness": {
+            "joint_producer_ns": 338424000000,
+            "receipt_ros_ns": 338428000000,
+            "wall_elapsed": 655.3980913329997,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        }
+      },
+      "joint_minus_pose_ms_range": [
+        -2.0,
+        16.0
+      ],
+      "actual_pose_omissions": [],
+      "missing_actual_tool_links": [
+        "gripper_left_base_finger_left_link",
+        "gripper_left_base_finger_right_link",
+        "gripper_left_base_link"
+      ],
+      "maximum_arm7_fk_position_residual_m": 0.0005256760423570895
+    },
+    "compact": {
+      "samples": 53,
+      "selection": {
+        "input_sha256": "8c44f22e9e15793b9dc2b8340518527b8577ea3c5b69a239b21e3e14bbc08d08",
+        "source_journal_sha256": "1988b64b3923432a0e0f0147957b7a38979da62a697cc04a0f908823991cdb27",
+        "source_scanned_byte_offset": 190248705,
+        "requested_ros_window": [
+          343.7,
+          362.8
+        ],
+        "available_count": 53,
+        "selected_count": 53,
+        "all_available_selected": true,
+        "maximum_selected_gap_seconds": 0.388,
+        "selected_producer_ros_seconds": [
+          343.772,
+          362.56
+        ],
+        "observer_finished": null
+      },
+      "endpoint_gaps_seconds": {
+        "start": 0.07200000000000273,
+        "end": 0.2400000000000091
+      },
+      "screen": {
+        "rigid_arms": {
+          "queried_samples": 53,
+          "minimum_mesh_aabb_separation_m": 0.0821829887424983,
+          "minimum_witness": {
+            "joint_producer_ns": 362560000000,
+            "receipt_ros_ns": 362560000000,
+            "wall_elapsed": 799.5658008519995,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 53,
+          "minimum_mesh_aabb_separation_m": 0.08218298614508268,
+          "minimum_witness": {
+            "joint_producer_ns": 362560000000,
+            "receipt_ros_ns": 362560000000,
+            "wall_elapsed": 799.5658008519995,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "nominal_tools": {
+          "queried_samples": 53,
+          "minimum_mesh_aabb_separation_m": 0.09678086110639077,
+          "minimum_witness": {
+            "joint_producer_ns": 362560000000,
+            "receipt_ros_ns": 362560000000,
+            "wall_elapsed": 799.5658008519995,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_tool_query": {
+          "queried_samples": 53,
+          "minimum_mesh_aabb_separation_m": 0.12008342741650165,
+          "minimum_witness": {
+            "joint_producer_ns": 362560000000,
+            "receipt_ros_ns": 362560000000,
+            "wall_elapsed": 799.5658008519995,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_book_screen": {
+          "queried_samples": 53,
+          "minimum_mesh_aabb_separation_m": 0.053767071897850335,
+          "minimum_witness": {
+            "joint_producer_ns": 361500000000,
+            "receipt_ros_ns": 361504000000,
+            "wall_elapsed": 793.1221287279996,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        }
+      },
+      "joint_minus_pose_ms_range": [
+        -2.0,
+        0.0
+      ],
+      "actual_pose_omissions": [],
+      "missing_actual_tool_links": [
+        "gripper_left_base_finger_left_link",
+        "gripper_left_base_finger_right_link",
+        "gripper_left_base_link"
+      ],
+      "maximum_arm7_fk_position_residual_m": 0.00023397851760893404
+    },
+    "place": {
+      "samples": 91,
+      "selection": {
+        "input_sha256": "ce81fcdd854ac8487c95cf818ea170f4c61b41d346b6094adb0af436d3b48951",
+        "source_journal_sha256": "e8bed7811b08b1950cf77418a455e2d957deae53ffa2808a994b17228013b5b3",
+        "source_scanned_byte_offset": 283148786,
+        "requested_ros_window": [
+          608.904,
+          656.438
+        ],
+        "available_count": 91,
+        "selected_count": 91,
+        "all_available_selected": true,
+        "maximum_selected_gap_seconds": 0.948,
+        "selected_producer_ros_seconds": [
+          609.128,
+          655.628
+        ],
+        "observer_finished": {
+          "acquisition_contact_trace_windows": {},
+          "acquisition_trace_completion_scope": "A window may end with the observer or receive no later callback to report its time cap; these summaries do not prove contact absence",
+          "kind": "observer_finished",
+          "maximum_wall_seconds": 5700.0,
+          "micro_contact_trace_window": null,
+          "phases": [
+            "INIT_STOW",
+            "HEAD_MARKERS",
+            "SEARCH_COLUMN",
+            "SEARCH_TURN",
+            "SEARCH_COLUMN",
+            "SEARCH_TURN",
+            "SEARCH_COLUMN",
+            "NAVIGATE_SHELF",
+            "HEAD_BOOKS",
+            "FIND_BOOK",
+            "ALIGN_BOOK",
+            "HEAD_REACQUIRE_BOOK",
+            "REACQUIRE_BOOK",
+            "PICK",
+            "CLEAR_SHELF_WITH_BOOK",
+            "COMPACT_TRANSPORT",
+            "RETURN_START",
+            "HEAD_BIN",
+            "FIND_BIN",
+            "ALIGN_BIN",
+            "HEAD_REACQUIRE_BIN",
+            "REACQUIRE_BIN",
+            "PLACE",
+            "WAIT_BIN_CONTACT",
+            "DONE"
+          ],
+          "post_preflight_contact_trace_windows": {
+            "lift_first_measured_geometry_verified": {
+              "event_prefix": "post_preflight",
+              "finished": true,
+              "last_ns": 327894000000,
+              "maximum_messages": 20000,
+              "maximum_ros_ns": 15000000000,
+              "messages": 15000,
+              "start_ns": 312894000000
+            }
+          },
+          "ros_time_ns": 665958000000,
+          "scene_contact_evidence_maximum_messages": 5000,
+          "scene_contact_evidence_messages": 3,
+          "terminal_phase": "DONE",
+          "wall_elapsed": 2552.0938745559997
+        }
+      },
+      "endpoint_gaps_seconds": {
+        "start": 0.22400000000004638,
+        "end": 0.8099999999999454
+      },
+      "screen": {
+        "rigid_arms": {
+          "queried_samples": 91,
+          "minimum_mesh_aabb_separation_m": 0.007165173978678718,
+          "minimum_witness": {
+            "joint_producer_ns": 610164000000,
+            "receipt_ros_ns": 610166000000,
+            "wall_elapsed": 2341.10785589,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 91,
+          "minimum_mesh_aabb_separation_m": 0.007165171379764912,
+          "minimum_witness": {
+            "joint_producer_ns": 610164000000,
+            "receipt_ros_ns": 610166000000,
+            "wall_elapsed": 2341.10785589,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "nominal_tools": {
+          "queried_samples": 91,
+          "minimum_mesh_aabb_separation_m": 0.04519573214766256,
+          "minimum_witness": {
+            "joint_producer_ns": 611832000000,
+            "receipt_ros_ns": 611836000000,
+            "wall_elapsed": 2351.8913125379995,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_tool_query": {
+          "queried_samples": 91,
+          "minimum_mesh_aabb_separation_m": 0.09205730789407067,
+          "minimum_witness": {
+            "joint_producer_ns": 611832000000,
+            "receipt_ros_ns": 611836000000,
+            "wall_elapsed": 2351.8913125379995,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_book_screen": {
+          "queried_samples": 91,
+          "minimum_mesh_aabb_separation_m": 0.02325686227003735,
+          "minimum_witness": {
+            "joint_producer_ns": 612844000000,
+            "receipt_ros_ns": 612848000000,
+            "wall_elapsed": 2358.398122603,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        }
+      },
+      "joint_minus_pose_ms_range": [
+        -2.0,
+        14.0
+      ],
+      "actual_pose_omissions": [],
+      "missing_actual_tool_links": [
+        "gripper_left_base_finger_left_link",
+        "gripper_left_base_finger_right_link",
+        "gripper_left_base_link"
+      ],
+      "maximum_arm7_fk_position_residual_m": 0.0007671357686956465
+    },
+    "init_stow": {
+      "samples": 11,
+      "selection": {
+        "input_sha256": "5e705c183fad872404402853098b452f969b45499fd1d0bf6e5c6dd2c9ce7081",
+        "source_journal_sha256": "1988b64b3923432a0e0f0147957b7a38979da62a697cc04a0f908823991cdb27",
+        "source_scanned_byte_offset": 190248705,
+        "requested_ros_window": [
+          121.5,
+          132.078
+        ],
+        "available_count": 11,
+        "selected_count": 11,
+        "all_available_selected": true,
+        "maximum_selected_gap_seconds": 0.972,
+        "selected_producer_ros_seconds": [
+          122.04,
+          131.248
+        ],
+        "observer_finished": null
+      },
+      "endpoint_gaps_seconds": {
+        "start": 0.5400000000000063,
+        "end": 0.8300000000000125
+      },
+      "screen": {
+        "rigid_arms": {
+          "queried_samples": 11,
+          "minimum_mesh_aabb_separation_m": 0.23524998015216061,
+          "minimum_witness": {
+            "joint_producer_ns": 127568000000,
+            "receipt_ros_ns": 127572000000,
+            "wall_elapsed": 17.3821272819996,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 11,
+          "minimum_mesh_aabb_separation_m": 0.2352242966146508,
+          "minimum_witness": {
+            "joint_producer_ns": 126596000000,
+            "receipt_ros_ns": 126600000000,
+            "wall_elapsed": 15.229986125999858,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "nominal_tools": {
+          "queried_samples": 11,
+          "minimum_mesh_aabb_separation_m": 0.47361266836791505,
+          "minimum_witness": {
+            "joint_producer_ns": 130292000000,
+            "receipt_ros_ns": 130296000000,
+            "wall_elapsed": 23.84614713099927,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_tool_query": {
+          "queried_samples": 10,
+          "minimum_mesh_aabb_separation_m": 0.4736138162436944,
+          "minimum_witness": {
+            "joint_producer_ns": 129380000000,
+            "receipt_ros_ns": 129382000000,
+            "wall_elapsed": 21.695884932999434,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_book_screen": {
+          "queried_samples": 10,
+          "minimum_mesh_aabb_separation_m": 2.7492740175299755,
+          "minimum_witness": {
+            "joint_producer_ns": 130292000000,
+            "receipt_ros_ns": 130296000000,
+            "wall_elapsed": 23.84614713099927,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        }
+      },
+      "joint_minus_pose_ms_range": [
+        -2.0,
+        36.0
+      ],
+      "actual_pose_omissions": [
+        {
+          "joint_producer_ns": 122040000000,
+          "receipt_ros_ns": 122044000000,
+          "wall_elapsed": 4.460368972999277,
+          "joint_minus_pose_ms": 36.0,
+          "measured_tool_query_omitted": "Pose skew exceeds 20ms or missing stamp"
+        }
+      ],
+      "missing_actual_tool_links": [
+        "gripper_left_base_finger_left_link",
+        "gripper_left_base_finger_right_link",
+        "gripper_left_base_link"
+      ],
+      "maximum_arm7_fk_position_residual_m": 0.00045579842402914767
+    },
+    "head_bin": {
+      "samples": 38,
+      "selection": {
+        "input_sha256": "fabf07c5738ed68efe39bbdd7b093073ab4f9b732a2d56ed0b436809c96105b0",
+        "source_journal_sha256": "19548dc7ddad08bd75ebbc05138bf240e715a065b24decd13bdf3cb2c3eacd00",
+        "source_scanned_byte_offset": 193221951,
+        "requested_ros_window": [
+          374.602,
+          387.334
+        ],
+        "available_count": 38,
+        "selected_count": 38,
+        "all_available_selected": true,
+        "maximum_selected_gap_seconds": 0.384,
+        "selected_producer_ros_seconds": [
+          374.624,
+          387.16
+        ],
+        "observer_finished": null
+      },
+      "endpoint_gaps_seconds": {
+        "start": 0.022000000000048203,
+        "end": 0.17399999999997817
+      },
+      "screen": {
+        "rigid_arms": {
+          "queried_samples": 38,
+          "minimum_mesh_aabb_separation_m": 0.007165070597292655,
+          "minimum_witness": {
+            "joint_producer_ns": 387160000000,
+            "receipt_ros_ns": 387164000000,
+            "wall_elapsed": 956.6172789309994,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "rigid_arm_visuals": {
+          "queried_samples": 38,
+          "minimum_mesh_aabb_separation_m": 0.007165067998378238,
+          "minimum_witness": {
+            "joint_producer_ns": 387160000000,
+            "receipt_ros_ns": 387164000000,
+            "wall_elapsed": 956.6172789309994,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "nominal_tools": {
+          "queried_samples": 38,
+          "minimum_mesh_aabb_separation_m": 0.05072023674615583,
+          "minimum_witness": {
+            "joint_producer_ns": 378656000000,
+            "receipt_ros_ns": 378658000000,
+            "wall_elapsed": 902.8121340569996,
+            "joint_minus_pose_ms": 0.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_tool_query": {
+          "queried_samples": 38,
+          "minimum_mesh_aabb_separation_m": 0.0965372227084243,
+          "minimum_witness": {
+            "joint_producer_ns": 386060000000,
+            "receipt_ros_ns": 386064000000,
+            "wall_elapsed": 950.0394558939997,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        },
+        "measured_book_screen": {
+          "queried_samples": 38,
+          "minimum_mesh_aabb_separation_m": 0.05857215276355818,
+          "minimum_witness": {
+            "joint_producer_ns": 379984000000,
+            "receipt_ros_ns": 379988000000,
+            "wall_elapsed": 911.3890634149993,
+            "joint_minus_pose_ms": -2.0
+          },
+          "total_narrow_checks": 0,
+          "overlaps": []
+        }
+      },
+      "joint_minus_pose_ms_range": [
+        -2.0,
+        0.0
+      ],
+      "actual_pose_omissions": [],
+      "missing_actual_tool_links": [
+        "gripper_left_base_finger_left_link",
+        "gripper_left_base_finger_right_link",
+        "gripper_left_base_link"
+      ],
+      "maximum_arm7_fk_position_residual_m": 1.0615428932052443e-06
+    }
+  },
+  "scene_phases": {
+    "place": {
+      "samples": 91,
+      "queries": {
+        "table": {
+          "rigid_arms": {
+            "queried_samples": 91,
+            "minimum_mesh_aabb_separation_m": 0.032865492973422526,
+            "minimum_witness": {
+              "joint_producer_ns": 643396000000,
+              "receipt_ros_ns": 643398000000,
+              "wall_elapsed": 2498.2573031129996,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "rigid_arm_visuals": {
+            "queried_samples": 91,
+            "minimum_mesh_aabb_separation_m": 0.0327344529090788,
+            "minimum_witness": {
+              "joint_producer_ns": 643396000000,
+              "receipt_ros_ns": 643398000000,
+              "wall_elapsed": 2498.2573031129996,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "nominal_tools": {
+            "queried_samples": 91,
+            "minimum_mesh_aabb_separation_m": 0.12239924055215963,
+            "minimum_witness": {
+              "joint_producer_ns": 646748000000,
+              "receipt_ros_ns": 646752000000,
+              "wall_elapsed": 2506.912792008,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "measured_tools": {
+            "queried_samples": 91,
+            "minimum_mesh_aabb_separation_m": 0.17070676360393902,
+            "minimum_witness": {
+              "joint_producer_ns": 646748000000,
+              "receipt_ros_ns": 646752000000,
+              "wall_elapsed": 2506.912792008,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          }
+        },
+        "bin": {
+          "rigid_arms": {
+            "queried_samples": 91,
+            "minimum_mesh_aabb_separation_m": 0.029572206895975034,
+            "minimum_witness": {
+              "joint_producer_ns": 629740000000,
+              "receipt_ros_ns": 629742000000,
+              "wall_elapsed": 2463.8153641,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "rigid_arm_visuals": {
+            "queried_samples": 91,
+            "minimum_mesh_aabb_separation_m": 0.02954118396685035,
+            "minimum_witness": {
+              "joint_producer_ns": 629740000000,
+              "receipt_ros_ns": 629742000000,
+              "wall_elapsed": 2463.8153641,
+              "joint_minus_pose_ms": 0.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "nominal_tools": {
+            "queried_samples": 91,
+            "minimum_mesh_aabb_separation_m": 0.01628499635118541,
+            "minimum_witness": {
+              "joint_producer_ns": 630736000000,
+              "receipt_ros_ns": 630740000000,
+              "wall_elapsed": 2468.113125299,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "measured_tools": {
+            "queried_samples": 91,
+            "minimum_mesh_aabb_separation_m": 0.016333358649168628,
+            "minimum_witness": {
+              "joint_producer_ns": 630736000000,
+              "receipt_ros_ns": 630740000000,
+              "wall_elapsed": 2468.113125299,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          }
+        }
+      },
+      "omissions": [],
+      "scene_transform_scope": "Retrospective evaluator-only: fixed official table world pose; independently stamped robot/bin model poses. Never controller input."
+    },
+    "head_bin": {
+      "samples": 38,
+      "queries": {
+        "table": {
+          "rigid_arms": {
+            "queried_samples": 38,
+            "minimum_mesh_aabb_separation_m": 0.20555989010145054,
+            "minimum_witness": {
+              "joint_producer_ns": 387160000000,
+              "receipt_ros_ns": 387164000000,
+              "wall_elapsed": 956.6172789309994,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "rigid_arm_visuals": {
+            "queried_samples": 38,
+            "minimum_mesh_aabb_separation_m": 0.20559511096928607,
+            "minimum_witness": {
+              "joint_producer_ns": 387160000000,
+              "receipt_ros_ns": 387164000000,
+              "wall_elapsed": 956.6172789309994,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "nominal_tools": {
+            "queried_samples": 38,
+            "minimum_mesh_aabb_separation_m": 0.5751475637413976,
+            "minimum_witness": {
+              "joint_producer_ns": 387160000000,
+              "receipt_ros_ns": 387164000000,
+              "wall_elapsed": 956.6172789309994,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "measured_tools": {
+            "queried_samples": 38,
+            "minimum_mesh_aabb_separation_m": 0.6448590031546734,
+            "minimum_witness": {
+              "joint_producer_ns": 387160000000,
+              "receipt_ros_ns": 387164000000,
+              "wall_elapsed": 956.6172789309994,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          }
+        },
+        "bin": {
+          "rigid_arms": {
+            "queried_samples": 38,
+            "minimum_mesh_aabb_separation_m": 0.3012239292269097,
+            "minimum_witness": {
+              "joint_producer_ns": 387160000000,
+              "receipt_ros_ns": 387164000000,
+              "wall_elapsed": 956.6172789309994,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "rigid_arm_visuals": {
+            "queried_samples": 38,
+            "minimum_mesh_aabb_separation_m": 0.3012792861340822,
+            "minimum_witness": {
+              "joint_producer_ns": 387160000000,
+              "receipt_ros_ns": 387164000000,
+              "wall_elapsed": 956.6172789309994,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "nominal_tools": {
+            "queried_samples": 38,
+            "minimum_mesh_aabb_separation_m": 0.4965899203705427,
+            "minimum_witness": {
+              "joint_producer_ns": 387160000000,
+              "receipt_ros_ns": 387164000000,
+              "wall_elapsed": 956.6172789309994,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          },
+          "measured_tools": {
+            "queried_samples": 38,
+            "minimum_mesh_aabb_separation_m": 0.5747639348594825,
+            "minimum_witness": {
+              "joint_producer_ns": 387160000000,
+              "receipt_ros_ns": 387164000000,
+              "wall_elapsed": 956.6172789309994,
+              "joint_minus_pose_ms": -2.0
+            },
+            "total_narrow_checks": 0,
+            "overlaps": []
+          }
+        }
+      },
+      "omissions": [],
+      "scene_transform_scope": "Retrospective evaluator-only: fixed official table world pose; independently stamped robot/bin model poses. Never controller input."
+    }
+  },
+  "local_archive_sources": {
+    "run40_review/actual_geometry_audit/execution01/summary.json": "1969fe3d375d011e7ff1f54863a2d0ef6525860adfa7e517fbba23c868a18bea",
+    "run40_review/actual_geometry_audit/actual_geometry_review.md": "85d8dd2d10f06b048f68c1e986b322f95bba384121715af61b605ab3a2c74261"
+  },
+  "scope": "World-AABB separations are conservative mesh-distance lower bounds, not exact closest distances or contact depths. No evaluator data entered control."
+}

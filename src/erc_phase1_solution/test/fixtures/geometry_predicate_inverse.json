@@ -1,0 +1,42 @@
+{
+  "erc_phase1_solution/scene_checked_place.py": {
+    "candidate_sha256": "bf47cb170e982afcec87da6ac397a50a86365052fbf27f0e924a3b822fbfe4e4",
+    "candidate_text_sha256": "bf47cb170e982afcec87da6ac397a50a86365052fbf27f0e924a3b822fbfe4e4",
+    "parent_sha256": "d36f7292280d761f9ec7d4c06ec8b2200b35e802e6c96ff1585c0d479a3f9fc9",
+    "parent_text_sha256": "d36f7292280d761f9ec7d4c06ec8b2200b35e802e6c96ff1585c0d479a3f9fc9",
+    "replacements": [
+      {
+        "new": "    def sample(self, q, aperture, loaded):\n        from erc_phase1_solution.geometry_array_checks import any_boolean\n        node = self.node\n",
+        "old": "    def sample(self, q, aperture, loaded):\n        node = self.node\n"
+      },
+      {
+        "new": "                if (any_boolean(world_aabbs.reduce(surface, 'max') < low)\n                        or any_boolean(high < world_aabbs.reduce(surface, 'min'))):",
+        "old": "                if (np.any(world_aabbs.reduce(surface, 'max') < low)\n                        or np.any(high < world_aabbs.reduce(surface, 'min'))):"
+      },
+      {
+        "new": "                if any_boolean(high < other_low) or any_boolean(other_high < low):",
+        "old": "                if np.any(high < other_low) or np.any(other_high < low):"
+      }
+    ]
+  },
+  "erc_phase1_solution/table_scene.py": {
+    "candidate_sha256": "95df2f255e4a7596ba16d7132e095c96e8eb707bdca94cabbfec6ecaf4476ce8",
+    "candidate_text_sha256": "95df2f255e4a7596ba16d7132e095c96e8eb707bdca94cabbfec6ecaf4476ce8",
+    "parent_sha256": "61f359cc01eab1f978a7e63a91caf062857bd81e8b89e681df421c4fccb19720",
+    "parent_text_sha256": "61f359cc01eab1f978a7e63a91caf062857bd81e8b89e681df421c4fccb19720",
+    "replacements": [
+      {
+        "new": "        self._local_bounds = ExactLocalBounds()\n        # Only this exact built-in owns a bounded validation cache.\n        from erc_phase1_solution.geometry_array_checks import ExactRigidValidation\n        self._rigid_validation = (ExactRigidValidation(_rigid)\n                                  if type(self) is TableSceneObstacle else None)\n",
+        "old": "        self._local_bounds = ExactLocalBounds()\n"
+      },
+      {
+        "new": "        from erc_phase1_solution.exact_local_bounds import ModelLocalMesh\n        from erc_phase1_solution.geometry_array_checks import any_boolean, ExactRigidValidation\n        original_surface = surface\n        immutable = surface.snapshot() if type(surface) is ModelLocalMesh else None\n        if immutable is not None and surface.matches(immutable[0]):\n            # Exact handle construction already checked all facets; the\n            # whole bytes owner and fresh metadata identify that proof.\n            surface = immutable[0]\n        else:\n            immutable = None\n            surface = np.asarray(surface, dtype=float)\n            if surface.ndim != 3 or surface.shape[1:] != (3, 3) or not len(surface) or not np.all(np.isfinite(surface)):\n                raise ValueError('invalid table collision surface')\n        rigid = getattr(self, '_rigid_validation', None)\n        transform = (rigid.validate(transform, _rigid) if type(rigid) is ExactRigidValidation\n                     else _rigid(transform))\n        cache = getattr(self, '_local_bounds', None)\n        cached = (immutable if immutable is not None else\n                  cache.capture(original_surface) if cache is not None else None)\n",
+        "old": "        original_surface = surface\n        surface = np.asarray(surface, dtype=float)\n        if surface.ndim != 3 or surface.shape[1:] != (3, 3) or not len(surface) or not np.all(np.isfinite(surface)):\n            raise ValueError('invalid table collision surface')\n        transform = _rigid(transform)\n        cache = getattr(self, '_local_bounds', None)\n        cached = cache.capture(original_surface) if cache is not None else None\n"
+      },
+      {
+        "new": "            if any_boolean(centre+half < bounds[0]) or any_boolean(centre-half > bounds[1]):",
+        "old": "            if np.any(centre+half < bounds[0]) or np.any(centre-half > bounds[1]):"
+      }
+    ]
+  }
+}

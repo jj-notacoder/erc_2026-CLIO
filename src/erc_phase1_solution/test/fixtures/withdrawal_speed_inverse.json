@@ -1,0 +1,51 @@
+{
+  "parent_sha256": "8c04bb31ce8b816059cc80cd41a7e34a0aa25a2459353681ef84a826595ca876",
+  "candidate_sha256": "9fd743c3b645e13893fd9f6205e50580ee038b684ebf1b3764b352631461f750",
+  "replacements": [
+    {
+      "old": "from .arm_velocity_admission import (",
+      "new": "from .withdrawal_timing import checked_withdrawal_speed_scale, withdrawal_leg_speed_scales\nfrom .arm_velocity_admission import (",
+      "count": 1
+    },
+    {
+      "old": "        self.placement_transport_speed_scale = checked_arm_speed_scale(\n            self.get_parameter('placement_transport_speed_scale').value)",
+      "new": "        self.placement_transport_speed_scale = checked_arm_speed_scale(\n            self.get_parameter('placement_transport_speed_scale').value)\n        self.withdrawal_speed_scale = checked_withdrawal_speed_scale(\n            self.get_parameter('withdrawal_speed_scale').value)",
+      "count": 1
+    },
+    {
+      "old": "            'placement_transport_speed_scale': 1.0,",
+      "new": "            'placement_transport_speed_scale': 1.0,\n            'withdrawal_speed_scale': 1.0,",
+      "count": 1
+    },
+    {
+      "old": "        if self.placement_transport_speed_scale > 1.0:\n            from .empty_pickup_collision import joint_velocity_limits",
+      "new": "        if self.placement_transport_speed_scale > 1.0 or self.withdrawal_speed_scale > 1.0:\n            from .empty_pickup_collision import joint_velocity_limits",
+      "count": 1
+    },
+    {
+      "old": "        arm_speed_scale: float = 1.0,\n    ) -> Tuple[bool, int, bool]:\n        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        if arm_speed_scale != 1.0:\n            arm_speed_scale = checked_arm_speed_scale(arm_speed_scale)\n        for index, (solution, duration, phase) in enumerate(legs):\n            try:\n                command_duration = (duration if arm_speed_scale == 1.0 else\n                                    scaled_arm_seconds(duration, arm_speed_scale))",
+      "new": "        arm_speed_scale: float = 1.0,\n        withdrawal_speed_scale: float = 1.0,\n    ) -> Tuple[bool, int, bool]:\n        \"\"\"Monitor each carried action; failed motion leaves its leg incomplete.\"\"\"\n        if arm_speed_scale != 1.0:\n            arm_speed_scale = checked_arm_speed_scale(arm_speed_scale)\n        withdrawal_scales = None\n        if isinstance(withdrawal_speed_scale, bool):\n            raise ValueError('withdrawal speed must be numeric, not Boolean')\n        if withdrawal_speed_scale != 1.0:\n            withdrawal_scales = withdrawal_leg_speed_scales(\n                legs, command=command, speed_scale=withdrawal_speed_scale,\n                arm_speed_scale=arm_speed_scale, leg_offset=leg_offset,\n                initial_pressure_gate=initial_pressure_gate)\n        for index, (solution, duration, phase) in enumerate(legs):\n            try:\n                effective_speed_scale = (arm_speed_scale if withdrawal_scales is None else\n                                         withdrawal_scales[index])\n                command_duration = (duration if effective_speed_scale == 1.0 else\n                                    scaled_arm_seconds(duration, effective_speed_scale))",
+      "count": 1
+    },
+    {
+      "old": "                    goal, (total_duration if arm_speed_scale == 1.0 else float(duration)),\n                    active_leg, command,\n                    leg_offset=index + leg_offset,\n                    **({'velocity_admission': True} if arm_speed_scale != 1.0 else {}),",
+      "new": "                    goal, (total_duration if effective_speed_scale == 1.0 else float(duration)),\n                    active_leg, command,\n                    leg_offset=index + leg_offset,\n                    **({'velocity_admission': True} if effective_speed_scale != 1.0 else {}),",
+      "count": 1
+    },
+    {
+      "old": "                **({'initial_pressure_gate': initial_pressure_gate} if lift_enabled else {}),\n            )",
+      "new": "                **({'initial_pressure_gate': initial_pressure_gate} if lift_enabled else {}),\n                **({'withdrawal_speed_scale': self.withdrawal_speed_scale}\n                   if lift_enabled and getattr(self, 'withdrawal_speed_scale', 1.0) != 1.0 else {}),\n            )",
+      "count": 1
+    },
+    {
+      "old": "        if withdrawal_speed_scale != 1.0:\n            withdrawal_scales = withdrawal_leg_speed_scales(\n                legs, command=command, speed_scale=withdrawal_speed_scale,\n                arm_speed_scale=arm_speed_scale, leg_offset=leg_offset,\n                initial_pressure_gate=initial_pressure_gate)\n",
+      "new": "        if withdrawal_speed_scale != 1.0:\n            try:\n                withdrawal_scales = withdrawal_leg_speed_scales(\n                    legs, command=command, speed_scale=withdrawal_speed_scale,\n                    arm_speed_scale=arm_speed_scale, leg_offset=leg_offset,\n                    initial_pressure_gate=initial_pressure_gate)\n            except ValueError as exc:\n                # PICK is already closed; a bad optional prefix must not retry/open.\n                raise RuntimeError('pick_recovery_failed') from exc\n",
+      "count": 1
+    },
+    {
+      "old": "            except (LiftPressureRejected, ArmVelocityAdmissionRejected):\n                # This optional pre-send refusal authorizes no recovery/open.\n                raise\n",
+      "new": "            except ArmVelocityAdmissionRejected as exc:\n                if withdrawal_scales is not None:\n                    # Preserve the veto cause while selecting the mission's abort-only path.\n                    raise RuntimeError('pick_recovery_failed') from exc\n                raise\n            except LiftPressureRejected:\n                # This optional pre-send refusal authorizes no recovery/open.\n                raise\n",
+      "count": 1
+    }
+  ]
+}

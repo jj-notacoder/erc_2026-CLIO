@@ -53,3 +53,51 @@ def test_selected_torso_and_cached_plan_reach_actual_pick_dispatch(monkeypatch):
     assert heights == [.10]
     assert seen['node'].pick_torso_height == .35
     seen['node']._plan_carried_return.assert_not_called()
+
+
+@pytest.mark.parametrize('has_withdrawal', [False, True])
+def test_bottom_separate_withdrawal_is_required_and_its_checked_lift_is_dispatched(
+        monkeypatch, has_withdrawal):
+    """Distinct sentinels catch slicing the new approach for the old withdrawal."""
+    motions = []
+    def configure(node, seen):
+        node.lower_shelf_pick_enabled = True
+        node._plan_carried_return = Mock(side_effect=AssertionError('accepted carry was recomputed'))
+        move_arm, move_torso, open_gripper = (
+            node._move_arm_solution, node._move_torso, node._open_gripper)
+        node._move_arm_solution = lambda *a, **k: motions.append('arm') or move_arm(*a, **k)
+        node._move_torso = lambda *a, **k: motions.append('torso') or move_torso(*a, **k)
+        node._open_gripper = lambda *a, **k: motions.append('open') or open_gripper(*a, **k)
+    seen, setup = _enabled(monkeypatch, configure=configure)
+    withdrawal = tuple(np.array([.35, *([v]*7)]) for v in (90., 91.))
+    def planner(node, front, **kwargs):
+        qs = tuple(np.array([.35, *([v]*7)]) for v in (10., 11., 12.))
+        explicit = withdrawal if has_withdrawal else ()
+        lift = (kwargs['lift_planner'](qs[-1], explicit) if explicit else
+                LiftFirstPlan((), qs[-1], np.zeros((8, 3)), {}))
+        return NS(positions=tuple(np.asarray(front) for _ in qs),
+            grasp=np.asarray(front)+[.025, 0., 0.], rotations=(np.eye(3),),
+            solutions=qs, orientation_index=0, path_score=1., transition_waypoints=(),
+            pick_torso_height=.35, grasp_depth_offset=.025, grasp_lateral_offset=0.,
+            grasp_vertical_offset=0., loaded_clearance_index=None, endpoint_first=False,
+            extraction_solutions=explicit, lift_plan=lift,
+            return_result=([], [], None, [], np.zeros((8, 3))),
+            cached_post_retreat_plan={'requires_gravity_support': False,
+                                     'sentinel': 'selected_bottom_route'})
+    monkeypatch.setattr(lower, 'plan_lower_shelf_pick', planner)
+    if not has_withdrawal:
+        with pytest.raises(RuntimeError, match='Separate lower withdrawal proposal is missing'):
+            _mocked_pick_trace([.67, -.05, .604], configure_node=setup)
+        assert motions == []
+        assert 'original' not in seen
+    else:
+        result = _mocked_pick_trace([.67, -.05, .604], configure_node=setup)
+        assert result['succeeded']
+        assert [q[1] for q in seen['original']] == [90., 91.]
+        assert result['arm_moves'] == [10, 11, 12, 40, 41]
+        approach = next(fields for event, fields in result['status']
+                        if event == 'pick_approach_planned')
+        assert approach['loaded_clearance_index'] is None
+        assert approach['separate_withdrawal_proposal'] == [q.tolist() for q in withdrawal]
+        assert seen['node']._cached_post_retreat_plan['sentinel'] == 'selected_bottom_route'
+    seen['node']._plan_carried_return.assert_not_called()

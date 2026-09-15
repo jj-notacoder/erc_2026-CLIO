@@ -15,9 +15,20 @@ FRONT = np.array([.670, -.056, 1.254])
 
 
 @pytest.fixture
-def protocol(open_tool):
+def protocol(open_tool, monkeypatch):
     """Records ownership/control order; it makes no physical geometry claim."""
     calls = []
+    shelf_failure = {}
+    class Bounds:
+        def __init__(self, *args, **kwargs):
+            self.samples = 0
+            self.plane_point = np.array([.605, 0., 0.])
+            self.normal_uncertainty_m = .010
+            self.minimum_floor = self.minimum_roof = self.minimum_side = self.minimum_back = .04
+        def edge(self, first, last, *, allow_entry):
+            self.samples += 1
+            return shelf_failure.get('entry' if allow_entry else 'setup')
+    monkeypatch.setattr(lower_pick, 'EmptyShelfBounds', Bounds)
     node = NS(pick_torso_height=.35, pick_position_tolerance=.0005,
         pick_orientation_tolerance=.01, pregrasp_offset=.14, cartesian_step=.06,
         chain=NS(lower=np.array([-.001, *([-3.]*7)]),
@@ -42,8 +53,8 @@ def protocol(open_tool):
         calls.append(('solver', torso))
         assert kwargs['first_valid']
         assert kwargs['endpoint_first'] is getattr(node, 'expected_endpoint_first', True)
-        assert kwargs['transition_edge_validator'] is guard.retracted_edge
-        assert kwargs['setup_transition_planner'] is guard.plan_transition
+        assert callable(kwargs['transition_edge_validator'])
+        assert callable(kwargs['setup_transition_planner'])
         assert kwargs['position_tolerance'] == .0005
         assert kwargs['orientation_tolerance'] == .01
         solutions = [np.array([torso, i*.05, *([0.]*6)]) for i in range(len(positions))]
@@ -61,7 +72,7 @@ def protocol(open_tool):
     node._plan_carried_return = carry
     node._carried_robot_transition_is_safe = record('extraction_volume')
     node._plan_retracted_transition = record('recovery', [])
-    return NS(node=node, guard=guard, lift=lift, calls=calls)
+    return NS(node=node, guard=guard, lift=lift, calls=calls, bay=object(), shelf_failure=shelf_failure)
 
 
 @pytest.fixture
@@ -73,9 +84,9 @@ def open_tool(monkeypatch):
 
 def test_acceptance_requires_complete_route_and_returns_local_torso(protocol, open_tool):
     p = protocol
-    plan = lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, lift_planner=p.lift)
+    plan = lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, bay=p.bay, lift_planner=p.lift)
     assert plan.pick_torso_height == .10 and p.node.pick_torso_height == .35
-    assert plan.grasp == pytest.approx(FRONT+[.025, -.001, -.015])
+    assert plan.grasp == pytest.approx(FRONT+[.025, -.001, .005])
     assert plan.loaded_clearance_index == 1 and plan.deferred_return
     assert plan.endpoint_first and not plan.staged_empty_gripper
     assert plan.cached_post_retreat_plan['selected_torso'] == .10
@@ -102,7 +113,7 @@ def test_rejected_complete_candidate_does_not_hide_valid_alternative(protocol, m
             raise RuntimeError('lift corner descent')
         assert p.node._cached_post_retreat_plan is None
         return original(grasp, extraction)
-    plan = lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, lift_planner=reject_first)
+    plan = lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, bay=p.bay, lift_planner=reject_first)
     assert plan.candidate_name == 'second' and plan.pick_torso_height == .15
     assert p.node.pick_torso_height == .35
     assert p.node._cached_post_retreat_plan == plan.cached_post_retreat_plan
@@ -113,20 +124,22 @@ def test_rejected_complete_candidate_does_not_hide_valid_alternative(protocol, m
                for c in p.node._publish_status.call_args_list)
 
 
-@pytest.mark.parametrize('stage', ['opening', 'torso', 'empty', 'open', 'lift',
+@pytest.mark.parametrize('stage', ['opening', 'torso', 'empty', 'shelf_setup', 'shelf_entry', 'open', 'lift',
                                   'carry', 'volume', 'recovery'])
 def test_each_guard_failure_prevents_acceptance_and_clears_state(protocol, open_tool, stage):
     p = protocol
     if stage == 'opening': p.guard.opening = lambda: False
     if stage == 'torso': p.guard.edge = lambda *args: False
     if stage == 'empty': p.guard.candidate = lambda *args: False
+    if stage == 'shelf_setup': p.shelf_failure['setup'] = 'setup_shelf_collision'
+    if stage == 'shelf_entry': p.shelf_failure['entry'] = 'entry_shelf_collision'
     if stage == 'open': open_tool.return_value = NS(ok=False, reason='finger_book_overlap')
     if stage == 'lift': p.lift = Mock(side_effect=RuntimeError('fresh joint state stale'))
     if stage == 'carry': p.node._plan_carried_return = Mock(side_effect=ValueError('shelf sweep'))
     if stage == 'volume': p.node._carried_robot_transition_is_safe = lambda *args: False
     if stage == 'recovery': p.node._plan_retracted_transition = lambda *args: None
     with pytest.raises(RuntimeError, match='no_complete_route'):
-        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, lift_planner=p.lift)
+        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, bay=p.bay, lift_planner=p.lift)
     assert p.node.pick_torso_height == .35
     assert p.node._cached_post_retreat_plan is None
     p.node._move_arm.assert_not_called(); p.node._move_torso.assert_not_called()
@@ -141,7 +154,7 @@ def test_cancellation_after_sensor_admission_does_not_try_another_candidate(prot
         p.node._cancel.set()
         return NS(terminal=extraction[-1], route=extraction)
     with pytest.raises(lower_pick.LowerShelfPlanningCancelled):
-        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, lift_planner=cancel)
+        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, bay=p.bay, lift_planner=cancel)
     assert not any(x[0] == 'carry' or x[1] == .15 for x in p.calls)
     assert p.node.pick_torso_height == .35 and p.node._cached_post_retreat_plan is None
 
@@ -150,23 +163,23 @@ def test_programming_errors_are_not_relabelled_as_geometry_rejections(protocol):
     p = protocol
     p.node._solve_cartesian_path = Mock(side_effect=TypeError('unexpected API mismatch'))
     with pytest.raises(TypeError, match='API mismatch'):
-        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, lift_planner=p.lift)
+        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, bay=p.bay, lift_planner=p.lift)
     assert p.node.pick_torso_height == .35 and p.node._cached_post_retreat_plan is None
 
 
-@pytest.mark.parametrize('height', [.604, 1.584])
+@pytest.mark.parametrize('height', [1.584])
 def test_unvalidated_rows_never_fall_back_to_a_top_row_route(protocol, height):
     p = protocol
     with pytest.raises(RuntimeError, match='no_validated_candidate'):
         lower_pick.plan_lower_shelf_pick(p.node, [.67, -.056, height],
-                                   empty_guard=p.guard, lift_planner=p.lift)
+                                   empty_guard=p.guard, bay=p.bay, lift_planner=p.lift)
     assert not p.calls and p.node._cached_post_retreat_plan is None
 
 
 def test_precision_cannot_be_relaxed_for_candidate_selection(protocol):
     p = protocol; p.node.pick_position_tolerance = .002
     with pytest.raises(ValueError, match='precision_tolerances'):
-        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, lift_planner=p.lift)
+        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, bay=p.bay, lift_planner=p.lift)
     assert not p.calls
 
 
@@ -175,7 +188,7 @@ def test_candidate_can_select_forward_path_without_changing_other_admission(prot
     monkeypatch.setattr(lower_pick, '_candidates', lambda _: (
         lower_pick.LowerShelfCandidate('forward_candidate', .15, -.50,
             grasp_lateral_offset=0., grasp_vertical_offset=0., endpoint_first=False),))
-    plan = lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, lift_planner=p.lift)
+    plan = lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, bay=p.bay, lift_planner=p.lift)
     assert plan.endpoint_first is False
     assert plan.grasp == pytest.approx(FRONT+[.025, 0., 0.])
     assert [x[0] for x in p.calls].count('lift') == 1
@@ -189,7 +202,7 @@ def test_endpoint_direction_requires_explicit_boolean(protocol, monkeypatch, fla
     monkeypatch.setattr(lower_pick, '_candidates', lambda _: (
         lower_pick.LowerShelfCandidate('invalid', .10, -.50, endpoint_first=flag),))
     with pytest.raises(RuntimeError, match='candidate_parameters_invalid'):
-        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, lift_planner=p.lift)
+        lower_pick.plan_lower_shelf_pick(p.node, FRONT, empty_guard=p.guard, bay=p.bay, lift_planner=p.lift)
     assert not p.calls and p.node.pick_torso_height == .35
 
 
@@ -252,7 +265,7 @@ def test_official_lower_rows_complete_candidate_with_real_guards(row, front, hea
     def lift(grasp, extraction):
         return plan_lift_first_extraction(node, front, grasp, extraction, bay=bay,
             aperture=.020, lift_m=.020, modeled_tool_allowance_m=.005)
-    plan = lower_pick.plan_lower_shelf_pick(node, front, empty_guard=guard, lift_planner=lift)
+    plan = lower_pick.plan_lower_shelf_pick(node, front, empty_guard=guard, lift_planner=lift, bay=bay)
     cache = plan.cached_post_retreat_plan
     assert node.pick_torso_height == .35 and plan.pick_torso_height == .10
     assert cache['compact_radius'] < .45
@@ -262,7 +275,8 @@ def test_official_lower_rows_complete_candidate_with_real_guards(row, front, hea
     assert np.array_equal(cache['start'], plan.lift_plan.terminal)
     assert cache['shelf_front_x'] == pytest.approx(front[0] + .25)
     if row == 2:
-        assert cache['compact_shoulder_progress_power'] == .8
+        assert plan.grasp == pytest.approx(front + [.025, -.001, .005])
+        assert cache['compact_shoulder_progress_power'] == 1.0
     else:
         assert plan.candidate_name == 'row3_supported_positive_wrist'
         assert not plan.endpoint_first and plan.loaded_clearance_index == 3
@@ -281,4 +295,4 @@ def test_official_lower_rows_complete_candidate_with_real_guards(row, front, hea
         # Same retained endpoint must also admit the ordinary look-bin head move.
         node._held_book_corners = cache['attached_corners']
         node.joints.update(dict(zip(IK_JOINTS, cache['terminal'])))
-        assert node._carried_head_transition_is_safe(0., -.28)
+        assert node._carried_head_transition_is_safe(0., -.60)

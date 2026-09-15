@@ -40,12 +40,53 @@ includes its event log and pickup view.
   side/top faces while retaining fit uncertainty and geometric consistency
   requirements. The captured failed blue view and synthetic four-colour,
   four-row views pass; corrupted geometry remains rejected.
-- Lower-shelf planning must admit a complete empty approach, lift, supported
-  carry, and recovery before dispatching motion. The second and third rows use
-  distinct torso and wrist routes. Bottom-row entry is under development.
+- All three lower rows (rows 2–4) now have complete guarded offline plans.
+  Each candidate must pass empty approach, lift, carried payload, supported
+  compaction, detailed gripper motion and recovery checks before motion begins.
+- Empty entry uses dense robot and gripper mesh checks against the registered
+  shelf front, floor, roof, sides and rear panel. The front plane comes from
+  the observed marker and retains the earlier book-derived bound, with a
+  10 mm normal uncertainty allowance. Coarse setup samples only select
+  proposals; every returned setup leg receives the full dense checks.
+- Bottom-row entry rebuilds the approach while preserving the separately
+  proposed grasp and short withdrawal joints. Lift planning uses that explicit
+  withdrawal to retain the validated arm configuration.
+- A lower-row failure that retains the book stops with the gripper closed when
+  no complete loaded recovery has been admitted. An offline unloaded recovery
+  route does not authorize recovery from an arbitrary loaded failure state.
+- Exact immutable robot geometry is shared between collision checks and reused
+  when mesh identity and transform bytes match. Each sample still captures its
+  current head/right-arm context; collision checks and margins remain active.
 
-The latest software checks do not yet establish delivery for all 20 targets or
-under-five-minute timing. Physical trial results will be added as they finish.
+### Software and offline evidence
+
+Recorded focused checks include **102 unit tests for shared shelf checks and
+bottom pickup**, plus **23 lower-shelf protocol/runtime tests**. A later focused run passed all
+**14 recovery and runtime wiring tests**, including two earlier runtime cases.
+The three complete official-model lower-row cases also pass against current
+source; row two was rerun after correcting its old expected carry proposal.
+These cover required dense admission,
+registration and uncertainty bounds, cancellation, preserved withdrawal joints,
+and stopping when loaded recovery is unverified. These counts cover the focused
+checks listed here.
+
+| Offline validation job | Wall time | Result |
+|---|---:|---|
+| Current row-2 complete harness | 56.12 s | Passed |
+| Row-3 integrated complete harness | 53.32 s | Passed |
+| Bottom complete test run | 63.89 s | 26 tests passed, including the complete official-model case |
+
+The [offline evidence](evidence/lower_shelf_offline_20260915/README.md) preserves
+the input states, route results and source identities. These durations measure
+local offline validation work. Physical mission times
+and outcomes remain in the trial table above. The lower-row checks include
+complete lift/carry planning, registered entry, signed finger support, compact
+navigation radius, unloaded recovery and the look-bin head sweep. They do not
+establish physical grasp retention, placement, or delivery for these rows.
+
+Delivery for all 20 targets and under-five-minute mission timing remain
+unverified for the current all-books implementation. The next physical trial
+will be added to the records above after its terminal outcome is checked.
 The [matrix runner](../tools/book_matrix.md) starts each requested book in a fresh
 world and independently checks target identity, containment, source stability,
 reported collisions, and process cleanup.

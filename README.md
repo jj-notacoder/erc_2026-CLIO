@@ -1,13 +1,18 @@
 # ERC 2026 Phase 1 - Library Assistant Robot
 
-## Local Gazebo run — restored version
+## Local Gazebo run and current validation
 
 This folder contains the complete simulator and solution. Extra experimental
-workspaces are not needed. The restored column-2/red run completed in **5m18s
-from solution launch**, with zero reported collisions and the whole book inside
-the bin. The `fix/all-books` branch adds strict shelf identity tracking and a
-multi-face depth fit. Column 4/blue now passes visual reacquisition; its lower
-shelf manipulation is still being validated. See the
+workspaces are not needed. The restored column-2/red baseline completed in
+**5m18s from solution launch**, with zero reported collisions and the whole book
+inside the bin.
+
+The `fix/all-books` branch now has complete guarded offline plans for all three
+lower shelf rows, alongside selected-bay tracking and multi-face depth fitting.
+The plans check robot and gripper entry against the registered shelf, preserve
+the bottom book's separate withdrawal route, and stop with the gripper closed
+if a lower-row failure leaves the book held. Delivery across all 20 targets and under-five-minute
+mission timing remain unverified for this branch. See the
 [all-books validation record](docs/all_books_validation.md).
 
 From this folder on the Linux desktop:

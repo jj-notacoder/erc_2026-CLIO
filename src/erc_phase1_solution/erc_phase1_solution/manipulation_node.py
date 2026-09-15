@@ -5788,7 +5788,7 @@ class ManipulationNode(Node):
         """Plan a payload-safe shelf exit and any deferred compact staging."""
         self._cached_post_retreat_plan = None
         attached_corners = self._attached_book_corners(front, grasp_solution)
-        if compact_path not in ('standard', 'middle'):
+        if compact_path not in ('standard', 'middle', 'bottom'):
             raise ValueError('unknown supported compact path')
         if not defer_return and (extension_distance is not None
                 or staging_vertical_offset is not None or compact_path != 'standard'):
@@ -5914,9 +5914,11 @@ class ManipulationNode(Node):
             # Keep the existing synchronized tuck first.  Two bounded
             # shoulder leads address a shelf-intersecting intermediate sweep
             # without changing the terminal posture or collision margins.
-            if compact_path == 'middle':
-                from .lower_shelf_carry import middle_compact_proposal
-                compact_goals = middle_compact_proposal(self, staged_previous)
+            if compact_path in ('middle', 'bottom'):
+                from .lower_shelf_carry import middle_compact_proposal, bottom_compact_proposal
+                proposal = (middle_compact_proposal if compact_path == 'middle'
+                            else bottom_compact_proposal)
+                compact_goals = proposal(self, staged_previous)
                 compact_route = self._plan_carried_joint_route(
                     staged_previous, compact_goals, attached_corners,
                     post_retreat_shelf_front_x=post_retreat_front_x,
@@ -7148,6 +7150,7 @@ class ManipulationNode(Node):
         cause: str,
         remaining_carried_legs: Sequence[Tuple[Sequence[float], float, str]],
         unloaded_recovery_route: Sequence[Sequence[float]],
+        lower_shelf_pick: bool = False,
     ) -> bool:
         """Follow the checked route, release on loss or at its terminal, recover."""
         lock = getattr(self, '_lock', None)
@@ -7301,6 +7304,23 @@ class ManipulationNode(Node):
                 recovery_halted=True,
             )
             raise RuntimeError('pick_payload_lost')
+        # The lower-shelf plan has no admitted loaded recovery from an
+        # arbitrary failure state.  Its numerical HOME-height arm route does
+        # not check a loaded torso sweep or a supported release.  Preserve the
+        # measured retained state until a complete recovery can be admitted.
+        if lower_shelf_pick:
+            self._publish_status(
+                'carried_recovery',
+                command='pick',
+                cause=cause,
+                reason='lower_shelf_recovery_certificate_missing',
+                retained_before_recovery=True,
+                gripper_opened=False,
+                recovery_succeeded=False,
+                recovery_halted=True,
+                retained_stop=True,
+            )
+            raise RuntimeError('pick_recovery_failed')
         recovery_ok = retained or gripper_opened
         for leg, (solution, duration, phase) in enumerate(
             remaining_carried_legs
@@ -7977,7 +7997,7 @@ class ManipulationNode(Node):
 
             lower_pick_plan = plan_lower_shelf_pick(
                 self, front, empty_guard=empty_setup_guard,
-                lift_planner=plan_lower_lift,
+                lift_planner=plan_lower_lift, bay=lift_bay,
             )
             positions = lower_pick_plan.positions
             grasp = lower_pick_plan.grasp
@@ -8023,9 +8043,14 @@ class ManipulationNode(Node):
         loaded_clearance_index = (lower_pick_plan.loaded_clearance_index
             if lower_pick_plan is not None
             else self._loaded_clearance_index(top_row, solutions))
-        if not 0 <= loaded_clearance_index < len(solutions) - 1:
-            raise RuntimeError('Loaded clearance index is outside the solved pick path')
-        loaded_clearance = solutions[loaded_clearance_index]
+        if loaded_clearance_index is None:
+            if lower_pick_plan is None or not lower_pick_plan.extraction_solutions:
+                raise RuntimeError('Separate lower withdrawal proposal is missing')
+            loaded_clearance = lower_pick_plan.extraction_solutions[-1]
+        else:
+            if not 0 <= loaded_clearance_index < len(solutions) - 1:
+                raise RuntimeError('Loaded clearance index is outside the solved pick path')
+            loaded_clearance = solutions[loaded_clearance_index]
         accuracy = self._pick_path_accuracy(
             positions, rotations[orientation_index], solutions,
         )
@@ -8042,6 +8067,9 @@ class ManipulationNode(Node):
                 np.asarray(solution).tolist() for solution in transition_waypoints
             ],
             loaded_clearance_index=loaded_clearance_index,
+            separate_withdrawal_proposal=(
+                [q.tolist() for q in lower_pick_plan.extraction_solutions]
+                if loaded_clearance_index is None else None),
             torso_height=pick_torso_height,
             grasp_depth_offset=depth_offset,
             pick_position_tolerance_m=pick_position_tolerance,
@@ -8095,7 +8123,10 @@ class ManipulationNode(Node):
                 raise RuntimeError(f'Open gripper approach rejected: {reason}')
         with empty_torso_planning_scope(self, empty_setup_guard, lift_reference,
                 ordinary=bool(top_row and lift_enabled and not staged_empty_gripper)) as torso_overlap:
-            extraction_solutions = list(reversed(solutions[loaded_clearance_index:-1]))
+            extraction_solutions = (
+                list(lower_pick_plan.extraction_solutions)
+                if loaded_clearance_index is None else
+                list(reversed(solutions[loaded_clearance_index:-1])))
             post_retreat_result = None
             if lower_pick_plan is not None:
                 lift_plan = lower_pick_plan.lift_plan
@@ -8441,6 +8472,7 @@ class ManipulationNode(Node):
                 raise RuntimeError('pick_recovery_failed') from exc
             if not self._fresh_retention_probe('pick', 'before_initial_shelf_lift'):
                 return self._recover_closed_pick(
+                    lower_shelf_pick=not top_row,
                     cause='contact_lost', remaining_carried_legs=carried_legs,
                     unloaded_recovery_route=unloaded_recovery_route,
                 )
@@ -8501,6 +8533,7 @@ class ManipulationNode(Node):
             # advances it. Recovery must never assume a partial endpoint was
             # reached or replay a carried route after losing its rigid payload.
             return self._recover_closed_pick(
+                lower_shelf_pick=not top_row,
                 cause='contact_lost' if contact_lost else 'motion_failed',
                 remaining_carried_legs=carried_legs[next_leg:],
                 unloaded_recovery_route=unloaded_recovery_route,
@@ -8515,6 +8548,7 @@ class ManipulationNode(Node):
                 leg=max(0, carried_roll_leg_index - 1),
             ):
                 return self._recover_closed_pick(
+                    lower_shelf_pick=not top_row,
                     cause='contact_lost',
                     remaining_carried_legs=carried_legs[
                         carried_roll_leg_index:
@@ -8567,6 +8601,7 @@ class ManipulationNode(Node):
                         self._payload_robot_watchdog_enabled = False
             if not roll_moved:
                 return self._recover_closed_pick(
+                    lower_shelf_pick=not top_row,
                     cause='motion_failed',
                     remaining_carried_legs=carried_legs[
                         carried_roll_leg_index:
@@ -8582,6 +8617,7 @@ class ManipulationNode(Node):
                 carried_roll_leg_index,
             ):
                 return self._recover_closed_pick(
+                    lower_shelf_pick=not top_row,
                     cause='contact_lost',
                     remaining_carried_legs=carried_legs[
                         carried_roll_leg_index + 1:
@@ -8598,6 +8634,7 @@ class ManipulationNode(Node):
                 leg=carried_roll_leg_index,
             ):
                 return self._recover_closed_pick(
+                    lower_shelf_pick=not top_row,
                     cause='cradle_contact_verification_failed',
                     remaining_carried_legs=carried_legs[
                         carried_roll_leg_index + 1:
@@ -8615,6 +8652,7 @@ class ManipulationNode(Node):
             )
             if not path_ok:
                 return self._recover_closed_pick(
+                    lower_shelf_pick=not top_row,
                     cause=(
                         'contact_lost' if contact_lost else 'motion_failed'
                     ),
@@ -8629,12 +8667,14 @@ class ManipulationNode(Node):
                 lambda: self._move_torso(float(HOME[0]), 2.0)
             ):
                 return self._recover_closed_pick(
+                    lower_shelf_pick=not top_row,
                     cause='torso_motion_failed',
                     remaining_carried_legs=(),
                     unloaded_recovery_route=unloaded_recovery_route,
                 )
             if not self._retention_after_leg('pick', 'torso_home', 0):
                 return self._recover_closed_pick(
+                    lower_shelf_pick=not top_row,
                     cause='contact_lost_after_torso',
                     remaining_carried_legs=(),
                     unloaded_recovery_route=unloaded_recovery_route,
@@ -8739,6 +8779,7 @@ class ManipulationNode(Node):
             else:
                 recovery_cause = 'final_grasp_width_invalid'
             return self._recover_closed_pick(
+                lower_shelf_pick=not top_row,
                 cause=recovery_cause,
                 remaining_carried_legs=(),
                 unloaded_recovery_route=unloaded_recovery_route,

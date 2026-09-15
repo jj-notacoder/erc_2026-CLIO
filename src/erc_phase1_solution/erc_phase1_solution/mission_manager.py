@@ -756,6 +756,13 @@ class MissionManager(Node):
         elif event in (
             'ik_target',
             'pick_approach_planned',
+            'lower_shelf_pick_candidate_planned',
+            'lower_shelf_pick_candidate_rejected',
+            'lower_shelf_planning_stage',
+            'empty_pickup_geometry_verified',
+            'empty_pickup_endpoint_waiting',
+            'empty_pickup_endpoint_verified',
+            'empty_pickup_endpoint_rejected',
             'ik_ready',
             'gripper_closed',
             'adaptive_gripper_interrupted',

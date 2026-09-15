@@ -5957,6 +5957,13 @@ def test_perception_mode_uses_and_clears_confirmed_row_context():
     (
         'ik_target',
         'ik_ready',
+        'lower_shelf_pick_candidate_planned',
+        'lower_shelf_pick_candidate_rejected',
+        'lower_shelf_planning_stage',
+        'empty_pickup_geometry_verified',
+        'empty_pickup_endpoint_waiting',
+        'empty_pickup_endpoint_verified',
+        'empty_pickup_endpoint_rejected',
         'gripper_closed',
         'grasp_verified',
         'retention_verified',

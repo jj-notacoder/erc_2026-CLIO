@@ -14,11 +14,22 @@ Gazebo viewer. Columns identify the requested printed marker.
 | `9c768db2db9e` | Column 2, red | DONE; whole book inside bin, zero reported collisions | 318.006 s | 328.548 s |
 | `d0fcc30b05eb` | Column 4, blue | Aborted during close-view depth reacquisition | 133.969 s | 144.444 s |
 | `146e2f8aaa7b` | Column 4, blue | Reacquisition passed; aborted before grasp because the old lower-row lift route was infeasible | 126.496 s | 137.559 s |
+| `180fb89230d6` | Column 4, blue | Plan passed; shelf contact during empty setup, unverified grasp, aborted after recovery | 317.413 s | 327.678 s |
 
 Trial `146e2f8aaa7b` used source `94dc436`. Close-view reacquisition took 0.7
 simulated seconds. It then rejected the old lift route at leg 4. No grasp was
 dispatched and zero collision episodes were reported. Source stayed unchanged
 during the run and all owned simulation processes stopped afterward.
+
+Trial `180fb89230d6` used source `9690fa8`. Its complete nominal lower-row
+approach/lift/carry checks passed, but the empty setup lacked a full shelf
+clearance check. Contacts identified arm link 6 against the shelf during entry
+and arm link 5 during recovery. Closure stopped for unilateral contact without
+acquiring the target. Two collision episodes were recorded. This route is not
+validated for physical use; shelf-aware empty entry is being corrected. All
+owned processes stopped normally, with source unchanged throughout the trial.
+The [portable trial record](evidence/local_gazebo_20260915/column4_blue_lower/README.md)
+includes its event log and pickup view.
 
 ## Current implementation
 

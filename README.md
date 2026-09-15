@@ -5,8 +5,10 @@
 This folder contains the complete simulator and solution. Extra experimental
 workspaces are not needed. The restored column-2/red run completed in **5m18s
 from solution launch**, with zero reported collisions and the whole book inside
-the bin. The column-4/blue trial stopped before grasping because its depth view failed
-the existing tracking check; that target is not yet verified to complete.
+the bin. The `fix/all-books` branch adds strict shelf identity tracking and a
+multi-face depth fit. Column 4/blue now passes visual reacquisition; its lower
+shelf manipulation is still being validated. See the
+[all-books validation record](docs/all_books_validation.md).
 
 From this folder on the Linux desktop:
 

@@ -658,6 +658,8 @@ class ManipulationNode(Node):
         self.cartesian_joint_step = float(
             self.get_parameter('cartesian_joint_step_limit').value
         )
+        self.lower_shelf_pick_enabled = bool(
+            self.get_parameter('lower_shelf_pick_enabled').value)
         self.pick_torso_height = float(
             self.get_parameter('pick_torso_height').value
         )
@@ -1339,6 +1341,7 @@ class ManipulationNode(Node):
             'cartesian_step': 0.06,
             'cartesian_joint_step_limit': 0.40,
             'pick_torso_height': 0.35,
+            'lower_shelf_pick_enabled': True,
             'place_torso_height': 0.30,
             'measured_place_height_enabled': False,
             'empty_torso_planning_overlap_enabled': False,
@@ -5557,15 +5560,19 @@ class ManipulationNode(Node):
     def _solve_post_retreat_clearance_extension(
         self,
         start_solution: Sequence[float],
+        *, extension_distance: Optional[float] = None,
     ) -> List[np.ndarray]:
         """Move a vertical pinch forward before the post-retreat cradle roll."""
         previous = np.asarray(start_solution, dtype=float)
         start_pose = self.chain.forward(previous)
         rotation = start_pose[:3, :3]
         start_position = start_pose[:3, 3]
-        extended_position = start_position + np.asarray(
-            [self.carried_cradle_extension, 0.0, 0.0]
-        )
+        distance = (self.carried_cradle_extension if extension_distance is None
+                    else float(extension_distance))
+        if extension_distance is not None and (
+                not math.isfinite(distance) or not 0. < distance <= .18):
+            raise ValueError('post-retreat extension must be within (0, .18] metres')
+        extended_position = start_position + np.asarray([distance, 0.0, 0.0])
         solutions: List[np.ndarray] = []
         for position in self._interpolate_positions(
             start_position,
@@ -5598,6 +5605,7 @@ class ManipulationNode(Node):
     def _solve_supported_post_retreat_staging(
         self,
         start_solution: Sequence[float],
+        *, vertical_offset: Optional[float] = None,
     ) -> Tuple[List[np.ndarray], List[np.ndarray], List[np.ndarray]]:
         """Reach the audited low cradle only after the shelf-clear retreat.
 
@@ -5610,9 +5618,12 @@ class ManipulationNode(Node):
         start_pose = self.chain.forward(first)
         rotation = start_pose[:3, :3]
         start_position = start_pose[:3, 3]
-        lowered_position = start_position - np.asarray(
-            [0.0, 0.0, self.retreat_distance]
-        )
+        offset = (-self.retreat_distance if vertical_offset is None
+                  else float(vertical_offset))
+        if vertical_offset is not None and (
+                not math.isfinite(offset) or not -.18 <= offset <= .30 or offset == 0.):
+            raise ValueError('supported staging offset must be nonzero within [-.18, .30] metres')
+        lowered_position = start_position + np.asarray([0.0, 0.0, offset])
         retracted_position = lowered_position.copy()
         retracted_position[0] = (
             start_position[0] - self.carried_cradle_retraction
@@ -5763,7 +5774,10 @@ class ManipulationNode(Node):
         clearance_solution: Sequence[float],
         rotation: np.ndarray,
         torso_height: float,
-        *, geometry_backend=None,
+        *, geometry_backend=None, defer_return: bool = False,
+        extension_distance: Optional[float] = None,
+        staging_vertical_offset: Optional[float] = None,
+        compact_path: str = 'standard',
     ) -> Tuple[
         List[np.ndarray],
         List[np.ndarray],
@@ -5774,8 +5788,15 @@ class ManipulationNode(Node):
         """Plan a payload-safe shelf exit and any deferred compact staging."""
         self._cached_post_retreat_plan = None
         attached_corners = self._attached_book_corners(front, grasp_solution)
+        if compact_path not in ('standard', 'middle'):
+            raise ValueError('unknown supported compact path')
+        if not defer_return and (extension_distance is not None
+                or staging_vertical_offset is not None or compact_path != 'standard'):
+            raise ValueError('lower shelf staging options require a deferred return')
+        if type(defer_return) is not bool:
+            raise ValueError('defer_return must be boolean')
         requires_post_retreat_return = (
-            float(np.asarray(front, dtype=float)[2]) >= 1.42
+            defer_return or float(np.asarray(front, dtype=float)[2]) >= 1.42
         )
         if geometry_backend is not None and (not requires_post_retreat_return
                 or getattr(self, 'shelf_side_cradle_enabled', False)):
@@ -5796,7 +5817,9 @@ class ManipulationNode(Node):
                 shelf_front_x + self.carried_shelf_retreat_clearance
             )
             extension_goals = self._solve_post_retreat_clearance_extension(
-                vertical_start
+                vertical_start,
+                **({'extension_distance': extension_distance}
+                   if extension_distance is not None else {}),
             )
             validated_extension = self._plan_carried_joint_route(
                 vertical_start,
@@ -5829,7 +5852,9 @@ class ManipulationNode(Node):
             # Preflight the exact supported lowering and compaction while the
             # measured target pose and attached envelope remain available.
             _, supported_lowering, retraction = (
-                self._solve_supported_post_retreat_staging(cradle_solution)
+                self._solve_supported_post_retreat_staging(cradle_solution,
+                    **({'vertical_offset': staging_vertical_offset}
+                       if staging_vertical_offset is not None else {}))
             )
             staged_previous = np.asarray(cradle_solution, dtype=float)
             cached_legs: List[Tuple[np.ndarray, str]] = [
@@ -5889,28 +5914,38 @@ class ManipulationNode(Node):
             # Keep the existing synchronized tuck first.  Two bounded
             # shoulder leads address a shelf-intersecting intermediate sweep
             # without changing the terminal posture or collision margins.
-            for shoulder_progress_power in (1.0, 0.8, 0.65):
-                try:
-                    compact_goals = (
-                        self._supported_compact_goals(staged_previous)
-                        if shoulder_progress_power == 1.0
-                        else self._supported_compact_goals(
-                            staged_previous,
-                            shoulder_progress_power=shoulder_progress_power,
-                        )
-                    )
-                except RuntimeError:
-                    continue
+            if compact_path == 'middle':
+                from .lower_shelf_carry import middle_compact_proposal
+                compact_goals = middle_compact_proposal(self, staged_previous)
                 compact_route = self._plan_carried_joint_route(
-                    staged_previous,
-                    compact_goals,
-                    attached_corners,
+                    staged_previous, compact_goals, attached_corners,
                     post_retreat_shelf_front_x=post_retreat_front_x,
-                    **geometry_options,
-                    require_gravity_support=True,
+                    **geometry_options, require_gravity_support=True,
                 )
-                if compact_route is not None:
-                    break
+                shoulder_progress_power = None
+            else:
+                for shoulder_progress_power in (1.0, 0.8, 0.65):
+                    try:
+                        compact_goals = (
+                            self._supported_compact_goals(staged_previous)
+                            if shoulder_progress_power == 1.0
+                            else self._supported_compact_goals(
+                                staged_previous,
+                                shoulder_progress_power=shoulder_progress_power,
+                            )
+                        )
+                    except RuntimeError:
+                        continue
+                    compact_route = self._plan_carried_joint_route(
+                        staged_previous,
+                        compact_goals,
+                        attached_corners,
+                        post_retreat_shelf_front_x=post_retreat_front_x,
+                        **geometry_options,
+                        require_gravity_support=True,
+                    )
+                    if compact_route is not None:
+                        break
             if compact_route is None:
                 raise RuntimeError('No payload-safe supported compact transport route')
             compact_radius = self._carried_navigation_radius(
@@ -5926,7 +5961,7 @@ class ManipulationNode(Node):
                 )
                 for solution in compact_route
             )
-            self._cached_post_retreat_plan = {
+            cached_plan = {
                 'start': vertical_start.copy(),
                 'shelf_front_x': post_retreat_front_x,
                 'attached_corners': attached_corners.copy(),
@@ -5937,6 +5972,18 @@ class ManipulationNode(Node):
                 'compact_radius': float(compact_radius),
                 'compact_shoulder_progress_power': shoulder_progress_power,
             }
+            if defer_return:
+                from .shelf_cradle_geometry import check_cradle_tool_route
+                reason = check_cradle_tool_route(
+                    self, front, grasp_solution, vertical_start,
+                    [q for q, _ in cached_legs], post_retreat_front_x,
+                    aperture=float(self.carried_book_dimensions[1]),
+                )
+                if reason is not None:
+                    raise RuntimeError(f'Lower shelf carried tool route rejected: {reason}')
+                cached_plan['compact_path'] = compact_path
+                cached_plan['staging_vertical_offset_m'] = staging_vertical_offset
+            self._cached_post_retreat_plan = cached_plan
             return (
                 [],
                 [],
@@ -7849,6 +7896,8 @@ class ManipulationNode(Node):
         if not (0.30 < front[0] < 1.30 and abs(front[1]) < 0.70 and 0.45 < front[2] < 1.85):
             raise RuntimeError(f'book point outside safe workspace: {np.round(front, 3)}')
         top_row = float(front[2]) >= 1.42
+        pick_torso_height = self.pick_torso_height
+        lower_pick_plan = None
         depth_offset = self._grasp_depth_for_height(float(front[2]))
         grasp = front.copy()
         grasp[0] += depth_offset
@@ -7904,32 +7953,66 @@ class ManipulationNode(Node):
             from .empty_pickup_collision import EmptyPickupCollision
             empty_setup_guard = EmptyPickupCollision.capture(self)
             empty_elevated = empty_setup_guard.start.copy()
-            empty_elevated[0] = self.pick_torso_height
+            empty_elevated[0] = pick_torso_height
             empty_setup_options = dict(
                 transition_start=empty_elevated,
                 transition_edge_validator=empty_setup_guard.retracted_edge,
                 setup_transition_planner=empty_setup_guard.plan_transition,
                 candidate_validator=empty_setup_guard.candidate,
             )
-        # This empty-only epoch is completely closed before any loaded pool
-        # or motion. Disabled/custom paths keep their ordinary serial checker.
-        with empty_pickup_geometry_scope(self, empty_setup_guard):
-            if empty_setup_guard is not None:
-                if not empty_setup_guard.opening() or not empty_setup_guard.edge(
-                    empty_setup_guard.start, empty_elevated,
-                ):
-                    raise RuntimeError(f'Empty pickup opening/torso rejected: {empty_setup_guard.last_rejection}')
-            solutions, orientation_index, path_score, transition_waypoints = (
-                self._solve_cartesian_path(
-                    positions,
-                    rotations,
-                    self.pick_torso_height,
-                    endpoint_first=top_row,
-                    position_tolerance=pick_position_tolerance,
-                    orientation_tolerance=pick_orientation_tolerance,
-                    **empty_setup_options,
+        if (not top_row and lift_enabled
+                and getattr(self, 'lower_shelf_pick_enabled', False)):
+            from .lower_shelf_pick import plan_lower_shelf_pick
+            from .lift_first_extraction import plan_lift_first_extraction
+
+            def plan_lower_lift(grasp_solution, extraction_solutions):
+                self._lift_first_measurements(lift_reference)
+                return run_pickup_geometry(
+                    self, plan_lift_first_extraction, front, grasp_solution,
+                    extraction_solutions, scene_reference=lift_reference,
+                    bay=lift_bay, aperture=float(self.carried_book_dimensions[1]),
+                    lift_m=self.lift_first_extraction_lift_m,
+                    modeled_tool_allowance_m=.005,
                 )
+
+            lower_pick_plan = plan_lower_shelf_pick(
+                self, front, empty_guard=empty_setup_guard,
+                lift_planner=plan_lower_lift,
             )
+            positions = lower_pick_plan.positions
+            grasp = lower_pick_plan.grasp
+            rotations = lower_pick_plan.rotations
+            solutions = lower_pick_plan.solutions
+            orientation_index = lower_pick_plan.orientation_index
+            path_score = lower_pick_plan.path_score
+            transition_waypoints = lower_pick_plan.transition_waypoints
+            pick_torso_height = lower_pick_plan.pick_torso_height
+            depth_offset = lower_pick_plan.grasp_depth_offset
+            grasp_lateral_offset = lower_pick_plan.grasp_lateral_offset
+            grasp_vertical_offset = lower_pick_plan.grasp_vertical_offset
+            loaded_clearance_lift = 0.0
+            empty_elevated = empty_setup_guard.start.copy()
+            empty_elevated[0] = pick_torso_height
+        else:
+            # This empty-only epoch is completely closed before any loaded pool
+            # or motion. Disabled/custom paths keep their ordinary serial checker.
+            with empty_pickup_geometry_scope(self, empty_setup_guard):
+                if empty_setup_guard is not None:
+                    if not empty_setup_guard.opening() or not empty_setup_guard.edge(
+                        empty_setup_guard.start, empty_elevated,
+                    ):
+                        raise RuntimeError(f'Empty pickup opening/torso rejected: {empty_setup_guard.last_rejection}')
+                solutions, orientation_index, path_score, transition_waypoints = (
+                    self._solve_cartesian_path(
+                        positions,
+                        rotations,
+                        pick_torso_height,
+                        endpoint_first=top_row,
+                        position_tolerance=pick_position_tolerance,
+                        orientation_tolerance=pick_orientation_tolerance,
+                        **empty_setup_options,
+                    )
+                )
         # Two same-seed physics runs isolated top-row book/arm contact to the
         # final loaded extraction leg (solutions[1] -> solutions[0]).  The
         # preceding pose reduces the book/arm x-envelope overlap by about
@@ -7937,7 +8020,9 @@ class ManipulationNode(Node):
         # Keep solutions[0] in the unloaded
         # approach/recovery route, but plan and execute the loaded return from
         # solutions[1].  Other rows retain the fully retracted clearance pose.
-        loaded_clearance_index = self._loaded_clearance_index(top_row, solutions)
+        loaded_clearance_index = (lower_pick_plan.loaded_clearance_index
+            if lower_pick_plan is not None
+            else self._loaded_clearance_index(top_row, solutions))
         if not 0 <= loaded_clearance_index < len(solutions) - 1:
             raise RuntimeError('Loaded clearance index is outside the solved pick path')
         loaded_clearance = solutions[loaded_clearance_index]
@@ -7957,7 +8042,7 @@ class ManipulationNode(Node):
                 np.asarray(solution).tolist() for solution in transition_waypoints
             ],
             loaded_clearance_index=loaded_clearance_index,
-            torso_height=self.pick_torso_height,
+            torso_height=pick_torso_height,
             grasp_depth_offset=depth_offset,
             pick_position_tolerance_m=pick_position_tolerance,
             pick_orientation_tolerance_rad=pick_orientation_tolerance,
@@ -7973,7 +8058,7 @@ class ManipulationNode(Node):
                 f"orientation={accuracy['approach_max_orientation_error_rad']:.6f}rad"
             )
         open_approach = check_open_gripper_approach(
-            self, front, solutions, torso_height=self.pick_torso_height,
+            self, front, solutions, torso_height=pick_torso_height,
         )
         if not open_approach.ok:
             raise RuntimeError(
@@ -7989,7 +8074,7 @@ class ManipulationNode(Node):
                 check_cradle_tool_route, check_gripper_opening,
             )
             setup_start = np.asarray(self._current_seed(), dtype=float).copy()
-            setup_start[0] = self.pick_torso_height
+            setup_start[0] = pick_torso_height
             reason = check_cradle_tool_route(
                 self, front, solutions[-1], setup_start,
                 [*transition_waypoints, solutions[0]],
@@ -8012,7 +8097,13 @@ class ManipulationNode(Node):
                 ordinary=bool(top_row and lift_enabled and not staged_empty_gripper)) as torso_overlap:
             extraction_solutions = list(reversed(solutions[loaded_clearance_index:-1]))
             post_retreat_result = None
-            if lift_enabled:
+            if lower_pick_plan is not None:
+                lift_plan = lower_pick_plan.lift_plan
+                extraction_solutions = list(lift_plan.route)
+                loaded_clearance = lift_plan.terminal
+                post_retreat_result = lower_pick_plan.return_result
+                self._cached_post_retreat_plan = lower_pick_plan.cached_post_retreat_plan
+            elif lift_enabled:
                 from .lift_first_extraction import plan_lift_first_extraction
                 self._lift_first_measurements(lift_reference)
                 followup_options = {}
@@ -8021,7 +8112,7 @@ class ManipulationNode(Node):
                     def post_retreat_plan(planned_lift, geometry_backend):
                         options = {} if geometry_backend is None else {'geometry_backend': geometry_backend}
                         return self._plan_carried_return(front, solutions[-1], planned_lift.terminal,
-                            rotations[orientation_index], self.pick_torso_height, **options)
+                            rotations[orientation_index], pick_torso_height, **options)
                     followup_options['post_retreat_plan'] = post_retreat_plan
                 lift_plan = run_pickup_geometry(
                     self, plan_lift_first_extraction, front, solutions[-1], extraction_solutions,
@@ -8046,7 +8137,7 @@ class ManipulationNode(Node):
                 solutions[-1],
                 loaded_clearance,
                 rotations[orientation_index],
-                self.pick_torso_height,
+                pick_torso_height,
             ))
             # ``_plan_carried_return`` preflights the exact top-row route that must
             # run immediately after the base retreat.  The following open is the
@@ -8109,7 +8200,8 @@ class ManipulationNode(Node):
                 path_score=path_score,
                 staged_transition=bool(transition_waypoints),
                 transition_waypoints=len(transition_waypoints),
-                endpoint_first=top_row,
+                endpoint_first=(lower_pick_plan.endpoint_first
+                    if lower_pick_plan is not None else top_row),
                 grasp_depth_offset=depth_offset,
                 grasp_lateral_offset=grasp_lateral_offset,
                 grasp_vertical_offset=grasp_vertical_offset,
@@ -8154,7 +8246,7 @@ class ManipulationNode(Node):
             if empty_setup_guard is not None:
                 empty_setup_guard.require_fresh(empty_setup_guard.start, empty_setup_guard.open_aperture)
             if not self._best_effort(
-                lambda: self._move_torso(self.pick_torso_height, 2.5)
+                lambda: self._move_torso(pick_torso_height, 2.5)
             ):
                 raise RuntimeError('pick_recovery_failed')
             if empty_setup_guard is not None:

@@ -5749,10 +5749,14 @@ def test_find_book_applies_configured_lateral_bias_only_to_grasp_goal():
     node.shelf_normal = np.asarray([1.0, 0.0])
     node.grasp_standoff = 0.65
     node.grasp_lateral_bias = 0.05
+    transformed_point = mission_manager.PointStamped()
+    transformed_point.header.frame_id = 'odom'
+    transformed_point.header.stamp.sec = 10
+    transformed_point.point.x = 3.0
+    transformed_point.point.y = 2.0
+    transformed_point.point.z = 1.2
     node.tf_buffer = SimpleNamespace(
-        transform=lambda *_args, **_kwargs: SimpleNamespace(
-            point=SimpleNamespace(x=3.0, y=2.0, z=1.2)
-        )
+        transform=lambda *_args, **_kwargs: transformed_point
     )
     calls = []
     node._republish_score = lambda: calls.append(('score',))
@@ -5778,6 +5782,8 @@ def test_find_book_applies_configured_lateral_bias_only_to_grasp_goal():
     )
     assert navigation[4] == 'book_grasp_standoff'
     assert calls[2] == ('state', 'ALIGN_BOOK', {})
+    assert node._confirmed_book_point_stamp_ns == 10_000_000_000
+    assert node._confirmed_book_point_odom == pytest.approx((3.0, 2.0, 1.2))
 
 
 def test_aligned_book_starts_reacquisition_without_arming_a_detached_profile():
@@ -5880,6 +5886,11 @@ def test_successful_pick_without_exact_identity_aborts_before_retreat():
 
 def test_perception_mode_uses_and_clears_confirmed_row_context():
     node = object.__new__(perception_node.PerceptionNode)
+    from erc_phase1_solution.book_selection_context import make_context
+
+    node.get_clock = lambda: SimpleNamespace(
+        now=lambda: SimpleNamespace(nanoseconds=10_000_000_000)
+    )
     node.mode = 'idle'
     node.target_column = 1
     node.target_colour = 'green'
@@ -5909,6 +5920,13 @@ def test_perception_mode_uses_and_clears_confirmed_row_context():
         shelf_column_number=5,
         book_colour='yellow',
         confirmed_row=4,
+        book_selection_context=make_context(
+            marker=[2.755, 0.0, 2.26], normal=[-1.0, 0.0],
+            observed_ns=8_000_000_000, dispatch_ns=10_000_000_000,
+            column=5, colour='yellow', confirmed_row=4,
+            confirmed_point=[2.82, 0.02, 0.605],
+            confirmed_stamp_ns=9_000_000_000,
+        ),
     )
     node._on_mode(books)
 
@@ -5916,6 +5934,8 @@ def test_perception_mode_uses_and_clears_confirmed_row_context():
     assert node.target_column == 5
     assert node.target_colour == 'yellow'
     assert node.confirmed_book_row == 4
+    assert node.book_selection_context.confirmed_row == 4
+    assert node.book_selection_context.confirmed_point_stamp_ns == 9_000_000_000
     assert node.marker_history == []
     assert node.book_history == []
     assert node.bin_history == []
@@ -5929,6 +5949,7 @@ def test_perception_mode_uses_and_clears_confirmed_row_context():
 
     assert node.mode == 'idle'
     assert node.confirmed_book_row is None
+    assert node.book_selection_context is None
 
 
 @pytest.mark.parametrize(

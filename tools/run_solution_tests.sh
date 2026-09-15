@@ -4,7 +4,7 @@ task_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 export HEAD_RETURN_BASE_SOURCE="$task_root/tools/test_baselines/full37"
 export TORSO_RETRY_BASE_SOURCE="$task_root/tools/test_baselines/full41"
 export PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
-export ROS_DOMAIN_ID="${ERC_TEST_ROS_DOMAIN_ID:-234}"
+export ROS_DOMAIN_ID="${ERC_TEST_ROS_DOMAIN_ID:-136}"
 export GZ_PARTITION="erc_solution_tests_$$"
 export PYTHONPATH="$task_root/src/erc_phase1_solution:$task_root/src/erc_phase1_solution/test${PYTHONPATH:+:$PYTHONPATH}"
 python3 - "$task_root/tools/test_baselines" <<'PY'

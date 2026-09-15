@@ -16,6 +16,7 @@ Gazebo viewer. Columns identify the requested printed marker.
 | `146e2f8aaa7b` | Column 4, blue | Reacquisition passed; aborted before grasp because the old lower-row lift route was infeasible | 126.496 s | 137.559 s |
 | `180fb89230d6` | Column 4, blue | Plan passed; shelf contact during empty setup, unverified grasp, aborted after recovery | 317.413 s | 327.678 s |
 | `121f7ff7e8ad` | Column 4, blue | Correct book grasped with bilateral contact; zero collisions; stopped before lift because a top-row timing option rejected the shorter route | 346.981 s | 357.056 s |
+| `dd540101cd5e` | Column 4, blue | Pickup, extraction, compact carry and return passed; zero collisions; placement exhausted its 512-solve IK allowance before release | 511.505 s | 521.828 s |
 
 Trial `146e2f8aaa7b` used source `94dc436`. Close-view reacquisition took 0.7
 simulated seconds. It then rejected the old lift route at leg 4. No grasp was
@@ -44,6 +45,17 @@ records the unchanged source, normal cleanup and independent pose observations.
 This run included an extra read-only pose observer and does not establish
 uninstrumented performance or successful delivery. The table uses solution
 process startup; the solution's later reported launch origin gives 346.669 s.
+
+Trial `dd540101cd5e` used source `d19e4f0`. The exact blue target remained
+retained through extraction, compact transport, navigation and the pre-placement
+check. Placement failed with `scene_cartesian_ik_budget`; no opening or delivery
+occurred. The placement solver still restricted wrist angles to the negative
+family, while this row used a positive-wrist carry posture. A corresponding
+solver extension is under offline validation. Source stayed unchanged and all
+owned simulation processes stopped. The [transport record](evidence/local_gazebo_20260915/column4_blue_transport/README.md)
+preserves the result, correct viewer screenshots and available placement inputs.
+The selected placement snapshot was not journaled; inferred replay inputs are
+explicitly distinguished from exact observations.
 
 ## Current implementation
 

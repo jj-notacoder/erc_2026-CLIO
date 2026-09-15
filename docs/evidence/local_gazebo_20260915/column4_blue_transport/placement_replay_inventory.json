@@ -1,0 +1,54 @@
+{
+  "exact_replay_available": false,
+  "available": {
+    "source_manifest_sha256": "ef67706b05b2ac520d675fb297d7f8d47caba598cec1dc678cc90b32b9f2ba9a",
+    "scene_events_file": "recorded_bin_scenes.jsonl",
+    "recorded_bin_verified_count": 8,
+    "recorded_scene_fields": [
+      "bin_floor_point_base",
+      "bin_scene (origin, rotation, cavity/outer bounds, margins, mesh hash)",
+      "table_scene (origin, rotation, solids, margins, mesh hash)",
+      "scene_base_reference (odom pose and producer/request stamps)"
+    ],
+    "scene_observation_stamps_ns": [
+      113422000000,
+      113520000000,
+      113554000000,
+      115270000000,
+      115336000000,
+      115436000000,
+      115500000000,
+      115534000000
+    ],
+    "place_command_ros_ns": 115400000000,
+    "place_input_ready_ros_ns": 115602000000,
+    "last_recorder_received_before_capture_ready_observation_stamp_ns": 115500000000,
+    "last_recorder_received_before_capture_ready_receipt_ros_ns": 115566000000,
+    "input_request_id": "da2dd09d99e4442898d38677f3038f1f",
+    "placement_attempt_id": "fa0a8f56ac8243e49ff520852adae987",
+    "pick_approach_and_lift_route": "selected_journal_events.jsonl",
+    "post_navigation_gripper_master_m": 0.018200004490657593,
+    "compact_reported_radius_m": 0.4362046538036934,
+    "candidate_115500_registered_floor_center_base": [
+      0.9361010293946215,
+      0.015149248384060156,
+      0.7511019202680084
+    ],
+    "candidate_115500_raw_navigation_point_base": [
+      0.8308968552412042,
+      -0.010144134732587379,
+      0.7517855142070838
+    ],
+    "approximate_replay_bundle": "placement_candidate_inputs.json"
+  },
+  "missing": [
+    "Selected latest_bin PointStamped header/coordinates at PLACE capture",
+    "Exact bin/table observation chosen by manipulation and its retained measured admission context",
+    "Measured carried_start/torso_ready/parked right/head joints and producer stamps at PLACE entry",
+    "Exact held attachment corners and staging/compact joint arrays retained at PLACE entry",
+    "Complete place_planning_failed diagnostic/search inputs (not retained by this journal whitelist)"
+  ],
+  "selection_caveat": "Independent recorder receipt ordering cannot identify the manipulation subscriber\u2019s chosen scene. The 115.500 s frame is a candidate for approximate replay, not an exact capture.",
+  "observer_model_pose_used": false,
+  "registered_target_semantics": "Frozen match_registered_scenes validates matching observation epoch, fresh measured context and <=2 mm/0.005 rad base motion; it returns the recorded registered scenes unchanged. PLACE uses bin_scene.floor_center instead of the raw navigation point."
+}

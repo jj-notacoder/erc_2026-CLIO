@@ -1,0 +1,39 @@
+{
+  "trial_id": "dd540101cd5e",
+  "seed": 101,
+  "printed_column": 4,
+  "book_colour": "blue",
+  "frozen_git_commit": "d19e4f02b56b69e01969310880093201de503f95",
+  "original_run_relative_path": "results/matrix_20260915T180100_parallel/01_seed101_column4_blue",
+  "source_manifest_sha256": "ef67706b05b2ac520d675fb297d7f8d47caba598cec1dc678cc90b32b9f2ba9a",
+  "source_unchanged": true,
+  "original_file_sha256": {
+    "trial_dd540101cd5e.jsonl": "d68716588c480233761940e0b660309053967adfd1e431d78c5272a8e9271c07",
+    "trial_dd540101cd5e_summary.json": "ab44840217891b2e9edfea8f57a7078ec6f4d7db5706d4232f2ae27aa0b90020",
+    "run_review.json": "9a54e2520d41b966e11190637c0cf656a0158d852a1a507539a3c5d9885f3cd1",
+    "perception_status.jsonl": "f1a0c01875d1181977d84deed4454fd342113c96d6d50df1b3727763d58c026b",
+    "source_manifest.json": "9574f25970412a301cfd12c7a67afd4270eec35ab2c62c99a1c923e88bb954da",
+    "solution.log": "ed9877286608e691cb25622580c8dbf6343b6c741924e98f8474ad35346e9aac"
+  },
+  "screenshots": {
+    "post_retreat_compacted.png": {
+      "source": "/tmp/erc_blue_parallel_final_milestones/dd540101cd5e_post_retreat_compacted.png",
+      "sha256": "ff0c9ad7f4b3fcbd2a730f2f102338195afd1d5dd88ca5ec64daf5e3380fec28",
+      "scope": "Unmodified Gazebo viewer screenshot; filename/milestone is contextual, not a synchronized measurement."
+    },
+    "startup.png": {
+      "source": "/tmp/erc_blue_parallel_start.png",
+      "sha256": "8f2f710d40f274e82f09cace95723f5d3a4da518d599d9f43aaa1a5f27c4c580",
+      "scope": "Unmodified Gazebo viewer screenshot; filename/milestone is contextual, not a synchronized measurement."
+    },
+    "extraction.png": {
+      "source": "/tmp/erc_blue_extraction.png",
+      "sha256": "392fdb4613425303b62c1559872c2a818667dee58cd2b664ea311e4244557a54",
+      "scope": "Unmodified Gazebo viewer screenshot; filename/milestone is contextual, not a synchronized measurement."
+    }
+  },
+  "excluded_screenshot_directory": "/tmp/erc_blue_parallel_milestones (wrong window title; not included)",
+  "selected_journal_event_count": 47,
+  "recorded_scene_event_count": 9,
+  "assembly": "Only file reads, exact event selection, hashing and unmodified screenshot copies. No runtime changes, ROS observers, simulation, solver or mesh computations."
+}

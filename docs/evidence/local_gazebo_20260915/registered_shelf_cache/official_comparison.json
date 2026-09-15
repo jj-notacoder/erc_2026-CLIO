@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "exact_fields": [
+    "fixture_sha256",
+    "saved_plan_sha256",
+    "inputs",
+    "route",
+    "model_signature",
+    "urdf_sha256",
+    "metrics",
+    "final_plane_base",
+    "normal_uncertainty_m",
+    "trace_count",
+    "trace_sha256"
+  ],
+  "exact_sample_trace": true,
+  "trace_count": 872,
+  "trace_sha256": "565e8c15fb7f87e8b20b7007a1e5afabf5aeb4516f0b297ae391a6f8740cfca9",
+  "model_signature": "2bcc68099607600ef33230f408794987e6104762f2c87f8c3d08dc346a2d087a",
+  "source_hashes": {
+    "baseline": "06e6b8d36a1ec607c131de1fe23967ecba5f8a168ad4a22c589b0c776d31f6ed",
+    "draft": "d6937f3f8e66b8ab4d177bf65d82c8532997705b6b219854c7b1f4fdd9a3fff2"
+  },
+  "fixture_sha256": "b6cff08e2442eefa08998e1776bf03b17a7805032089e2210398d72e2b6ed46b",
+  "saved_plan_sha256": "3449e07fa8fa1b82d77b67df1ca2f293d00f2d78ea02f61cd7c8935b03723f22",
+  "final_metrics": {
+    "samples": 558,
+    "minimum_floor": 0.0925652624295582,
+    "minimum_roof": 0.0759881809536056,
+    "minimum_side": 0.18586462024809478,
+    "minimum_back": 0.16688242189703822
+  },
+  "serial_seconds": 8.79967630000101,
+  "memo_seconds": 7.012308443998336,
+  "improvement_percent": 20.311745512757884,
+  "final_stage_improvement_percent": 35.80623048457012,
+  "timings": {
+    "serial": {
+      "accepted_setup": 3.0119031260001066,
+      "final_registered_approach": 5.787712774999818
+    },
+    "memo": {
+      "accepted_setup": 3.2969037859984383,
+      "final_registered_approach": 3.715350998998474
+    }
+  },
+  "cache": {
+    "hits": 259,
+    "misses": 613,
+    "fallbacks": 0,
+    "entries": 613
+  },
+  "controller_calls": 0,
+  "ik_calls": 0,
+  "physical_mission_validated": false,
+  "live_timing_validated": false
+}

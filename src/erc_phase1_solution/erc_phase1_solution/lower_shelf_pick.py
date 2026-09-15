@@ -17,7 +17,7 @@ import numpy as np
 
 from .motion_profiles import HOME, _rotation_x, _rotation_y
 from .open_gripper_approach import check_open_gripper_approach
-from .empty_shelf_bounds import EmptyShelfBounds
+from .empty_shelf_bounds import EmptyShelfBounds, ExactShelfSampleCache
 from .empty_shelf_setup import plan_registered_empty_setup
 from .empty_pickup_geometry_backend import empty_pickup_geometry_scope
 from .geometry_process_pool import GeometryProcessError
@@ -255,7 +255,8 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
                 planning_stage(spec, stage)
                 if not empty_guard.edge(empty_guard.start, elevated):
                     raise RuntimeError(str(empty_guard.last_rejection))
-                bounds = EmptyShelfBounds(node, observed_front, None, empty_guard, bay)
+                bounds = EmptyShelfBounds(node, observed_front, None, empty_guard, bay,
+                    sample_cache=ExactShelfSampleCache(node, empty_guard))
                 reason = bounds.edge(empty_guard.start, elevated, allow_entry=False)
                 if reason:
                     raise RuntimeError(reason)
@@ -291,7 +292,8 @@ def plan_lower_shelf_pick(node, front, *, empty_guard, lift_planner, bay=None):
                         # proposal-search pruning. These metrics cover only
                         # this route, excluding rejected search alternatives.
                         admitted_bounds = EmptyShelfBounds(
-                            node, observed_front, solutions[-1], empty_guard, bay)
+                            node, observed_front, solutions[-1], empty_guard, bay,
+                            sample_cache=getattr(bounds, 'sample_cache', None))
                         previous = elevated
                         for goal in (*transition, solutions[0]):
                             reason = admitted_bounds.edge(previous, goal, allow_entry=False)

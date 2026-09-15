@@ -89,6 +89,13 @@ explicitly distinguished from exact observations.
   exception. Two [offline comparisons](evidence/local_gazebo_20260915/lower_planning_parallel/README.md)
   returned identical complete plans and collision-check results, with less
   planning time. These measurements do not establish live mission timing.
+- Repeated registered-shelf samples reuse exact, candidate-local results only
+  when immutable mesh owners, current transforms, aperture, shelf bounds and
+  parked-joint context match. Dense sampling and cancellation remain active;
+  final clearance metrics exclude rejected search alternatives. An
+  [official-mesh replay](evidence/local_gazebo_20260915/registered_shelf_cache/README.md)
+  produced identical results for all 872 ordered samples and reduced the
+  checked portion from 8.80 s to 7.01 s. This is an offline measurement.
 
 ### Software and offline evidence
 

@@ -195,7 +195,7 @@
       ]
     },
     "mission_manager.py": {
-      "current_sha256": "2696bbc6f570351bc012762bf0a0b5a8b5c68fb69f70f674fe21a5a557f2e8fa",
+      "current_sha256": "0d5cd1bf1979332f54c113041cfbdb93c0ada4ee736fee58014b5561361f0006",
       "parent_sha256": "4451b134665994fe7ec88a055e80dfc3b2bfa886499108afcdf5933577b355c2",
       "replacements": [
         {
@@ -215,7 +215,7 @@
         },
         {
           "old": "            'lift_first_geometry_started',\n            'lift_first_geometry_progress',\n            'lift_first_measured_geometry_verified',\n            'preclose_aperture_geometry_started',\n            'preclose_aperture_geometry_verified',\n            'preclose_aperture_geometry_reused',\n",
-          "new": "            'lift_first_geometry_started',\n            'lift_first_geometry_progress',\n            'lift_first_measured_geometry_verified',\n            'lift_first_preflight_rejected',\n            'withdrawal_timing_admission_rejected',\n            'preclose_aperture_geometry_started',\n            'preclose_aperture_geometry_verified',\n            'preclose_aperture_geometry_reused',\n",
+          "new": "            'lift_first_geometry_started',\n            'lift_first_geometry_progress',\n            'lift_first_measured_geometry_verified',\n            'lift_first_preflight_rejected',\n            'withdrawal_timing_admission_rejected',\n            'place_planning_stage',\n            'place_planning_failed',\n            'preclose_aperture_geometry_started',\n            'preclose_aperture_geometry_verified',\n            'preclose_aperture_geometry_reused',\n",
           "count": 1
         },
         {

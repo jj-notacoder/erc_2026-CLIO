@@ -5962,6 +5962,8 @@ def test_perception_mode_uses_and_clears_confirmed_row_context():
         'lower_shelf_planning_stage',
         'lift_first_preflight_rejected',
         'withdrawal_timing_admission_rejected',
+        'place_planning_stage',
+        'place_planning_failed',
         'empty_pickup_geometry_verified',
         'empty_pickup_endpoint_waiting',
         'empty_pickup_endpoint_verified',

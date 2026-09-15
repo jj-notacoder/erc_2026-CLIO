@@ -1,0 +1,30 @@
+{
+  "runtime_parent_commit": "0b27a86",
+  "ros_domain": 136,
+  "source_sha256": {
+    "erc_phase1_solution/empty_shelf_bounds.py": "d6937f3f8e66b8ab4d177bf65d82c8532997705b6b219854c7b1f4fdd9a3fff2",
+    "erc_phase1_solution/lower_shelf_pick.py": "e7c8a3a71b35c2ef33a6ee10f436ff063e0fee964c72253cee767936080a66e7",
+    "erc_phase1_solution/mission_manager.py": "0d5cd1bf1979332f54c113041cfbdb93c0ada4ee736fee58014b5561361f0006",
+    "test/test_registered_shelf_sample_reuse.py": "f925c5a605bc22824950a8d78407c49151fda9680e9d8795fcc2b14a019a017c",
+    "test/test_shutdown.py": "a8939ac0d441930fea80aa26fbb001ae9accfe5e05a3e5ae24f57e0f8779fd61",
+    "test/candidate_composition_support.py": "c8c2b6a2e1d3fae308002981431e657b3bede254e10bafbae1d14d9dbbdfbbd5",
+    "test/fixtures/all_books_source_inverse.json": "8b5919610a415adff9f9d392ca31eefb6136a7020c1643b06eeb3af6862fc3a5"
+  },
+  "checks": [
+    {
+      "passed": 167,
+      "deselected": 7093,
+      "wall_seconds": 271.0,
+      "log": "production_registered_checks.log",
+      "scope": "Wrapper collected test plus explicit registered/lower/shutdown paths, filtered by registered_shelf or lower_shelf or manipulation_diagnostic. Includes current exact-cache tests, lower protocol and complete official lower-row geometry. Path selections overlap; do not infer a distinct-case total or isolated runtime benchmark."
+    },
+    {
+      "passed": 128,
+      "wall_seconds": 5.52,
+      "log": "production_journal_inverse_checks.log",
+      "scope": "Direct pytest: test_shutdown.py::test_manipulation_milestones_are_logged_without_becoming_terminal and test_release_only_clearance_timing.py. Added planning events remain diagnostic; historical source composition remains exact."
+    }
+  ],
+  "physical_mission_checked": false,
+  "single_full_suite_pass": false
+}

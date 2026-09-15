@@ -1,0 +1,42 @@
+{
+  "scope": "Geometry-only comparison of accepted registered setup and final registered approach; no IK, controller, or live-world work",
+  "source_hashes": {
+    "src/erc_phase1_solution/erc_phase1_solution/empty_shelf_bounds.py": "d6937f3f8e66b8ab4d177bf65d82c8532997705b6b219854c7b1f4fdd9a3fff2",
+    "src/erc_phase1_solution/erc_phase1_solution/lower_shelf_pick.py": "e7c8a3a71b35c2ef33a6ee10f436ff063e0fee964c72253cee767936080a66e7",
+    "src/erc_phase1_solution/test/test_registered_shelf_sample_reuse.py": "f925c5a605bc22824950a8d78407c49151fda9680e9d8795fcc2b14a019a017c",
+    "src/erc_phase1_solution/test/fixtures/registered_shelf_original.py": "06e6b8d36a1ec607c131de1fe23967ecba5f8a168ad4a22c589b0c776d31f6ed"
+  },
+  "original_harness_sha256": "6d3eee59a4ab98c1cddee230b8af93f9e5e2dbd574d6c00c11176797dd60b2c3",
+  "original_report_sha256": {
+    "official_comparison.json": "bebaea0b543ff42a65b1f7ef772ba85cb8ca8759fcf154eb5bc0c87958c64940",
+    "serial_official.json": "b01020550c6e58427dd367e6d4037b9f17a46ed31ba0a5f921e4bf570c129ddf",
+    "memo_official.json": "80f9885f31764fc17d57e492ede23f5752befabfe64010c496fd7bc424acba04"
+  },
+  "trace_sha256": "565e8c15fb7f87e8b20b7007a1e5afabf5aeb4516f0b297ae391a6f8740cfca9",
+  "trace_records": 872,
+  "input_files": {
+    "onboard_inputs.json": {
+      "path": "../lower_planning_parallel/onboard_inputs.json",
+      "sha256": "b6cff08e2442eefa08998e1776bf03b17a7805032089e2210398d72e2b6ed46b"
+    },
+    "common_plan.json": {
+      "path": "../lower_planning_parallel/common_plan.json",
+      "sha256": "54ff4482714c6c3e0bf08b6986712ac1a5991128a98990c9f88b10f5e9696367"
+    }
+  },
+  "serialization": "Positive infinite setup minima are encoded as the JSON string +Infinity; other report values are unchanged. Full duplicate traces are omitted; both were byte-identical.",
+  "environment": {
+    "ros_domain_id": 140,
+    "OPENBLAS_NUM_THREADS": 1,
+    "OMP_NUM_THREADS": 1,
+    "PYTHONDONTWRITEBYTECODE": 1,
+    "process_limit_seconds": 120,
+    "fresh_python_process_each_mode": true,
+    "os_filesystem_caches_flushed": false
+  },
+  "validation": {
+    "lightweight_tests": 138,
+    "lightweight_seconds": 0.98,
+    "official_replay_source_unchanged_after_comparison": true
+  }
+}

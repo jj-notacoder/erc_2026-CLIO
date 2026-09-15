@@ -1,0 +1,209 @@
+[entrypoint] DDS rmw=rmw_cyclonedds_cpp domain=137  localhost_only=1 uri=file:///etc/cyclonedds/erc.xml
+........................................................................ [ 18%]
+........................................................................ [ 36%]
+..........................................................F.F........... [ 55%]
+........................................................................ [ 73%]
+........................................................................ [ 91%]
+...............................F                                         [100%]
+=================================== FAILURES ===================================
+__ test_actual_place_wiring_requires_capability_before_motion_and_open[None] ___
+
+plan = SceneCheckedPlacePlan(solutions=[array([0.3, 0.6, 1. , 1. , 1. , 1. , 1. , 1. ]), array([0.3, 0.7, 1. , 1. , 1. , 1. ,... object at 0x7bb4d25c0d60>), open_position=0.06), goal=(0.3, 0.7, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)), selected_target=None)
+
+    def _signature(plan):
+        from .scene_checked_place import SceneCheckedPlacePlan
+        if type(plan) is not SceneCheckedPlacePlan:
+            raise PlaceTorsoRejected('place_torso_requires_checked_plan')
+        try:
+            detail = plan.diagnostics
+>           if detail['registered_bin_scene'] is None or detail['whole_table_pose_modeled'] is not True:
+E           KeyError: 'registered_bin_scene'
+
+build/erc_phase1_solution/erc_phase1_solution/place_torso_completion.py:42: KeyError
+
+The above exception was the direct cause of the following exception:
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7bb4bb52d720>
+fault = None
+
+    @pytest.mark.parametrize('fault',[None,'after_plan','after_loaded_motion'])
+    def test_actual_place_wiring_requires_capability_before_motion_and_open(monkeypatch,fault):
+        from test_scene_checked_place_flow import PlaceWiring
+        from erc_phase1_solution.release_evidence import AttemptIdentity
+        from erc_phase1_solution.arm_trajectory_timing import checked_arm_speed_scale
+        wiring=PlaceWiring();wiring.setUp();n=wiring.node
+        original_corners=n._held_book_corners.copy()
+        request_node(monkeypatch,n);n._held_book_corners=original_corners
+        # Original upright CAD convention: local X left, Y up, Z forward.
+        n._selected_place_bin_scene['rotation']=[[0.,0.,1.],[1.,0.,0.],[0.,1.,0.]]
+        n._selected_place_table_scene['valid']=True
+        n.get_clock=lambda:NS(now=lambda:NS(nanoseconds=100))
+        n.placement_transport_speed_scale=3.;n.loaded_place_speed_scale_cap=1.25
+        scope=wiring.namespace
+        scope.update(AttemptIdentity=AttemptIdentity,release_only_place_planning=policy,
+                     checked_arm_speed_scale=checked_arm_speed_scale)
+        calls=[]
+        def actual_planner(node,positions,rotation,carried,torso,seed,point,resolver,**kw):
+            request=kw['release_only_request'];request.require()
+            q=torso.copy();q[1]=.6;goal=q.copy();goal[1]=.7
+            proof=request.endpoint(goal,NS(sample=lambda *a:True))
+            plan=planner.SceneCheckedPlacePlan([q,goal],0,1.,[q],policy.OmittedReturn(request),{},
+                release_only_endpoint=proof)
+            calls.append('plan')
+            if fault=='after_plan':node._place_contact_guard.fault={'reason':'contact'}
+            return plan
+        scope['plan_scene_checked_place']=actual_planner
+        real_prepare=finish.prepare
+        def prepare(*a,**kw):
+            calls.append('prepare');assert type(kw['release_only_endpoint']) is policy.Endpoint
+            return real_prepare(*a,**kw)
+        scope['release_pose_finish']=NS(validate_mode=finish.validate_mode,prepare=prepare,
+            remember_open=lambda *a:True,finish=lambda *a:calls.append('finish') or True)
+        scope['observe_measured_open_pose']=lambda *a:dict(verified=True)
+        n._move_torso=lambda *a,**kw:calls.append('torso') or True
+        def loaded(legs,command,**kw):
+            calls.append('loaded');assert kw['arm_speed_scale']==1.25
+            if fault=='after_loaded_motion':n.place_finish_at_release_enabled=False
+            return True,len(legs),False
+        n._execute_retained_arm_legs=loaded
+        n._open_gripper=lambda **kw:calls.append('open') or kw['verify_measurement']()
+        n._return_from_bin=lambda *a,**kw:pytest.fail('legacy return used')
+        n._recover_closed_place=lambda **kw:pytest.fail('legacy recovery used')
+        if fault is None:
+>           assert scope['_place'](n,PAYLOAD)
+
+src/erc_phase1_solution/test/test_release_only_place_planning.py:269: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+candidate_place:9921: in _place
+    ???
+build/erc_phase1_solution/erc_phase1_solution/place_torso_completion.py:59: in execute_registered_place_torso
+    owner = PlaceTorsoCompletion(node, plan, identity, resolve_package)
+build/erc_phase1_solution/erc_phase1_solution/place_torso_completion.py:85: in __init__
+    self.signature = _signature(plan)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+plan = SceneCheckedPlacePlan(solutions=[array([0.3, 0.6, 1. , 1. , 1. , 1. , 1. , 1. ]), array([0.3, 0.7, 1. , 1. , 1. , 1. ,... object at 0x7bb4d25c0d60>), open_position=0.06), goal=(0.3, 0.7, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)), selected_target=None)
+
+    def _signature(plan):
+        from .scene_checked_place import SceneCheckedPlacePlan
+        if type(plan) is not SceneCheckedPlacePlan:
+            raise PlaceTorsoRejected('place_torso_requires_checked_plan')
+        try:
+            detail = plan.diagnostics
+            if detail['registered_bin_scene'] is None or detail['whole_table_pose_modeled'] is not True:
+                raise ValueError('registered scene required')
+            first, last = (_vector(detail[key]) for key in ('actual_carry_start', 'torso_ready'))
+            if not np.array_equal(first[1:], last[1:]) or not plan.setup or not plan.solutions:
+                raise ValueError('fixed arm required')
+            # All accepted route coordinates are bound, not just the torso target.
+            route = tuple(_vector(q).tobytes() for q in (*plan.setup, *plan.solutions))
+            master = float(detail['measured_master'])
+            if not math.isfinite(master) or not 0 <= master < .0685:
+                raise ValueError('closed master required')
+            return first.tobytes(), last.tobytes(), route, master
+        except (KeyError, TypeError, ValueError, AttributeError) as error:
+>           raise PlaceTorsoRejected('place_torso_invalid_checked_plan') from error
+E           erc_phase1_solution.place_torso_completion.PlaceTorsoRejected: place_torso_invalid_checked_plan
+
+build/erc_phase1_solution/erc_phase1_solution/place_torso_completion.py:54: PlaceTorsoRejected
+_ test_actual_place_wiring_requires_capability_before_motion_and_open[after_loaded_motion] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7bb4bb8086a0>
+fault = 'after_loaded_motion'
+
+    @pytest.mark.parametrize('fault',[None,'after_plan','after_loaded_motion'])
+    def test_actual_place_wiring_requires_capability_before_motion_and_open(monkeypatch,fault):
+        from test_scene_checked_place_flow import PlaceWiring
+        from erc_phase1_solution.release_evidence import AttemptIdentity
+        from erc_phase1_solution.arm_trajectory_timing import checked_arm_speed_scale
+        wiring=PlaceWiring();wiring.setUp();n=wiring.node
+        original_corners=n._held_book_corners.copy()
+        request_node(monkeypatch,n);n._held_book_corners=original_corners
+        # Original upright CAD convention: local X left, Y up, Z forward.
+        n._selected_place_bin_scene['rotation']=[[0.,0.,1.],[1.,0.,0.],[0.,1.,0.]]
+        n._selected_place_table_scene['valid']=True
+        n.get_clock=lambda:NS(now=lambda:NS(nanoseconds=100))
+        n.placement_transport_speed_scale=3.;n.loaded_place_speed_scale_cap=1.25
+        scope=wiring.namespace
+        scope.update(AttemptIdentity=AttemptIdentity,release_only_place_planning=policy,
+                     checked_arm_speed_scale=checked_arm_speed_scale)
+        calls=[]
+        def actual_planner(node,positions,rotation,carried,torso,seed,point,resolver,**kw):
+            request=kw['release_only_request'];request.require()
+            q=torso.copy();q[1]=.6;goal=q.copy();goal[1]=.7
+            proof=request.endpoint(goal,NS(sample=lambda *a:True))
+            plan=planner.SceneCheckedPlacePlan([q,goal],0,1.,[q],policy.OmittedReturn(request),{},
+                release_only_endpoint=proof)
+            calls.append('plan')
+            if fault=='after_plan':node._place_contact_guard.fault={'reason':'contact'}
+            return plan
+        scope['plan_scene_checked_place']=actual_planner
+        real_prepare=finish.prepare
+        def prepare(*a,**kw):
+            calls.append('prepare');assert type(kw['release_only_endpoint']) is policy.Endpoint
+            return real_prepare(*a,**kw)
+        scope['release_pose_finish']=NS(validate_mode=finish.validate_mode,prepare=prepare,
+            remember_open=lambda *a:True,finish=lambda *a:calls.append('finish') or True)
+        scope['observe_measured_open_pose']=lambda *a:dict(verified=True)
+        n._move_torso=lambda *a,**kw:calls.append('torso') or True
+        def loaded(legs,command,**kw):
+            calls.append('loaded');assert kw['arm_speed_scale']==1.25
+            if fault=='after_loaded_motion':n.place_finish_at_release_enabled=False
+            return True,len(legs),False
+        n._execute_retained_arm_legs=loaded
+        n._open_gripper=lambda **kw:calls.append('open') or kw['verify_measurement']()
+        n._return_from_bin=lambda *a,**kw:pytest.fail('legacy return used')
+        n._recover_closed_place=lambda **kw:pytest.fail('legacy recovery used')
+        if fault is None:
+            assert scope['_place'](n,PAYLOAD)
+            assert calls==['plan','torso','loaded','prepare','open','finish']
+        else:
+            with pytest.raises(RuntimeError):scope['_place'](n,PAYLOAD)
+            assert 'open' not in calls
+>           assert ('torso' in calls) is (fault=='after_loaded_motion')
+E           AssertionError: assert ('torso' in ['plan']) is ('after_loaded_motion' == 'after_loaded_motion'
+E               after_loaded_motion)
+
+src/erc_phase1_solution/test/test_release_only_place_planning.py:274: AssertionError
+_ test_actual_contiguous_place_suffix_preserves_both_probes_and_nominal_target _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7bb4bb9a8880>
+
+    def test_actual_contiguous_place_suffix_preserves_both_probes_and_nominal_target(monkeypatch):
+        n,sent,_,_,clock,_=fixture(monkeypatch);complete(n,clock)
+        probes=[]
+        n._fresh_retention_probe=lambda command,phase,**kw:(probes.append((command,phase,kw)) or True)
+        n._best_effort=lambda function:function()
+        n._recover_closed_place=lambda **kw:(_ for _ in ()).throw(AssertionError('unexpected recovery'))
+        source=Path(runtime.__file__).read_text()
+        tree=ast.parse(source)
+        cls=next(x for x in tree.body if isinstance(x,ast.ClassDef) and x.name=='ManipulationNode')
+        place=next(x for x in cls.body if isinstance(x,ast.FunctionDef) and x.name=='_place')
+        def probe(node,phase):
+            return any(isinstance(x,ast.Call) and isinstance(x.func,ast.Attribute)
+                       and x.func.attr=='_fresh_retention_probe' and len(x.args)>1
+                       and isinstance(x.args[1],ast.Constant) and x.args[1].value==phase
+                       for x in ast.walk(node))
+        start=next(i for i,x in enumerate(place.body) if probe(x,'pre_place_motion'))
+        end=next(i for i,x in enumerate(place.body) if probe(x,'torso'))+1
+        fn=ast.parse('def segment(self,place_torso_target,measured_torso_target):\n return True').body[0]
+        fn.body=copy.deepcopy(place.body[start:end])+[ast.Return(ast.Constant(True))]
+        module=ast.fix_missing_locations(ast.Module(body=[fn],type_ignores=[]));scope={}
+        exec(compile(module,'<actual contiguous PLACE torso suffix>','exec'),scope)
+>       assert scope['segment'](n,.35,None)
+
+src/erc_phase1_solution/test/test_completed_torso_hold.py:273: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = namespace(settled_place_torso_skip_enabled=True, _cancel=<erc_phase1_solution.completed_torso_hold.TorsoHoldCancellati...tion test_actual_contiguous_place_suffix_preserves_both_probes_and_nominal_target.<locals>.<lambda> at 0x7bb4bb2a9990>)
+place_torso_target = 0.35, measured_torso_target = None
+
+>   ???
+E   NameError: name 'centered_target' is not defined
+
+<actual contiguous PLACE torso suffix>:9915: NameError
+=========================== short test summary info ============================
+FAILED src/erc_phase1_solution/test/test_release_only_place_planning.py::test_actual_place_wiring_requires_capability_before_motion_and_open[None]
+FAILED src/erc_phase1_solution/test/test_release_only_place_planning.py::test_actual_place_wiring_requires_capability_before_motion_and_open[after_loaded_motion]
+FAILED src/erc_phase1_solution/test/test_completed_torso_hold.py::test_actual_contiguous_place_suffix_preserves_both_probes_and_nominal_target
+3 failed, 389 passed in 13.09s

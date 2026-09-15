@@ -1,0 +1,67 @@
+{
+  "base_git_commit": "80672e6e00db8ddbf810cb396ecee586acb78288",
+  "runtime": {
+    "place_torso_completion.py": {
+      "base_sha256": null,
+      "draft_sha256": "94b1d4e4fbf8abc7e2b80995f8306927bce0d7c031df34d775979a681412d3bc"
+    },
+    "manipulation_node.py": {
+      "base_sha256": "5785825bc9b62d62ae4d330a7cd01d6a80433144234e1999dceaf7bb2d7f8a5f",
+      "draft_sha256": "017b6b636c3408142cf96ec0c823c4d87a56efb44dc6f302dc27f6f41e981046"
+    },
+    "mission_manager.py": {
+      "base_sha256": "0d5cd1bf1979332f54c113041cfbdb93c0ada4ee736fee58014b5561361f0006",
+      "draft_sha256": "afa55e1b14061ffffab3c15dd71ca26455ba2ae697599babf14e4b259f1c2f4a"
+    }
+  },
+  "test_artifacts": {
+    "test_place_torso_completion.py": "91f4b7e9b69d31c996f0eabb7cce8975603b8172eb8cc2afc49060c53284d4e9",
+    "fixtures/recorded_place_torso_scene.json": "fb0781d279a67fae9673b317810dd4a2635e71d489743455b74f3e9141e14082"
+  },
+  "validation": {
+    "cases": 18,
+    "seconds": 0.71,
+    "log": "focused_tests.log",
+    "scope": "Controlled scalar response, raw collector and actual runtime dispatch; no physical simulation or new geometry proof"
+  },
+  "promoted": true,
+  "production_checks": {
+    "distinct_cases": 411,
+    "initial": {
+      "passed": 389,
+      "fixture_failures": 3,
+      "seconds": 13.09,
+      "log": "production_checks.log"
+    },
+    "resolved_and_complementary": {
+      "passed": 116,
+      "seconds": 1.36,
+      "log": "production_followup_checks.log"
+    },
+    "torso_and_new_journal_events": {
+      "passed": 34,
+      "seconds": 0.52,
+      "log": "production_torso_journal_checks.log"
+    },
+    "remaining_failures": 0,
+    "test_only_fixes": [
+      "Stub separately tested torso completion in release-capability motion fixture",
+      "Scope the historical torso-hold AST slice to its legacy branch with centered_target=None"
+    ],
+    "new_journal_event_cases": 4,
+    "format_only": "Journal diagnostic test file normalized CRLF to LF for git diff --check",
+    "git_diff_check": "passed"
+  },
+  "promoted_files": {
+    "src/erc_phase1_solution/erc_phase1_solution/place_torso_completion.py": "94b1d4e4fbf8abc7e2b80995f8306927bce0d7c031df34d775979a681412d3bc",
+    "src/erc_phase1_solution/erc_phase1_solution/manipulation_node.py": "017b6b636c3408142cf96ec0c823c4d87a56efb44dc6f302dc27f6f41e981046",
+    "src/erc_phase1_solution/erc_phase1_solution/mission_manager.py": "afa55e1b14061ffffab3c15dd71ca26455ba2ae697599babf14e4b259f1c2f4a",
+    "src/erc_phase1_solution/test/test_place_torso_completion.py": "91f4b7e9b69d31c996f0eabb7cce8975603b8172eb8cc2afc49060c53284d4e9",
+    "src/erc_phase1_solution/test/fixtures/recorded_place_torso_scene.json": "fb0781d279a67fae9673b317810dd4a2635e71d489743455b74f3e9141e14082",
+    "src/erc_phase1_solution/test/candidate_composition_support.py": "5e8ec0bc064ffce14a5d4c07d4085e32c639b5eefbacf54928c28ca037076770",
+    "src/erc_phase1_solution/test/fixtures/all_books_source_inverse.json": "32a6e684579e1e16903c334a28ae78631b82c446e8281a152e061d29241f70bb",
+    "src/erc_phase1_solution/test/test_completed_torso_hold.py": "0534fd4e72b7f489a2216afa254694a04caa1ab55f59977778dedd4808ea6907",
+    "src/erc_phase1_solution/test/test_release_only_place_planning.py": "614e706a52df36216640afd700315c769ab03be8fc25191eeae48cb215ebf51c",
+    "src/erc_phase1_solution/test/test_mission_diagnostic_logging.py": "8c76e583004b63acb0c474395e348c4605f78547077181c60f5cc87c4ff9f0e3"
+  }
+}

@@ -121,10 +121,22 @@ loaded arm route. Source stayed unchanged and process cleanup completed.
   book orientation and release height. Finer Cartesian steps and a search
   starting at the furthest high point retain the original joint-step limit,
   total IK budget and complete motion/opening checks. The selected target is
-  carried into the execution diagnostics. Negative-wrist placement retains its
-  original target and search. The [integrated offline replay](evidence/local_gazebo_20260915/positive_registered_place/README.md)
+  carried into the execution diagnostics. Other negative-wrist rows retain their
+  original target and search; the bottom extension is described below.
+  The [integrated offline replay](evidence/local_gazebo_20260915/positive_registered_place/README.md)
   selected a 50 mm shift after 29 IK solves and passed all 2,583 scene samples;
   its reconstructed inputs do not establish physical delivery.
+
+- Verified currently held bottom-row targets may use the registered target and
+  anchor proposals with the original negative-wrist policy. After the existing
+  setup policies fail, a bounded alternative chooses the nearest legal wrist
+  angle with a 0.005 waypoint support reserve. All original dense support,
+  body, table/bin, opening and static-release checks remain mandatory. The
+  [complete offline bottom replay](evidence/local_gazebo_20260915/bottom_registered_place/README.md)
+  passed with 48 IK solves, two full candidates, 22 setup legs and 21 Cartesian
+  poses, preserving the original 512/192/6 search limits. These exact planner
+  files are now promoted; the mixed saved-bottom/recorded-blue fixture does
+  not establish physical bottom delivery.
 
 - For accepted positive-wrist placement, the first arm setup movement now keeps
   its original 0.8 s duration. The ordinary speed options had reduced it to 0.2 s.
@@ -135,7 +147,22 @@ loaded arm route. Source stayed unchanged and process cleanup completed.
   duration but exposed a separate torso tracking failure; the stationary handoff
   still correctly stopped motion.
 
+- Registered placement now computes its torso duration from fresh measured
+  position and the deployed joint velocity limit, keeping 80% velocity headroom
+  and the original 2.2 s minimum. For the blue 0.25 m rise this gives 8.929 s.
+  The unchanged fixed-arm path must reach a fresh stationary endpoint before any
+  arm leg. An unverified endpoint stops with the hand closed; recovery cannot
+  assume the torso reached its target. The existing stricter completed-hold
+  shortcut remains available. [Torso completion checks](evidence/local_gazebo_20260915/place_torso_completion/README.md)
+  passed with no outstanding failures; physical validation is pending.
+
 ### Software and offline evidence
+
+The combined torso-completion and bottom-placement source passed **714 focused
+tests in 15.57 s** across 24 modules. The [combined record](evidence/local_gazebo_20260915/combined_place_checks/README.md)
+pins the runtime/test files and preserves the initial obsolete-expectation failure
+and the successful complete rerun. This is a focused software run, not a full
+suite or physical-delivery result.
 
 The latest full collection reported 6,914 passes and 14 failures in 595.47 s.
 All 14 failures came from stale observation/AST fixtures or incomplete
@@ -173,8 +200,11 @@ establish physical grasp retention, placement, or delivery for these rows.
 Additional [lower-row geometry probes](evidence/local_gazebo_20260915/lower_geometry_coverage/README.md)
 passed complete PICK/carry checks for two tight lateral synthetic column-3 cases.
 A mixed recorded-input row-2 PLACE fixture passed full preflight. The corresponding
-bottom PLACE fixture exhausted its original IK allowance, so bottom placement
-remains under repair. None of these probes establishes physical delivery.
+bottom fixture initially exhausted its original IK allowance. Its promoted
+registered-negative extension now passes complete PLACE planning in 50.33 s,
+including the full 52-sample opening sweep, static endpoint and 3,890 scene
+samples. Physical bottom placement remains pending; none of these probes
+establishes physical delivery.
 
 Delivery for all 20 targets and under-five-minute mission timing remain
 unverified for the current all-books implementation. The next physical trial

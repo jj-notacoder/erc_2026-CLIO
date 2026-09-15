@@ -25,6 +25,13 @@ from erc_phase1_solution.mission_manager import MissionManager, String, encode_e
         'drift_is_proved_displacement_envelope': False}),
     ('preclose_aperture_geometry_reused', {'observed_closed_master': .0183,
         'pressure_or_freshness_verified': False, 'motion_permit': False}),
+    ('placement_torso_motion_admitted', {'command': 'place', 'verified': True,
+        'motion': {'command_duration_ns': 8928571429, 'urdf_velocity_limit': .035}}),
+    ('placement_torso_arrival_started', {'command': 'place', 'verified': False}),
+    ('placement_torso_arrival_verified', {'command': 'place', 'verified': True,
+        'accepted_samples': 6, 'elapsed_ros_ns': 250000000}),
+    ('placement_torso_failed', {'command': 'place', 'verified': False,
+        'reason': 'place_torso_arrival_deadline', 'recent_samples': [{'errors': [.1]}]}),
     ('carried_recovery', {'command': 'pick', 'retained_stop': True,
                           'recovery_succeeded': False}),
 ])

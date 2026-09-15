@@ -2786,7 +2786,15 @@ class ManipulationNode(Node):
         empty_pickup_setup=False,
         empty_torso_owner=None,
         initial_stow_owner=None,
+        place_torso_owner=None,
     ) -> bool:
+        if place_torso_owner is not None:
+            from .place_torso_completion import PlaceTorsoCompletion
+            if (type(place_torso_owner) is not PlaceTorsoCompletion or place_torso_owner.node is not self
+                    or initial_stow_owner is not None or empty_torso_owner is not None
+                    or empty_head_owner is not None or head_preflight or empty_pickup_setup
+                    or trajectory_duration is not None):
+                raise ValueError('registered PLACE torso owner must be exclusive')
         if initial_stow_owner is not None:
             if (empty_torso_owner is not None or empty_head_owner is not None
                     or head_preflight or empty_pickup_setup or pre_send_check is not None
@@ -2887,6 +2895,18 @@ class ManipulationNode(Node):
                     acceptance = client.send_goal_async(goal)
                     empty_torso_owner.sent_locked(acceptance)
             goal_handle = empty_torso_owner.wait_acceptance(acceptance, self.timeout)
+        elif place_torso_owner is not None:
+            with self._adaptive_command_guard():
+                place_torso_owner.check()
+                if pre_send_check is not None:
+                    pre_send_check()
+                with self._lock:
+                    require_follow_token_locked(self, _torso_hold_token, goal)
+                    duration = place_torso_owner.admit_locked(client, goal, duration)
+                    acceptance = client.send_goal_async(goal)
+            place_torso_owner.report('placement_torso_motion_admitted', verified=True,
+                                     controller_command_sent=True)
+            goal_handle = self._wait_future(acceptance, self.timeout)
         elif empty_head_owner is not None:
             if not head_preflight or trajectory_duration is not None or empty_pickup_setup:
                 raise ValueError('empty head owner requires the original head preflight')
@@ -6344,12 +6364,15 @@ class ManipulationNode(Node):
         return solutions, orientation_index, score, transition
 
     def _move_torso(self, height: float, duration: float = 2.0, *, planned_start=None,
-                    allow_completed_hold=False, empty_torso_owner=None) -> bool:
+                    allow_completed_hold=False, empty_torso_owner=None,
+                    place_torso_owner=None) -> bool:
         if allow_completed_hold and getattr(self, 'settled_place_torso_skip_enabled', False):
             held = try_completed_torso_hold(self, height,
                 require_contact=lambda: _require_place_contact_clear(self),
                 check_scene=lambda reference: measured_scene_context(self, reference))
             if held is not None:
+                if held and place_torso_owner is not None:
+                    place_torso_owner.hold_admitted()
                 return held
         return self._follow(
             self.torso_client,
@@ -6357,6 +6380,7 @@ class ManipulationNode(Node):
             [height],
             duration,
             **({'empty_torso_owner': empty_torso_owner} if empty_torso_owner is not None else {}),
+            **({'place_torso_owner': place_torso_owner} if place_torso_owner is not None else {}),
             **({'pre_send_check': lambda: require_planned_place_height(self, planned_start)}
                if planned_start is not None else {}),
         )
@@ -9887,7 +9911,17 @@ class ManipulationNode(Node):
             raise RuntimeError('target-book contact was not retained before placement')
         if measured_torso_target is not None:
             require_planned_place_height(self, measured_torso_target)
-        if not self._best_effort(
+        registered_torso_completed = False
+        if (centered_target is not None and getattr(self, 'table_scene_required', False)
+                and getattr(self, 'bin_scene_required', False)
+                and getattr(self, 'delivery_evidence_enabled', False)):
+            from .place_torso_completion import execute_registered_place_torso
+            # Failure raises while retained. Recovery cannot assume torso_ready
+            # when action completion did not establish its physical endpoint.
+            registered_torso_completed = execute_registered_place_torso(
+                self, scene_plan, correlation, get_package_share_directory,
+                planned_start=measured_torso_target)
+        if not registered_torso_completed and not self._best_effort(
             lambda: self._move_torso(place_torso_target, 2.2, allow_completed_hold=True,
                 **({'planned_start': measured_torso_target}
                    if measured_torso_target is not None else {}))

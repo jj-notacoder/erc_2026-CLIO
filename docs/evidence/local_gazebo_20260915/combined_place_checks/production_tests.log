@@ -1,0 +1,17 @@
+........................................................................ [ 10%]
+........................................................................ [ 20%]
+........................................................................ [ 30%]
+........................................................................ [ 40%]
+........................................................................ [ 50%]
+........................................................................ [ 60%]
+........................................................................ [ 70%]
+........................................................................ [ 80%]
+........................................................................ [ 90%]
+..................................................................       [100%]
+============================= slowest 5 durations ==============================
+0.30s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_prefix_failure_never_reaches_connector[failure1]
+0.29s call     test/test_release_only_clearance_timing.py::test_actual_selected_place_passes_capped_stop_and_plan_through_real_executor
+0.28s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_preserves_live_admission_refusals[raw_fault]
+0.27s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_prefix_failure_never_reaches_connector[failure0]
+0.27s call     test/test_release_only_clearance_timing.py::test_actual_selected_callsite_preserves_live_admission_refusals[stop_disabled]
+714 passed in 15.57s

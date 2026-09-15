@@ -74,11 +74,13 @@ def test_anchor_proposals_use_first_fully_admitted_target_with_one_shared_budget
     assert t.validations
 
 
-def test_negative_default_cannot_receive_alternate_targets():
+def test_explicit_negative_targets_still_reject_positive_wrist_solutions():
     t=prepared()
-    with pytest.raises(ValueError,match='positive measured carry'):
-        t.run_solver(position_proposals=(t.positions,))
-    assert not t.chain.calls
+    with pytest.raises(m.SceneCartesianSearchError) as error:
+        t.run_solver(position_proposals=(t.positions,),
+                     limits=m.SearchLimits(max_ik_calls=18))
+    assert error.value.diagnostics['rejections']['nonnegative_wrist'] > 0
+    assert len(t.chain.calls) <= 18 and not t.validations and not t.scene.calls
 
 
 def test_proposal_search_does_not_reset_global_ik_budget():

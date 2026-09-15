@@ -257,6 +257,10 @@ def test_actual_place_wiring_requires_capability_before_motion_and_open(monkeypa
         remember_open=lambda *a:True,finish=lambda *a:calls.append('finish') or True)
     scope['observe_measured_open_pose']=lambda *a:dict(verified=True)
     n._move_torso=lambda *a,**kw:calls.append('torso') or True
+    # This release-capability fixture stubs motion; actual torso completion is
+    # covered by test_place_torso_completion with the real sender and collectors.
+    monkeypatch.setattr('erc_phase1_solution.place_torso_completion.execute_registered_place_torso',
+        lambda node,plan,identity,resolver,**kw:node._move_torso(node.place_torso_height,2.2))
     def loaded(legs,command,**kw):
         calls.append('loaded');assert kw['arm_speed_scale']==1.25
         if fault=='after_loaded_motion':n.place_finish_at_release_enabled=False

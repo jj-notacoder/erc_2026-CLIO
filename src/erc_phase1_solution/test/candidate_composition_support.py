@@ -208,7 +208,7 @@ def restore_all_books_source(source, filename="manipulation_node.py"):
     # behavioral tests continue to execute the current production modules.
     inverse_path = Path(__file__).resolve().parent/'fixtures/all_books_source_inverse.json'
     inverse_bytes = inverse_path.read_bytes()
-    assert hashlib.sha256(inverse_bytes).hexdigest() == 'd60b7e4af7f844907a0e27522ca64f8a7621f4dd0c081cc19086becf38188e3b'
+    assert hashlib.sha256(inverse_bytes).hexdigest() == 'cf871925d3ec5f59a14ffeedb7a98e3589c3ea7b2c6a5794ffdab638bef1476e'
     inverse = json.loads(inverse_bytes)['files'].get(filename)
     if inverse is not None:
         for item in reversed(inverse['replacements']):

@@ -266,7 +266,7 @@ def test_actual_contiguous_place_suffix_preserves_both_probes_and_nominal_target
                    for x in ast.walk(node))
     start=next(i for i,x in enumerate(place.body) if probe(x,'pre_place_motion'))
     end=next(i for i,x in enumerate(place.body) if probe(x,'torso'))+1
-    fn=ast.parse('def segment(self,place_torso_target,measured_torso_target):\n return True').body[0]
+    fn=ast.parse('def segment(self,place_torso_target,measured_torso_target,centered_target=None):\n return True').body[0]
     fn.body=copy.deepcopy(place.body[start:end])+[ast.Return(ast.Constant(True))]
     module=ast.fix_missing_locations(ast.Module(body=[fn],type_ignores=[]));scope={}
     exec(compile(module,'<actual contiguous PLACE torso suffix>','exec'),scope)

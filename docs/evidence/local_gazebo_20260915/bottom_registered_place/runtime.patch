@@ -1,0 +1,227 @@
+--- a/src/erc_phase1_solution/erc_phase1_solution/bottom_place_proposals.py
++++ b/src/erc_phase1_solution/erc_phase1_solution/bottom_place_proposals.py
+@@ -0,0 +1,114 @@
++"""Extra bottom-book PLACE proposals; ordinary full admission remains mandatory.
++
++No stored arm pose, column/colour choice, motion command or acceptance cache.
++The current release-only Request owns target/contact/attachment/scene identity.
++"""
++import math
++import re
++
++import numpy as np
++
++
++# Same canonical stock naming contract as rigid_palm_live_preflight, kept pure
++# here so the competition planner does not import the Gazebo diagnostic adapter.
++_STOCK_BOOK = re.compile(r'book_col_([1-5])_row_([2-5])_(red|green|yellow|blue)')
++_RETAINED_FLAGS = ('_transport_lock_engaged', '_gravity_supported_payload',
++                   '_payload_monitor_enabled')
++
++
++def verified_bottom_request(node, request):
++    """Scope extra proposals to a currently retained canonical bottom target.
++
++    This is proposal eligibility, not a replacement for measured retention or
++    the original Request's fresh scene/contact/held-object admission.
++    """
++    from .release_only_place_planning import Request
++    if type(request) is not Request or request.node is not node:
++        return False
++    model = request.identity.target_model
++    match = _STOCK_BOOK.fullmatch(model) if type(model) is str else None
++    if match is None or match.group(2) != '5':
++        return False
++    request.require()
++    with node._lock:
++        request.require_locked()
++        return (node._target_book_model == model
++                and all(getattr(node, flag, False) is True for flag in _RETAINED_FLAGS))
++
++
++def require_verified_bottom(node, request):
++    if not verified_bottom_request(node, request):
++        raise RuntimeError('bottom_place_proposal_retained_identity_changed')
++
++
++def nearest_negative_wrist_goals(chain, start, goals, *, margin, minimum_support,
++                                 checkpoint):
++    """Change only intermediate q7 to the nearest sufficiently supported angle.
++
++    On the official chain the final revolute wrist's signed jaw-up is exactly
++    A*cos(q7)+B*sin(q7). Ordinary FK supplies A/B and verifies every proposal.
++    A 0.005 waypoint reserve improves interpolation; it never changes the full
++    dense body's original support threshold. The final IK endpoint is exact.
++    """
++    def finite(value, shape, label):
++        result = np.asarray(value, dtype=float)
++        if result.shape != shape or not np.all(np.isfinite(result)):
++            raise ValueError('invalid ' + label)
++        return result.copy()
++
++    first = finite(start, (8,), 'nearest wrist start')
++    if not isinstance(goals, (list, tuple)) or not goals or not callable(checkpoint):
++        raise ValueError('invalid nearest wrist goals/checkpoint')
++    proposed = [finite(q, (8,), 'nearest wrist goal') for q in goals]
++    lower = finite(chain.lower, (8,), 'nearest wrist lower limits')
++    upper = finite(chain.upper, (8,), 'nearest wrist upper limits')
++    if (not math.isfinite(margin) or margin < 0.
++            or not math.isfinite(minimum_support) or not 0. < minimum_support <= 1.
++            or np.any(lower >= upper)):
++        raise ValueError('invalid nearest wrist policy')
++    checkpoint()
++    # Final endpoint and start must remain the actual legal negative states.
++    for q in (first, proposed[-1]):
++        if (q[-1] >= 0. or np.any(q < lower) or np.any(q > upper)
++                or np.any(q[1:] < lower[1:] + margin)
++                or np.any(q[1:] > upper[1:] - margin)):
++            return None
++    lo = float(lower[-1] + margin)
++    hi = min(-1e-12, float(upper[-1] - margin))
++    threshold = max(.75, minimum_support) + .005
++    if lo > hi or threshold > 1.:
++        return None
++    previous = float(first[-1])
++    for q in proposed[:-1]:
++        checkpoint()
++        if (np.any(q[:-1] < lower[:-1]) or np.any(q[:-1] > upper[:-1])
++                or np.any(q[1:7] < lower[1:7] + margin)
++                or np.any(q[1:7] > upper[1:7] - margin)):
++            return None
++        zero = q.copy(); zero[-1] = 0.
++        quarter = zero.copy(); quarter[-1] = np.pi / 2.
++        a = float(chain.forward(zero)[2, 1])
++        b = float(chain.forward(quarter)[2, 1])
++        radius = math.hypot(a, b)
++        if not math.isfinite(radius) or radius < threshold:
++            return None
++        optimum = math.atan2(b, a)
++        width = math.acos(min(1., threshold / radius))
++        options = []
++        for period in range(-2, 3):
++            low = max(lo, optimum - width + period * 2. * math.pi)
++            high = min(hi, optimum + width + period * 2. * math.pi)
++            if low > high:
++                continue
++            nearest = min(high, max(low, previous))
++            inward = min(high, max(low, nearest + (1e-10 if nearest == low else -1e-10)))
++            for angle in (nearest, inward):
++                q[-1] = angle
++                if chain.forward(q)[2, 1] >= threshold:
++                    options.append(float(angle))
++        if not options:
++            return None
++        q[-1] = min(options, key=lambda value: (abs(value - previous), value))
++        previous = float(q[-1])
++    checkpoint()
++    return proposed
+--- a/src/erc_phase1_solution/erc_phase1_solution/scene_checked_place.py
++++ b/src/erc_phase1_solution/erc_phase1_solution/scene_checked_place.py
+@@ -29,6 +29,8 @@
+ from .motion_profiles import HOME, OFFER, PREGRASP
+ from .book_centered_place import BookCenteredPlaceTarget
+ from .registered_place_targets import registered_place_proposals
++from .bottom_place_proposals import (verified_bottom_request, require_verified_bottom,
++                                     nearest_negative_wrist_goals)
+ from .scene_cartesian_solver import SearchLimits, solve_scene_cartesian
+ from .rigid_palm_preflight import PALM_COLLISION_LINK
+ from .shelf_cradle_geometry import ShelfCradleGeometry
+@@ -514,6 +516,11 @@
+             raise ValueError('release-only planner requires its exact normal scene request')
+         release_only_request.require()
+ 
++    bottom_proposals = verified_bottom_request(node, release_only_request)
++
++    def bottom_checkpoint():
++        require_verified_bottom(node, release_only_request)
++
+     def progress(stage, **fields):
+         # Selected table-scene planning only; telemetry cannot change its result.
+         try:
+@@ -624,6 +631,8 @@
+         nonlocal accepted, candidate_number, release_endpoint
+         if release_only_request is not None:
+             release_only_request.require()
++        if bottom_proposals:
++            bottom_checkpoint()
+         candidate_number += 1
+         progress('candidate_begin', candidate_number=candidate_number,
+                  cartesian_waypoints=len(solutions), scene_samples=scene.samples)
+@@ -640,13 +649,19 @@
+                      for count in ((10, 20) if bin_scene is not None else (20,))]
+                     if table is not None else [])
+         policies.extend(dict(shoulder_progress_power=power) for power in (1., .5))
++        if bottom_proposals:
++            policies.append(dict(shoulder_progress_power=1., nearest_negative_wrist=True))
+         for policy in policies:
+             progress('candidate_setup_begin', candidate_number=candidate_number, policy=policy)
+             if node._cancel.is_set():
+                 return False
+             goals = coordinated_supported_goals(node.chain, torso_ready, solutions[0], margin=margin,
+                 minimum_support=node.carried_supported_jaw_vertical_component,
+-                **policy)
++                **{key: value for key, value in policy.items() if key != 'nearest_negative_wrist'})
++            if goals is not None and policy.get('nearest_negative_wrist', False):
++                goals = nearest_negative_wrist_goals(node.chain, torso_ready, goals, margin=margin,
++                    minimum_support=node.carried_supported_jaw_vertical_component,
++                    checkpoint=bottom_checkpoint)
+             if goals is None:
+                 continue
+             # Cheap signed-support screening before full mesh work.
+@@ -688,6 +703,8 @@
+                             proof = release_only_request.endpoint(solutions[-1], scene)
+                             if proof is None:
+                                 continue
++                            if bottom_proposals:
++                                bottom_checkpoint()
+                             release_endpoint = proof
+                             accepted = (route, policy, 0, None)
+                             progress('candidate_release_only_accepted', candidate_number=candidate_number,
+@@ -725,7 +742,7 @@
+     target_proposals = ()
+     selected_target = None
+     selected_target_diagnostics = None
+-    if table is not None and bin_scene is not None and torso_ready[-1] > 0.:
++    if table is not None and bin_scene is not None and (torso_ready[-1] > 0. or bottom_proposals):
+         target_proposals = registered_place_proposals(positions, rotation, attached, bin_scene,
+                                                      step=node.cartesian_step)
+         progress('registered_target_proposals', proposals=[item.diagnostics for item in target_proposals])
+@@ -759,6 +776,8 @@
+              scene_samples=scene.samples)
+     if accepted is None or node._cancel.is_set():
+         raise RuntimeError('scene_checked_place_no_accepted_route')
++    if bottom_proposals:
++        bottom_checkpoint()
+     route, policy, return_legs, direct_home = accepted
+     if release_only_request is not None:
+         if release_endpoint is None:
+@@ -794,6 +813,9 @@
+         urdf_sha256=hashlib.sha256(urdf.read_bytes()).hexdigest(),
+         bin_mesh_sha256=hashlib.sha256(bin_mesh.read_bytes()).hexdigest(),
+         planning_wall_seconds=time.monotonic()-started)
++    if policy.get('nearest_negative_wrist', False):
++        diagnostic.update(bottom_nearest_negative_wrist_proposal=True,
++                          proposal_only_support_reserve=.005)
+     if selected_target_diagnostics is not None:
+         diagnostic['registered_target_proposal'] = selected_target_diagnostics
+     if release_only_request is not None:
+--- a/src/erc_phase1_solution/erc_phase1_solution/scene_cartesian_solver.py
++++ b/src/erc_phase1_solution/erc_phase1_solution/scene_cartesian_solver.py
+@@ -118,8 +118,6 @@
+         matrices.append(matrix)
+     if not isinstance(position_proposals, (tuple, list)) or len(position_proposals) > 12:
+         raise ValueError('invalid bounded Cartesian target proposals')
+-    if position_proposals and wrist_policy != 'measured_positive':
+-        raise ValueError('target proposals require admitted positive measured carry')
+     proposal_matrices = []
+     for proposed in position_proposals:
+         values = np.asarray(proposed, dtype=float)
+@@ -251,7 +249,7 @@
+         return None
+ 
+     checkpoint()
+-    if wrist_policy == 'measured_positive' and len(matrices) >= 3:
++    if (wrist_policy == 'measured_positive' or proposal_matrices) and len(matrices) >= 3:
+         # Try the most extended high corner before committing to an easier
+         # clearance branch. All proposals share the original global budgets.
+         # Caller-proposed near-side targets retain the registered cavity margin.

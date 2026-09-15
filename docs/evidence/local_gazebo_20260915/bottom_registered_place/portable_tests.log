@@ -1,0 +1,8 @@
+Observed command, before production promotion:
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 ROS_DOMAIN_ID=140
+PYTHONPATH=/opt/erc_ws/src/erc_phase1_solution:/opt/erc_ws/src/erc_phase1_solution/test
+python3 -m pytest -q --confcutdir=/tmp/bottom_place_integrated_draft /tmp/bottom_place_integrated_draft/test_bottom_place_proposals.py /tmp/bottom_place_integrated_draft/test_bottom_place_flow.py /tmp/bottom_place_integrated_draft/test_bottom_negative_anchor.py
+
+Result captured from command output: 128 passed in 0.17s
+Exit code: 0
+No tests rerun after promotion; parent owns combined production checks.

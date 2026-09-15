@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "scope": "portable mixed-recorded bottom PLACE geometry evidence; no physical delivery claim",
+  "original_harness_sha256": "76bd85e33dcd1adf5a01232086babb3ab8202d540faa63fc8155cd6982e69696",
+  "files": {
+    "README.md": "81fe7268c0ec9ce6a8a78b6df5ff21c832a7224d4cbb390c862f83c500a1d00e",
+    "bottom_carry.json": "dc4363205b7f0a7aae78f88accdc6c6d32b601328b0fbe10ffe15a943ed457a8",
+    "bottom_place_result.json": "6c5f625f3920b8ec6186dd007d9ebd323636bf997be34489ed5f43e29c28066d",
+    "cleanup.json": "905f3f6f6ade9f3d4c4df9b34823a616485b8f557fd0317cf48118819200c934",
+    "portable_tests.log": "0144dd8b815e33a36135cc11431f4c46a3b5d3110763090568f669f343231785",
+    "promoted_manifest.json": "d283d7166499781f30d8dd003db64c34b982f66b0c0cb8c1c7713bc8917a8191",
+    "recorded_place_inputs.json": "39c87d6d4c4bb5fb3c3de230a817f1b28b05702c2fb3cee8db5ca09b5fbf483d",
+    "replay.py": "76bd85e33dcd1adf5a01232086babb3ab8202d540faa63fc8155cd6982e69696",
+    "runtime.patch": "b5d11cb27157268846b30f8b9f80a1b7b8cb7e9e308ad719643da69509a9fe53",
+    "runtime_snapshot/bottom_place_proposals.py": "8f67718c3875b3570440fb81ed49192a0f2c36fd66f1c9bb461aec64bdd95e4a",
+    "runtime_snapshot/scene_cartesian_solver.py": "0ef01e2567c1ea3fed89fdd2b16355e951d40589b9dd27269407760596c7bdf5",
+    "runtime_snapshot/scene_checked_place.py": "768eaade76e6357c2b8367ea453d3a99c42e66531c1ad533773f1b04b8f583e1",
+    "setup_diagnosis.json": "74819c61e251a89528c8779fa1c5a85bbe3d870fba64dfff7153d80d0c00e1fe"
+  }
+}

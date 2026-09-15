@@ -1,0 +1,4 @@
+[entrypoint] DDS rmw=rmw_cyclonedds_cpp domain=137  localhost_only=1 uri=file:///etc/cyclonedds/erc.xml
+........................................................................ [ 62%]
+............................................                             [100%]
+116 passed in 1.36s

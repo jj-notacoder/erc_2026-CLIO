@@ -1,0 +1,10 @@
+{
+  "src/erc_phase1_solution/erc_phase1_solution/bottom_place_proposals.py": "8f67718c3875b3570440fb81ed49192a0f2c36fd66f1c9bb461aec64bdd95e4a",
+  "src/erc_phase1_solution/erc_phase1_solution/scene_checked_place.py": "768eaade76e6357c2b8367ea453d3a99c42e66531c1ad533773f1b04b8f583e1",
+  "src/erc_phase1_solution/erc_phase1_solution/scene_cartesian_solver.py": "0ef01e2567c1ea3fed89fdd2b16355e951d40589b9dd27269407760596c7bdf5",
+  "src/erc_phase1_solution/test/test_bottom_place_proposals.py": "aa29a8cc75d7bbd69bc7204139e595c36d6afdc5dbe6b9d2bcfbf57c5f5aa072",
+  "src/erc_phase1_solution/test/test_bottom_place_flow.py": "9629e8b0dbb7a0b009cbe0cbb82a062ff08874ec4cd7fa959ccf5793d387792c",
+  "src/erc_phase1_solution/test/test_bottom_negative_anchor.py": "c39e6e3c7a86b92c296e6192d2404d544e67230649bdc97da6b9162fb643ad79",
+  "src/erc_phase1_solution/test/candidate_composition_support.py": "4b7b846536af842fabc26c1743a732a886548dae88020935a9d7a5d02a8e4693",
+  "src/erc_phase1_solution/test/fixtures/all_books_source_inverse.json": "cf871925d3ec5f59a14ffeedb7a98e3589c3ea7b2c6a5794ffdab638bef1476e"
+}

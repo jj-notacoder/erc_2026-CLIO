@@ -1,0 +1,565 @@
+{
+  "scope": "Compact excerpts from earlier saved-path diagnostics; not the full integrated search proof. Full integrated result is bottom_place_result.json.",
+  "runs": [
+    {
+      "source_file": "synchronized_result.json",
+      "source_sha256": "7f904620ece82adb045551506f1363ea0999ed52eb63f74c00bc3e613b491f3c",
+      "mode": "synchronized",
+      "total_seconds": 4.064086116999533,
+      "no_IK": true,
+      "original_body_predicates": true,
+      "original_scene_predicates": true,
+      "any_complete_checked_route": false,
+      "scene_samples": 121,
+      "cases": [
+        {
+          "candidate_number": 1,
+          "passed": false,
+          "proposal_index": 1,
+          "maximum_position_error_m": 0.0019816325205332893,
+          "maximum_orientation_error_rad": 0.004204304571267582,
+          "failure": {
+            "stage": "original_synchronized_setup",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_robot_collision",
+                "returned": "head_2_link",
+                "variables": {
+                  "solution": [
+                    0.35,
+                    3.289041415796938,
+                    -2.1960789240756506,
+                    -1.5564856211112583,
+                    -1.9281988313708935,
+                    -2.450822662615132,
+                    -1.4259355909079612,
+                    -2.2582496193148396
+                  ]
+                }
+              },
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    3.289041415796938,
+                    -2.1960789240756506,
+                    -1.5564856211112583,
+                    -1.9281988313708935,
+                    -2.450822662615132,
+                    -1.4259355909079612,
+                    -2.2582496193148396
+                  ],
+                  "fraction": 0.65,
+                  "jaw_vertical_component": 0.8355749456724044,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 2,
+          "passed": false,
+          "proposal_index": 1,
+          "maximum_position_error_m": 0.001996825540385572,
+          "maximum_orientation_error_rad": 0.0060080754231207146,
+          "failure": {
+            "stage": "original_synchronized_setup",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_robot_collision",
+                "returned": "head_2_link",
+                "variables": {
+                  "solution": [
+                    0.35,
+                    3.300224740059359,
+                    -2.1814093934465006,
+                    -1.5775890441180287,
+                    -1.928499361742702,
+                    -2.4483428653420516,
+                    -1.406591339434072,
+                    -2.294768762233649
+                  ]
+                }
+              },
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    3.300224740059359,
+                    -2.1814093934465006,
+                    -1.5775890441180287,
+                    -1.928499361742702,
+                    -2.4483428653420516,
+                    -1.406591339434072,
+                    -2.294768762233649
+                  ],
+                  "fraction": 0.8,
+                  "jaw_vertical_component": 0.8480103521171121,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 3,
+          "passed": false,
+          "proposal_index": 1,
+          "maximum_position_error_m": 0.0018974896301068537,
+          "maximum_orientation_error_rad": 0.004168370116557201,
+          "failure": {
+            "stage": "original_synchronized_setup",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_robot_collision",
+                "returned": "head_2_link",
+                "variables": {
+                  "solution": [
+                    0.35,
+                    3.2887997022735007,
+                    -2.1960759395895613,
+                    -1.5562550054486932,
+                    -1.9281981859765334,
+                    -2.450810934136564,
+                    -1.4259202093763175,
+                    -2.2582496193148396
+                  ]
+                }
+              },
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    3.2887997022735007,
+                    -2.1960759395895613,
+                    -1.5562550054486932,
+                    -1.9281981859765334,
+                    -2.450810934136564,
+                    -1.4259202093763175,
+                    -2.2582496193148396
+                  ],
+                  "fraction": 0.65,
+                  "jaw_vertical_component": 0.835490267052067,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 4,
+          "passed": false,
+          "proposal_index": 2,
+          "maximum_position_error_m": 0.0019702168794322635,
+          "maximum_orientation_error_rad": 0.004664159796986855,
+          "failure": {
+            "stage": "original_synchronized_setup",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_robot_collision",
+                "returned": "head_2_link",
+                "variables": {
+                  "solution": [
+                    0.35,
+                    3.290826713835514,
+                    -2.1960960578490467,
+                    -1.558040262471638,
+                    -1.9282287488374725,
+                    -2.450856118856232,
+                    -1.4261831897022443,
+                    -2.2582496193148396
+                  ]
+                }
+              },
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    3.290826713835514,
+                    -2.1960960578490467,
+                    -1.558040262471638,
+                    -1.9282287488374725,
+                    -2.450856118856232,
+                    -1.4261831897022443,
+                    -2.2582496193148396
+                  ],
+                  "fraction": 0.65,
+                  "jaw_vertical_component": 0.8361669783122327,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 5,
+          "passed": false,
+          "proposal_index": 2,
+          "maximum_position_error_m": 0.0019014730673846487,
+          "maximum_orientation_error_rad": 0.006061070132511459,
+          "failure": {
+            "stage": "original_synchronized_setup",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_robot_collision",
+                "returned": "head_2_link",
+                "variables": {
+                  "solution": [
+                    0.35,
+                    3.300342599624032,
+                    -2.17991476511143,
+                    -1.5785773919066772,
+                    -1.9286012875956604,
+                    -2.448035973215269,
+                    -1.4046978968241959,
+                    -2.2988264447801834
+                  ]
+                }
+              },
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    3.300342599624032,
+                    -2.17991476511143,
+                    -1.5785773919066772,
+                    -1.9286012875956604,
+                    -2.448035973215269,
+                    -1.4046978968241959,
+                    -2.2988264447801834
+                  ],
+                  "fraction": 0.8166666666666667,
+                  "jaw_vertical_component": 0.8487931310011718,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 6,
+          "passed": false,
+          "proposal_index": 3,
+          "maximum_position_error_m": 0.0018474638766075497,
+          "maximum_orientation_error_rad": 0.004467078747244334,
+          "failure": {
+            "stage": "original_synchronized_setup",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_robot_collision",
+                "returned": "head_2_link",
+                "variables": {
+                  "solution": [
+                    0.35,
+                    3.2907484865608847,
+                    -2.1960925083745373,
+                    -1.5579385649792206,
+                    -1.928237436167445,
+                    -2.4508400606070606,
+                    -1.4262065116104528,
+                    -2.2582496193148396
+                  ]
+                }
+              },
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    3.2907484865608847,
+                    -2.1960925083745373,
+                    -1.5579385649792206,
+                    -1.928237436167445,
+                    -2.4508400606070606,
+                    -1.4262065116104528,
+                    -2.2582496193148396
+                  ],
+                  "fraction": 0.65,
+                  "jaw_vertical_component": 0.8361348372148327,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source_file": "nearest_wrist_result.json",
+      "source_sha256": "7163c1e1776dc5bff3b9dd7d41b80a38b5928015af10705fddafa89bb83e0119",
+      "mode": "nearest_wrist",
+      "total_seconds": 21.919935845999134,
+      "no_IK": true,
+      "original_body_predicates": true,
+      "original_scene_predicates": true,
+      "any_complete_checked_route": false,
+      "scene_samples": 121,
+      "cases": [
+        {
+          "candidate_number": 1,
+          "passed": false,
+          "proposal_index": 1,
+          "maximum_position_error_m": 0.0019816325205332893,
+          "maximum_orientation_error_rad": 0.004204304571267582,
+          "failure": {
+            "stage": "same_proximal_path_feasible_negative_wrist",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    1.8724081216681903,
+                    -1.1654285171965637,
+                    -0.9009573253473365,
+                    -1.9459216803591566,
+                    -2.143001549456783,
+                    -0.02503117092217349,
+                    -1.8315413227986477
+                  ],
+                  "fraction": 0.016666666666666666,
+                  "jaw_vertical_component": 0.7499941840920592,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 2,
+          "passed": false,
+          "proposal_index": 1,
+          "maximum_position_error_m": 0.001996825540385572,
+          "maximum_orientation_error_rad": 0.0060080754231207146,
+          "failure": {
+            "stage": "same_proximal_path_feasible_negative_wrist",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    2.187579060403882,
+                    -1.080671678582015,
+                    -1.266147054184101,
+                    -1.9480439445953344,
+                    -2.143872803374502,
+                    0.0819774871845475,
+                    -2.0977580300873804
+                  ],
+                  "fraction": 0.016666666666666666,
+                  "jaw_vertical_component": 0.749976331642169,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 3,
+          "passed": false,
+          "proposal_index": 1,
+          "maximum_position_error_m": 0.0018974896301068537,
+          "maximum_orientation_error_rad": 0.004168370116557201,
+          "failure": {
+            "stage": "same_proximal_path_feasible_negative_wrist",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    1.868683254294203,
+                    -1.165382525500675,
+                    -0.8974034788549853,
+                    -1.945911734666578,
+                    -2.1428208105947393,
+                    -0.02479413757555987,
+                    -1.828507109951324
+                  ],
+                  "fraction": 0.016666666666666666,
+                  "jaw_vertical_component": 0.7499940987046132,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 4,
+          "passed": false,
+          "proposal_index": 2,
+          "maximum_position_error_m": 0.0019702168794322635,
+          "maximum_orientation_error_rad": 0.004664159796986855,
+          "failure": {
+            "stage": "same_proximal_path_feasible_negative_wrist",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    1.899920022211378,
+                    -1.1656925530378677,
+                    -0.9249147473367763,
+                    -1.9463827161902842,
+                    -2.1435171187106508,
+                    -0.0288467318289459,
+                    -1.853708650722154
+                  ],
+                  "fraction": 0.016666666666666666,
+                  "jaw_vertical_component": 0.7499947921677126,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 5,
+          "passed": false,
+          "proposal_index": 2,
+          "maximum_position_error_m": 0.0019014730673846487,
+          "maximum_orientation_error_rad": 0.006061070132511459,
+          "failure": {
+            "stage": "same_proximal_path_feasible_negative_wrist",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    2.107115964296467,
+                    -0.9773616822967506,
+                    -1.2576819365468193,
+                    -1.9509875775932928,
+                    -2.1168642105903794,
+                    0.21980698869540158,
+                    -2.0564302763970654
+                  ],
+                  "fraction": 0.016666666666666666,
+                  "jaw_vertical_component": 0.7499602824500002,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "candidate_number": 6,
+          "passed": false,
+          "proposal_index": 3,
+          "maximum_position_error_m": 0.0018474638766075497,
+          "maximum_orientation_error_rad": 0.004467078747244334,
+          "failure": {
+            "stage": "same_proximal_path_feasible_negative_wrist",
+            "reason": "original_body_route_rejected",
+            "rejection_excerpts": [
+              {
+                "method": "_carried_volume_transition_is_safe",
+                "returned": false,
+                "variables": {
+                  "q": [
+                    0.35,
+                    1.8987145198510682,
+                    -1.1656378547255606,
+                    -0.9233475629023452,
+                    -1.9465165901726798,
+                    -2.1432696569734215,
+                    -0.029206128414414664,
+                    -1.8527122519391173
+                  ],
+                  "fraction": 0.016666666666666666,
+                  "jaw_vertical_component": 0.749994790397732,
+                  "minimum_vertical_component": 0.5000000000000001
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source_file": "nearest_wrist_reserved_result.json",
+      "source_sha256": "cef7ef2f2420c1543d9343a03f90ec701d31f5de1688a24af55a168bae3dd3af",
+      "mode": "nearest_wrist_reserved",
+      "total_seconds": 55.04812943200159,
+      "no_IK": true,
+      "original_body_predicates": true,
+      "original_scene_predicates": true,
+      "any_complete_checked_route": true,
+      "scene_samples": 3744,
+      "cases": [
+        {
+          "candidate_number": 1,
+          "passed": false,
+          "proposal_index": 1,
+          "maximum_position_error_m": 0.0019816325205332893,
+          "maximum_orientation_error_rad": 0.004204304571267582,
+          "proposal_only_support_reserve": 0.005,
+          "failure": {
+            "stage": "same_proximal_path_feasible_negative_wrist",
+            "reason": "registered_scene_rejected",
+            "leg": 17,
+            "scene_rejection": {
+              "reason": "robot_table",
+              "link": "arm_left_3_link",
+              "solid": "tabletop",
+              "fraction": 0.8
+            }
+          }
+        },
+        {
+          "candidate_number": 2,
+          "passed": true,
+          "proposal_index": 1,
+          "maximum_position_error_m": 0.001996825540385572,
+          "maximum_orientation_error_rad": 0.0060080754231207146,
+          "proposal_only_support_reserve": 0.005,
+          "endpoint": [
+            0.35,
+            1.2379260363993068,
+            0.147011488645657,
+            -0.991168256188976,
+            -0.8202173530879001,
+            -1.7376007995473775,
+            1.5694644776125821,
+            -0.36298893932243387
+          ],
+          "opening_samples": 52,
+          "complete_static_endpoint": true,
+          "scene_samples": 3744,
+          "setup_legs": 22
+        }
+      ]
+    }
+  ]
+}
